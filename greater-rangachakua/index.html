@@ -2386,13 +2386,44 @@
         // Render Directory Table
         function renderTable(searchTerm = "") {
             const query = searchTerm.toLowerCase().trim();
+            
+            if (query.length < 2) {
+                directoryBody.innerHTML = `
+                    <tr>
+                        <td colspan="4" style="text-align: center; color: var(--text-secondary); padding: 3rem 1rem;">
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--text-secondary);">
+                                <i data-lucide="search" size="24" style="color: var(--text-muted);"></i>
+                                <p style="font-size: 0.875rem; font-weight: 500;">Enter your name in the search box above to verify your donation and get your certificate.</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
             const filtered = donations.filter(d => 
                 d.firstName.toLowerCase().includes(query) ||
-                d.lastName.toLowerCase().includes(query) ||
-                d.amount.toString().includes(query)
+                d.lastName.toLowerCase().includes(query)
             );
 
             directoryBody.innerHTML = "";
+            
+            if (filtered.length === 0) {
+                directoryBody.innerHTML = `
+                    <tr>
+                        <td colspan="4" style="text-align: center; color: var(--text-secondary); padding: 3rem 1rem;">
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--text-secondary);">
+                                <i data-lucide="user-x" size="24" style="color: var(--danger);"></i>
+                                <p style="font-size: 0.875rem; font-weight: 500;">No record found. Please verify the spelling of your name.</p>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
             filtered.forEach((rec) => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
