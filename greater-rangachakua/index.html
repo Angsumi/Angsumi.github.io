@@ -1,0 +1,2604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greater Rangachakua Flood Relief - Impact & Donation Report</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-primary: #060913;
+            --bg-secondary: #0d1222;
+            --bg-tertiary: #171f38;
+            --accent-primary: #06b6d4; /* Cyan */
+            --accent-secondary: #6366f1; /* Indigo */
+            --accent-gradient: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #475569;
+            --border-color: #1e293b;
+            --success: #10b981;
+            --gold: #d97706;
+            --glass-bg: rgba(13, 18, 34, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(6, 9, 19, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header-logo i {
+            color: var(--accent-primary);
+        }
+
+        .header-logo h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(6, 182, 212, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.35);
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border-color: var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: #202b4d;
+            transform: translateY(-1px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Upload Container State */
+        .upload-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+        }
+
+        .upload-card {
+            max-width: 500px;
+            width: 100%;
+            padding: 3rem 2rem;
+            border: 2px dashed var(--border-color);
+            border-radius: 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .upload-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .upload-card h2 {
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .upload-card p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Dashboard layout */
+        .dashboard {
+            display: none;
+            flex-direction: column;
+            gap: 2rem;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-primary);
+        }
+
+        .stat-card:nth-child(2) .stat-icon {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent-secondary);
+        }
+
+        .stat-card:nth-child(3) .stat-icon {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .stat-details h3 {
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        /* Charts Section (Now stretched to fill full width) */
+        .charts-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .chart-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .chart-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            align-self: flex-start;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            border-left: 3px solid var(--accent-primary);
+            padding-left: 0.75rem;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 320px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Directory Section */
+        .directory-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .directory-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            background: rgba(6, 9, 19, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: rgba(23, 31, 56, 0.5);
+            padding: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .amount-col {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            color: var(--success);
+        }
+
+        /* Certificate Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(6, 9, 19, 0.85);
+            backdrop-filter: blur(12px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .modal-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: modalScale 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalScale {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.75rem;
+        }
+
+        /* Printable / Rendered Certificate visual template (hidden container for canvas export) */
+        .certificate-preview-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        canvas {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-logo">
+            <i data-lucide="award" size="28"></i>
+            <h1>Greater Rangachakua Flood Relief - Impact Report</h1>
+        </div>
+        <div>
+            <button id="btnBackToUpload" class="btn btn-secondary" style="display: none;">
+                <i data-lucide="arrow-left"></i> Load Another CSV
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- Upload State -->
+        <section id="uploadSection" class="upload-section">
+            <div class="upload-card" id="dropzone">
+                <div class="upload-icon">
+                    <i data-lucide="file-text" size="32"></i>
+                </div>
+                <h2>Upload Donation CSV</h2>
+                <p>Drag and drop your `shivsagar_flood_relief_donations.csv` here or click to browse files.</p>
+                <button class="btn btn-primary">Choose File</button>
+                <input type="file" id="csvFilePicker" accept=".csv" style="display: none;">
+            </div>
+        </section>
+
+        <!-- Dashboard State -->
+        <main id="dashboardView" class="dashboard">
+            
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="indian-rupee"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Total Funds Raised</h3>
+                        <div id="statTotalAmount" class="stat-value">₹0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Total Contributors</h3>
+                        <div id="statTotalDonors" class="stat-value">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="color: var(--success); background: rgba(16, 185, 129, 0.1);">
+                        <i data-lucide="trending-up"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Avg. Donation</h3>
+                        <div id="statAvgDonation" class="stat-value">₹0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="charts-row">
+                <div class="chart-card">
+                    <div class="chart-title">Contribution Slab Analysis</div>
+                    <div class="chart-container">
+                        <canvas id="slabChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Donor Directory -->
+            <section class="directory-card">
+                <div class="directory-header">
+                    <div class="chart-title" style="margin-bottom: 0;">Verified Donor Directory</div>
+                    <div class="search-box">
+                        <i data-lucide="search" size="18"></i>
+                        <input type="text" id="directorySearch" class="search-input" placeholder="Search by name or surname...">
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th style="text-align: right;">Amount</th>
+                                <th style="width: 180px; text-align: center;">Certificate</th>
+                            </tr>
+                        </thead>
+                        <tbody id="directoryBody">
+                            <!-- Injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Certificate Preview</h3>
+                <button class="btn-icon" id="btnCloseModal" style="background: transparent; border: none; color: var(--text-secondary); cursor: pointer;">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="certificate-preview-container">
+                    <canvas id="certCanvas" width="800" height="560"></canvas>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnDownloadCert" class="btn btn-primary">
+                    <i data-lucide="download"></i> Download PNG Certificate
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State
+        let donations = [
+            {
+                        "firstName": "ANAND",
+                        "lastName": "SONAR",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "PURNA",
+                        "lastName": "TEWARI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "ASHOK",
+                        "lastName": "NEWAR",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "KRISHNA",
+                        "lastName": "THAPA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "IKUMONI",
+                        "lastName": "SHIBAKOTI",
+                        "amount": 300.0
+            },
+            {
+                        "firstName": "ROHIT",
+                        "lastName": "SHIBAKOTI",
+                        "amount": 1000.0
+            },
+            {
+                        "firstName": "AKASH",
+                        "lastName": "TEWARI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "ANJALI",
+                        "lastName": "DEV",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "MITHUN",
+                        "lastName": "DAS",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "DEVRAJ",
+                        "lastName": "CHAPAGAI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "RAJKUMAR",
+                        "lastName": "GAUTAM",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "PADMA",
+                        "lastName": "DEVI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "HARI PRASHAD",
+                        "lastName": "SUBEDI",
+                        "amount": 51.0
+            },
+            {
+                        "firstName": "NARAYAN",
+                        "lastName": "SUBEDI",
+                        "amount": 111.0
+            },
+            {
+                        "firstName": "VIVEK",
+                        "lastName": "GAUTAM",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "PUNAM",
+                        "lastName": "CHETRY",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "CHANDRALAL",
+                        "lastName": "BURHATHUKI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "PARSHURAM",
+                        "lastName": "GAUTAM",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "KHEMRAJ",
+                        "lastName": "CHETRY",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "DAMBARU",
+                        "lastName": "GAUTAM",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "SUBHASH",
+                        "lastName": "OLI",
+                        "amount": 250.0
+            },
+            {
+                        "firstName": "AKASH",
+                        "lastName": "LOHAR",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "ANANTA",
+                        "lastName": "BORDOLOI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "RANJIT",
+                        "lastName": "SAHU",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "DILIRAM",
+                        "lastName": "SHARMA",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "RINKU",
+                        "lastName": "DAHAL",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "BISHNU",
+                        "lastName": "BHANDARI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "RUNU",
+                        "lastName": "BARMA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "DIPE",
+                        "lastName": "CHETRY",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "BHANU PRATAP",
+                        "lastName": "UPRETI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "TIKARAM",
+                        "lastName": "SHARMA",
+                        "amount": 2000.0
+            },
+            {
+                        "firstName": "RENUKA",
+                        "lastName": "DEVI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "LATIF",
+                        "lastName": "ALI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "ROHUMAL",
+                        "lastName": "ALI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "MATLIF",
+                        "lastName": "ALI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "ROHIT",
+                        "lastName": "SUBBA",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "BASU",
+                        "lastName": "GAUTAM",
+                        "amount": 1005.0
+            },
+            {
+                        "firstName": "CHANDRA",
+                        "lastName": "NEWAR",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "SURAJ KR.",
+                        "lastName": "SAHU",
+                        "amount": 20.0
+            },
+            {
+                        "firstName": "BHIM  BR.",
+                        "lastName": "LAMA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "RUMI",
+                        "lastName": "DAS",
+                        "amount": 300.0
+            },
+            {
+                        "firstName": "SUMIK",
+                        "lastName": "KARKI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SANKAR",
+                        "lastName": "WAGLE",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "RAJU",
+                        "lastName": "NEWAR",
+                        "amount": 20.0
+            },
+            {
+                        "firstName": "GOKUL SAMAL",
+                        "lastName": "MAGAR",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "DANGARAM",
+                        "lastName": "DHUNGEL",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "RAJKUMAR",
+                        "lastName": "SHAH",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "SURJYA",
+                        "lastName": "STORE",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "AMUK",
+                        "lastName": "SHAHA",
+                        "amount": 30.0
+            },
+            {
+                        "firstName": "SHUKHDEV",
+                        "lastName": "BHATTARAI",
+                        "amount": 1000.0
+            },
+            {
+                        "firstName": "KHARGA BR.",
+                        "lastName": "THAPA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SUMAN",
+                        "lastName": "GIRI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "RITA",
+                        "lastName": "DEVI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "RANJAN",
+                        "lastName": "PANDEY",
+                        "amount": 250.0
+            },
+            {
+                        "firstName": "MILAN",
+                        "lastName": "SINGH",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "RAJEN",
+                        "lastName": "SINGH",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "LAXMAN",
+                        "lastName": "SHARMA",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "ROSHNI",
+                        "lastName": "THAPA",
+                        "amount": 300.0
+            },
+            {
+                        "firstName": "KUAMRI",
+                        "lastName": "DEVI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "PADMA BAHADUR",
+                        "lastName": "THAPA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "PURNA",
+                        "lastName": "THAPA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "DHAN BAHADUR",
+                        "lastName": "THAPA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "JAG BAHADUR",
+                        "lastName": "NEWAR",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "RIKU",
+                        "lastName": "NEWAR",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "KESAR",
+                        "lastName": "NEWAR",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SHYAM",
+                        "lastName": "NEWAR",
+                        "amount": 110.0
+            },
+            {
+                        "firstName": "BHUBAN",
+                        "lastName": "THAPA",
+                        "amount": 120.0
+            },
+            {
+                        "firstName": "TAN BAHADUR",
+                        "lastName": "ALE",
+                        "amount": 1000.0
+            },
+            {
+                        "firstName": "BHUBAN",
+                        "lastName": "LAYO",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "SONITA",
+                        "lastName": "LAYO",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "PAHALMAN",
+                        "lastName": "NEWAR",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "DEV",
+                        "lastName": "BANIA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "DIMBESWAR",
+                        "lastName": "UPADHAYAY",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "DILMAN",
+                        "lastName": "BASNET",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "RITU",
+                        "lastName": "DAHAL",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "BINA",
+                        "lastName": "ADHIKARI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "BALIKA",
+                        "lastName": "KARKI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "GOKUL",
+                        "lastName": "KARKI",
+                        "amount": 120.0
+            },
+            {
+                        "firstName": "KRISHNA MAYA",
+                        "lastName": "KARKI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "RENUKA",
+                        "lastName": "SHARMA",
+                        "amount": 205.0
+            },
+            {
+                        "firstName": "SUJATA",
+                        "lastName": "MAIDALI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "RAJEN",
+                        "lastName": "JOSHI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "KALAWATI",
+                        "lastName": "CHETRY",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "DEV",
+                        "lastName": "POKHREL",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "ANAND",
+                        "lastName": "BHATTARAI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "LOHIT",
+                        "lastName": "BHATTARAI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "BHOLE",
+                        "lastName": "DARJI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "NIRAJ",
+                        "lastName": "BHANDARI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "SHIVLAL",
+                        "lastName": "BHANDARI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "KABIDAS",
+                        "lastName": "KHATI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "RAJU",
+                        "lastName": "BISWAKARMA",
+                        "amount": 1000.0
+            },
+            {
+                        "firstName": "AJAY",
+                        "lastName": "CHETRY",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "BHIM",
+                        "lastName": "BURHATHOKI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "BHIM",
+                        "lastName": "BHANDARI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "KANTI",
+                        "lastName": "GHIMIRE",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "DIPAK",
+                        "lastName": "GHIMIRE",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "PANKAJ",
+                        "lastName": "GHIRMRE",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "NIRMAL",
+                        "lastName": "CHETRY",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "DHAN BAHADUR",
+                        "lastName": "KHARKA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "DURGA",
+                        "lastName": "UPADHYAY",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "DIPAK",
+                        "lastName": "DAHAL",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "GOPAL",
+                        "lastName": "KHARKA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "DIGANTA",
+                        "lastName": "BURHATHOKI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "GOPAL",
+                        "lastName": "BASNET",
+                        "amount": 210.0
+            },
+            {
+                        "firstName": "TIKARAM",
+                        "lastName": "KHARKA",
+                        "amount": 150.0
+            },
+            {
+                        "firstName": "JYOTI",
+                        "lastName": "BASNET",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "TEZ",
+                        "lastName": "NEWAR",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "MUKESH",
+                        "lastName": "GAUTAM",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "TINA",
+                        "lastName": "CHETRY",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "PRIYANKA",
+                        "lastName": "PRADHAN",
+                        "amount": 1000.0
+            },
+            {
+                        "firstName": "SHYAM",
+                        "lastName": "KARKI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "INDIRA",
+                        "lastName": "DEVI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "NARABAHADUR",
+                        "lastName": "NEWAR",
+                        "amount": 300.0
+            },
+            {
+                        "firstName": "SANVI",
+                        "lastName": "PRADHAN",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "RINKU",
+                        "lastName": "NAYAK",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "JITEN",
+                        "lastName": "NAYA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "RINKU",
+                        "lastName": "MEDHI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "JURI",
+                        "lastName": "SAIKIA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "DHAN",
+                        "lastName": "HAZARIKA",
+                        "amount": 20.0
+            },
+            {
+                        "firstName": "GANESH",
+                        "lastName": "DARJI",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "MAINA",
+                        "lastName": "BORAH",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "HARIHAR",
+                        "lastName": "MEDHI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "SUREN",
+                        "lastName": "SAIKIA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "RUNU",
+                        "lastName": "DAS",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "SUMINA",
+                        "lastName": "SAIKIA",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "PRADIP",
+                        "lastName": "DAS",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "KALPANA",
+                        "lastName": "SAIKIA",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "KESHAB",
+                        "lastName": "DAS",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "DIPJYOTI",
+                        "lastName": "BORAH",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "JASHODA",
+                        "lastName": "MEDHI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "NANDIKA",
+                        "lastName": "SAIKIA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "USA",
+                        "lastName": "BORAH",
+                        "amount": 20.0
+            },
+            {
+                        "firstName": "NITYANANDA",
+                        "lastName": "DAS",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "GHANA",
+                        "lastName": "DAS",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "KARAN",
+                        "lastName": "DAS",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "MONU",
+                        "lastName": "SAIKIA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "JI MONI",
+                        "lastName": "SAIKIA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "LEKHAMONI",
+                        "lastName": "DAS",
+                        "amount": 1000.0
+            },
+            {
+                        "firstName": "POPI",
+                        "lastName": "DAS",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "MAHEK",
+                        "lastName": "NAYAK",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "PUKESH",
+                        "lastName": "TASA",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "DEEP",
+                        "lastName": "DAS",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "PAPU",
+                        "lastName": "SAIKIA",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "SWAPAN",
+                        "lastName": "BHATTARAI",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "JAKHAN",
+                        "lastName": "SHAHU",
+                        "amount": 20.0
+            },
+            {
+                        "firstName": "CIVIL",
+                        "lastName": "DAS",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "PUTOLA",
+                        "lastName": "KALITA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "GOBIN",
+                        "lastName": "CHETRY",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "JIT BHAHADUR",
+                        "lastName": "NEWAR",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "DHAN",
+                        "lastName": "DAS",
+                        "amount": 20.0
+            },
+            {
+                        "firstName": "BOLIN",
+                        "lastName": "SHAHU",
+                        "amount": 30.0
+            },
+            {
+                        "firstName": "UDAY",
+                        "lastName": "CHETRI",
+                        "amount": 20.0
+            },
+            {
+                        "firstName": "DODOU",
+                        "lastName": "BORAH",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "NARAYAN",
+                        "lastName": "DEV",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "ASHOK",
+                        "lastName": "THAKUR",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "RAJIB",
+                        "lastName": "BORA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "ABANI",
+                        "lastName": "BAISHYA",
+                        "amount": 1000.0
+            },
+            {
+                        "firstName": "BIMAN",
+                        "lastName": "BORAH",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "KUMAR",
+                        "lastName": "SHARMA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SATYAM",
+                        "lastName": "SHARMA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "RAJU",
+                        "lastName": "NEWAR",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "MAMUN",
+                        "lastName": "KEOT",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "ANUP",
+                        "lastName": "KOCH",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "PURNA KANTA",
+                        "lastName": "DAS",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "AM KUMAR",
+                        "lastName": "KHATI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "NANI PARBHA",
+                        "lastName": "DAS",
+                        "amount": 150.0
+            },
+            {
+                        "firstName": "AJIT",
+                        "lastName": "PAYENG",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "RAMJAN",
+                        "lastName": "ALI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "DAVID",
+                        "lastName": "DOWSON",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "JUGANTA",
+                        "lastName": "SAIKIA",
+                        "amount": 250.0
+            },
+            {
+                        "firstName": "MIMANGSHA DARSHAN",
+                        "lastName": "CHAKROBORTY",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "MISCELLANEOUS",
+                        "lastName": "COLLECTION",
+                        "amount": 2400.0
+            },
+            {
+                        "firstName": "TEK",
+                        "lastName": "NEWAR",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "BHASKAR",
+                        "lastName": "BHUYAN",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "ROSHAN",
+                        "lastName": "THAPA",
+                        "amount": 300.0
+            },
+            {
+                        "firstName": "NANI",
+                        "lastName": "DAS",
+                        "amount": 150.0
+            },
+            {
+                        "firstName": "DIPIKA",
+                        "lastName": "SHARMA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SAGAR",
+                        "lastName": "CHETRY",
+                        "amount": 340.0
+            },
+            {
+                        "firstName": "BHUBAN",
+                        "lastName": "LAYO",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "MINTU",
+                        "lastName": "PATHAK",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "NILAM",
+                        "lastName": "NEWAR",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "KHEMRAJ",
+                        "lastName": "NEWAR",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "SANJOY",
+                        "lastName": "GOUTAM",
+                        "amount": 101.0
+            },
+            {
+                        "firstName": "GOURISANKAR",
+                        "lastName": "BHUYAN",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "PRABHAT",
+                        "lastName": "DAHAL",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "LAKHI",
+                        "lastName": "KOLITA",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "PRAKASH",
+                        "lastName": "SUBEDI",
+                        "amount": 1000.0
+            },
+            {
+                        "firstName": "RUPA",
+                        "lastName": "DEVI",
+                        "amount": 300.0
+            },
+            {
+                        "firstName": "MRS BINA",
+                        "lastName": "SHARMA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "NRIPEN",
+                        "lastName": "MEDHI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "TARA",
+                        "lastName": "DEVI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "GOURAB",
+                        "lastName": "NEWAR",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "BHUBANI",
+                        "lastName": "DEVI",
+                        "amount": 2000.0
+            },
+            {
+                        "firstName": "G.",
+                        "lastName": "ELECTRONICS",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "JINA",
+                        "lastName": "KHAKHLARY",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SANTOSH",
+                        "lastName": "KARKI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "MAINA",
+                        "lastName": "DAS",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SHASHIJ",
+                        "lastName": "SINGH",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "TUSMITA",
+                        "lastName": "DEKA",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "DEVIKA",
+                        "lastName": "PARAH",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "MANASH",
+                        "lastName": "JYOTI BHUYAN",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "HIRA",
+                        "lastName": "DEVI",
+                        "amount": 150.0
+            },
+            {
+                        "firstName": "ANJANA",
+                        "lastName": "PARAH",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "HIMA",
+                        "lastName": "PARO",
+                        "amount": 110.0
+            },
+            {
+                        "firstName": "PALAKHI",
+                        "lastName": "PARAH",
+                        "amount": 300.0
+            },
+            {
+                        "firstName": "JITUL",
+                        "lastName": "BORAH",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "LAKHI MAYA",
+                        "lastName": "NEWAR",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "JUNITA",
+                        "lastName": "NEWAR",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "DIGANTA",
+                        "lastName": "BORAH",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "ANITA",
+                        "lastName": "LAGUN",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "MISCELLANEOUS",
+                        "lastName": "COLLECTION",
+                        "amount": 300.0
+            },
+            {
+                        "firstName": "RANJITA",
+                        "lastName": "NEWAR",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "BORNALI",
+                        "lastName": "BORA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "TULSI",
+                        "lastName": "KARKI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "MAMTA",
+                        "lastName": "BONIA",
+                        "amount": 101.0
+            },
+            {
+                        "firstName": "SULTANA",
+                        "lastName": "REJIYA",
+                        "amount": 60.0
+            },
+            {
+                        "firstName": "SARASWATI",
+                        "lastName": "SHARMA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "RAJU",
+                        "lastName": "NEWAR",
+                        "amount": 120.0
+            },
+            {
+                        "firstName": "RUKMINI",
+                        "lastName": "DEVI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SULTANA",
+                        "lastName": "RAJIA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SULTANA",
+                        "lastName": "RAJIA",
+                        "amount": 140.0
+            },
+            {
+                        "firstName": "GOOGLE",
+                        "lastName": "REWARDS",
+                        "amount": 2.0
+            },
+            {
+                        "firstName": "SUVASH",
+                        "lastName": "PRADHAN",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "MISCELLANEOUS",
+                        "lastName": "COLLECTION",
+                        "amount": 3490.0
+            },
+            {
+                        "firstName": "MISCELLANEOUS",
+                        "lastName": "COLLECTION",
+                        "amount": 2000.0
+            },
+            {
+                        "firstName": "MAYA",
+                        "lastName": "DEVI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "BHASKAR",
+                        "lastName": "GAUTAM",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SANTANU",
+                        "lastName": "GAUTAM",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "GITANJALI",
+                        "lastName": "DAHAL",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SUMAN",
+                        "lastName": "NEWAR",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "SWARASWATI",
+                        "lastName": "DEVI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "MISCELLANEOUS",
+                        "lastName": "COLLECTION",
+                        "amount": 3500.0
+            },
+            {
+                        "firstName": "RAJU",
+                        "lastName": "BHATTARAI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "RANJIT",
+                        "lastName": "BARUAH",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "CHANDRA",
+                        "lastName": "NIROLA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "KHAGENDRA",
+                        "lastName": "PRASAD UPRETI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "REKHA",
+                        "lastName": "DEVI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "ARUN",
+                        "lastName": "TAMANG",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "DIPAK",
+                        "lastName": "ADHIKARI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "ANAMIKA",
+                        "lastName": "DEVI",
+                        "amount": 501.0
+            },
+            {
+                        "firstName": "BIPLAB",
+                        "lastName": "BORAH",
+                        "amount": 300.0
+            },
+            {
+                        "firstName": "ARUN",
+                        "lastName": "BORAH",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "KARUNA",
+                        "lastName": "SAIKIA",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "LIPIKA",
+                        "lastName": "GURUNG",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "SANJIB",
+                        "lastName": "NEWAR",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "LAXMAN",
+                        "lastName": "SARMAH",
+                        "amount": 130.0
+            },
+            {
+                        "firstName": "RINKU",
+                        "lastName": "DEVI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "AKASH",
+                        "lastName": "GARG",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "RUDRA",
+                        "lastName": "CHETRY",
+                        "amount": 750.0
+            },
+            {
+                        "firstName": "GABINDA",
+                        "lastName": "PRAJA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "RANJAN",
+                        "lastName": "BASNET",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "TULARAM",
+                        "lastName": "PATHAK",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "RAJU",
+                        "lastName": "UPADHYAYA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "SARASWATI",
+                        "lastName": "MUGALLI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "DISHANT",
+                        "lastName": "GAUTAM",
+                        "amount": 1770.0
+            },
+            {
+                        "firstName": "MANALISA",
+                        "lastName": "DEVI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "JAHNABI",
+                        "lastName": "SAIKIA",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "POLI",
+                        "lastName": "BORKATAKI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "SUNITA",
+                        "lastName": "SAHANI",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "NIPAM",
+                        "lastName": "HAZARIKA",
+                        "amount": 300.0
+            },
+            {
+                        "firstName": "DWIJEN",
+                        "lastName": "DAS",
+                        "amount": 5000.0
+            },
+            {
+                        "firstName": "RUDRAKSHA",
+                        "lastName": "TATTOOZ",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "PUJA",
+                        "lastName": "BORAH",
+                        "amount": 150.0
+            },
+            {
+                        "firstName": "RAJ",
+                        "lastName": "KR NEWAR",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "NASIM",
+                        "lastName": "ALI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SANJIB",
+                        "lastName": "BORAH",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "GAJEN",
+                        "lastName": "MEDHI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "KANGKANA",
+                        "lastName": "SHARMA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "GOPAL",
+                        "lastName": "UPADHAYAYA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "BUDHI",
+                        "lastName": "NATH MISHRA",
+                        "amount": 1000.0
+            },
+            {
+                        "firstName": "PRANAB",
+                        "lastName": "JYOTI BASHISTHA",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "DIPANKAR",
+                        "lastName": "SAIKIA",
+                        "amount": 300.0
+            },
+            {
+                        "firstName": "JENI",
+                        "lastName": "BORDOLOI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "SIMUM",
+                        "lastName": "SHARMA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "DAMBARU",
+                        "lastName": "ACHARJYA",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "SINTU",
+                        "lastName": "MEDHI",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "ANJU",
+                        "lastName": "BHARALI",
+                        "amount": 2000.0
+            },
+            {
+                        "firstName": "PUNAM",
+                        "lastName": "BISWAKARMA",
+                        "amount": 151.0
+            },
+            {
+                        "firstName": "KOUSHIK",
+                        "lastName": "SAIKIA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "MRITUNJOY",
+                        "lastName": "BORAH",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "BULBULI",
+                        "lastName": "DEVI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "RAM",
+                        "lastName": "SAHU",
+                        "amount": 501.0
+            },
+            {
+                        "firstName": "HIRANYA",
+                        "lastName": "BORAH",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "HIRAK",
+                        "lastName": "JYOTI NATH",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "SANJIB",
+                        "lastName": "RAJKHOWA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "RUPAK",
+                        "lastName": "PAUL",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "TUN",
+                        "lastName": "DAS",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "BIKASH",
+                        "lastName": "DAS",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "PRANITA",
+                        "lastName": "DEVI",
+                        "amount": 551.0
+            },
+            {
+                        "firstName": "MAHENDRA",
+                        "lastName": "BISWAKARMA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "AMAR",
+                        "lastName": "SONAR",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SUMAN",
+                        "lastName": "ALE",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "MALOTI",
+                        "lastName": "SURIN (MUSKAN)",
+                        "amount": 300.0
+            },
+            {
+                        "firstName": "BHUPEN",
+                        "lastName": "SAIKIA",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "DHARITRY",
+                        "lastName": "DAS",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "NABA",
+                        "lastName": "NEEL HAZARIKA",
+                        "amount": 101.0
+            },
+            {
+                        "firstName": "NABANITA",
+                        "lastName": "MEDHI",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SUDIPTA",
+                        "lastName": "DEV",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "HIMAGRI",
+                        "lastName": "HANDIQUE",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "PUJA",
+                        "lastName": "HAZARIKA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "DHARMARAJ",
+                        "lastName": "BISWAKARMA",
+                        "amount": 40.0
+            },
+            {
+                        "firstName": "ANKUR",
+                        "lastName": "BORAH",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "BIJESH",
+                        "lastName": "KANU",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "DIBYA",
+                        "lastName": "DEVI",
+                        "amount": 70.0
+            },
+            {
+                        "firstName": "MONI",
+                        "lastName": "KUMAR BARUAH",
+                        "amount": 20.0
+            },
+            {
+                        "firstName": "BINAMAYA",
+                        "lastName": "GURUNG",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "KUMAR",
+                        "lastName": "GHIMIRE",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "ANITA",
+                        "lastName": "DEVEE",
+                        "amount": 110.0
+            },
+            {
+                        "firstName": "SATYARANJAN",
+                        "lastName": "SARMAH",
+                        "amount": 2000.0
+            },
+            {
+                        "firstName": "NIRMALI",
+                        "lastName": "KALITA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "RIKI",
+                        "lastName": "DAS",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "SANJAY",
+                        "lastName": "NAYAK",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "BIKASH",
+                        "lastName": "TEWARI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "HIMADRI",
+                        "lastName": "DEB",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "DIPTEE",
+                        "lastName": "SINGHA",
+                        "amount": 50.0
+            },
+            {
+                        "firstName": "MAHESWAR",
+                        "lastName": "NEWAR",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "SUMAN",
+                        "lastName": "MEDHI",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "GAJEN",
+                        "lastName": "MEDHI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "MANJU",
+                        "lastName": "CHETRY",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "CVE",
+                        "lastName": "CARE FOUNDATION",
+                        "amount": 250.0
+            },
+            {
+                        "firstName": "NIDHI",
+                        "lastName": "MAURYA",
+                        "amount": 2000.0
+            },
+            {
+                        "firstName": "PUJA",
+                        "lastName": "BORAH",
+                        "amount": 100.0
+            },
+            {
+                        "firstName": "KRISHNA",
+                        "lastName": "KATAKI",
+                        "amount": 20.0
+            },
+            {
+                        "firstName": "DURGA",
+                        "lastName": "PRASAD PATHAK",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "MUN",
+                        "lastName": "JYOTI BORAH",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "SANJIB",
+                        "lastName": "KALITA",
+                        "amount": 200.0
+            },
+            {
+                        "firstName": "DHARMARAJ",
+                        "lastName": "KARKI",
+                        "amount": 500.0
+            },
+            {
+                        "firstName": "SURAJ",
+                        "lastName": "SARMAH",
+                        "amount": 250.0
+            }
+];
+        let slabChartInstance = null;
+
+        // DOM elements
+        const uploadSection = document.getElementById('uploadSection');
+        const dashboardView = document.getElementById('dashboardView');
+        const dropzone = document.getElementById('dropzone');
+        const csvFilePicker = document.getElementById('csvFilePicker');
+        const btnBackToUpload = document.getElementById('btnBackToUpload');
+        
+        const statTotalAmount = document.getElementById('statTotalAmount');
+        const statTotalDonors = document.getElementById('statTotalDonors');
+        const statAvgDonation = document.getElementById('statAvgDonation');
+        
+        const directorySearch = document.getElementById('directorySearch');
+        const directoryBody = document.getElementById('directoryBody');
+        
+        const certificateModal = document.getElementById('certificateModal');
+        const btnCloseModal = document.getElementById('btnCloseModal');
+        const certCanvas = document.getElementById('certCanvas');
+        const btnDownloadCert = document.getElementById('btnDownloadCert');
+
+        // Init Lucide
+        lucide.createIcons();
+
+        // Drag & Drop event handling
+        dropzone.addEventListener('click', () => csvFilePicker.click());
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropzone.style.borderColor = 'var(--accent-primary)';
+            dropzone.style.background = 'rgba(6, 182, 212, 0.05)';
+        });
+        dropzone.addEventListener('dragleave', () => {
+            dropzone.style.borderColor = 'var(--border-color)';
+            dropzone.style.background = 'var(--glass-bg)';
+        });
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const file = e.dataTransfer.files[0];
+            if (file && file.name.endsWith('.csv')) {
+                processFile(file);
+            }
+        });
+
+        csvFilePicker.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) processFile(file);
+        });
+
+        btnBackToUpload.addEventListener('click', () => {
+            donations = [];
+            uploadSection.style.display = 'flex';
+            dashboardView.style.display = 'none';
+            btnBackToUpload.style.display = 'none';
+            csvFilePicker.value = '';
+        });
+
+        // Parse and process file
+        function processFile(file) {
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                const text = evt.target.result;
+                donations = parseCSV(text);
+                if (donations.length > 0) {
+                    deduplicateRecords();
+                    uploadSection.style.display = 'none';
+                    dashboardView.style.display = 'flex';
+                    btnBackToUpload.style.display = 'inline-flex';
+                    renderDashboard();
+                } else {
+                    alert("Invalid CSV structure or no records found.");
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // Deduplicate records where first name, last name, and amount are identical
+        function deduplicateRecords() {
+            const unique = [];
+            const seen = new Set();
+            for (const record of donations) {
+                const key = `${record.firstName.trim().toLowerCase()}|${record.lastName.trim().toLowerCase()}|${record.amount}`;
+                if (!seen.has(key)) {
+                    seen.add(key);
+                    unique.push(record);
+                }
+            }
+            donations = unique;
+        }
+
+        // CSV parsing
+        function parseCSV(text) {
+            const lines = text.split('\n').map(l => l.trim()).filter(l => l);
+            if (lines.length <= 1) return [];
+
+            const parsed = [];
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i];
+                const matches = line.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || [];
+                const fields = matches.map(f => f.replace(/^"|"$/g, '').replace(/""/g, '"'));
+                
+                if (fields.length >= 3) {
+                    parsed.push({
+                        firstName: fields[0] || '',
+                        lastName: fields[1] || '',
+                        amount: parseFloat(fields[2]) || 0
+                    });
+                }
+            }
+            return parsed;
+        }
+
+        // Render Dashboard
+        function renderDashboard() {
+            // Stats Calculations
+            const total = donations.reduce((sum, r) => sum + r.amount, 0);
+            const donors = donations.length;
+            const avg = donors > 0 ? Math.round(total / donors) : 0;
+
+            statTotalAmount.textContent = `₹${total.toLocaleString('en-IN')}`;
+            statTotalDonors.textContent = donors;
+            statAvgDonation.textContent = `₹${avg.toLocaleString('en-IN')}`;
+
+            renderCharts();
+            renderTable();
+        }
+
+        // Render Charts using Chart.js
+        function renderCharts() {
+            // Slab Analysis
+            let slabs = { "₹1 - ₹200": 0, "₹201 - ₹500": 0, "₹501 - ₹1000": 0, "₹1000+": 0 };
+            donations.forEach(d => {
+                if (d.amount <= 200) slabs["₹1 - ₹200"]++;
+                else if (d.amount <= 500) slabs["₹201 - ₹500"]++;
+                else if (d.amount <= 1000) slabs["₹501 - ₹1000"]++;
+                else slabs["₹1000+"]++;
+            });
+
+            if (slabChartInstance) slabChartInstance.destroy();
+            const ctx2 = document.getElementById('slabChart').getContext('2d');
+            slabChartInstance = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(slabs),
+                    datasets: [{
+                        label: 'Donors Count',
+                        data: Object.values(slabs),
+                        backgroundColor: '#6366f1',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: { grid: { display: false }, ticks: { color: '#94a3b8' } },
+                        y: { grid: { color: '#1e293b' }, ticks: { color: '#94a3b8' } }
+                    }
+                }
+            });
+        }
+
+        // Render Directory Table
+        function renderTable(searchTerm = "") {
+            const query = searchTerm.toLowerCase().trim();
+            const filtered = donations.filter(d => 
+                d.firstName.toLowerCase().includes(query) ||
+                d.lastName.toLowerCase().includes(query) ||
+                d.amount.toString().includes(query)
+            );
+
+            directoryBody.innerHTML = "";
+            filtered.forEach((rec) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="font-weight: 500;">${escapeHtml(rec.firstName)}</td>
+                    <td style="font-weight: 500;">${escapeHtml(rec.lastName)}</td>
+                    <td class="amount-col" style="text-align: right;">₹${rec.amount.toLocaleString('en-IN')}</td>
+                    <td style="text-align: center;">
+                        <button class="btn btn-secondary" style="padding: 4px 12px; font-size: 0.75rem;" onclick="openCertificateModal('${rec.firstName.replace(/'/g, "\\'")}', '${rec.lastName.replace(/'/g, "\\'")}', ${rec.amount})">
+                            <i data-lucide="award" size="14"></i> View Cert
+                        </button>
+                    </td>
+                `;
+                directoryBody.appendChild(tr);
+            });
+            lucide.createIcons();
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        directorySearch.addEventListener('input', (e) => {
+            renderTable(e.target.value);
+        });
+
+        // Helper to generate a stable, fixed certificate ID based on user details (ignoring village)
+        function getDeterministicCertId(firstName, lastName, amount) {
+            const str = `${firstName.trim().toLowerCase()}|${lastName.trim().toLowerCase()}|${amount}`;
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = (hash << 5) - hash + str.charCodeAt(i);
+                hash |= 0; // Convert to 32bit integer
+            }
+            return `GR-CERT-${(Math.abs(hash) % 900000) + 100000}`;
+        }
+
+        // Certificate Drawing Logic
+        function drawCertificate(firstName, lastName, amount) {
+            const ctx = certCanvas.getContext('2d');
+            const w = certCanvas.width;
+            const h = certCanvas.height;
+            
+            // 1. Elegant Deep Blue/Navy Background
+            ctx.fillStyle = '#060a17';
+            ctx.fillRect(0, 0, w, h);
+            
+            // 2. Outer Dual Border
+            ctx.strokeStyle = '#d97706';
+            ctx.lineWidth = 5;
+            ctx.strokeRect(20, 20, w - 40, h - 40);
+            
+            ctx.strokeStyle = 'rgba(217, 119, 6, 0.4)';
+            ctx.lineWidth = 1.5;
+            ctx.strokeRect(28, 28, w - 56, h - 56);
+
+            // Decorative Corner Brackets
+            const cs = 20;
+            ctx.strokeStyle = '#d97706';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(25, 25, cs, cs);
+            ctx.strokeRect(w - 25 - cs, 25, cs, cs);
+            ctx.strokeRect(25, h - 25 - cs, cs, cs);
+            ctx.strokeRect(w - 25 - cs, h - 25 - cs, cs, cs);
+
+            // 3. Draw Gold Seal Ribbon Emblem
+            const cx = w / 2;
+            const cy = 115;
+            
+            ctx.fillStyle = '#b45309';
+            ctx.beginPath();
+            ctx.moveTo(cx - 15, cy);
+            ctx.lineTo(cx - 30, cy + 45);
+            ctx.lineTo(cx - 15, cy + 38);
+            ctx.lineTo(cx, cy + 45);
+            ctx.lineTo(cx - 5, cy);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.moveTo(cx + 5, cy);
+            ctx.lineTo(cx, cy + 45);
+            ctx.lineTo(cx + 15, cy + 38);
+            ctx.lineTo(cx + 30, cy + 45);
+            ctx.lineTo(cx + 15, cy);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.fillStyle = '#d97706';
+            ctx.beginPath();
+            for (let i = 0; i < 16; i++) {
+                const angle = (i * Math.PI) / 8;
+                const r = i % 2 === 0 ? 25 : 20;
+                const x = cx + Math.cos(angle) * r;
+                const y = cy + Math.sin(angle) * r;
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.fillStyle = '#f59e0b';
+            ctx.beginPath();
+            ctx.arc(cx, cy, 17, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#060a17';
+            ctx.beginPath();
+            ctx.arc(cx, cy, 14, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#f59e0b';
+            ctx.font = '16px serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('★', cx, cy + 1);
+            ctx.textBaseline = 'alphabetic';
+
+            // 4. Certificate Typography
+            ctx.fillStyle = '#d97706';
+            ctx.font = '600 13px "Outfit", sans-serif';
+            ctx.fillText('GREATER RANGACHAKUA FLOOD RELIEF', w / 2, 190);
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 32px "Cinzel", Georgia, serif';
+            ctx.fillText('CERTIFICATE OF APPRECIATION', w / 2, 230);
+
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.55)';
+            ctx.font = 'italic 15px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('This certificate is gratefully awarded to', w / 2, 275);
+
+            ctx.fillStyle = '#06b6d4';
+            ctx.font = 'bold 28px "Outfit", sans-serif';
+            ctx.fillText(`${firstName} ${lastName}`, w / 2, 325);
+
+            ctx.strokeStyle = 'rgba(6, 182, 212, 0.25)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(w / 2 - 120, 340);
+            ctx.lineTo(w / 2 + 120, 340);
+            ctx.stroke();
+
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.font = '15px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText('in recognition and deep appreciation of their generous contribution of', w / 2, 380);
+            
+            ctx.fillStyle = '#10b981';
+            ctx.font = 'bold 24px "Outfit", sans-serif';
+            ctx.fillText(`₹${amount.toLocaleString('en-IN')}`, w / 2, 420);
+
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.font = '15px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText(`which supported flood rescue, food distribution, and medical relief operations`, w / 2, 460);
+            ctx.fillText(`for families affected by the flood devastation.`, w / 2, 485);
+
+            // Footer Section
+            const dateStr = new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+            const certId = getDeterministicCertId(firstName, lastName, amount);
+
+            ctx.textAlign = 'center';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+            ctx.font = '11px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText(`DATE OF ISSUANCE: ${dateStr.toUpperCase()}    |    CERTIFICATE NO: ${certId}`, w / 2, h - 45);
+        }
+
+        // Open modal and show certificate
+        function openCertificateModal(firstName, lastName, amount) {
+            certificateModal.style.display = 'flex';
+            drawCertificate(firstName, lastName, amount);
+            
+            btnDownloadCert.onclick = function() {
+                const link = document.createElement('a');
+                link.download = `Certificate_${firstName}_${lastName}.png`;
+                link.href = certCanvas.toDataURL();
+                link.click();
+            };
+        }
+
+        btnCloseModal.addEventListener('click', () => {
+            certificateModal.style.display = 'none';
+        });
+
+        certificateModal.addEventListener('click', (e) => {
+            if (e.target === certificateModal) {
+                certificateModal.style.display = 'none';
+            }
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (donations.length > 0) {
+                uploadSection.style.display = 'none';
+                dashboardView.style.display = 'flex';
+                btnBackToUpload.style.display = 'inline-flex';
+                renderDashboard();
+            }
+        });
+        
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (donations.length > 0) {
+                uploadSection.style.display = 'none';
+                dashboardView.style.display = 'flex';
+                btnBackToUpload.style.display = 'inline-flex';
+                renderDashboard();
+            }
+        });
+        
+    </script>
+</body>
+</html>
