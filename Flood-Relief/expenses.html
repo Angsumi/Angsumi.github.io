@@ -285,7 +285,7 @@
                 </div>
                 <div class="stat-details">
                     <h3>Total Disbursed</h3>
-                    <div id="statTotalDisbursed" class="stat-value">₹1,01,050</div>
+                    <div id="statTotalDisbursed" class="stat-value">₹0</div>
                 </div>
             </div>
             <div class="stat-card">
@@ -294,7 +294,7 @@
                 </div>
                 <div class="stat-details">
                     <h3>Expense Categories</h3>
-                    <div class="stat-value">8 Items</div>
+                    <div id="statCategories" class="stat-value">0 Items</div>
                 </div>
             </div>
             <div class="stat-card">
@@ -303,7 +303,7 @@
                 </div>
                 <div class="stat-details">
                     <h3>Average Cost</h3>
-                    <div class="stat-value">₹12,631</div>
+                    <div id="statAvgCost" class="stat-value">₹0</div>
                 </div>
             </div>
         </div>
@@ -342,7 +342,7 @@
         // Init Lucide
         lucide.createIcons();
 
-        // Expenses database
+        // Expenses database (Updated Lunch cost to 2342)
         const expenses = [
             { item: "Water Bottle Case", amount: 2400 },
             { item: "Grocery", amount: 49000 },
@@ -350,7 +350,7 @@
             { item: "Fuel", amount: 22000 },
             { item: "Tooth Brush", amount: 650 },
             { item: "Pharmacy (ORS powder)", amount: 3400 },
-            { item: "Lunch", amount: 2400 },
+            { item: "Lunch", amount: 2342 },
             { item: "Miscellaneous", amount: 700 }
         ];
 
@@ -375,6 +375,14 @@
             <td class="amount-col" style="text-align: right; border-top: 1.5px solid var(--border-color);">₹${total.toLocaleString('en-IN')}</td>
         `;
         ledgerBody.appendChild(trTotal);
+
+        // Populate stats dynamically
+        const categories = expenses.length;
+        const avg = categories > 0 ? Math.round(total / categories) : 0;
+
+        document.getElementById('statTotalDisbursed').textContent = `₹${total.toLocaleString('en-IN')}`;
+        document.getElementById('statCategories').textContent = `${categories} Items`;
+        document.getElementById('statAvgCost').textContent = `₹${avg.toLocaleString('en-IN')}`;
 
         // Chart.js Configuration
         const ctx = document.getElementById('expenseChart').getContext('2d');
