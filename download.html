@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angsuman Das | Document Download Center</title>
+    <meta name="description" content="Download center for Angsuman Das's academic certificates, marksheets, research papers, identity documents, experience letters, and diplomas.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .download-header {
+            text-align: center;
+            padding: 120px 20px 40px;
+        }
+        .search-box {
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3rem;
+            border-radius: 30px;
+            background: var(--glass-bg);
+            border: 1px solid var(--accent);
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+        }
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+        }
+        .dl-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .dl-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .dl-card h4 {
+            color: var(--text-main);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+        .dl-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .format-badge {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <nav id="navbar">
+        <div class="nav-content">
+            <h1 class="logo"><a href="index.html" style="color: var(--accent); text-decoration: none;">AD.</a></h1>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#diplomas">Diplomas</a></li>
+                <li><a href="index.html#exams">Exams</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#publications">Publications</a></li>
+                <li><a href="download.html" style="color: var(--accent); font-weight: 600;">Download Center</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="download-header">
+        <h1 class="name">Document Download Center</h1>
+        <p class="summary" style="margin: 0.5rem auto 0;">Access and download all official academic records, marksheets, identity cards, experience letters, LORs, and research papers in multiple formats.</p>
+        <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="docSearch" class="search-input" placeholder="Search document (e.g., Aadhaar, Marksheet, NET, IELTS, Diploma)..." onkeyup="filterDocs()">
+        </div>
+    </div>
+
+    <main style="max-width: 1200px; margin: 0 auto; padding: 0 20px 100px;">
+        
+        <!-- SECTION 1: IDENTITY & PERSONAL -->
+        <section class="section" style="padding: 30px 0;">
+            <h2 class="section-title">🪪 <span>Identity & Demographic Documents</span></h2>
+            <div class="dl-grid">
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>Aadhaar Card</h4>
+                        <p>Government of India Unique Identification Card.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/ID_Cards/aadhaar_card.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View High-Res</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/ID_Cards/aadhaar_card.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>Driving License</h4>
+                        <p>Official Driving License Document.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/ID_Cards/driving_license.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View High-Res</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/ID_Cards/driving_license.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>Voter ID Card</h4>
+                        <p>Election Commission of India Identity Card.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/ID_Cards/voter_id_card.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View High-Res</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/ID_Cards/voter_id_card.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>Passport (Front Page)</h4>
+                        <p>Republic of India Passport Information Page.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Passport/passport_front_page.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View High-Res</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Passport/passport_front_page.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>Passport (Back Page)</h4>
+                        <p>Republic of India Passport Address Page.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Passport/passport_back_page.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View High-Res</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Passport/passport_back_page.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>Birth Certificate</h4>
+                        <p>Official Record of Birth Certificate.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Certificates/birth_certificate.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View High-Res</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Certificates/birth_certificate.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>Permanent Residence Certificate (PRC)</h4>
+                        <p>Government of Assam Residence Certificate.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Certificates/permanent_residence_certificate.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View High-Res</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Certificates/permanent_residence_certificate.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>OBC Caste Certificate (Digital)</h4>
+                        <p>Other Backward Classes Caste Certificate.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Certificates/obc_caste_certificate_digital.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View High-Res</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Certificates/obc_caste_certificate_digital.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>OBC NCL Certificate</h4>
+                        <p>Non-Creamy Layer OBC Certificate.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Certificates/obc_ncl_certificate.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View High-Res</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Certificates/obc_ncl_certificate.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>Father's OBC Certificate</h4>
+                        <p>OBC Certificate of Father.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Certificates/father_obc_certificate.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View High-Res</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Certificates/father_obc_certificate.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>Annual Income Certificate</h4>
+                        <p>Official Annual Family Income Certificate.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Certificates/annual_income_certificate.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View High-Res</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Certificates/annual_income_certificate.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: PHOTOS & ASSETS -->
+        <section class="section" style="padding: 30px 0;">
+            <h2 class="section-title">🖼️ <span>Photos, Signatures & Assets</span></h2>
+            <div class="dl-grid">
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>Passport Size Photo</h4>
+                        <p>High quality formal passport photograph.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Photos_and_Signatures/passport_photo.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Photos_and_Signatures/passport_photo.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>Official Signature</h4>
+                        <p>Clean digital signature asset.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Photos_and_Signatures/signature.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Photos_and_Signatures/signature.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>Thumb Impression</h4>
+                        <p>Official thumb impression scan.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Photos_and_Signatures/thumb_impression.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Photos_and_Signatures/thumb_impression.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>Portrait Stencil</h4>
+                        <p>Artistic portrait stencil image.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Photos_and_Signatures/portrait_stencil.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Identity_and_Personal/Photos_and_Signatures/portrait_stencil.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: ACADEMIC MARKSHEETS & DEGREES -->
+        <section class="section" style="padding: 30px 0;">
+            <h2 class="section-title">🎓 <span>Academic Marksheets & Degree Certificates</span></h2>
+            <div class="dl-grid">
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG & PDF</span>
+                        <h4>M.Sc. Zoology Degree Certificate</h4>
+                        <p>Rajiv Gandhi University Master's Degree.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/MSc_Master/msc_zoology_degree_certificate.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/MSc_Master/msc_zoology_degree_certificate.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG & PDF</span>
+                        <h4>M.Sc. Sem 4 Marksheet</h4>
+                        <p>Rajiv Gandhi University final transcript (CGPA 7.29).</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/MSc_Master/msc_sem4_marksheet_rajiv_gandhi_university.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/MSc_Master/msc_sem4_marksheet_rajiv_gandhi_university.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">Merged PDF</span>
+                        <h4>M.Sc. All Semester Documents (Merged PDF)</h4>
+                        <p>Complete merged PDF for M.Sc. degree and marksheets.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/MSc_Master/msc_merged.pdf" target="_blank" class="doc-btn"><i class="fas fa-file-pdf"></i> View PDF</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/MSc_Master/msc_merged.pdf" download class="doc-btn"><i class="fas fa-download"></i> Download PDF</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG & PDF</span>
+                        <h4>B.Sc. Degree Certificate</h4>
+                        <p>Gauhati University Bachelor's Degree Certificate.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/BSc_Bachelor/bsc_degree_certificate.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/BSc_Bachelor/bsc_degree_certificate.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG & PDF</span>
+                        <h4>B.Sc. Grade Sheet</h4>
+                        <p>Gauhati University B.Sc. Grade Sheet (CGPA 7.9).</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/BSc_Bachelor/bsc_grade_sheet_gauhati_university.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/BSc_Bachelor/bsc_grade_sheet_gauhati_university.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">Merged PDF</span>
+                        <h4>B.Sc. All Documents (Merged PDF)</h4>
+                        <p>Complete merged PDF for B.Sc. degree and marksheets.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/BSc_Bachelor/bsc_merged.pdf" target="_blank" class="doc-btn"><i class="fas fa-file-pdf"></i> View PDF</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/BSc_Bachelor/bsc_merged.pdf" download class="doc-btn"><i class="fas fa-download"></i> Download PDF</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG & PDF</span>
+                        <h4>12th HS Marksheet</h4>
+                        <p>AHSEC Higher Secondary Marksheet (414 / 500).</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/12th_HS/hs_marksheet.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/12th_HS/hs_marksheet.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG & PDF</span>
+                        <h4>12th HS Certificate</h4>
+                        <p>AHSEC Higher Secondary Pass Certificate.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/12th_HS/hs_certificate_ahsec_duplicate.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/12th_HS/hs_certificate_ahsec_duplicate.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG & PDF</span>
+                        <h4>10th HSLC Marksheet</h4>
+                        <p>SEBA Matriculation Marksheet (449 / 600).</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/10th_Matric/hslc_marksheet_seba.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/10th_Matric/hslc_marksheet_seba.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG & PDF</span>
+                        <h4>10th HSLC Matric Certificate</h4>
+                        <p>SEBA Matriculation Pass Certificate.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/10th_Matric/hslc_matric_certificate.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/ACADEMIC/10th_Matric/hslc_matric_certificate.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: DIPLOMAS & CERTIFICATIONS -->
+        <section class="section" style="padding: 30px 0;">
+            <h2 class="section-title">📜 <span>Diplomas & Certifications</span></h2>
+            <div class="dl-grid">
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG & PDF</span>
+                        <h4>Genomic Data Science Specialization</h4>
+                        <p>Johns Hopkins University (Coursera 8-Course Specialization).</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Certificates_and_Diplomas/coursera_genomic_data_science_specialization.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Certificates_and_Diplomas/coursera_genomic_data_science_specialization.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG & PDF</span>
+                        <h4>PGDCA Diploma Certificate</h4>
+                        <p>Post Graduate Diploma in Computer Application (DIT Education - 1 Year).</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Certificates_and_Diplomas/pgdca_diploma_certificate.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Certificates_and_Diplomas/pgdca_diploma_certificate.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG & PDF</span>
+                        <h4>Fine Arts / Drawing Junior Diploma</h4>
+                        <p>Junior Diploma Part-II in Art (Sarbabharatiya Sangeet-O-Sanskriti Parishad).</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Certificates_and_Diplomas/drawing_junior_diploma_certificate.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Certificates_and_Diplomas/drawing_junior_diploma_certificate.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG & PDF</span>
+                        <h4>Computer Literacy Certificate</h4>
+                        <p>Rajiv Gandhi Computer Literacy Program Certificate.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Certificates_and_Diplomas/rajiv_gandhi_computer_literacy_certificate.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Certificates_and_Diplomas/rajiv_gandhi_computer_literacy_certificate.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: COMPETITIVE EXAMS -->
+        <section class="section" style="padding: 30px 0;">
+            <h2 class="section-title">🏆 <span>Competitive Exams & Scorecards</span></h2>
+            <div class="dl-grid">
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>CSIR-UGC NET JRF Scorecard</h4>
+                        <p>CSIR-UGC NET Life Sciences (Rank 180, Percentile 97.50%).</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Exam_Certificates_and_Marksheets/net_jrf_scorecard.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Exam_Certificates_and_Marksheets/net_jrf_scorecard.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>CSIR-UGC NET JRF Award Letter</h4>
+                        <p>Official Award Letter for Junior Research Fellowship.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Exam_Certificates_and_Marksheets/csir_net_jrf_award_letter.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Exam_Certificates_and_Marksheets/csir_net_jrf_award_letter.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>IELTS Academic Test Report</h4>
+                        <p>IELTS Academic Overall Band Score 7.0 (CEFR C1).</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Exam_Certificates_and_Marksheets/ielts_test_report_academic.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Exam_Certificates_and_Marksheets/ielts_test_report_academic.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">PDF Document</span>
+                        <h4>SLET Result Sheet 2023</h4>
+                        <p>State Eligibility Test for Lectureship result document.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Exam_Certificates_and_Marksheets/slet_result_sheet_2023.pdf" target="_blank" class="doc-btn"><i class="fas fa-file-pdf"></i> View PDF</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Exam_Certificates_and_Marksheets/slet_result_sheet_2023.pdf" download class="doc-btn"><i class="fas fa-download"></i> Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: WORK EXPERIENCE & LETTERS -->
+        <section class="section" style="padding: 30px 0;">
+            <h2 class="section-title">💼 <span>Experience & Appointment Letters</span></h2>
+            <div class="dl-grid">
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">PDF Document</span>
+                        <h4>THB College Experience Certificate</h4>
+                        <p>Assistant Professor (Tutor) Dept. of Zoology Experience Certificate.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Work_and_Experience/THB%20College%20Experience.pdf" target="_blank" class="doc-btn"><i class="fas fa-file-pdf"></i> View PDF</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Work_and_Experience/THB%20College%20Experience.pdf" download class="doc-btn"><i class="fas fa-download"></i> Download PDF</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG & PDF</span>
+                        <h4>RASA Experience Certificate</h4>
+                        <p>Research Trainee Certificate for Homology Modelling of Human TLR.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Work_and_Experience/RASA_Experience.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Work_and_Experience/RASA_Experience.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">JPEG / Image</span>
+                        <h4>Tocklai Appointment Letter</h4>
+                        <p>Tocklai Experimental Station official appointment letter.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Work_and_Experience/Tocklai%20Appointment%20Letter.jpg" target="_blank" class="doc-btn"><i class="fas fa-eye"></i> View Image</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Work_and_Experience/Tocklai%20Appointment%20Letter.jpg" download class="doc-btn"><i class="fas fa-download"></i> Download JPG</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">PDF Document</span>
+                        <h4>University of East London Offer Letter</h4>
+                        <p>Official admission offer letter from UEL.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Work_and_Experience/university_of_east_london_offer_letter.pdf" target="_blank" class="doc-btn"><i class="fas fa-file-pdf"></i> View PDF</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Work_and_Experience/university_of_east_london_offer_letter.pdf" download class="doc-btn"><i class="fas fa-download"></i> Download PDF</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">PDF Document</span>
+                        <h4>University of Portsmouth Offer Letter</h4>
+                        <p>Official admission offer letter from Portsmouth.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Work_and_Experience/university_of_portsmouth_offer_letter.pdf" target="_blank" class="doc-btn"><i class="fas fa-file-pdf"></i> View PDF</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/Work_and_Experience/university_of_portsmouth_offer_letter.pdf" download class="doc-btn"><i class="fas fa-download"></i> Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: RESUME & DATA -->
+        <section class="section" style="padding: 30px 0;">
+            <h2 class="section-title">📝 <span>Resume & Complete Records</span></h2>
+            <div class="dl-grid">
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">PDF Resume</span>
+                        <h4>Curriculum Vitae / Resume (NEW_RESUME.pdf)</h4>
+                        <p>Latest updated CV containing academic and professional achievements.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/RESUME/NEW_RESUME.pdf" target="_blank" class="doc-btn"><i class="fas fa-file-pdf"></i> View PDF</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/RESUME/NEW_RESUME.pdf" download class="doc-btn"><i class="fas fa-download"></i> Download PDF</a>
+                    </div>
+                </div>
+
+                <div class="dl-card glass doc-item">
+                    <div>
+                        <span class="format-badge">TXT Record</span>
+                        <h4>Comprehensive Resume Data (TXT)</h4>
+                        <p>Complete text record with all academic subject marks, exam scores, and work dates.</p>
+                    </div>
+                    <div class="doc-btn-group">
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/comprehensive_resume_data.txt" target="_blank" class="doc-btn"><i class="fas fa-file-alt"></i> View TXT</a>
+                        <a href="https://raw.githubusercontent.com/Angsumi/ANGSUMAN/main/comprehensive_resume_data.txt" download class="doc-btn"><i class="fas fa-download"></i> Download TXT</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/Angsumi" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://rangachakua.blogspot.com" target="_blank"><i class="fas fa-blog"></i></a>
+            <a href="mailto:angsudas62@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>Built with ❤️ for Angsuman Das | CSIR-UGC NET JRF</p>
+    </footer>
+
+    <script>
+        function filterDocs() {
+            const query = document.getElementById('docSearch').value.toLowerCase();
+            const items = document.querySelectorAll('.doc-item');
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
