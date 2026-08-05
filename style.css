@@ -191,6 +191,23 @@ body {
     background: rgba(100, 255, 218, 0.1);
 }
 
+.hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.secondary-btn {
+    color: var(--text-main);
+    background: transparent;
+    border: 1px solid var(--glass-border);
+}
+
+.secondary-btn:hover {
+    background: var(--glass-bg);
+    border-color: var(--text-main);
+}
+
 /* About */
 .about-grid {
     display: grid;
