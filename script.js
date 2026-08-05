@@ -43,3 +43,25 @@ document.querySelectorAll('.glass, .section-title, .hero-content > *').forEach(e
     el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
     observer.observe(el);
 });
+
+// Contact Modal Handling
+const contactBtn = document.getElementById('contactBtn');
+const contactModal = document.getElementById('contactModal');
+const closeModal = document.getElementById('closeModal');
+
+if (contactBtn && contactModal && closeModal) {
+    contactBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        contactModal.classList.add('active');
+    });
+
+    closeModal.addEventListener('click', () => {
+        contactModal.classList.remove('active');
+    });
+
+    contactModal.addEventListener('click', (e) => {
+        if (e.target === contactModal) {
+            contactModal.classList.remove('active');
+        }
+    });
+}
