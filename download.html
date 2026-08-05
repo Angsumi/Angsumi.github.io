@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         .download-header {
             text-align: center;
@@ -1023,6 +1024,7 @@
                 <div>
                     <label style="color: var(--text-main); font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 0.4rem;">Select Export Format:</label>
                     <select id="exportFormat" style="width: 100%; padding: 0.65rem 0.8rem; border-radius: 8px; background: rgba(10, 25, 47, 0.95); border: 1px solid var(--accent); color: var(--text-main); font-size: 0.9rem;">
+                        <option value="pdf">PDF (PDF Document)</option>
                         <option value="jpeg">JPG (Standard Photo / High Quality)</option>
                         <option value="png">PNG (Lossless Image)</option>
                         <option value="webp">WEBP (Web Compressed)</option>
@@ -1092,18 +1094,32 @@
                     canvas.height = Math.round(img.height * scale);
                     const ctx = canvas.getContext('2d');
                     
-                    if (format === 'jpeg') {
+                    if (format === 'jpeg' || format === 'pdf') {
                         ctx.fillStyle = '#FFFFFF';
                         ctx.fillRect(0, 0, canvas.width, canvas.height);
                     }
                     
                     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    const cleanTitle = currentDocTitle.replace(/[^a-zA-Z0-9_-]/g, '_');
+
+                    if (format === 'pdf') {
+                        const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
+                        const { jsPDF } = window.jspdf;
+                        const doc = new jsPDF({
+                            orientation: canvas.width > canvas.height ? 'landscape' : 'portrait',
+                            unit: 'px',
+                            format: [canvas.width, canvas.height]
+                        });
+                        doc.addImage(dataUrl, 'JPEG', 0, 0, canvas.width, canvas.height);
+                        doc.save(cleanTitle + '_' + Math.round(scale*100) + 'pct.pdf');
+                        status.innerText = '✅ Custom PDF generated & downloaded!';
+                        return;
+                    }
                     
                     const mimeType = 'image/' + format;
                     const dataUrl = canvas.toDataURL(mimeType, 0.92);
                     
                     const link = document.createElement('a');
-                    const cleanTitle = currentDocTitle.replace(/[^a-zA-Z0-9_-]/g, '_');
                     link.download = cleanTitle + '_' + Math.round(scale*100) + 'pct.' + format;
                     link.href = dataUrl;
                     document.body.appendChild(link);
