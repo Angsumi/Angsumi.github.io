@@ -1137,6 +1137,32 @@
             };
             img.src = currentImgUrl;
         }
+        // The download attribute is ignored by browsers for cross-origin URLs.
+        // Fetching the file first lets every document download consistently.
+        document.querySelectorAll('a[download]').forEach((downloadLink) => {
+            downloadLink.addEventListener('click', async (event) => {
+                event.preventDefault();
+
+                try {
+                    const response = await fetch(downloadLink.href);
+                    if (!response.ok) throw new Error('Download request failed');
+
+                    const file = await response.blob();
+                    const objectUrl = URL.createObjectURL(file);
+                    const link = document.createElement('a');
+                    const pathname = new URL(downloadLink.href).pathname;
+
+                    link.href = objectUrl;
+                    link.download = decodeURIComponent(pathname.split('/').pop()) || 'document';
+                    document.body.appendChild(link);
+                    link.click();
+                    link.remove();
+                    URL.revokeObjectURL(objectUrl);
+                } catch (error) {
+                    window.open(downloadLink.href, '_blank', 'noopener');
+                }
+            });
+        });
     </script>
 </body>
 </html>
