@@ -39,11 +39,12 @@
       border-bottom:1px solid rgba(231,234,240,.8);
     }
     .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
-    .logo{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:850;letter-spacing:-.05em}
+    .logo{display:flex;align-items:center;gap:8px;font-size:22px;font-weight:850;letter-spacing:-.05em}
     .logo-mark{
-      width:34px;height:34px;border-radius:10px;background:var(--ink);color:#fff;
-      display:grid;place-items:center;font-weight:900;
+      width:36px;height:36px;border-radius:0;background:transparent;
+      display:flex;align-items:center;justify-content:center;
     }
+    .logo-mark img{width:36px;height:36px;object-fit:contain;display:block;}
     .links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:650;color:#3e4755}
     .links a:hover{color:var(--brand)}
     .nav-cta,.primary{
@@ -175,7 +176,7 @@
 <body>
   <header class="nav">
     <div class="container nav-inner">
-      <a class="logo" href="#home"><span class="logo-mark">A</span>angsumi</a>
+      <a class="logo" href="#home"><span class="logo-mark"><img src="logo.png" alt="Angsumi logo"></span>angsumi</a>
       <nav class="links">
         <a href="#industries">Industries</a>
         <a href="#solutions">Solutions</a>
