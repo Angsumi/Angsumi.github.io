@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All My GitHub Projects — A Complete Overview | Angsumi</title>
+  <meta name="description" content="A complete overview of all my GitHub projects, from business apps to bioinformatics.">
+  <link rel="canonical" href="https://angsumi.github.io/blog/github-projects.html">
+  <style>
+    :root{
+      --bg:#f7f8fa;
+      --surface:#ffffff;
+      --ink:#0b1220;
+      --muted:#657080;
+      --line:#e7eaf0;
+      --brand:#1257d6;
+      --brand-dark:#0b3f9e;
+      --accent:#19a974;
+      --soft:#eef4ff;
+      --radius:22px;
+      --shadow:0 20px 60px rgba(11,18,32,.09);
+      --max:1180px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--bg);color:var(--ink);line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .nav{
+      position:fixed;top:0;left:0;right:0;z-index:50;
+      background:rgba(247,248,250,.84);backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(231,234,240,.8);
+    }
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:8px;font-size:22px;font-weight:850;letter-spacing:-.05em}
+    .logo-mark{
+      width:36px;height:36px;border-radius:0;background:transparent;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .logo-mark img{width:36px;height:36px;object-fit:contain;display:block;}
+    .links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:650;color:#3e4755}
+    .links a:hover{color:var(--brand)}
+    .nav-cta,.primary{
+      background:var(--ink);color:#fff;border:0;border-radius:999px;padding:12px 19px;
+      font-weight:750;cursor:pointer;transition:.2s;
+    }
+    .nav-cta:hover,.primary:hover{transform:translateY(-2px);background:#182233}
+    .menu{display:none;background:none;border:0;font-size:26px;cursor:pointer}
+    
+    .article-header { padding: 155px 0 40px; text-align: center; max-width: 800px; margin: 0 auto; }
+    .breadcrumbs { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+    .breadcrumbs a { color: var(--brand); font-weight: 600; }
+    .breadcrumbs a:hover { text-decoration: underline; }
+    h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.1; letter-spacing: -.04em; margin-bottom: 15px; }
+    .article-meta { font-size: 15px; color: var(--muted); font-weight: 500; }
+    
+    .article-content { max-width: 720px; margin: 0 auto; padding-bottom: 80px; font-size: 18px; color: #2d3748; }
+    .article-content h2 { font-size: 28px; margin: 40px 0 20px; letter-spacing: -.03em; color: var(--ink); }
+    .article-content h3 { font-size: 20px; margin: 30px 0 10px; color: var(--ink); }
+    .article-content p { margin-bottom: 20px; }
+    .article-content a.content-link { color: var(--brand); font-weight: 600; }
+    .article-content a.content-link:hover { text-decoration: underline; }
+    
+    .cta-box { background: var(--soft); padding: 40px; border-radius: var(--radius); text-align: center; margin-top: 60px; border: 1px solid #d9e6ff; }
+    .cta-box h3 { margin-top: 0; margin-bottom: 15px; }
+    .cta-button { display: inline-block; background: var(--brand); color: #fff; padding: 14px 24px; border-radius: 999px; font-weight: 800; margin-top: 10px; }
+    .cta-button:hover { background: var(--brand-dark); }
+    
+    footer{border-top:1px solid var(--line);padding:28px 0;color:#7a8492;font-size:13px}
+    footer .container{display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:950px){ .links{display:none}.menu{display:block} }
+    @media(max-width:620px){
+      .container{width:min(var(--max),calc(100% - 28px))}
+      h1{font-size:36px}
+      footer .container{flex-direction:column}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://angsumi.github.io/blog/github-projects.html"
+    },
+    "headline": "All My GitHub Projects — A Complete Overview",
+    "description": "A walkthrough of all my open-source projects, web apps and digital tools built for education, science and business.",
+    "author": {
+      "@type": "Person",
+      "name": "Angsumi"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Angsumi",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://angsumi.github.io/logo.png"
+      }
+    },
+    "datePublished": "2026-08-27"
+  }
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="https://angsumi.github.io/"><span class="logo-mark"><img src="/logo.png" alt="Angsumi logo"></span>angsumi</a>
+      <nav class="links">
+        <a href="https://angsumi.github.io/">Home</a>
+        <a href="https://angsumi.github.io/blog/">Blog</a>
+        <a href="https://angsumi.github.io/cv/">CV</a>
+      </nav>
+      <a class="nav-cta" href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20am%20interested%20in%20your%20digital%20services." target="_blank" rel="noopener">WhatsApp Us →</a>
+      <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <div class="article-header container">
+        <div class="breadcrumbs">
+          <a href="https://angsumi.github.io/">Home</a> > 
+          <a href="https://angsumi.github.io/blog/">Blog</a> > 
+          All My GitHub Projects — A Complete Overview
+        </div>
+        <h1>All My GitHub Projects — A Complete Overview</h1>
+        <div class="article-meta">By Angsumi · August 27, 2026</div>
+      </div>
+
+      <div class="container article-content">
+        <p>A walkthrough of all my open-source projects, web apps and digital tools built for education, science and business.</p>
+        
+        <h2>Live Web Apps (GitHub Pages)</h2>
+        
+        <h3>1. Angsumi Business Site</h3>
+        <p>The main Angsumi digital services landing page for businesses across Northeast India. <a href="https://angsumi.github.io/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
+
+        <h3>2. CV & Portfolio</h3>
+        <p>Personal CV, academic credentials, certificates and download centre. <a href="https://angsumi.github.io/cv/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
+
+        <h3>3. AxomRank / ADRE</h3>
+        <p>ADRE/SLRC exam preparation platform for Assam. <a href="https://angsumi.github.io/ADRE/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
+
+        <h3>4. Geography Learning Platform</h3>
+        <p>Automated web learning platform for Geography: learn, practice, test. <a href="https://angsumi.github.io/Geography/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
+
+        <h3>5. Assam Districts Map</h3>
+        <p>Interactive map of Assam districts built with GeoJSON shapefiles. <a href="https://angsumi.github.io/map/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
+
+        <h3>6. Flood-Relief Report</h3>
+        <p>Digital transparency report and expense tracker for flood relief operations. <a href="https://angsumi.github.io/Flood-Relief/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
+
+        <h3>7. GenoTaste</h3>
+        <p>A genomics/genetics web project. <a href="https://angsumi.github.io/GenoTaste/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
+
+        <h3>8. genone</h3>
+        <p>Genomics/bioinformatics web tool. <a href="https://angsumi.github.io/genone/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
+
+        <h3>9. MD-chakra</h3>
+        <p>A web project by Angsumi. <a href="https://angsumi.github.io/MD-chakra/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
+
+        <h3>10. NIPAM Learning Platform</h3>
+        <p>Online teaching application for teachers, low-infrastructure, no video hosting cost. <a href="https://nipam-fb25f.web.app/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
+
+        <h3>11. Trishul Innovations</h3>
+        <p>Business website for a solar rooftop and EV solutions company. <a href="https://trishul.tech" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
+
+
+        <h2>Research & Data Repositories</h2>
+
+        <h3>12. ANGSUMAN (Documents)</h3>
+        <p>Document management and portfolio repository. <a href="https://github.com/Angsumi/ANGSUMAN" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
+
+        <h3>13. INDIAN-SHAPEFILES</h3>
+        <p>Shape files and GeoJSON for India. <a href="https://github.com/Angsumi/INDIAN-SHAPEFILES" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
+
+        <h3>14. Assam_Ethnomedicine</h3>
+        <p>Database of traditional medicine plants across Assam tribes. <a href="https://github.com/Angsumi/Assam_Ethnomedicine" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
+
+        <h3>15. NE-Ethnomedicine</h3>
+        <p>Northeast India ethnomedicine data. <a href="https://github.com/Angsumi/NE-Ethnomedicine" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
+
+        <h3>16. GPT_VISION_FOR_Animal_Classification</h3>
+        <p>GPT Vision for animal taxonomy classification. <a href="https://github.com/Angsumi/GPT_VISION_FOR_Animal_Classification" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
+
+        <h3>17. RNA_DE_Novo_Analysis</h3>
+        <p>RNA de novo analysis pipeline. <a href="https://github.com/Angsumi/RNA_DE_Novo_Analysis" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
+
+        <h3>18. DOMESTICATION_URBANIZATION</h3>
+        <p>Gut microbiome changes during domestication and urbanization. <a href="https://github.com/Angsumi/DOMESTICATION_URBANIZATION" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
+
+        <h3>19. population_simulator</h3>
+        <p>Population dynamics simulator. <a href="https://github.com/Angsumi/population_simulator" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
+
+        <h3>20. metagenome-md</h3>
+        <p>Metagenomics analysis. <a href="https://github.com/Angsumi/metagenome-md" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
+
+        <h3>21. AHOM</h3>
+        <p>Ahom History Learning App. <a href="https://github.com/Angsumi/AHOM" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
+
+        <h3>22. Crimes-in-India</h3>
+        <p>EDA on 2011 census and 2013 criminal data. <a href="https://github.com/Angsumi/Crimes-in-India" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
+        
+        <div class="cta-box">
+          <h3>Want a digital system built for your business?</h3>
+          <a href="https://angsumi.github.io/#contact" class="cta-button">Contact Angsumi</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div><strong style="color:var(--ink)">Angsumi</strong> — digital infrastructure for growing businesses.</div>
+      <div><a href="mailto:angudas62@gmail.com">angudas62@gmail.com</a> · <a href="https://wa.me/917896595109" target="_blank" rel="noopener">+91 78965 95109</a> · © 2026 Angsumi</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(){
+      const links=document.querySelector('.links');
+      links.style.display = links.style.display==='flex' ? 'none' : 'flex';
+      if(links.style.display==='flex'){
+        links.style.position='absolute'; links.style.top='76px'; links.style.left='0'; links.style.right='0';
+        links.style.padding='18px 20px'; links.style.background='rgba(247,248,250,.98)';
+        links.style.flexDirection='column'; links.style.alignItems='flex-start'; links.style.borderBottom='1px solid var(--line)';
+      }
+    }
+  </script>
+</body>
+</html>

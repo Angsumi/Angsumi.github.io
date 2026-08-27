@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Angsumi | Digital Insights for Northeast India</title>
+  <meta name="description" content="Insights, projects and digital guides for businesses in Northeast India">
+  <link rel="canonical" href="https://angsumi.github.io/blog/">
+  <style>
+    :root{
+      --bg:#f7f8fa;
+      --surface:#ffffff;
+      --ink:#0b1220;
+      --muted:#657080;
+      --line:#e7eaf0;
+      --brand:#1257d6;
+      --brand-dark:#0b3f9e;
+      --accent:#19a974;
+      --soft:#eef4ff;
+      --radius:22px;
+      --shadow:0 20px 60px rgba(11,18,32,.09);
+      --max:1180px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--bg);color:var(--ink);line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .nav{
+      position:fixed;top:0;left:0;right:0;z-index:50;
+      background:rgba(247,248,250,.84);backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(231,234,240,.8);
+    }
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:8px;font-size:22px;font-weight:850;letter-spacing:-.05em}
+    .logo-mark{
+      width:36px;height:36px;border-radius:0;background:transparent;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .logo-mark img{width:36px;height:36px;object-fit:contain;display:block;}
+    .links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:650;color:#3e4755}
+    .links a:hover{color:var(--brand)}
+    .nav-cta,.primary{
+      background:var(--ink);color:#fff;border:0;border-radius:999px;padding:12px 19px;
+      font-weight:750;cursor:pointer;transition:.2s;
+    }
+    .nav-cta:hover,.primary:hover{transform:translateY(-2px);background:#182233}
+    .menu{display:none;background:none;border:0;font-size:26px;cursor:pointer}
+    .hero{padding:155px 0 85px;text-align:center;}
+    h1{font-size:clamp(46px,6vw,76px);line-height:.98;letter-spacing:-.065em;max-width:800px;margin:0 auto;}
+    .hero p{font-size:19px;color:var(--muted);max-width:620px;margin:26px auto 31px}
+    
+    .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 20px 0 80px; }
+    .post-card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 30px; transition: .25s; display: flex; flex-direction: column;
+    }
+    .post-card:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(11,18,32,.07); }
+    .post-date { font-size: 13px; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+    .post-title { font-size: 22px; font-weight: 800; letter-spacing: -.03em; margin-bottom: 12px; }
+    .post-excerpt { color: var(--muted); margin-bottom: 20px; flex-grow: 1; }
+    .read-more { font-weight: 700; color: var(--brand); display: inline-flex; align-items: center; gap: 5px; }
+    .read-more:hover { text-decoration: underline; }
+
+    footer{border-top:1px solid var(--line);padding:28px 0;color:#7a8492;font-size:13px}
+    footer .container{display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:950px){
+      .links{display:none}.menu{display:block}
+    }
+    @media(max-width:620px){
+      .container{width:min(var(--max),calc(100% - 28px))}
+      h1{font-size:46px}.hero p{font-size:17px}
+      .blog-grid{grid-template-columns:1fr;}
+      footer .container{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="https://angsumi.github.io/"><span class="logo-mark"><img src="/logo.png" alt="Angsumi logo"></span>angsumi</a>
+      <nav class="links">
+        <a href="https://angsumi.github.io/">Home</a>
+        <a href="https://angsumi.github.io/blog/">Blog</a>
+        <a href="https://angsumi.github.io/cv/">CV</a>
+      </nav>
+      <a class="nav-cta" href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20am%20interested%20in%20your%20digital%20services." target="_blank" rel="noopener">WhatsApp Us →</a>
+      <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Angsumi Blog</h1>
+        <p>Insights, projects and digital guides for businesses in Northeast India</p>
+      </div>
+    </section>
+
+    <section class="container blog-grid">
+      <article class="post-card">
+        <div class="post-date">2026-08-27</div>
+        <h2 class="post-title">All My Projects on GitHub — A Complete Overview</h2>
+        <p class="post-excerpt">A walkthrough of all my open-source projects, web apps and digital tools built for education, science and business.</p>
+        <a href="/blog/github-projects.html" class="read-more">Read More →</a>
+      </article>
+
+      <article class="post-card">
+        <div class="post-date">2026-08-20</div>
+        <h2 class="post-title">How Much Does a Website Cost in Assam in 2026?</h2>
+        <p class="post-excerpt">Breaking down the real cost of websites for small businesses, clinics and schools in Assam and Northeast India.</p>
+        <a href="/blog/website-cost-assam.html" class="read-more">Read More →</a>
+      </article>
+
+      <article class="post-card">
+        <div class="post-date">2026-08-15</div>
+        <h2 class="post-title">Why Every Clinic in Northeast India Needs a Digital System</h2>
+        <p class="post-excerpt">From appointment booking to patient records — how a simple digital system can transform a small clinic.</p>
+        <a href="/blog/clinic-digital-system.html" class="read-more">Read More →</a>
+      </article>
+
+      <article class="post-card">
+        <div class="post-date">2026-08-10</div>
+        <h2 class="post-title">Affordable Web Design for Schools and Coaching Centres in Assam</h2>
+        <p class="post-excerpt">How schools and coaching centres in Guwahati can get a professional digital presence without paying agency prices.</p>
+        <a href="/blog/school-web-design-assam.html" class="read-more">Read More →</a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div><strong style="color:var(--ink)">Angsumi</strong> — digital infrastructure for growing businesses.</div>
+      <div><a href="mailto:angudas62@gmail.com">angudas62@gmail.com</a> · <a href="https://wa.me/917896595109" target="_blank" rel="noopener">+91 78965 95109</a> · © 2026 Angsumi</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(){
+      const links=document.querySelector('.links');
+      links.style.display = links.style.display==='flex' ? 'none' : 'flex';
+      if(links.style.display==='flex'){
+        links.style.position='absolute'; links.style.top='76px'; links.style.left='0'; links.style.right='0';
+        links.style.padding='18px 20px'; links.style.background='rgba(247,248,250,.98)';
+        links.style.flexDirection='column'; links.style.alignItems='flex-start'; links.style.borderBottom='1px solid var(--line)';
+      }
+    }
+  </script>
+</body>
+</html>
