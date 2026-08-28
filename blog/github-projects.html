@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All My GitHub Projects — A Complete Overview | Angsumi</title>
-  <meta name="description" content="A complete overview of all my GitHub projects, from business apps to bioinformatics.">
+  <title>All 30 GitHub Projects & Open Source Repositories | Angsumi</title>
+  <meta name="description" content="Explore all 30 open-source repositories and live web applications built by Angsumi — spanning Bioinformatics, EdTech, Full-Stack Web Apps, AI & Machine Learning, and GIS Data Science.">
+  <meta name="keywords" content="Angsumi GitHub, Angsuman Das Projects, Bioinformatics Open Source, Assam GIS Shapefiles, ADRE Exam App, GenoTaste, Ethnomedicine Assam, React EdTech Apps, Python Bioinformatics">
+  <meta name="author" content="Angsuman Das (Angsumi)">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="theme-color" content="#0b1220">
   <link rel="canonical" href="https://angsumi.github.io/blog/github-projects.html">
 
@@ -13,245 +16,1387 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-  <!-- Site name signals -->
+  <!-- Open Graph / Social Media Signals -->
   <meta property="og:site_name" content="Angsumi">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="All My GitHub Projects — Angsumi">
+  <meta property="og:title" content="All 30 GitHub Projects — Open Source, Web Apps & Research | Angsumi">
+  <meta property="og:description" content="Explore 30 open-source repositories and live web platforms spanning Web Apps, EdTech, Bioinformatics, AI, and GIS Data Science by Angsumi.">
   <meta property="og:url" content="https://angsumi.github.io/blog/github-projects.html">
+  <meta property="og:image" content="https://angsumi.github.io/logo.png">
 
-  <!-- WebSite structured data (reinforces site name for Google) -->
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="All 30 GitHub Projects & Open Source Repositories | Angsumi">
+  <meta name="twitter:description" content="Browse 30 open-source software tools, live web apps, bioinformatics pipelines, and GIS datasets created by Angsumi.">
+  <meta name="twitter:image" content="https://angsumi.github.io/logo.png">
+
+  <!-- SWEO / Structured Data (JSON-LD) for Search & Generative AI Engines -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Angsumi",
-    "alternateName": ["Angsumi Digital", "angsumi.github.io"],
-    "url": "https://angsumi.github.io/"
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://angsumi.github.io/blog/github-projects.html",
+        "url": "https://angsumi.github.io/blog/github-projects.html",
+        "name": "All 30 GitHub Projects & Open Source Repositories",
+        "description": "Comprehensive portfolio and directory of 30 GitHub repositories and live web applications built by Angsumi across Bioinformatics, EdTech, Full-Stack Web Development, AI, and GIS Data Science.",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://angsumi.github.io/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://angsumi.github.io/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "GitHub Projects", "item": "https://angsumi.github.io/blog/github-projects.html" }
+          ]
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://angsumi.github.io/#author",
+        "name": "Angsuman Das",
+        "alternateName": "Angsumi",
+        "url": "https://angsumi.github.io/",
+        "sameAs": [
+          "https://github.com/Angsumi",
+          "https://angsumi.github.io/cv/"
+        ],
+        "jobTitle": "Bioinformatician & Web Systems Engineer"
+      },
+      {
+        "@type": "ItemList",
+        "name": "Angsumi GitHub Open Source Projects",
+        "numberOfItems": 30,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "ADRE (AxomRank Exam Platform)",
+              "applicationCategory": "EducationalApplication",
+              "operatingSystem": "Web",
+              "url": "https://angsumi.github.io/ADRE/",
+              "codeRepository": "https://github.com/Angsumi/ADRE",
+              "description": "Next.js exam prep platform for ADRE (Assam Direct Recruitment Examination) with PYQs, mock tests, and rank calculators."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "AHOM History App",
+              "applicationCategory": "EducationalApplication",
+              "url": "https://angsumi.github.io/AHOM/",
+              "codeRepository": "https://github.com/Angsumi/AHOM",
+              "description": "Interactive web app and study guide covering the history, rulers, and events of the Ahom Dynasty in Assam."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "ANGSUMAN Academic Portfolio & PDF Binder",
+              "codeRepository": "https://github.com/Angsumi/ANGSUMAN",
+              "description": "Full-stack dynamic portfolio and resume generator with customizable client templates and PDF binding tools."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "Angsumi Digital Services Portal",
+              "url": "https://angsumi.github.io/",
+              "codeRepository": "https://github.com/Angsumi/Angsumi.github.io",
+              "description": "Official website and digital agency portfolio showcasing custom web solutions, educational apps, and research projects."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "API-App Utility Suite",
+              "codeRepository": "https://github.com/Angsumi/API-App",
+              "description": "Lightweight web app and utility suite for REST API endpoint integration, data handling, and benchmarking."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Assam Ethnomedicine Database",
+              "codeRepository": "https://github.com/Angsumi/Assam_Ethnomedicine",
+              "description": "Curated database of traditional medicinal plants and ethnobiological healing practices across indigenous tribes of Assam."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Crimes in India EDA",
+              "codeRepository": "https://github.com/Angsumi/Crimes-in-India",
+              "description": "Exploratory data analysis (EDA) and statistical visualization of Indian crime records correlated with 2011 Census demographics."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "Interactive CV & Credentials Portal",
+              "url": "https://angsumi.github.io/cv/",
+              "codeRepository": "https://github.com/Angsumi/cv",
+              "description": "Interactive personal CV and credentials showcase website with verifiable certificate and document downloads."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Domestication & Urbanization Gut Microbiome Diversity Analysis",
+              "codeRepository": "https://github.com/Angsumi/DOMESTICATION_URBANIZATION",
+              "description": "Research data and R statistical scripts analyzing gut microbiome diversity shifts across wild, domesticated, and urban environments."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "Shivsagar Flood Relief Transparency Portal",
+              "url": "https://angsumi.github.io/Flood-Relief/",
+              "codeRepository": "https://github.com/Angsumi/Flood-Relief",
+              "description": "Interactive donor dashboard and expense transparency portal for flood relief operations with real-time analytics and certificate generation."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "GenOne Community Portal",
+              "url": "https://angsumi.github.io/genone/",
+              "codeRepository": "https://github.com/Angsumi/genone",
+              "description": "Official web portal and executive committee directory for the GenOne youth community organization."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "GenoTaste Genomic Wellness Platform",
+              "url": "https://angsumi.github.io/GenoTaste/",
+              "codeRepository": "https://github.com/Angsumi/GenoTaste",
+              "description": "Interactive genomic wellness calculator for caffeine metabolism (CYP1A2) and sleep optimization."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "Interactive Geography Platform",
+              "url": "https://angsumi.github.io/Geography/",
+              "codeRepository": "https://github.com/Angsumi/Geography",
+              "description": "Interactive 4-tier geography learning platform for Assam, Northeast India, and Indian Geography built with React and Vite."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "GitHub Graduation 2021 Submission",
+              "codeRepository": "https://github.com/Angsumi/GitHubGraduation-2021",
+              "description": "GitHub Graduation 2021 yearbook submission and participation repository."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "GPT-4 Vision Animal Classifier",
+              "codeRepository": "https://github.com/Angsumi/GPT_VISION_FOR_Animal_Classification",
+              "description": "Automated animal species and taxonomy classification pipeline powered by OpenAI GPT-4 Vision API."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Indian Shapefiles & GeoJSON Boundary Datasets",
+              "codeRepository": "https://github.com/Angsumi/INDIAN-SHAPEFILES",
+              "description": "Collection of GIS shapefiles and GeoJSON boundary datasets for Indian states, districts, and constituencies."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 17,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Life Science Study Resources",
+              "codeRepository": "https://github.com/Angsumi/Life-Science-Book",
+              "description": "Study resources, curriculum outlines, and reference notes for Life Sciences competitive examinations."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 18,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "Assam District Web Map",
+              "url": "https://angsumi.github.io/map/",
+              "codeRepository": "https://github.com/Angsumi/map",
+              "description": "Interactive web map of Assam districts and administrative boundaries built with GeoJSON and Leaflet."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 19,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "MD-Chakra Component Interface",
+              "url": "https://angsumi.github.io/MD-chakra/",
+              "codeRepository": "https://github.com/Angsumi/MD-chakra",
+              "description": "Frontend web application and interactive component interface built with Chakra UI."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 20,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Metagenomics Analysis Pipeline",
+              "codeRepository": "https://github.com/Angsumi/metagenome-md",
+              "description": "Metagenomics analysis protocols, QIIME2 bioinformatics workflows, and microbial sequencing documentation."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 21,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "My Credentials Vault",
+              "codeRepository": "https://github.com/Angsumi/My-Certificate",
+              "description": "Repository storing personal academic credentials, diplomas, and certification records."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 22,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Northeast India Ethnomedicine Research",
+              "codeRepository": "https://github.com/Angsumi/NE-Ethnomedicine",
+              "description": "Ethnomedicinal database and Jupyter notebooks cataloging traditional medicinal plants across Northeast India."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 23,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Nivedita Project Repository",
+              "codeRepository": "https://github.com/Angsumi/NIvedita",
+              "description": "Personal web project and digital portfolio repository."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 24,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Biological Population Simulator",
+              "codeRepository": "https://github.com/Angsumi/population_simulator",
+              "description": "Python-based simulation tool modeling biological population dynamics and growth curves."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 25,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Python Exercises & Games",
+              "codeRepository": "https://github.com/Angsumi/Pyhton-excercise",
+              "description": "Python practice exercises featuring mini-games, algorithms, and web scraping scripts."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 26,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "RNA-Seq De Novo Analysis Pipeline",
+              "codeRepository": "https://github.com/Angsumi/RNA_DE_Novo_Analysis",
+              "description": "Bioinformatics pipeline for de novo RNA-Seq transcriptome assembly and differential expression analysis."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 27,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "NIPAM Educational Platform (Teacher App)",
+              "url": "https://nipam-fb25f.web.app/",
+              "codeRepository": "https://github.com/Angsumi/Teacher_App",
+              "description": "Distraction-free educational platform featuring a Flutter frontend and FastAPI backend for teachers and students."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 28,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "School Teaching Materials",
+              "codeRepository": "https://github.com/Angsumi/Teaching-schools",
+              "description": "Educational resources, lesson plans, and classroom teaching materials for school students."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 29,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Legislative Floor Test Simulator",
+              "codeRepository": "https://github.com/Angsumi/the-floor-test",
+              "description": "Interactive JavaScript web app simulating constitutional and legislative floor test mechanisms."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 30,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "Trishul Innovations Platform",
+              "url": "https://trishul.tech",
+              "codeRepository": "https://github.com/Angsumi/Trishul",
+              "description": "Official web platform for Trishul Innovations, providing solar rooftop and EV charging solutions."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
+
+  <!-- Typography & Styles -->
   <style>
-    :root{
-      --bg:#f7f8fa;
-      --surface:#ffffff;
-      --ink:#0b1220;
-      --muted:#657080;
-      --line:#e7eaf0;
-      --brand:#1257d6;
-      --brand-dark:#0b3f9e;
-      --accent:#19a974;
-      --soft:#eef4ff;
-      --radius:22px;
-      --shadow:0 20px 60px rgba(11,18,32,.09);
-      --max:1180px;
+    :root {
+      --bg: #0b1220;
+      --surface: #131d31;
+      --surface-hover: #192742;
+      --surface-border: #233454;
+      --ink: #f0f4fc;
+      --muted: #94a3b8;
+      --brand: #3b82f6;
+      --brand-glow: rgba(59, 130, 246, 0.25);
+      --brand-accent: #60a5fa;
+      --accent-green: #10b981;
+      --accent-purple: #a855f7;
+      --accent-amber: #f59e0b;
+      --radius-lg: 20px;
+      --radius-sm: 10px;
+      --max: 1240px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:var(--bg);color:var(--ink);line-height:1.6;
-      -webkit-font-smoothing:antialiased;
-    }
-    a{text-decoration:none;color:inherit}
-    button,input,select,textarea{font:inherit}
-    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
-    .nav{
-      position:fixed;top:0;left:0;right:0;z-index:50;
-      background:rgba(247,248,250,.84);backdrop-filter:blur(18px);
-      border-bottom:1px solid rgba(231,234,240,.8);
-    }
-    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
-    .logo{display:flex;align-items:center;gap:8px;font-size:22px;font-weight:850;letter-spacing:-.05em}
-    .logo-mark{
-      width:36px;height:36px;border-radius:0;background:transparent;
-      display:flex;align-items:center;justify-content:center;
-    }
-    .logo-mark img{width:36px;height:36px;object-fit:contain;display:block;}
-    .links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:650;color:#3e4755}
-    .links a:hover{color:var(--brand)}
-    .nav-cta,.primary{
-      background:var(--ink);color:#fff;border:0;border-radius:999px;padding:12px 19px;
-      font-weight:750;cursor:pointer;transition:.2s;
-    }
-    .nav-cta:hover,.primary:hover{transform:translateY(-2px);background:#182233}
-    .menu{display:none;background:none;border:0;font-size:26px;cursor:pointer}
     
-    .article-header { padding: 155px 0 40px; text-align: center; max-width: 800px; margin: 0 auto; }
-    .breadcrumbs { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
-    .breadcrumbs a { color: var(--brand); font-weight: 600; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
+    }
+    a { text-decoration: none; color: inherit; }
+    
+    .container { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+    
+    /* Navigation */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(11, 18, 32, 0.88); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--surface-border);
+    }
+    .nav-inner { height: 74px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 800; letter-spacing: -0.03em; color: #fff; }
+    .logo-mark img { width: 34px; height: 34px; object-fit: contain; display: block; }
+    .links { display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 600; color: var(--muted); }
+    .links a:hover { color: var(--brand-accent); }
+    .links a.active { color: #fff; border-bottom: 2px solid var(--brand); padding-bottom: 4px; }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--brand), #1d4ed8);
+      color: #fff; border: 0; border-radius: 999px; padding: 10px 22px;
+      font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.2s ease;
+      box-shadow: 0 4px 14px var(--brand-glow);
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4); }
+    .menu-btn { display: none; background: none; border: 0; font-size: 24px; color: #fff; cursor: pointer; }
+    
+    /* Hero Header */
+    .hero {
+      padding: 150px 0 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 400px;
+      background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(11,18,32,0) 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .breadcrumbs { font-size: 14px; color: var(--muted); margin-bottom: 18px; position: relative; z-index: 1; }
+    .breadcrumbs a { color: var(--brand-accent); font-weight: 600; }
     .breadcrumbs a:hover { text-decoration: underline; }
-    h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.1; letter-spacing: -.04em; margin-bottom: 15px; }
-    .article-meta { font-size: 15px; color: var(--muted); font-weight: 500; }
     
-    .article-content { max-width: 720px; margin: 0 auto; padding-bottom: 80px; font-size: 18px; color: #2d3748; }
-    .article-content h2 { font-size: 28px; margin: 40px 0 20px; letter-spacing: -.03em; color: var(--ink); }
-    .article-content h3 { font-size: 20px; margin: 30px 0 10px; color: var(--ink); }
-    .article-content p { margin-bottom: 20px; }
-    .article-content a.content-link { color: var(--brand); font-weight: 600; }
-    .article-content a.content-link:hover { text-decoration: underline; }
+    .hero h1 {
+      font-size: clamp(34px, 4.8vw, 54px);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative; z-index: 1;
+    }
+    .hero-subtitle {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 auto 36px;
+      position: relative; z-index: 1;
+    }
     
-    .cta-box { background: var(--soft); padding: 40px; border-radius: var(--radius); text-align: center; margin-top: 60px; border: 1px solid #d9e6ff; }
-    .cta-box h3 { margin-top: 0; margin-bottom: 15px; }
-    .cta-button { display: inline-block; background: var(--brand); color: #fff; padding: 14px 24px; border-radius: 999px; font-weight: 800; margin-top: 10px; }
-    .cta-button:hover { background: var(--brand-dark); }
+    /* Stat Counters */
+    .stats-row {
+      display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap;
+      margin-bottom: 40px; position: relative; z-index: 1;
+    }
+    .stat-badge {
+      background: var(--surface); border: 1px solid var(--surface-border);
+      padding: 12px 24px; border-radius: var(--radius-sm);
+      display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px;
+    }
+    .stat-number { font-size: 22px; font-weight: 900; color: var(--brand-accent); }
     
-    footer{border-top:1px solid var(--line);padding:28px 0;color:#7a8492;font-size:13px}
-    footer .container{display:flex;justify-content:space-between;gap:20px}
-    @media(max-width:950px){ .links{display:none}.menu{display:block} }
-    @media(max-width:620px){
-      .container{width:min(var(--max),calc(100% - 28px))}
-      h1{font-size:36px}
-      footer .container{flex-direction:column}
+    /* Search & Filter Bar */
+    .controls-wrapper {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow);
+    }
+    .search-box {
+      width: 100%;
+      background: rgba(11, 18, 32, 0.6);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 14px 20px;
+      color: #fff;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      margin-bottom: 18px;
+    }
+    .search-box:focus { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-glow); }
+    .search-box::placeholder { color: #64748b; }
+    
+    .filter-tabs {
+      display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none;
+    }
+    .filter-tabs::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      background: transparent; border: 1px solid var(--surface-border);
+      color: var(--muted); padding: 8px 18px; border-radius: 999px;
+      font-size: 14px; font-weight: 600; cursor: pointer; whitespace: nowrap;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--brand); color: #fff; border-color: var(--brand);
+      box-shadow: 0 2px 10px var(--brand-glow);
+    }
+    
+    /* Project Cards Bento Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+    }
+    
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--brand);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--brand-glow);
+      background: var(--surface-hover);
+    }
+    
+    .card-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .tag {
+      font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 4px 10px; border-radius: 6px;
+    }
+    .tag-category { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .tag-live { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .tag-repo { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    
+    .card-title {
+      font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 10px; line-height: 1.3;
+    }
+    .card-desc {
+      font-size: 14px; color: var(--muted); margin-bottom: 20px; flex-grow: 1; line-height: 1.6;
+    }
+    
+    .tech-stack {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 22px;
+    }
+    .tech-pill {
+      font-size: 12px; font-weight: 600; color: #cbd5e1; background: rgba(15, 23, 42, 0.7);
+      padding: 3px 10px; border-radius: 6px; border: 1px solid #1e293b;
+    }
+    
+    .card-actions {
+      display: flex; gap: 12px; align-items: center; pt: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .btn-action {
+      font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 8px;
+      display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s;
+    }
+    .btn-live { background: var(--brand); color: #fff; }
+    .btn-live:hover { background: #2563eb; }
+    .btn-repo { background: #1e293b; color: #e2e8f0; border: 1px solid #334155; }
+    .btn-repo:hover { background: #334155; color: #fff; }
+    
+    /* CTA Banner */
+    .cta-section {
+      margin-top: 70px; background: linear-gradient(135deg, #131d31 0%, #1e293b 100%);
+      border: 1px solid var(--surface-border); border-radius: var(--radius-lg);
+      padding: 50px 30px; text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-section h2 { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .cta-section p { font-size: 16px; color: var(--muted); max-width: 600px; margin: 0 auto 24px; }
+    .cta-btn {
+      display: inline-block; background: var(--brand); color: #fff; padding: 14px 32px;
+      border-radius: 999px; font-weight: 800; font-size: 16px;
+      box-shadow: 0 10px 25px var(--brand-glow); transition: all 0.2s;
+    }
+    .cta-btn:hover { transform: translateY(-3px); background: #2563eb; }
+    
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--surface-border); margin-top: 80px; padding: 40px 0 20px;
+      color: #64748b; font-size: 14px;
+    }
+    footer .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    footer a { color: var(--brand-accent); }
+    footer a:hover { text-decoration: underline; }
+    
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: 1fr; }
+      .links { display: none; }
+      .menu-btn { display: block; }
+      .hero { padding-top: 120px; }
+      footer .container { flex-direction: column; text-align: center; }
     }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://angsumi.github.io/blog/github-projects.html"
-    },
-    "headline": "All My GitHub Projects — A Complete Overview",
-    "description": "A walkthrough of all my open-source projects, web apps and digital tools built for education, science and business.",
-    "author": {
-      "@type": "Person",
-      "name": "Angsumi"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Angsumi",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://angsumi.github.io/logo.png"
-      }
-    },
-    "datePublished": "2026-08-27"
-  }
-  </script>
 </head>
 <body>
+
+  <!-- Navigation Bar -->
   <header class="nav">
     <div class="container nav-inner">
-      <a class="logo" href="https://angsumi.github.io/"><span class="logo-mark"><img src="/logo.png" alt="Angsumi logo"></span>angsumi</a>
+      <a class="logo" href="https://angsumi.github.io/">
+        <span class="logo-mark"><img src="/logo.png" alt="Angsumi Logo"></span>
+        Angsumi
+      </a>
       <nav class="links">
         <a href="https://angsumi.github.io/">Home</a>
-        <a href="https://angsumi.github.io/blog/">Blog</a>
-        <a href="https://angsumi.github.io/cv/">CV</a>
+        <a href="https://angsumi.github.io/blog/" class="active">Blog</a>
+        <a href="https://angsumi.github.io/cv/">CV & Credentials</a>
+        <a href="https://github.com/Angsumi" target="_blank" rel="noopener">GitHub Profile ↗</a>
       </nav>
-      <a class="nav-cta" href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20am%20interested%20in%20your%20digital%20services." target="_blank" rel="noopener">WhatsApp Us →</a>
-      <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+      <a class="nav-cta" href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20am%20interested%20in%20your%20open-source%20projects." target="_blank" rel="noopener">Contact Us →</a>
+      <button class="menu-btn" aria-label="Toggle Navigation" onclick="toggleMenu()">☰</button>
     </div>
   </header>
 
+  <!-- Main Article Content -->
   <main>
     <article>
-      <div class="article-header container">
-        <div class="breadcrumbs">
-          <a href="https://angsumi.github.io/">Home</a> > 
-          <a href="https://angsumi.github.io/blog/">Blog</a> > 
-          All My GitHub Projects — A Complete Overview
+      <!-- Hero Section -->
+      <section class="hero container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="https://angsumi.github.io/">Home</a> &gt; 
+          <a href="https://angsumi.github.io/blog/">Blog</a> &gt; 
+          <span>All 30 GitHub Projects</span>
+        </nav>
+        
+        <h1>All 30 GitHub Projects &amp; Repositories</h1>
+        <p class="hero-subtitle">
+          An open-source showcase spanning Web Applications, Bioinformatics &amp; Genomic Data Science, EdTech Platforms, Artificial Intelligence, and Regional GIS Datasets built by <strong>Angsuman Das (Angsumi)</strong>.
+        </p>
+        
+        <!-- Live Quick Stats -->
+        <div class="stats-row">
+          <div class="stat-badge">
+            <span class="stat-number">30</span> Total Repositories
+          </div>
+          <div class="stat-badge">
+            <span class="stat-number">12+</span> Live Web Applications
+          </div>
+          <div class="stat-badge">
+            <span class="stat-number">8+</span> Bioinformatics &amp; Research Datasets
+          </div>
         </div>
-        <h1>All My GitHub Projects — A Complete Overview</h1>
-        <div class="article-meta">By Angsumi · August 27, 2026</div>
-      </div>
+      </section>
 
-      <div class="container article-content">
-        <p>A walkthrough of all my open-source projects, web apps and digital tools built for education, science and business.</p>
-        
-        <h2>Live Web Apps (GitHub Pages)</h2>
-        
-        <h3>1. Angsumi Business Site</h3>
-        <p>The main Angsumi digital services landing page for businesses across Northeast India. <a href="https://angsumi.github.io/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
-
-        <h3>2. CV & Portfolio</h3>
-        <p>Personal CV, academic credentials, certificates and download centre. <a href="https://angsumi.github.io/cv/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
-
-        <h3>3. AxomRank / ADRE</h3>
-        <p>ADRE/SLRC exam preparation platform for Assam. <a href="https://angsumi.github.io/ADRE/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
-
-        <h3>4. Geography Learning Platform</h3>
-        <p>Automated web learning platform for Geography: learn, practice, test. <a href="https://angsumi.github.io/Geography/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
-
-        <h3>5. Assam Districts Map</h3>
-        <p>Interactive map of Assam districts built with GeoJSON shapefiles. <a href="https://angsumi.github.io/map/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
-
-        <h3>6. Flood-Relief Report</h3>
-        <p>Digital transparency report and expense tracker for flood relief operations. <a href="https://angsumi.github.io/Flood-Relief/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
-
-        <h3>7. GenoTaste</h3>
-        <p>A genomics/genetics web project. <a href="https://angsumi.github.io/GenoTaste/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
-
-        <h3>8. genone</h3>
-        <p>Genomics/bioinformatics web tool. <a href="https://angsumi.github.io/genone/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
-
-        <h3>9. MD-chakra</h3>
-        <p>A web project by Angsumi. <a href="https://angsumi.github.io/MD-chakra/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
-
-        <h3>10. NIPAM Learning Platform</h3>
-        <p>Online teaching application for teachers, low-infrastructure, no video hosting cost. <a href="https://nipam-fb25f.web.app/" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
-
-        <h3>11. Trishul Innovations</h3>
-        <p>Business website for a solar rooftop and EV solutions company. <a href="https://trishul.tech" class="content-link" target="_blank" rel="noopener">View Project</a>.</p>
-
-
-        <h2>Research & Data Repositories</h2>
-
-        <h3>12. ANGSUMAN (Documents)</h3>
-        <p>Document management and portfolio repository. <a href="https://github.com/Angsumi/ANGSUMAN" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
-
-        <h3>13. INDIAN-SHAPEFILES</h3>
-        <p>Shape files and GeoJSON for India. <a href="https://github.com/Angsumi/INDIAN-SHAPEFILES" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
-
-        <h3>14. Assam_Ethnomedicine</h3>
-        <p>Database of traditional medicine plants across Assam tribes. <a href="https://github.com/Angsumi/Assam_Ethnomedicine" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
-
-        <h3>15. NE-Ethnomedicine</h3>
-        <p>Northeast India ethnomedicine data. <a href="https://github.com/Angsumi/NE-Ethnomedicine" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
-
-        <h3>16. GPT_VISION_FOR_Animal_Classification</h3>
-        <p>GPT Vision for animal taxonomy classification. <a href="https://github.com/Angsumi/GPT_VISION_FOR_Animal_Classification" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
-
-        <h3>17. RNA_DE_Novo_Analysis</h3>
-        <p>RNA de novo analysis pipeline. <a href="https://github.com/Angsumi/RNA_DE_Novo_Analysis" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
-
-        <h3>18. DOMESTICATION_URBANIZATION</h3>
-        <p>Gut microbiome changes during domestication and urbanization. <a href="https://github.com/Angsumi/DOMESTICATION_URBANIZATION" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
-
-        <h3>19. population_simulator</h3>
-        <p>Population dynamics simulator. <a href="https://github.com/Angsumi/population_simulator" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
-
-        <h3>20. metagenome-md</h3>
-        <p>Metagenomics analysis. <a href="https://github.com/Angsumi/metagenome-md" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
-
-        <h3>21. AHOM</h3>
-        <p>Ahom History Learning App. <a href="https://github.com/Angsumi/AHOM" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
-
-        <h3>22. Crimes-in-India</h3>
-        <p>EDA on 2011 census and 2013 criminal data. <a href="https://github.com/Angsumi/Crimes-in-India" class="content-link" target="_blank" rel="noopener">View Repository</a>.</p>
-        
-        <div class="cta-box">
-          <h3>Want a digital system built for your business?</h3>
-          <a href="https://angsumi.github.io/#contact" class="cta-button">Contact Angsumi</a>
+      <div class="container">
+        <!-- Interactive Controls (Search & Category Tabs) -->
+        <div class="controls-wrapper">
+          <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search projects by keyword, tech stack (React, Python, Next.js, GIS...)" onkeyup="filterProjects()">
+          
+          <div class="filter-tabs">
+            <button class="tab-btn active" onclick="setCategory('all', this)">All Projects (30)</button>
+            <button class="tab-btn" onclick="setCategory('web', this)">Live Web Apps (12)</button>
+            <button class="tab-btn" onclick="setCategory('bioinformatics', this)">Bioinformatics &amp; Science (8)</button>
+            <button class="tab-btn" onclick="setCategory('edtech', this)">Educational Platforms (5)</button>
+            <button class="tab-btn" onclick="setCategory('ai-gis', this)">AI, Data Science &amp; GIS (5)</button>
+          </div>
         </div>
+
+        <!-- Project Cards Bento Grid -->
+        <div class="grid" id="projectGrid">
+
+          <!-- 1. ADRE -->
+          <div class="card" data-category="web edtech" data-search="adre axomrank exam prep nextjs typescript rank calculator assam">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">EdTech / Web</span>
+                <span class="tag tag-live">Live App 🚀</span>
+              </div>
+              <h2 class="card-title">ADRE (AxomRank) Exam Platform</h2>
+              <p class="card-desc">Next.js exam prep platform for ADRE (Assam Direct Recruitment Examination) featuring Previous Year Question (PYQ) solvers, mock test engines, and rank calculators.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Next.js 14</span>
+                <span class="tech-pill">React 18</span>
+                <span class="tech-pill">TypeScript</span>
+                <span class="tech-pill">Tailwind CSS</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://angsumi.github.io/ADRE/" target="_blank" rel="noopener" class="btn-action btn-live">🚀 Live Demo</a>
+              <a href="https://github.com/Angsumi/ADRE" target="_blank" rel="noopener" class="btn-action btn-repo">📦 Code</a>
+            </div>
+          </div>
+
+          <!-- 2. AHOM -->
+          <div class="card" data-category="edtech web" data-search="ahom history assam exam quiz education javascript">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">EdTech</span>
+                <span class="tag tag-live">Live App 🚀</span>
+              </div>
+              <h2 class="card-title">AHOM Dynasty History Platform</h2>
+              <p class="card-desc">Interactive web app and study guide covering the history, rulers, battles, and lineage of the Ahom Dynasty in Assam for competitive exam aspirants.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">HTML5</span>
+                <span class="tech-pill">CSS3</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">JSON</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://angsumi.github.io/AHOM/" target="_blank" rel="noopener" class="btn-action btn-live">🚀 Live Demo</a>
+              <a href="https://github.com/Angsumi/AHOM" target="_blank" rel="noopener" class="btn-action btn-repo">📦 Code</a>
+            </div>
+          </div>
+
+          <!-- 3. ANGSUMAN -->
+          <div class="card" data-category="web" data-search="angsuman portfolio resume generator nodejs express pdf binder">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Full-Stack Utility</span>
+                <span class="tag tag-live">Live App 🚀</span>
+              </div>
+              <h2 class="card-title">ANGSUMAN Academic Portfolio &amp; PDF Binder</h2>
+              <p class="card-desc">Full-stack dynamic portfolio and resume generator featuring interactive client profile templates, publication archives, and multi-document PDF binder utilities.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">Express</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">PDF Tools</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://angsumi.github.io/ANGSUMAN/" target="_blank" rel="noopener" class="btn-action btn-live">🚀 Live Demo</a>
+              <a href="https://github.com/Angsumi/ANGSUMAN" target="_blank" rel="noopener" class="btn-action btn-repo">📦 Code</a>
+            </div>
+          </div>
+
+          <!-- 4. Angsumi.github.io -->
+          <div class="card" data-category="web" data-search="angsumi digital agency portfolio website landing page">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Official Web</span>
+                <span class="tag tag-live">Live App 🚀</span>
+              </div>
+              <h2 class="card-title">Angsumi Digital Services Portal</h2>
+              <p class="card-desc">Official website and digital agency portfolio for Angsumi, showcasing custom web solutions, educational apps, SEO architecture, and research projects.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">HTML5</span>
+                <span class="tech-pill">CSS3</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">Schema.org SEO</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://angsumi.github.io/" target="_blank" rel="noopener" class="btn-action btn-live">🚀 Live Demo</a>
+              <a href="https://github.com/Angsumi/Angsumi.github.io" target="_blank" rel="noopener" class="btn-action btn-repo">📦 Code</a>
+            </div>
+          </div>
+
+          <!-- 5. API-App -->
+          <div class="card" data-category="web" data-search="api app testing rest integration javascript python">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Developer Utility</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">API-App Utility Suite</h2>
+              <p class="card-desc">Lightweight web application and utility suite designed for REST API endpoint integration, request benchmarking, and client-side payload handling.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">REST APIs</span>
+                <span class="tech-pill">JSON</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/API-App" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 6. Assam_Ethnomedicine -->
+          <div class="card" data-category="bioinformatics" data-search="assam ethnomedicine traditional medicine plants indigenous tribes database">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Bioinformatics</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">Assam Ethnomedicine Database</h2>
+              <p class="card-desc">Curated research database and documentation cataloging traditional medicinal plants and ethnobiological healing practices across indigenous tribes of Assam.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Data Science</span>
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">CSV / JSON</span>
+                <span class="tech-pill">Ethnobotany</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/Assam_Ethnomedicine" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 7. Crimes-in-India -->
+          <div class="card" data-category="ai-gis" data-search="crimes in india eda census statistics data science python pandas">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Data Science</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">Crimes in India Exploratory Data Analysis</h2>
+              <p class="card-desc">Exploratory data analysis (EDA) and statistical visualization of Indian crime records correlated with demographic metrics from the 2011 Census of India.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">Jupyter Notebook</span>
+                <span class="tech-pill">Pandas</span>
+                <span class="tech-pill">Seaborn</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/Crimes-in-India" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 8. cv -->
+          <div class="card" data-category="web" data-search="cv curriculum vitae personal resume certificates verification portal">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Web Portal</span>
+                <span class="tag tag-live">Live App 🚀</span>
+              </div>
+              <h2 class="card-title">Interactive Personal CV &amp; Credentials Portal</h2>
+              <p class="card-desc">Interactive personal CV and credentials showcase website featuring verified certificate viewers, publication listings, and official document download links.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">HTML5</span>
+                <span class="tech-pill">CSS3</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">PDF Viewer</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://angsumi.github.io/cv/" target="_blank" rel="noopener" class="btn-action btn-live">🚀 Live Demo</a>
+              <a href="https://github.com/Angsumi/cv" target="_blank" rel="noopener" class="btn-action btn-repo">📦 Code</a>
+            </div>
+          </div>
+
+          <!-- 9. DOMESTICATION_URBANIZATION -->
+          <div class="card" data-category="bioinformatics" data-search="domestication urbanization gut microbiome shannon index biological science research r python colab">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Research / Bio</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">Gut Microbiome Diversity Research</h2>
+              <p class="card-desc">Research data and R statistical scripts analyzing gut microbiome Shannon diversity index shifts across wild, domesticated, and urban animal &amp; human populations.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">R Language</span>
+                <span class="tech-pill">Jupyter Notebook</span>
+                <span class="tech-pill">Microbiomics</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/DOMESTICATION_URBANIZATION" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 10. Flood-Relief -->
+          <div class="card" data-category="web" data-search="flood relief dashboard shivsagar transparency donor chartjs csv">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Web App / Impact</span>
+                <span class="tag tag-live">Live App 🚀</span>
+              </div>
+              <h2 class="card-title">Shivsagar Flood Relief Transparency Portal</h2>
+              <p class="card-desc">Interactive donor dashboard and expense transparency portal for flood relief operations featuring real-time Chart.js analytics and canvas certificate generation.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">Chart.js</span>
+                <span class="tech-pill">HTML5 Canvas</span>
+                <span class="tech-pill">CSV Parser</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://angsumi.github.io/Flood-Relief/" target="_blank" rel="noopener" class="btn-action btn-live">🚀 Live Demo</a>
+              <a href="https://github.com/Angsumi/Flood-Relief" target="_blank" rel="noopener" class="btn-action btn-repo">📦 Code</a>
+            </div>
+          </div>
+
+          <!-- 11. genone -->
+          <div class="card" data-category="web" data-search="genone youth organization web portal website directory">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Community Web</span>
+                <span class="tag tag-live">Live App 🚀</span>
+              </div>
+              <h2 class="card-title">GenOne Community Web Portal</h2>
+              <p class="card-desc">Official web portal and executive committee directory for the GenOne youth community organization ("One Generation. One Future.").</p>
+              <div class="tech-stack">
+                <span class="tech-pill">HTML5</span>
+                <span class="tech-pill">CSS3</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">CSV Integration</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://angsumi.github.io/genone/" target="_blank" rel="noopener" class="btn-action btn-live">🚀 Live Demo</a>
+              <a href="https://github.com/Angsumi/genone" target="_blank" rel="noopener" class="btn-action btn-repo">📦 Code</a>
+            </div>
+          </div>
+
+          <!-- 12. GenoTaste -->
+          <div class="card" data-category="bioinformatics web" data-search="genotaste genomic wellness caffeine metabolism cyp1a2 adora2a sleep optimization">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Genomics / Web</span>
+                <span class="tag tag-live">Live App 🚀</span>
+              </div>
+              <h2 class="card-title">GenoTaste Genomic Wellness Platform</h2>
+              <p class="card-desc">Interactive genomic wellness calculator modeling caffeine metabolism (CYP1A2 enzyme) and genetic sleep cut-off recommendations based on DNA reports.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">HTML5</span>
+                <span class="tech-pill">CSS3</span>
+                <span class="tech-pill">Nutrigenomics</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://angsumi.github.io/GenoTaste/" target="_blank" rel="noopener" class="btn-action btn-live">🚀 Live Demo</a>
+              <a href="https://github.com/Angsumi/GenoTaste" target="_blank" rel="noopener" class="btn-action btn-repo">📦 Code</a>
+            </div>
+          </div>
+
+          <!-- 13. Geography -->
+          <div class="card" data-category="edtech web" data-search="geography learning platform assam Northeast react vite interactive study">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">EdTech Platform</span>
+                <span class="tag tag-live">Live App 🚀</span>
+              </div>
+              <h2 class="card-title">Interactive Geography Learning Platform</h2>
+              <p class="card-desc">Interactive 4-tier geography learning platform for Assam, Northeast India, and Indian Geography built with React 19, active-recall flashcards, and MCQ exams.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">React 19</span>
+                <span class="tech-pill">Vite</span>
+                <span class="tech-pill">Framer Motion</span>
+                <span class="tech-pill">Tailwind CSS</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://angsumi.github.io/Geography/" target="_blank" rel="noopener" class="btn-action btn-live">🚀 Live Demo</a>
+              <a href="https://github.com/Angsumi/Geography" target="_blank" rel="noopener" class="btn-action btn-repo">📦 Code</a>
+            </div>
+          </div>
+
+          <!-- 14. GitHubGraduation-2021 -->
+          <div class="card" data-category="web" data-search="github graduation 2021 student developer yearbook open source">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Open Source</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">GitHub Graduation 2021 Yearbook</h2>
+              <p class="card-desc">GitHub Graduation 2021 yearbook participation repository containing student profiles, graduation badges, and community automation workflows.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Markdown</span>
+                <span class="tech-pill">JSON</span>
+                <span class="tech-pill">GitHub Actions</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/GitHubGraduation-2021" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 15. GPT_VISION_FOR_Animal_Classification -->
+          <div class="card" data-category="ai-gis" data-search="gpt vision animal classification openai gpt4 vision taxonomy python computer vision">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">AI / Computer Vision</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">GPT-4 Vision Animal Classifier</h2>
+              <p class="card-desc">Automated animal species and taxonomy classification pipeline leveraging the OpenAI GPT-4 Vision API for computer vision-based biological identification.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">OpenAI GPT-4V API</span>
+                <span class="tech-pill">Jupyter Notebook</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/GPT_VISION_FOR_Animal_Classification" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 16. INDIAN-SHAPEFILES -->
+          <div class="card" data-category="ai-gis" data-search="indian shapefiles geojson topojson gis india boundary district state constituency">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">GIS / Spatial Data</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">Indian GIS Shapefiles &amp; GeoJSON</h2>
+              <p class="card-desc">Geospatial dataset repository containing ESRI Shapefiles (.shp), GeoJSON, and TopoJSON layers for Indian national, state, district, and parliamentary boundaries.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">GIS</span>
+                <span class="tech-pill">GeoJSON</span>
+                <span class="tech-pill">Shapefiles</span>
+                <span class="tech-pill">TopoJSON</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/INDIAN-SHAPEFILES" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 17. Life-Science-Book -->
+          <div class="card" data-category="edtech bioinformatics" data-search="life science book study notes csir net biological science education">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">EdTech / Science</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">Life Sciences Study Resources</h2>
+              <p class="card-desc">Educational repository containing Life Sciences study resources, textbook curriculum outlines, and revision guides tailored for competitive biological science exams.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Biological Sciences</span>
+                <span class="tech-pill">Curriculum Notes</span>
+                <span class="tech-pill">Markdown</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/Life-Science-Book" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 18. map -->
+          <div class="card" data-category="ai-gis web" data-search="map assam district web map interactive leaflet geojson gis">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">GIS / Web App</span>
+                <span class="tag tag-live">Live App 🚀</span>
+              </div>
+              <h2 class="card-title">Assam District Web Map</h2>
+              <p class="card-desc">Interactive web mapping application rendering district-level administrative maps of Assam with interactive boundary highlighting built with GeoJSON and Leaflet.js.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Leaflet.js</span>
+                <span class="tech-pill">GeoJSON</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">HTML5</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://angsumi.github.io/map/" target="_blank" rel="noopener" class="btn-action btn-live">🚀 Live Demo</a>
+              <a href="https://github.com/Angsumi/map" target="_blank" rel="noopener" class="btn-action btn-repo">📦 Code</a>
+            </div>
+          </div>
+
+          <!-- 19. MD-chakra -->
+          <div class="card" data-category="bioinformatics web" data-search="md chakra frontend component react transcriptomics molecular dynamics">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Web App / Bio</span>
+                <span class="tag tag-live">Live App 🚀</span>
+              </div>
+              <h2 class="card-title">MD-Chakra Component Interface</h2>
+              <p class="card-desc">Frontend web application and interactive component dashboard built with Chakra UI supporting transcriptomics visualization and molecular analytics.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">React</span>
+                <span class="tech-pill">Chakra UI</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">Data Viz</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://angsumi.github.io/MD-chakra/" target="_blank" rel="noopener" class="btn-action btn-live">🚀 Live Demo</a>
+              <a href="https://github.com/Angsumi/MD-chakra" target="_blank" rel="noopener" class="btn-action btn-repo">📦 Code</a>
+            </div>
+          </div>
+
+          <!-- 20. metagenome-md -->
+          <div class="card" data-category="bioinformatics" data-search="metagenome metagenomics qiime2 16s rrna microbial community bioinformatics sequencing">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Bioinformatics</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">Metagenomics Protocol Pipeline</h2>
+              <p class="card-desc">Bioinformatics repository containing metagenomics analysis protocols, QIIME2 analytical workflows, and 16S rRNA microbial community profiling pipelines.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Bioinformatics</span>
+                <span class="tech-pill">QIIME2</span>
+                <span class="tech-pill">16S rRNA</span>
+                <span class="tech-pill">Python</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/metagenome-md" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 21. My-Certificate -->
+          <div class="card" data-category="web" data-search="my certificate academic credentials diplomas verification archive">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Credentials Archive</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">Academic &amp; Professional Credentials Vault</h2>
+              <p class="card-desc">Centralized document repository storing personal academic credentials, university diplomas, specialized course certifications, and qualification records.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">PDF Archive</span>
+                <span class="tech-pill">Documentation</span>
+                <span class="tech-pill">Credentials</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/My-Certificate" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 22. NE-Ethnomedicine -->
+          <div class="card" data-category="bioinformatics" data-search="ne ethnomedicine northeast india traditional medicinal plants database jupyter">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Bioinformatics</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">Northeast India Ethnomedicine Research</h2>
+              <p class="card-desc">Ethnomedicinal database and Jupyter Notebooks cataloging traditional medicinal plants and ethnobotanical formulations across Northeast Indian tribes.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Jupyter Notebook</span>
+                <span class="tech-pill">Data Science</span>
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">Ethnobotany</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/NE-Ethnomedicine" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 23. NIvedita -->
+          <div class="card" data-category="web" data-search="nivedita personal web project digital portfolio">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Personal Project</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">Nivedita Digital Portfolio Project</h2>
+              <p class="card-desc">Personal web and academic project repository containing digital resources, presentation materials, and custom interactive web components.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">HTML5</span>
+                <span class="tech-pill">CSS3</span>
+                <span class="tech-pill">JavaScript</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/NIvedita" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 24. population_simulator -->
+          <div class="card" data-category="ai-gis bioinformatics" data-search="population simulator growth dynamics biological simulation python numpy matplotlib">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Simulation / Science</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">Biological Population Simulator</h2>
+              <p class="card-desc">Python-based computational simulation tool modeling biological population dynamics, exponential/logistic growth curves, carrying capacity, and demographic shifts.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">NumPy</span>
+                <span class="tech-pill">Matplotlib</span>
+                <span class="tech-pill">Biostatistics</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/population_simulator" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 25. Pyhton-excercise -->
+          <div class="card" data-category="web" data-search="python exercises mini games web scraping algorithms python-excercise">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Developer Utility</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">Python Exercises, Games &amp; Web Scraping</h2>
+              <p class="card-desc">Python practice codebase featuring interactive terminal mini-games, web scraping utilities, and algorithmic problem-solving exercises.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Python 3</span>
+                <span class="tech-pill">Web Scraping</span>
+                <span class="tech-pill">Algorithms</span>
+                <span class="tech-pill">Mini-Games</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/Pyhton-excercise" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 26. RNA_DE_Novo_Analysis -->
+          <div class="card" data-category="bioinformatics" data-search="rna de novo analysis rna-seq transcriptome assembly differential gene expression bioinformatics">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Bioinformatics</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">RNA-Seq De Novo Assembly Pipeline</h2>
+              <p class="card-desc">Bioinformatics execution pipeline for de novo RNA-Seq transcriptome assembly, transcript quantification, and differential gene expression analysis.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">RNA-Seq</span>
+                <span class="tech-pill">R / Bioconductor</span>
+                <span class="tech-pill">Transcriptomics</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/RNA_DE_Novo_Analysis" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 27. Teacher_App -->
+          <div class="card" data-category="edtech web" data-search="teacher app nipam flutter fastapi docker gcp education platform">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">EdTech Suite</span>
+                <span class="tag tag-live">Live App 🚀</span>
+              </div>
+              <h2 class="card-title">NIPAM Distraction-Free Educational Platform</h2>
+              <p class="card-desc">Distraction-free educational app suite featuring a Flutter cross-platform mobile/web frontend, Python FastAPI backend, Docker setup, and GCP deployment.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Flutter</span>
+                <span class="tech-pill">Dart</span>
+                <span class="tech-pill">FastAPI</span>
+                <span class="tech-pill">Docker</span>
+                <span class="tech-pill">GCP</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://nipam-fb25f.web.app/" target="_blank" rel="noopener" class="btn-action btn-live">🚀 Live Demo</a>
+              <a href="https://github.com/Angsumi/Teacher_App" target="_blank" rel="noopener" class="btn-action btn-repo">📦 Code</a>
+            </div>
+          </div>
+
+          <!-- 28. Teaching-schools -->
+          <div class="card" data-category="edtech" data-search="teaching schools educational materials lesson plans classroom students">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">EdTech Resources</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">School Teaching Materials &amp; Curriculum</h2>
+              <p class="card-desc">Collection of educational resources, detailed lesson plans, and classroom instructional materials created for school students in science and technology.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">Educational Notes</span>
+                <span class="tech-pill">Curriculum</span>
+                <span class="tech-pill">Science Pedagogy</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/Teaching-schools" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 29. the-floor-test -->
+          <div class="card" data-category="web" data-search="the floor test simulator legislative voting assembly constitutional interactive javascript">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Web Simulation</span>
+                <span class="tag tag-repo">Open Source 📦</span>
+              </div>
+              <h2 class="card-title">Legislative Floor Test Simulator</h2>
+              <p class="card-desc">Interactive JavaScript web application simulating constitutional parliamentary floor test procedures and majority voting mechanisms.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">HTML5</span>
+                <span class="tech-pill">CSS3</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/Angsumi/the-floor-test" target="_blank" rel="noopener" class="btn-action btn-repo">📦 GitHub Repo</a>
+            </div>
+          </div>
+
+          <!-- 30. Trishul -->
+          <div class="card" data-category="web" data-search="trishul innovations solar rooftop ev charging web app react tailwind">
+            <div>
+              <div class="card-tags">
+                <span class="tag tag-category">Business Platform</span>
+                <span class="tag tag-live">Live App 🚀</span>
+              </div>
+              <h2 class="card-title">Trishul Innovations Platform</h2>
+              <p class="card-desc">Modern web platform built for Trishul Innovations, providing rooftop solar power system design and EV charging infrastructure solutions.</p>
+              <div class="tech-stack">
+                <span class="tech-pill">React 19</span>
+                <span class="tech-pill">Vite</span>
+                <span class="tech-pill">Tailwind CSS</span>
+                <span class="tech-pill">TypeScript</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="https://trishul.tech" target="_blank" rel="noopener" class="btn-action btn-live">🚀 Live Demo</a>
+              <a href="https://github.com/Angsumi/Trishul" target="_blank" rel="noopener" class="btn-action btn-repo">📦 Code</a>
+            </div>
+          </div>
+
+        </div> <!-- End Grid -->
+
+        <!-- CTA Collaboration Banner -->
+        <section class="cta-section">
+          <h2>Need Custom Web Infrastructure or Bioinformatics Solutions?</h2>
+          <p>Whether you need custom full-stack web applications, educational platforms, or genomic data analysis pipelines, Angsumi Digital Services delivers end-to-end solutions.</p>
+          <a href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20saw%20your%20GitHub%20projects%20and%20want%20to%20collaborate." target="_blank" rel="noopener" class="cta-btn">Start a Project →</a>
+        </section>
       </div>
     </article>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
-      <div><strong style="color:var(--ink)">Angsumi</strong> — digital infrastructure for growing businesses.</div>
-      <div><a href="mailto:angudas62@gmail.com">angudas62@gmail.com</a> · <a href="https://wa.me/917896595109" target="_blank" rel="noopener">+91 78965 95109</a> · © 2026 Angsumi</div>
+      <div><strong>Angsumi</strong> — Digital Infrastructure &amp; Bioinformatics Data Science.</div>
+      <div>
+        <a href="mailto:angudas62@gmail.com">angudas62@gmail.com</a> · 
+        <a href="https://wa.me/917896595109" target="_blank" rel="noopener">+91 78965 95109</a> · 
+        © 2026 Angsumi
+      </div>
     </div>
   </footer>
 
+  <!-- Client-Side Filtering & Search Logic -->
   <script>
-    function toggleMenu(){
-      const links=document.querySelector('.links');
-      links.style.display = links.style.display==='flex' ? 'none' : 'flex';
-      if(links.style.display==='flex'){
-        links.style.position='absolute'; links.style.top='76px'; links.style.left='0'; links.style.right='0';
-        links.style.padding='18px 20px'; links.style.background='rgba(247,248,250,.98)';
-        links.style.flexDirection='column'; links.style.alignItems='flex-start'; links.style.borderBottom='1px solid var(--line)';
+    let currentCategory = 'all';
+
+    function setCategory(category, buttonEl) {
+      currentCategory = category;
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      buttonEl.classList.add('active');
+      filterProjects();
+    }
+
+    function filterProjects() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.grid .card');
+
+      cards.forEach(card => {
+        const categories = card.getAttribute('data-category');
+        const searchText = card.getAttribute('data-search').toLowerCase();
+
+        const matchesCategory = (currentCategory === 'all') || categories.includes(currentCategory);
+        const matchesSearch = query === '' || searchText.includes(query);
+
+        if (matchesCategory && matchesSearch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function toggleMenu() {
+      const links = document.querySelector('.links');
+      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+      if (links.style.display === 'flex') {
+        links.style.position = 'absolute';
+        links.style.top = '74px';
+        links.style.left = '0';
+        links.style.right = '0';
+        links.style.padding = '20px';
+        links.style.background = '#0b1220';
+        links.style.flexDirection = 'column';
+        links.style.alignItems = 'flex-start';
+        links.style.borderBottom = '1px solid #233454';
       }
     }
   </script>
