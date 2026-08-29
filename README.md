@@ -20,4 +20,4 @@ The official digital agency portfolio website for Angsumi. Hosted directly on Gi
    Open `index.html` in your web browser.
 
 ## 🔗 Live Site
-Visit the live portfolio at: [https://angsumi.github.io](https://angsumi.github.io)
+Visit the live portfolio at: [https://angsumi.online](https://angsumi.online)

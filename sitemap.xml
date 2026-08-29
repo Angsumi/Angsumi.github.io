@@ -3,13 +3,13 @@
 
   <!-- ===== MAIN BUSINESS SITE ===== -->
   <url>
-    <loc>https://angsumi.github.io/</loc>
+    <loc>https://angsumi.online/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://angsumi.github.io/business/</loc>
+    <loc>https://angsumi.online/business/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
@@ -17,31 +17,31 @@
 
   <!-- ===== BLOG ===== -->
   <url>
-    <loc>https://angsumi.github.io/blog/</loc>
+    <loc>https://angsumi.online/blog/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://angsumi.github.io/blog/github-projects.html</loc>
+    <loc>https://angsumi.online/blog/github-projects.html</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://angsumi.github.io/blog/website-cost-assam.html</loc>
+    <loc>https://angsumi.online/blog/website-cost-assam.html</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://angsumi.github.io/blog/clinic-digital-system.html</loc>
+    <loc>https://angsumi.online/blog/clinic-digital-system.html</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://angsumi.github.io/blog/school-web-design-assam.html</loc>
+    <loc>https://angsumi.online/blog/school-web-design-assam.html</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -49,13 +49,13 @@
 
   <!-- ===== CV & PORTFOLIO ===== -->
   <url>
-    <loc>https://angsumi.github.io/cv/</loc>
+    <loc>https://angsumi.online/cv/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://angsumi.github.io/cv/download.html</loc>
+    <loc>https://angsumi.online/cv/download.html</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -63,7 +63,7 @@
 
   <!-- ===== ADRE / AXOMRANK ===== -->
   <url>
-    <loc>https://angsumi.github.io/ADRE/</loc>
+    <loc>https://angsumi.online/ADRE/</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -71,7 +71,7 @@
 
   <!-- ===== GEOGRAPHY LEARNING PLATFORM ===== -->
   <url>
-    <loc>https://angsumi.github.io/Geography/</loc>
+    <loc>https://angsumi.online/Geography/</loc>
     <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -79,7 +79,7 @@
 
   <!-- ===== ASSAM MAP ===== -->
   <url>
-    <loc>https://angsumi.github.io/map/</loc>
+    <loc>https://angsumi.online/map/</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -87,13 +87,13 @@
 
   <!-- ===== FLOOD RELIEF ===== -->
   <url>
-    <loc>https://angsumi.github.io/Flood-Relief/</loc>
+    <loc>https://angsumi.online/Flood-Relief/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://angsumi.github.io/Flood-Relief/expenses.html</loc>
+    <loc>https://angsumi.online/Flood-Relief/expenses.html</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -101,7 +101,7 @@
 
   <!-- ===== GENOTASTE ===== -->
   <url>
-    <loc>https://angsumi.github.io/GenoTaste/</loc>
+    <loc>https://angsumi.online/GenoTaste/</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -109,7 +109,7 @@
 
   <!-- ===== GENONE ===== -->
   <url>
-    <loc>https://angsumi.github.io/genone/</loc>
+    <loc>https://angsumi.online/genone/</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -117,7 +117,7 @@
 
   <!-- ===== MD-CHAKRA ===== -->
   <url>
-    <loc>https://angsumi.github.io/MD-chakra/</loc>
+    <loc>https://angsumi.online/MD-chakra/</loc>
     <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
