@@ -333,8 +333,17 @@
     .industry-card:hover .icon { transform: scale(1.12) rotate(-5deg); }
     
     .industry-card h3 { font-size: 20px; font-weight: 850; letter-spacing: -.025em; transition: color 0.25s; }
-    .industry-card p { font-size: 14px; color: var(--muted); margin-top: 8px; line-height: 1.55; }
-    
+    .industry-bullets {
+      list-style: none; margin-top: 10px; display: grid; gap: 4px; padding: 0;
+    }
+    .industry-bullets li {
+      font-size: 13px; color: var(--muted); font-weight: 650;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .industry-bullets li::before {
+      content: "•"; color: var(--brand); font-weight: 900; font-size: 14px;
+    }
+
     .tag { display: inline-flex; align-items: center; gap: 6px; margin-top: 22px; font-size: 13px; font-weight: 850; color: var(--brand); }
     .tag .arrow { display: inline-block; transition: transform 0.25s ease; }
     .industry-card:hover .tag .arrow { transform: translateX(6px); }
@@ -755,7 +764,12 @@
             <div>
               <div class="icon">✚</div>
               <h3>Doctors &amp; Clinics</h3>
-              <p>Appointments, digital prescriptions, patient records, billing, and automated WhatsApp reminders.</p>
+              <ul class="industry-bullets">
+                <li>Appointments</li>
+                <li>Patient Records</li>
+                <li>Digital Prescriptions</li>
+                <li>WhatsApp Reminders</li>
+              </ul>
             </div>
             <a class="tag" href="#proof">Explore ClinicOS <span class="arrow">→</span></a>
           </article>
@@ -763,7 +777,12 @@
             <div>
               <div class="icon">🏫</div>
               <h3>Schools &amp; Coaching</h3>
-              <p>Admissions, student fee tracking, parent announcements, and attendance management.</p>
+              <ul class="industry-bullets">
+                <li>Online Admissions</li>
+                <li>Student Fee Tracking</li>
+                <li>Parent Notices</li>
+                <li>Attendance System</li>
+              </ul>
             </div>
             <a class="tag" href="#proof">Explore SchoolOS <span class="arrow">→</span></a>
           </article>
@@ -771,7 +790,12 @@
             <div>
               <div class="icon">📚</div>
               <h3>Teachers &amp; Educators</h3>
-              <p>Branded learning portals with notes, quizzes, payments, and low-cost course delivery.</p>
+              <ul class="industry-bullets">
+                <li>Course Portals</li>
+                <li>Notes &amp; PDF Library</li>
+                <li>Automated Quizzes</li>
+                <li>Fee &amp; Payment Engine</li>
+              </ul>
             </div>
             <a class="tag" href="#proof">Explore LearnOS <span class="arrow">→</span></a>
           </article>
@@ -779,7 +803,12 @@
             <div>
               <div class="icon">🛍️</div>
               <h3>Local Businesses</h3>
-              <p>High-converting business catalogs, booking engines, lead forms, and Google Maps SEO.</p>
+              <ul class="industry-bullets">
+                <li>Product Catalogs</li>
+                <li>Lead Booking Engine</li>
+                <li>Google Maps SEO</li>
+                <li>Direct WhatsApp Orders</li>
+              </ul>
             </div>
             <a class="tag" href="#proof">Explore BusinessOS <span class="arrow">→</span></a>
           </article>
