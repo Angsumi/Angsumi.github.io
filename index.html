@@ -291,17 +291,38 @@
 
     .industries { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 20px; }
     .industry-card {
-      background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px;
-      transition: transform .25s, box-shadow .25s; display: flex; flex-direction: column; justify-space-between;
+      background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, background 0.35s;
+      display: flex; flex-direction: column; justify-space-between; position: relative; overflow: hidden;
+      cursor: pointer;
     }
-    .industry-card:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(11,18,32,.06); background: #fff; }
+    .industry-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--ink); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .industry-card:hover {
+      transform: translateY(-8px) scale(1.015);
+      border-color: #cbd5e1;
+      box-shadow: 0 25px 45px rgba(11, 18, 32, 0.09);
+      background: #ffffff;
+    }
+    .industry-card:hover::after { transform: scaleX(1); }
+    .industry-card:active { transform: translateY(-2px) scale(0.995); }
+    
     .icon {
-      width: 48px; height: 48px; border-radius: 14px; background: var(--soft); color: var(--brand);
-      display: grid; place-items: center; font-size: 22px; margin-bottom: 20px; font-weight: 900;
+      width: 50px; height: 50px; border-radius: 16px; background: var(--soft); color: var(--brand);
+      display: grid; place-items: center; font-size: 24px; margin-bottom: 22px; font-weight: 900;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .industry-card h3 { font-size: 20px; font-weight: 800; letter-spacing: -.02em; }
-    .industry-card p { font-size: 14px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
-    .tag { display: inline-flex; align-items: center; gap: 4px; margin-top: 20px; font-size: 13px; font-weight: 800; color: var(--brand); }
+    .industry-card:hover .icon { transform: scale(1.12) rotate(-5deg); }
+    
+    .industry-card h3 { font-size: 20px; font-weight: 850; letter-spacing: -.025em; transition: color 0.25s; }
+    .industry-card p { font-size: 14px; color: var(--muted); margin-top: 8px; line-height: 1.55; }
+    
+    .tag { display: inline-flex; align-items: center; gap: 6px; margin-top: 22px; font-size: 13px; font-weight: 850; color: var(--brand); }
+    .tag .arrow { display: inline-block; transition: transform 0.25s ease; }
+    .industry-card:hover .tag .arrow { transform: translateX(6px); }
 
 
 
@@ -563,37 +584,37 @@
         <!-- Industry Solutions Grid -->
         <h3 style="font-size:24px; font-weight:850; letter-spacing:-.03em; margin-bottom:20px">Tailored Ecosystems for Your Work</h3>
         <div class="industries">
-          <article class="industry-card">
+          <article class="industry-card" onclick="location.href='#proof'">
             <div>
               <div class="icon">✚</div>
               <h3>Doctors &amp; Clinics</h3>
               <p>Appointments, digital prescriptions, patient records, billing, and automated WhatsApp reminders.</p>
             </div>
-            <a class="tag" href="#proof">Explore ClinicOS →</a>
+            <a class="tag" href="#proof">Explore ClinicOS <span class="arrow">→</span></a>
           </article>
-          <article class="industry-card">
+          <article class="industry-card" onclick="location.href='#proof'">
             <div>
               <div class="icon">🏫</div>
               <h3>Schools &amp; Coaching</h3>
               <p>Admissions, student fee tracking, parent announcements, and attendance management.</p>
             </div>
-            <a class="tag" href="#proof">Explore SchoolOS →</a>
+            <a class="tag" href="#proof">Explore SchoolOS <span class="arrow">→</span></a>
           </article>
-          <article class="industry-card">
+          <article class="industry-card" onclick="location.href='#proof'">
             <div>
               <div class="icon">📚</div>
               <h3>Teachers &amp; Educators</h3>
               <p>Branded learning portals with notes, quizzes, payments, and low-cost course delivery.</p>
             </div>
-            <a class="tag" href="#proof">Explore LearnOS →</a>
+            <a class="tag" href="#proof">Explore LearnOS <span class="arrow">→</span></a>
           </article>
-          <article class="industry-card">
+          <article class="industry-card" onclick="location.href='#proof'">
             <div>
               <div class="icon">🛍️</div>
               <h3>Local Businesses</h3>
               <p>High-converting business catalogs, booking engines, lead forms, and Google Maps SEO.</p>
             </div>
-            <a class="tag" href="#proof">Explore BusinessOS →</a>
+            <a class="tag" href="#proof">Explore BusinessOS <span class="arrow">→</span></a>
           </article>
         </div>
 
