@@ -455,24 +455,60 @@
        ========================================================= */
     .cta-section { padding-bottom: 110px; }
     .contact-box {
-      background: #0b1220; color: #fff; border-radius: 32px; padding: 52px;
-      display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 50px; box-shadow: var(--shadow);
+      background: linear-gradient(145deg, #0b1220 0%, #0f1c30 100%);
+      color: #fff; border-radius: 32px; padding: 52px;
+      border: 1px solid #1e2d45;
+      display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 50px;
+      box-shadow: 0 25px 60px rgba(11, 18, 32, 0.15); position: relative; overflow: hidden;
     }
-    .contact-left h2 { color: #fff; font-size: clamp(32px, 3.5vw, 46px); line-height: 1.06; }
+    .contact-left h2 { color: #fff; font-size: clamp(32px, 3.5vw, 46px); line-height: 1.06; letter-spacing: -.03em; }
     .contact-left p { color: #94a3b8; margin-top: 16px; font-size: 16px; line-height: 1.6; }
-    .contact-info { margin-top: 28px; display: grid; gap: 12px; font-size: 15px; }
-    .contact-info a { display: inline-flex; align-items: center; gap: 10px; color: #e2e8f0; font-weight: 700; transition: color .2s; }
-    .contact-info a:hover { color: #38bdf8; }
-
-    form { display: grid; gap: 12px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    input, select, textarea {
-      width: 100%; border: 1px solid #243247; background: #121c2c; color: #fff;
-      border-radius: 14px; padding: 14px 16px; outline: none; transition: border-color .2s;
+    
+    .contact-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+    .contact-badge { background: #132238; border: 1px solid #203554; color: #38bdf8; font-size: 12px; font-weight: 800; padding: 6px 14px; border-radius: 999px; }
+    
+    .contact-info { margin-top: 28px; display: grid; gap: 12px; }
+    .contact-chip {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #111d2e; border: 1px solid #20334d; padding: 13px 18px; border-radius: 16px;
+      color: #fff; font-weight: 750; font-size: 14.5px; transition: all 0.25s ease; text-decoration: none;
     }
+    .contact-chip:hover {
+      background: #192b45; border-color: #38bdf8; transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .contact-chip.wa { color: #34d399; }
+    .contact-chip.wa:hover { border-color: #34d399; }
+
+    form { display: grid; gap: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    input, select, textarea {
+      width: 100%; border: 1px solid #23344d; background: #111d2e; color: #fff;
+      border-radius: 14px; padding: 14px 18px; outline: none; font-size: 14.5px;
+      transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+    }
+    select { cursor: pointer; }
+    option { background: #0b1220; color: #fff; }
     textarea { min-height: 110px; resize: vertical; }
     input::placeholder, textarea::placeholder { color: #64748b; }
-    input:focus, select:focus, textarea:focus { border-color: #38bdf8; }
+    input:focus, select:focus, textarea:focus {
+      border-color: #38bdf8; background: #15243a;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+
+    .form-submit-btn {
+      width: 100%; background: linear-gradient(135deg, #1257d6 0%, #0d44a8 100%);
+      color: #fff; border: none; border-radius: 999px; padding: 16px;
+      font-size: 16px; font-weight: 850; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      box-shadow: 0 10px 25px rgba(18, 87, 214, 0.35); transition: all 0.25s ease;
+    }
+    .form-submit-btn:hover {
+      background: linear-gradient(135deg, #1d64e8 0%, #1257d6 100%);
+      transform: translateY(-2px); box-shadow: 0 14px 30px rgba(18, 87, 214, 0.45);
+    }
+    .form-submit-btn:hover .form-btn-arrow { transform: translateX(6px); }
+    .form-btn-arrow { display: inline-block; transition: transform 0.25s ease; }
 
     /* Sticky Mobile WhatsApp Bar */
     .mobile-cta { display: none; }
@@ -904,17 +940,22 @@
       <div class="container">
         <div class="contact-box">
           <div class="contact-left">
-            <div class="section-badge" style="background:#1e293b; color:#38bdf8; border-color:#334155">04 / Call To Action</div>
+            <div class="section-badge" style="background:#1e293b; color:#38bdf8; border-color:#334155">04 / Instant Quote &amp; Launch</div>
             <h2>Ready to build your digital system? Let's talk.</h2>
             <p>Tell us what your business does and what you need. We'll send you an honest proposal with the simplest, most sensible solution.</p>
-            <p style="margin-top:20px; color:#fff; font-weight:750">✓ Affordable Quote · Zero Unnecessary Features</p>
+
+            <div class="contact-badges">
+              <span class="contact-badge">⚡ Fast Proposal</span>
+              <span class="contact-badge">✓ Sensible Pricing</span>
+              <span class="contact-badge">🔒 100% Secure</span>
+            </div>
 
             <div class="contact-info">
-              <a href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20want%20an%20affordable%20website%2Fapp." target="_blank" rel="noopener" style="color:#38bdf8; font-size:17px">
-                💬 WhatsApp Us: +91 78965 95109
+              <a class="contact-chip wa" href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20want%20an%20affordable%20website%2Fapp." target="_blank" rel="noopener">
+                <span>💬 WhatsApp Us:</span> <strong>+91 78965 95109</strong>
               </a>
-              <a href="mailto:angudas62@gmail.com">
-                ✉ Email: angudas62@gmail.com
+              <a class="contact-chip" href="mailto:angudas62@gmail.com">
+                <span>✉ Email Direct:</span> <strong>angudas62@gmail.com</strong>
               </a>
             </div>
           </div>
@@ -960,10 +1001,11 @@
 
             <textarea required name="project_details" placeholder="Briefly describe what you want to build..."></textarea>
 
-            <button class="primary" type="submit" style="width:100%; justify-content:center; font-size:16px; padding:15px">
-              Get My Free Project Quote →
+            <button class="form-submit-btn" type="submit">
+              <span>Get My Free Project Quote</span>
+              <span class="form-btn-arrow">→</span>
             </button>
-            <small style="color:#94a3b8; font-size:12px; text-align:center; display:block">
+            <small style="color:#94a3b8; font-size:12px; text-align:center; display:block; margin-top:4px">
               Your inquiry is sent securely to Angsumi. We usually respond within a few hours via WhatsApp or email.
             </small>
           </form>
