@@ -151,217 +151,345 @@
     ]
   }
   </script>
+
   <style>
-    :root{
-      --bg:#f7f8fa;
-      --surface:#ffffff;
-      --ink:#0b1220;
-      --muted:#657080;
-      --line:#e7eaf0;
-      --brand:#1257d6;
-      --brand-dark:#0b3f9e;
-      --accent:#19a974;
-      --soft:#eef4ff;
-      --radius:22px;
-      --shadow:0 20px 60px rgba(11,18,32,.09);
-      --max:1180px;
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --ink: #0b1220;
+      --muted: #5e6a7c;
+      --line: #e4e8ef;
+      --brand: #1257d6;
+      --brand-dark: #0b3f9e;
+      --accent: #10b981;
+      --soft: #eef4ff;
+      --radius: 22px;
+      --shadow: 0 20px 50px rgba(11, 18, 32, 0.08);
+      --max: 1180px;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:var(--bg);color:var(--ink);line-height:1.6;
-      -webkit-font-smoothing:antialiased;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
-    a{text-decoration:none;color:inherit}
-    button,input,select,textarea{font:inherit}
-    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
-    .nav{
-      position:fixed;top:0;left:0;right:0;z-index:50;
-      background:rgba(247,248,250,.84);backdrop-filter:blur(18px);
-      border-bottom:1px solid rgba(231,234,240,.8);
+    a { text-decoration: none; color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+
+    /* Sticky Nav */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: rgba(247, 248, 250, 0.88); backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(228, 232, 239, 0.8);
     }
-    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
-    .logo{display:flex;align-items:center;gap:8px;font-size:22px;font-weight:850;letter-spacing:-.05em}
-    .logo-mark{
-      width:36px;height:36px;border-radius:0;background:transparent;
-      display:flex;align-items:center;justify-content:center;
+    .nav-inner { height: 76px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 850; letter-spacing: -.05em; }
+    .logo-mark { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
+    .logo-mark img { width: 36px; height: 36px; object-fit: contain; display: block; }
+    
+    .links { display: flex; align-items: center; gap: 24px; font-size: 14px; font-weight: 650; color: #3e4755; }
+    .links a { padding: 6px 10px; border-radius: 8px; transition: color .2s, background .2s; }
+    .links a:hover { color: var(--brand); background: var(--soft); }
+    .nav-badge { background: #e0eafe; color: var(--brand); font-size: 11px; padding: 3px 8px; border-radius: 999px; font-weight: 800; }
+    
+    .nav-cta, .primary {
+      background: var(--ink); color: #fff; border: 0; border-radius: 999px; padding: 12px 22px;
+      font-weight: 750; cursor: pointer; transition: transform .2s, background .2s; display: inline-flex; align-items: center; gap: 6px;
     }
-    .logo-mark img{width:36px;height:36px;object-fit:contain;display:block;}
-    .links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:650;color:#3e4755}
-    .links a:hover{color:var(--brand)}
-    .nav-cta,.primary{
-      background:var(--ink);color:#fff;border:0;border-radius:999px;padding:12px 19px;
-      font-weight:750;cursor:pointer;transition:.2s;
+    .nav-cta:hover, .primary:hover { transform: translateY(-2px); background: #182233; }
+    .menu { display: none; background: none; border: 0; font-size: 26px; cursor: pointer; padding: 4px; }
+
+    /* Section Offsets for Header Smooth Scroll */
+    section { scroll-margin-top: 85px; padding: 90px 0; }
+
+    /* Section Flow Badges */
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #eef4ff; color: var(--brand); border: 1px solid #d4e3ff;
+      padding: 6px 14px; border-radius: 999px; font-size: 11px; font-weight: 850;
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px;
     }
-    .nav-cta:hover,.primary:hover{transform:translateY(-2px);background:#182233}
-    .menu{display:none;background:none;border:0;font-size:26px;cursor:pointer}
-    .hero{padding:155px 0 85px;overflow:hidden}
-    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:70px;align-items:center}
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:8px;background:var(--soft);color:var(--brand);
-      border:1px solid #d9e6ff;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800;
-      text-transform:uppercase;letter-spacing:.08em;margin-bottom:22px;
+    .section-head { max-width: 720px; margin-bottom: 42px; }
+    .section-head h2 { font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -.045em; margin-top: 8px; }
+    .section-head p { color: var(--muted); margin-top: 14px; font-size: 17px; line-height: 1.55; }
+
+    /* =========================================================
+       SECTION 1: HOOK (HERO)
+       ========================================================= */
+    .hero { padding: 150px 0 80px; overflow: hidden; background: linear-gradient(180deg, #f7f8fa 0%, #ffffff 100%); }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; background: var(--soft); color: var(--brand);
+      border: 1px solid #d9e6ff; border-radius: 999px; padding: 7px 14px; font-size: 12px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 22px;
     }
-    .dot{width:7px;height:7px;background:var(--accent);border-radius:50%}
-    h1{font-size:clamp(46px,6vw,76px);line-height:.98;letter-spacing:-.065em;max-width:720px}
-    .hero p{font-size:19px;color:var(--muted);max-width:620px;margin:26px 0 31px}
-    .actions{display:flex;gap:12px;flex-wrap:wrap}
-    .secondary{
-      border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;
-      padding:12px 19px;font-weight:750;cursor:pointer;
+    .dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; display: inline-block; box-shadow: 0 0 0 3px rgba(16,185,129,.2); }
+    h1 { font-size: clamp(42px, 5.5vw, 68px); line-height: 1.02; letter-spacing: -.06em; max-width: 720px; font-weight: 900; }
+    .hero-sub { font-size: 18px; color: var(--muted); max-width: 620px; margin: 24px 0 32px; line-height: 1.55; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .secondary {
+      border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px;
+      padding: 12px 20px; font-weight: 750; cursor: pointer; transition: border-color .2s, background .2s;
+      display: inline-flex; align-items: center; gap: 6px;
     }
-    .secondary:hover{border-color:#cbd3df}
-    .trust{display:flex;gap:24px;flex-wrap:wrap;margin-top:28px;color:#798392;font-size:12px;font-weight:650}
-    .dashboard{
-      background:#101827;border-radius:30px;padding:14px;box-shadow:var(--shadow);
-      transform:rotate(1.2deg);
+    .secondary:hover { border-color: #b0b9c7; background: #fafbfc; }
+    .trust-strip { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; color: #6b778c; font-size: 12px; font-weight: 750; letter-spacing: .04em; }
+    .trust-strip span { background: #f0f4f9; padding: 5px 12px; border-radius: 999px; border: 1px solid #e2e7f0; }
+
+    /* Dashboard Mockup */
+    .dashboard {
+      background: #0f172a; border-radius: 28px; padding: 14px; box-shadow: var(--shadow);
+      transform: rotate(1deg); transition: transform .3s ease; border: 1px solid #1e293b;
     }
-    .window{background:#f8fafc;border-radius:20px;overflow:hidden}
-    .window-top{height:45px;border-bottom:1px solid #e8ebf0;display:flex;align-items:center;gap:7px;padding:0 15px}
-    .window-top i{width:8px;height:8px;border-radius:50%;background:#cdd3dc}
-    .dash{display:grid;grid-template-columns:145px 1fr;min-height:400px}
-    .side{background:#111b2c;color:#aeb9ca;padding:20px 12px}
-    .side b{display:block;color:white;margin:0 8px 24px;font-size:13px}
-    .side span{display:block;padding:9px 9px;border-radius:8px;font-size:11px;margin:3px 0}
-    .side span:first-of-type{background:#213452;color:#fff}
-    .main{padding:22px}
-    .dash-title{font-size:19px;font-weight:800;margin-bottom:17px}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    .mini{background:#fff;border:1px solid #e9edf2;border-radius:13px;padding:13px}
-    .mini small{color:#84909f;font-size:9px}.mini strong{display:block;font-size:20px;margin-top:4px}
-    .chart{height:150px;margin-top:12px;border:1px solid #e9edf2;background:#fff;border-radius:13px;padding:16px;position:relative;overflow:hidden}
-    .bars{height:100%;display:flex;align-items:end;gap:9px}
-    .bars span{display:block;flex:1;background:#dbe8ff;border-radius:5px 5px 0 0}
-    .bars span:nth-child(1){height:35%}.bars span:nth-child(2){height:55%}.bars span:nth-child(3){height:45%}
-    .bars span:nth-child(4){height:78%}.bars span:nth-child(5){height:63%}.bars span:nth-child(6){height:90%}
-    section{padding:95px 0}
-    .section-head{max-width:700px;margin-bottom:42px}
-    .kicker{color:var(--brand);font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.1em}
-    h2{font-size:clamp(34px,4vw,52px);line-height:1.04;letter-spacing:-.05em;margin-top:10px}
-    .section-head p{color:var(--muted);margin-top:15px;font-size:17px}
-    .industries{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-    .industry,.service,.product,.step,.price,.faq{
-      background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;
-      transition:.25s;
+    .dashboard:hover { transform: rotate(0deg) scale(1.01); }
+    .window { background: #f8fafc; border-radius: 20px; overflow: hidden; }
+    .window-top { height: 44px; background: #fff; border-bottom: 1px solid #e8ebf0; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; }
+    .dots { display: flex; gap: 6px; }
+    .dots i { width: 10px; height: 10px; border-radius: 50%; background: #cbd5e1; }
+    .dots i:nth-child(1) { background: #ef4444; }
+    .dots i:nth-child(2) { background: #f59e0b; }
+    .dots i:nth-child(3) { background: #10b981; }
+    .dash-status { font-size: 11px; font-weight: 800; color: #10b981; background: #ecfdf5; padding: 3px 9px; border-radius: 999px; border: 1px solid #a7f3d0; }
+    .dash { display: grid; grid-template-columns: 140px 1fr; min-height: 380px; }
+    .side { background: #0f172a; color: #94a3b8; padding: 20px 14px; font-size: 12px; }
+    .side b { display: block; color: #fff; margin-bottom: 20px; font-size: 13px; letter-spacing: -.02em; }
+    .side span { display: block; padding: 8px 10px; border-radius: 8px; font-size: 11px; margin: 4px 0; font-weight: 600; cursor: pointer; }
+    .side span.active { background: #1e293b; color: #38bdf8; font-weight: 750; }
+    .main { padding: 20px; background: #f8fafc; }
+    .dash-title { font-size: 18px; font-weight: 850; margin-bottom: 16px; color: #0f172a; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .mini { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px; }
+    .mini small { color: #64748b; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+    .mini strong { display: block; font-size: 20px; margin-top: 4px; color: #0f172a; font-weight: 900; }
+    .chart { height: 140px; margin-top: 12px; border: 1px solid #e2e8f0; background: #fff; border-radius: 12px; padding: 16px; position: relative; }
+    .bars { height: 100%; display: flex; align-items: flex-end; gap: 8px; }
+    .bars span { display: block; flex: 1; background: #cbd5e1; border-radius: 4px 4px 0 0; transition: height .3s; }
+    .bars span:hover { background: var(--brand); }
+    .bars span:nth-child(1) { height: 35%; } .bars span:nth-child(2) { height: 60%; }
+    .bars span:nth-child(3) { height: 45%; } .bars span:nth-child(4) { height: 80%; }
+    .bars span:nth-child(5) { height: 68%; } .bars span:nth-child(6) { height: 95%; background: var(--brand); }
+
+    /* =========================================================
+       SECTION 2: VALUE PROPOSITION (VP)
+       ========================================================= */
+    .vp-section { background: #ffffff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    
+    .vp-banner {
+      background: #0b1220; color: #fff; border-radius: 28px; padding: 42px;
+      display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; margin-bottom: 50px;
     }
-    .industry:hover,.service:hover,.product:hover,.price:hover{transform:translateY(-4px);box-shadow:0 15px 40px rgba(11,18,32,.07)}
-    .icon{
-      width:46px;height:46px;border-radius:14px;background:var(--soft);color:var(--brand);
-      display:grid;place-items:center;font-size:21px;margin-bottom:22px;
+    .vp-banner h3 { font-size: 32px; font-weight: 850; line-height: 1.1; letter-spacing: -.03em; }
+    .vp-banner p { color: #94a3b8; margin-top: 14px; font-size: 16px; }
+    .vp-features { display: grid; gap: 14px; }
+    .vp-feat-card { background: #121c2c; border: 1px solid #243247; border-radius: 16px; padding: 18px 22px; }
+    .vp-feat-card h4 { font-size: 16px; color: #38bdf8; font-weight: 800; }
+    .vp-feat-card p { font-size: 13px; color: #cbd5e1; margin-top: 4px; }
+
+    .industries { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 20px; }
+    .industry-card {
+      background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px;
+      transition: transform .25s, box-shadow .25s; display: flex; flex-direction: column; justify-space-between;
     }
-    h3{font-size:19px;letter-spacing:-.025em}
-    .industry p,.service p,.product p,.step p,.price p,.faq p{font-size:14px;color:var(--muted);margin-top:9px}
-    .tag{display:inline-block;margin-top:18px;font-size:12px;font-weight:800;color:var(--brand)}
-    .services{background:#0b1220;color:#fff}
-    .services .section-head p{color:#aab4c4}.services .kicker{color:#8fb7ff}
-    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-    .service{background:#121c2c;border-color:#263246}
-    .service p{color:#aeb8c7}.service .icon{background:#1b2a43}
-    .products{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .product{min-height:260px;position:relative;overflow:hidden}
-    .product-top{display:flex;justify-content:space-between;gap:15px}
-    .product-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:850;color:var(--brand)}
-    .feature-list{list-style:none;margin-top:18px;display:flex;gap:7px;flex-wrap:wrap}
-    .feature-list li{font-size:11px;background:#f2f4f7;padding:6px 9px;border-radius:999px;color:#566171}
-    .product .mock{
-      position:absolute;right:-35px;bottom:-65px;width:210px;height:125px;background:#eef4ff;border-radius:24px;
-      transform:rotate(-7deg);border:8px solid #fff;box-shadow:0 15px 30px rgba(11,18,32,.08)
+    .industry-card:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(11,18,32,.06); background: #fff; }
+    .icon {
+      width: 48px; height: 48px; border-radius: 14px; background: var(--soft); color: var(--brand);
+      display: grid; place-items: center; font-size: 22px; margin-bottom: 20px; font-weight: 900;
     }
-    .process{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-    .step{position:relative}
-    .num{font-size:12px;font-weight:900;color:var(--brand);margin-bottom:22px}
-    .pricing{background:#f0f4f9}
-    .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .price.featured{border:2px solid var(--brand);position:relative}
-    .popular{position:absolute;top:18px;right:18px;background:var(--brand);color:#fff;border-radius:999px;padding:5px 9px;font-size:10px;font-weight:800}
-    .amount{font-size:32px;font-weight:900;letter-spacing:-.05em;margin:18px 0 5px}
-    .price ul{list-style:none;margin:20px 0}
-    .price li{font-size:13px;color:#4e5867;padding:7px 0;border-bottom:1px solid #edf0f4}
-    .price li::before{content:"✓";color:var(--accent);font-weight:900;margin-right:8px}
-    .full{width:100%;text-align:center}
-    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
-    summary{cursor:pointer;font-weight:750}
-    .contact{padding-bottom:110px}
-    .contact-box{background:#0b1220;color:#fff;border-radius:30px;padding:50px;display:grid;grid-template-columns:.9fr 1.1fr;gap:50px}
-    .contact-box p{color:#aeb8c7;margin-top:14px}
-    form{display:grid;gap:11px}
-    input,select,textarea{width:100%;border:1px solid #293548;background:#121c2c;color:#fff;border-radius:12px;padding:13px 14px;outline:none}
-    textarea{min-height:100px;resize:vertical}
-    input:focus,select:focus,textarea:focus{border-color:#6e9fff}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-    footer{border-top:1px solid var(--line);padding:28px 0;color:#7a8492;font-size:13px}
-    footer .container{display:flex;justify-content:space-between;gap:20px}
-    .mobile-cta{display:none}
-    @media(max-width:950px){
-      .links{display:none}.menu{display:block}
-      .hero-grid{grid-template-columns:1fr}.hero{padding-top:125px}
-      .industries{grid-template-columns:1fr 1fr}.service-grid{grid-template-columns:1fr 1fr}
-      .process{grid-template-columns:1fr 1fr}.prices{grid-template-columns:1fr}
-      .contact-box{grid-template-columns:1fr}.faq-grid{grid-template-columns:1fr}
-      .dash{min-height:350px}
+    .industry-card h3 { font-size: 20px; font-weight: 800; letter-spacing: -.02em; }
+    .industry-card p { font-size: 14px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+    .tag { display: inline-flex; align-items: center; gap: 4px; margin-top: 20px; font-size: 13px; font-weight: 800; color: var(--brand); }
+
+    /* Services Grid */
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+    .service-card { background: #ffffff; border: 1px solid var(--line); border-radius: 18px; padding: 24px; }
+    .service-card h4 { font-size: 18px; font-weight: 800; margin-top: 12px; }
+    .service-card p { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+    /* =========================================================
+       SECTION 3: PROOF OF WORK & PRICING
+       ========================================================= */
+    .proof-section { background: #f7f8fa; }
+    .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .product-card {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 30px;
+      position: relative; overflow: hidden; display: flex; flex-direction: column; justify-space-between;
+      transition: transform .25s, box-shadow .25s;
     }
-    @media(max-width:620px){
-      section > .container > div[style*="grid-template-columns:1.1fr"]{grid-template-columns:1fr !important;padding:26px !important}
-      .container{width:min(var(--max),calc(100% - 28px))}
-      h1{font-size:46px}.hero p{font-size:17px}
-      .industries,.service-grid,.products,.process{grid-template-columns:1fr}
-      .actions{flex-direction:column}.actions a,.actions button{width:100%;text-align:center}
-      .dashboard{transform:none}.dash{grid-template-columns:85px 1fr}.side span{font-size:9px}
-      .cards{grid-template-columns:1fr}.contact-box{padding:28px}.form-row{grid-template-columns:1fr}
-      footer .container{flex-direction:column}
-      .mobile-cta{display:block;position:fixed;bottom:12px;left:12px;right:12px;z-index:45}
-      .mobile-cta a{display:block;text-align:center;background:var(--brand);color:#fff;padding:13px;border-radius:999px;font-weight:800;box-shadow:0 10px 30px rgba(18,87,214,.3)}
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(11,18,32,.08); }
+    .product-top { display: flex; justify-space-between; align-items: flex-start; gap: 15px; }
+    .product-label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 850; color: var(--brand); }
+    .product-card h3 { font-size: 22px; font-weight: 850; margin-top: 4px; }
+    .product-num { font-size: 14px; font-weight: 900; color: #94a3b8; background: #f1f5f9; padding: 4px 10px; border-radius: 999px; }
+    .product-card p { font-size: 14px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
+    .feature-list { list-style: none; margin-top: 18px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .feature-list li { font-size: 11px; font-weight: 700; background: #f1f5f9; padding: 6px 10px; border-radius: 999px; color: #475569; }
+    
+    /* Pricing Matrix */
+    .pricing-wrap { margin-top: 70px; }
+    .prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .price-card {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px;
+      display: flex; flex-direction: column; justify-space-between; position: relative; transition: transform .25s;
+    }
+    .price-card:hover { transform: translateY(-4px); }
+    .price-card.featured { border: 2px solid var(--brand); box-shadow: 0 15px 40px rgba(18, 87, 214, 0.12); }
+    .popular { position: absolute; top: 20px; right: 20px; background: var(--brand); color: #fff; border-radius: 999px; padding: 4px 12px; font-size: 10px; font-weight: 850; letter-spacing: .05em; }
+    .amount { font-size: 36px; font-weight: 900; letter-spacing: -.05em; margin: 16px 0 4px; color: var(--ink); }
+    .price-card ul { list-style: none; margin: 24px 0 30px; }
+    .price-card li { font-size: 14px; color: #475569; padding: 8px 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 8px; }
+    .price-card li::before { content: "✓"; color: var(--accent); font-weight: 900; font-size: 15px; }
+
+    /* Process Flow */
+    .process-wrap { margin-top: 70px; }
+    .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .step-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+    .step-num { font-size: 12px; font-weight: 900; color: var(--brand); margin-bottom: 16px; letter-spacing: .05em; }
+    .step-card h4 { font-size: 16px; font-weight: 800; }
+    .step-card p { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+    /* =========================================================
+       SECTION 4: CALL TO ACTION & CONTACT (CTA)
+       ========================================================= */
+    .cta-section { padding-bottom: 110px; }
+    .contact-box {
+      background: #0b1220; color: #fff; border-radius: 32px; padding: 52px;
+      display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 50px; box-shadow: var(--shadow);
+    }
+    .contact-left h2 { color: #fff; font-size: clamp(32px, 3.5vw, 46px); line-height: 1.06; }
+    .contact-left p { color: #94a3b8; margin-top: 16px; font-size: 16px; line-height: 1.6; }
+    .contact-info { margin-top: 28px; display: grid; gap: 12px; font-size: 15px; }
+    .contact-info a { display: inline-flex; align-items: center; gap: 10px; color: #e2e8f0; font-weight: 700; transition: color .2s; }
+    .contact-info a:hover { color: #38bdf8; }
+
+    form { display: grid; gap: 12px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    input, select, textarea {
+      width: 100%; border: 1px solid #243247; background: #121c2c; color: #fff;
+      border-radius: 14px; padding: 14px 16px; outline: none; transition: border-color .2s;
+    }
+    textarea { min-height: 110px; resize: vertical; }
+    input::placeholder, textarea::placeholder { color: #64748b; }
+    input:focus, select:focus, textarea:focus { border-color: #38bdf8; }
+
+    /* Sticky Mobile WhatsApp Bar */
+    .mobile-cta { display: none; }
+    footer { border-top: 1px solid var(--line); padding: 32px 0; color: #64748b; font-size: 14px; background: #fff; }
+    footer .container { display: flex; justify-space-between; align-items: center; gap: 20px; }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 980px) {
+      .links { display: none; }
+      .menu { display: block; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero { padding-top: 130px; }
+      .vp-banner { grid-template-columns: 1fr; padding: 32px; }
+      .industries { grid-template-columns: 1fr 1fr; }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+      .products { grid-template-columns: 1fr; }
+      .prices { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .contact-box { grid-template-columns: 1fr; padding: 36px; }
+      .dashboard { transform: none; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(var(--max), calc(100% - 28px)); }
+      h1 { font-size: 38px; }
+      .hero-sub { font-size: 16px; }
+      .industries, .service-grid, .process-grid { grid-template-columns: 1fr; }
+      .actions { flex-direction: column; }
+      .actions a, .actions button { width: 100%; justify-content: center; text-align: center; }
+      .cards { grid-template-columns: 1fr; }
+      .dash { grid-template-columns: 90px 1fr; }
+      .side span { font-size: 9px; padding: 6px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer .container { flex-direction: column; text-align: center; }
+      .mobile-cta { display: block; position: fixed; bottom: 14px; left: 14px; right: 14px; z-index: 90; }
+      .mobile-cta a {
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+        background: #10b981; color: #fff; padding: 14px; border-radius: 999px;
+        font-weight: 850; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35); font-size: 15px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- =========================================================
+       NAVIGATION BAR
+       ========================================================= -->
   <header class="nav">
     <div class="container nav-inner">
-      <a class="logo" href="#home"><span class="logo-mark"><img src="logo.png" alt="Angsumi logo"></span>angsumi</a>
+      <a class="logo" href="#hook">
+        <span class="logo-mark"><img src="logo.png" alt="Angsumi logo"></span>angsumi
+      </a>
       <nav class="links">
-        <a href="#industries">Industries</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#products">Platforms</a>
+        <a href="#hook">Hook</a>
+        <a href="#vp">Value Prop</a>
+        <a href="#proof">Proof &amp; Work</a>
         <a href="#pricing">Pricing</a>
         <a href="https://angsumi.online/blog/">Blog</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#cta">Contact</a>
       </nav>
-      <a class="nav-cta" href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20am%20interested%20in%20your%20digital%20services." target="_blank" rel="noopener">WhatsApp Us →</a>
+      <a class="nav-cta" href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20am%20interested%20in%20an%20affordable%20website%2Fapp%20for%20my%20business." target="_blank" rel="noopener">
+        WhatsApp Us →
+      </a>
       <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
     </div>
   </header>
 
   <main>
-    <section class="hero" id="home">
+    <!-- =========================================================
+         1. HOOK SECTION (#hook)
+         Immediate Attention & Value Positioning
+         ========================================================= -->
+    <section class="hero" id="hook">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow"><span class="dot"></span> Affordable digital systems for growing businesses</div>
+          <div class="eyebrow"><span class="dot"></span> Affordable Digital Systems · Northeast India</div>
           <h1>Professional digital systems. <span style="color:var(--brand)">Without the agency price tag.</span></h1>
-          <p>We build practical websites, apps, portals and business systems at prices small businesses, teachers, schools and local entrepreneurs can actually afford. No bloated agency overhead. No unnecessary features. Just what you need to get online and grow.</p>
+          <p class="hero-sub">We build high-converting websites, mobile apps, portals, and management platforms for doctors, schools, teachers, and local businesses — starting from ₹2,000. No agency bloat. Just systems that grow your business.</p>
+
           <div class="actions">
-            <a class="primary" href="#contact">Get My Free Digital Blueprint →</a>
-            <a class="secondary" href="#products">Explore Demo Platforms</a>
-            <a class="secondary" href="https://angsumi.online/cv/" target="_blank" rel="noopener">View My CV →</a>
+            <a class="primary" href="#cta">Get My Free Digital Blueprint →</a>
+            <a class="secondary" href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20want%20to%20discuss%20a%20digital%20project." target="_blank" rel="noopener">WhatsApp Us ↗</a>
+            <a class="secondary" href="#proof">Explore Live Work ↓</a>
           </div>
-          <div class="trust">
-            <span>WEBSITES</span><span>APPS</span><span>PORTALS</span><span>HOSTING</span><span>SUPPORT</span>
+
+          <div class="trust-strip">
+            <span>WEBSITES</span>
+            <span>MOBILE APPS</span>
+            <span>WEB PORTALS</span>
+            <span>CLOUD HOSTING</span>
+            <span>SUPPORT</span>
           </div>
-          <div style="margin-top:22px;display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13px;font-weight:750;box-shadow:0 8px 25px rgba(11,18,32,.05)">
-            <span style="color:var(--accent);font-size:18px">✓</span>
+
+          <div style="margin-top:24px; display:inline-flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--line); border-radius:14px; padding:10px 16px; font-size:13px; font-weight:750; box-shadow:0 8px 20px rgba(11,18,32,.04)">
+            <span style="color:var(--accent); font-size:18px">✓</span>
             <span>Our promise: <strong>useful technology at a sensible price.</strong></span>
           </div>
         </div>
 
-        <div class="dashboard" aria-label="Angsumi platform dashboard mockup">
+        <!-- Dashboard Visual Anchor -->
+        <div class="dashboard" aria-label="Angsumi platform mockup">
           <div class="window">
-            <div class="window-top"><i></i><i></i><i></i></div>
+            <div class="window-top">
+              <div class="dots"><i></i><i></i><i></i></div>
+              <div class="dash-status">🟢 Systems Active</div>
+            </div>
             <div class="dash">
               <aside class="side">
                 <b>ANGSUMI OS</b>
-                <span>Overview</span><span>Appointments</span><span>Admissions</span><span>Courses</span><span>Payments</span><span>Reports</span>
+                <span class="active">Overview</span>
+                <span>Appointments</span>
+                <span>Admissions</span>
+                <span>Courses</span>
+                <span>Payments</span>
+                <span>Reports</span>
               </aside>
               <div class="main">
                 <div class="dash-title">Your business, connected.</div>
@@ -370,7 +498,11 @@
                   <div class="mini"><small>Leads</small><strong>46</strong></div>
                   <div class="mini"><small>Revenue</small><strong>₹84k</strong></div>
                 </div>
-                <div class="chart"><div class="bars"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+                <div class="chart">
+                  <div class="bars">
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -378,247 +510,404 @@
       </div>
     </section>
 
-    <section id="industries">
+    <!-- =========================================================
+         2. VALUE PROPOSITION SECTION (#vp)
+         Why Angsumi vs. Expensive Agencies
+         ========================================================= -->
+    <section class="vp-section" id="vp">
       <div class="container">
         <div class="section-head">
-          <div class="kicker">Built around your work</div>
-          <h2>Good technology should be affordable — and actually useful.</h2>
-          <p>Our biggest advantage is simple: we keep development practical, reusable and affordable. You get a professional result without paying for a large agency's overhead.</p>
+          <div class="section-badge">02 / Value Proposition</div>
+          <h2>Why pay ₹2–5 Lakh for what can be built simply &amp; smartly?</h2>
+          <p>We deliberately choose lightweight architectures, reusable components, and optimized cloud servers. You get a sleek, high-performing digital platform without funding a big agency's overhead.</p>
         </div>
-        <div class="industries">
-          <article class="industry"><div class="icon">✚</div><h3>Doctors & Clinics</h3><p>Appointments, patient portals, prescriptions, billing and teleconsultation workflows.</p><a class="tag" href="#products">Explore ClinicOS →</a></article>
-          <article class="industry"><div class="icon">▦</div><h3>Schools & Coaching</h3><p>Admissions, fees, attendance, parent communication and academic management.</p><a class="tag" href="#products">Explore SchoolOS →</a></article>
-          <article class="industry"><div class="icon">▶</div><h3>Teachers & Educators</h3><p>Branded learning platforms with video lessons, quizzes, payments and certificates.</p><a class="tag" href="#products">Explore LearnOS →</a></article>
-          <article class="industry"><div class="icon">↗</div><h3>Local Businesses</h3><p>Professional websites, catalogs, bookings, lead capture and online growth tools.</p><a class="tag" href="#products">Explore BusinessOS →</a></article>
-        </div>
-      </div>
-    </section>
 
-    <section style="padding-top:25px">
-      <div class="container">
-        <div style="background:#fff;border:1px solid var(--line);border-radius:28px;padding:38px;display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:center">
+        <div class="vp-banner">
           <div>
-            <div class="kicker">Why Angsumi</div>
-            <h2>Why pay ₹2–5 lakh for something that can be built much more simply?</h2>
-            <p style="color:var(--muted);margin-top:15px;max-width:650px">We deliberately look for lower-cost architectures, reusable components and lightweight solutions. If your project doesn't need video servers, complicated infrastructure or dozens of features, we won't make you pay for them.</p>
+            <div class="kicker" style="color:#38bdf8; font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.1em">Smart Engineering</div>
+            <h3>Pay for results, not agency fluff.</h3>
+            <p>If your clinic, school, or business doesn't need expensive video streaming infrastructure or bloated custom code, we won't make you pay for it.</p>
           </div>
-          <div style="display:grid;gap:10px">
-            <div class="industry"><h3>Lower development cost</h3><p>Reusable foundations and practical scope keep projects affordable.</p></div>
-            <div class="industry"><h3>Lower running cost</h3><p>We choose architectures that avoid unnecessary recurring server and media expenses.</p></div>
-            <div class="industry"><h3>Pay for what you need</h3><p>Start small, launch, then add features when the business actually needs them.</p></div>
+          <div class="vp-features">
+            <div class="vp-feat-card">
+              <h4>Lower Development Cost</h4>
+              <p>Battle-tested modular foundations keep design &amp; coding fast and affordable.</p>
+            </div>
+            <div class="vp-feat-card">
+              <h4>Zero Server Waste</h4>
+              <p>We configure efficient cloud hosting that eliminates heavy recurring server expenses.</p>
+            </div>
+            <div class="vp-feat-card">
+              <h4>Pay As You Grow</h4>
+              <p>Start with a clean starter site from ₹2,000; scale to mobile apps when ready.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="services" id="solutions">
-      <div class="container">
-        <div class="section-head">
-          <div class="kicker">What we build</div>
-          <h2>Everything you need — without paying for everything.</h2>
-          <p>From a simple business website to a complete web + mobile platform, we build only what creates value for your business.</p>
+        <!-- Industry Solutions Grid -->
+        <h3 style="font-size:24px; font-weight:850; letter-spacing:-.03em; margin-bottom:20px">Tailored Ecosystems for Your Work</h3>
+        <div class="industries">
+          <article class="industry-card">
+            <div>
+              <div class="icon">✚</div>
+              <h3>Doctors &amp; Clinics</h3>
+              <p>Appointments, digital prescriptions, patient records, billing, and automated WhatsApp reminders.</p>
+            </div>
+            <a class="tag" href="#proof">Explore ClinicOS →</a>
+          </article>
+          <article class="industry-card">
+            <div>
+              <div class="icon">🏫</div>
+              <h3>Schools &amp; Coaching</h3>
+              <p>Admissions, student fee tracking, parent announcements, and attendance management.</p>
+            </div>
+            <a class="tag" href="#proof">Explore SchoolOS →</a>
+          </article>
+          <article class="industry-card">
+            <div>
+              <div class="icon">📚</div>
+              <h3>Teachers &amp; Educators</h3>
+              <p>Branded learning portals with notes, quizzes, payments, and low-cost course delivery.</p>
+            </div>
+            <a class="tag" href="#proof">Explore LearnOS →</a>
+          </article>
+          <article class="industry-card">
+            <div>
+              <div class="icon">🛍️</div>
+              <h3>Local Businesses</h3>
+              <p>High-converting business catalogs, booking engines, lead forms, and Google Maps SEO.</p>
+            </div>
+            <a class="tag" href="#proof">Explore BusinessOS →</a>
+          </article>
         </div>
+
+        <!-- Services Breakdown -->
         <div class="service-grid">
-          <article class="service"><div class="icon">⌂</div><h3>Websites & Portals</h3><p>Fast, responsive websites and web applications designed around your customers and conversion goals.</p></article>
-          <article class="service"><div class="icon">▣</div><h3>Mobile Apps</h3><p>Android and iOS experiences for appointments, students, customers, learning and internal workflows.</p></article>
-          <article class="service"><div class="icon">⚙</div><h3>Custom Systems</h3><p>Booking, admissions, fee management, dashboards, CRM-style tools and workflows tailored to your team.</p></article>
-          <article class="service"><div class="icon">⌁</div><h3>Domain & Hosting</h3><p>Domain, SSL, cloud deployment, email and infrastructure setup — managed without the technical headache.</p></article>
-          <article class="service"><div class="icon">↻</div><h3>Maintenance & Support</h3><p>Updates, backups, security, performance monitoring, small changes and ongoing technical support.</p></article>
-          <article class="service"><div class="icon">⌕</div><h3>Growth & Analytics</h3><p>Analytics, SEO foundations and measurable improvements so your digital presence keeps working after launch.</p></article>
+          <div class="service-card">
+            <div class="icon">⌂</div>
+            <h4>Websites &amp; Portals</h4>
+            <p>Fast, responsive websites designed specifically around your customer conversion goals.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">▣</div>
+            <h4>Mobile Apps</h4>
+            <p>Native-feel Android and iOS apps for appointments, learning, and business management.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">⚙</div>
+            <h4>Custom Systems</h4>
+            <p>Tailored dashboards, booking portals, document vaults, and CRM tools for your team.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">⌁</div>
+            <h4>Domain &amp; SSL Hosting</h4>
+            <p>Domain registration, SSL encryption, cloud deployment, and business email setup.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">↻</div>
+            <h4>Maintenance &amp; Support</h4>
+            <p>Continuous security updates, automated backups, bug fixes, and technical assistance.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">⌕</div>
+            <h4>SEO &amp; Growth</h4>
+            <p>Search engine optimization, Google Maps setup, and analytics to drive consistent local traffic.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="products">
+    <!-- =========================================================
+         3. PROOF SECTION (#proof)
+         Live Client Work, Pricing & Process Roadmap
+         ========================================================= -->
+    <section class="proof-section" id="proof">
       <div class="container">
         <div class="section-head">
-          <div class="kicker">Already built by us</div>
-          <h2>Don't just take our word for it. Explore our work.</h2>
-          <p>These are real examples of the kinds of digital products Angsumi can build — from affordable websites to focused learning platforms and custom document systems.</p>
+          <div class="section-badge">03 / Proof of Work</div>
+          <h2>Explore our real client work &amp; live platforms.</h2>
+          <p>Don't just take our word for it. Here are live digital solutions Angsumi has designed, built, and launched for real clients across various industries.</p>
         </div>
 
+        <!-- Live Projects Grid -->
         <div class="products">
-          <article class="product">
+          <article class="product-card">
             <div class="product-top">
-              <div><div class="product-label">Solar + EV Business</div><h3>Trishul Innovations</h3></div>
-              <b>01</b>
+              <div>
+                <div class="product-label">Solar &amp; EV Business</div>
+                <h3>Trishul Innovations</h3>
+              </div>
+              <span class="product-num">01</span>
             </div>
-            <p>A business website created for a solar rooftop and electric-vehicle solutions company, presenting its services and products in a professional digital presence.</p>
-            <ul class="feature-list"><li>Business website</li><li>Solar solutions</li><li>EV solutions</li><li>Product showcase</li><li>Responsive design</li></ul>
-            <a class="tag" href="https://trishul.tech" target="_blank" rel="noopener">Visit trishul.tech ↗</a>
-            <div class="mock"></div>
+            <p>Full corporate website created for a solar rooftop and electric vehicle solutions company in Assam, featuring product showcases and automated lead capture.</p>
+            <ul class="feature-list">
+              <li>Solar Solutions</li><li>EV Showcase</li><li>Lead Form</li><li>Responsive Design</li>
+            </ul>
+            <a class="tag" style="margin-top:24px" href="https://trishul.tech" target="_blank" rel="noopener">Visit trishul.tech ↗</a>
           </article>
 
-          <article class="product">
+          <article class="product-card">
             <div class="product-top">
-              <div><div class="product-label">Teacher Platform</div><h3>NIPAM</h3></div>
-              <b>02</b>
+              <div>
+                <div class="product-label">Teacher Platform</div>
+                <h3>NIPAM Learning App</h3>
+              </div>
+              <span class="product-num">02</span>
             </div>
-            <p>An online teaching application designed for teachers — focused on delivering lessons without requiring expensive video infrastructure or other server-side costs.</p>
-            <ul class="feature-list"><li>Teacher-led learning</li><li>Web app</li><li>Low infrastructure cost</li><li>No video hosting cost</li><li>Focused learning</li></ul>
-            <a class="tag" href="https://nipam-fb25f.web.app/" target="_blank" rel="noopener">Open NIPAM ↗</a>
-            <div class="mock"></div>
+            <p>Dedicated online teaching application engineered for educators — delivering structured lessons without expensive video hosting overhead.</p>
+            <ul class="feature-list">
+              <li>Teacher UX</li><li>Web App</li><li>Low Infra Cost</li><li>Quiz Engine</li>
+            </ul>
+            <a class="tag" style="margin-top:24px" href="https://nipam-fb25f.web.app/" target="_blank" rel="noopener">Open NIPAM App ↗</a>
           </article>
 
-          <article class="product">
+          <article class="product-card">
             <div class="product-top">
-              <div><div class="product-label">Exam Preparation</div><h3>AxomRank</h3></div>
-              <b>03</b>
+              <div>
+                <div class="product-label">Exam Preparation</div>
+                <h3>AxomRank Prep Engine</h3>
+              </div>
+              <span class="product-num">03</span>
             </div>
-            <p>A dedicated preparation platform for Assam's ADRE / SLRC examinations, bringing structured exam preparation into an accessible web experience.</p>
-            <ul class="feature-list"><li>ADRE / SLRC</li><li>Practice</li><li>Mock tests</li><li>Learning content</li><li>Assam-focused</li></ul>
-            <a class="tag" href="https://angsumi.online/ADRE/" target="_blank" rel="noopener">Explore AxomRank ↗</a>
-            <div class="mock"></div>
+            <p>Focused practice and mock test portal built for Assam's ADRE / SLRC examination candidates, providing fast mobile test-taking capabilities.</p>
+            <ul class="feature-list">
+              <li>ADRE / SLRC</li><li>Mock Tests</li><li>Instant Scoring</li><li>Assam Exam Prep</li>
+            </ul>
+            <a class="tag" style="margin-top:24px" href="https://angsumi.online/ADRE/" target="_blank" rel="noopener">Explore AxomRank ↗</a>
           </article>
 
-          <article class="product">
+          <article class="product-card">
             <div class="product-top">
-              <div><div class="product-label">Automated Learning</div><h3>Geography Learning</h3></div>
-              <b>04</b>
+              <div>
+                <div class="product-label">Automated E-Learning</div>
+                <h3>Geography Learning Portal</h3>
+              </div>
+              <span class="product-num">04</span>
             </div>
-            <p>An automated web learning platform for Geography: no video dependency, no distractions — just structured learning, practice and testing.</p>
-            <ul class="feature-list"><li>Learn</li><li>Practice</li><li>Test</li><li>No video cost</li><li>Focused UX</li></ul>
-            <a class="tag" href="https://angsumi.online/Geography" target="_blank" rel="noopener">Try Geography ↗</a>
-            <div class="mock"></div>
-          </article>
-
-          <article class="product">
-            <div class="product-top">
-              <div><div class="product-label">Document Management</div><h3>Custom Document Vault</h3></div>
-              <b>05</b>
-            </div>
-            <p>A customised document vault and download system for keeping important files organised and making them available in multiple sizes and formats.</p>
-            <ul class="feature-list"><li>Document vault</li><li>Multiple formats</li><li>Multiple sizes</li><li>Organised downloads</li><li>Custom workflow</li></ul>
-            <a class="tag" href="https://angsumi.online" target="_blank" rel="noopener">View example ↗</a>
-            <div class="mock"></div>
+            <p>Automated web platform for Geography education: clean interactive study modules, practice sets, and progress tracking without video bloat.</p>
+            <ul class="feature-list">
+              <li>Self-Paced</li><li>Interactive Practice</li><li>Low Bandwidth</li><li>Focused UX</li>
+            </ul>
+            <a class="tag" style="margin-top:24px" href="https://angsumi.online/Geography" target="_blank" rel="noopener">Try Geography Portal ↗</a>
           </article>
         </div>
 
-        <div style="margin-top:18px;padding:20px 22px;border-radius:18px;background:var(--soft);border:1px solid #d9e6ff;color:#34445c;font-size:14px">
-          <strong>What these examples show:</strong> we don't believe every digital product needs expensive servers, video hosting or a huge custom stack. We design around the actual problem — which keeps the product simpler and the client's cost lower.
+        <div style="margin-top:24px; padding:20px 24px; border-radius:18px; background:var(--soft); border:1px solid #d9e6ff; color:#2c3a4e; font-size:14px">
+          <strong>What our proof shows:</strong> Technology doesn't need to be expensive or complicated to work brilliantly. We build lightweight, efficient systems designed for real business growth.
+        </div>
+
+        <!-- Pricing Grid -->
+        <div class="pricing-wrap" id="pricing">
+          <div class="section-head" style="margin-bottom:32px">
+            <div class="kicker" style="color:var(--brand); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.1em">Transparent Pricing</div>
+            <h2>Start small. Spend sensibly. Grow when ready.</h2>
+            <p>Clear upfront pricing with zero hidden fees. Final investment depends on your required features and custom integrations.</p>
+          </div>
+
+          <div class="prices">
+            <article class="price-card">
+              <div>
+                <div class="kicker">Starter</div>
+                <h3>Website Launch</h3>
+                <div class="amount">From ₹2,000</div>
+                <p style="font-size:13px; color:var(--muted)">For a fast, professional first digital presence.</p>
+                <ul>
+                  <li>Responsive 1–3 Page Website</li>
+                  <li>Contact &amp; WhatsApp Lead Form</li>
+                  <li>Google Search Indexing &amp; SEO</li>
+                  <li>Mobile-Optimized Layout</li>
+                </ul>
+              </div>
+              <a class="secondary" style="width:100%; justify-content:center; text-align:center" href="#cta">Start Starter Website</a>
+            </article>
+
+            <article class="price-card featured">
+              <span class="popular">MOST POPULAR</span>
+              <div>
+                <div class="kicker">Growth</div>
+                <h3>Business Web Portal</h3>
+                <div class="amount">From ₹5,000</div>
+                <p style="font-size:13px; color:var(--muted)">For growing businesses ready to collect inquiries &amp; manage content.</p>
+                <ul>
+                  <li>Multi-Page Business Website</li>
+                  <li>Content Management Setup</li>
+                  <li>Analytics &amp; Visitor Tracking</li>
+                  <li>Google Maps &amp; SEO Package</li>
+                  <li>Domain &amp; SSL Launch Support</li>
+                </ul>
+              </div>
+              <a class="primary" style="width:100%; justify-content:center; text-align:center" href="#cta">Get Growth Quote →</a>
+            </article>
+
+            <article class="price-card">
+              <div>
+                <div class="kicker">Platform</div>
+                <h3>Custom App / System</h3>
+                <div class="amount">From ₹15,000</div>
+                <p style="font-size:13px; color:var(--muted)">For custom management workflows, portals &amp; mobile apps.</p>
+                <ul>
+                  <li>Custom Web Application</li>
+                  <li>Doctor/School Management Modules</li>
+                  <li>Payment Gateway Integration</li>
+                  <li>Android &amp; iOS App Options</li>
+                  <li>Priority Ongoing Support</li>
+                </ul>
+              </div>
+              <a class="secondary" style="width:100%; justify-content:center; text-align:center" href="#cta">Discuss Custom Platform</a>
+            </article>
+          </div>
+        </div>
+
+        <!-- 5-Step Process -->
+        <div class="process-wrap">
+          <div class="section-head" style="margin-bottom:28px">
+            <div class="kicker" style="color:var(--brand); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.1em">How We Work</div>
+            <h3>From initial idea to a live digital system.</h3>
+          </div>
+          <div class="process-grid">
+            <div class="step-card">
+              <div class="step-num">01 / CONSULT</div>
+              <h4>Digital Blueprint</h4>
+              <p>We analyze your business goals and recommend the simplest practical stack.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">02 / DESIGN</div>
+              <h4>Prototype UX</h4>
+              <p>You review and approve the clean screen layout before coding begins.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">03 / BUILD</div>
+              <h4>Develop &amp; Test</h4>
+              <p>We build your website or application with fast iterations and mobile testing.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">04 / LAUNCH</div>
+              <h4>Go Live</h4>
+              <p>We handle domain linking, SSL security, cloud hosting, and search indexing.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">05 / GROW</div>
+              <h4>Ongoing Support</h4>
+              <p>We keep your system updated, backed up, and growing smoothly.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="about" style="padding-top:25px">
-      <div class="container">
-        <div class="section-head">
-          <div class="kicker">How it works</div>
-          <h2>From idea to a working digital system.</h2>
-          <p>No confusing handoffs. We move from requirements to design, development, launch and support with you.</p>
-        </div>
-        <div class="process">
-          <article class="step"><div class="num">01 / CONSULT</div><h3>Digital Blueprint</h3><p>Understand your business, bottlenecks and goals.</p></article>
-          <article class="step"><div class="num">02 / DESIGN</div><h3>Prototype</h3><p>Map the user journey and approve the interface before development.</p></article>
-          <article class="step"><div class="num">03 / BUILD</div><h3>Develop & Test</h3><p>Build the website, portal or app and iterate quickly.</p></article>
-          <article class="step"><div class="num">04 / LAUNCH</div><h3>Go Live</h3><p>Connect domain, hosting, analytics and app publishing.</p></article>
-          <article class="step"><div class="num">05 / GROW</div><h3>Support</h3><p>Keep your system secure, updated and improving.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="pricing" id="pricing">
-      <div class="container">
-        <div class="section-head">
-          <div class="kicker">Affordable by design</div>
-          <h2>Start small. Spend less. Grow when you need to.</h2>
-          <p>We compete on value, not bloated agency pricing. Final pricing depends on scope, integrations and content.</p>
-        </div>
-        <div class="prices">
-          <article class="price">
-            <div class="kicker">Starter</div><h3>Website Launch</h3><div class="amount">From ₹2k</div><p>For a professional first presence.</p>
-            <ul><li>Responsive website</li><li>Contact / lead form</li><li>Basic SEO setup</li><li>Mobile-first design</li></ul>
-            <a class="secondary full" href="#contact">Start a Website</a>
-          </article>
-          <article class="price featured">
-            <span class="popular">MOST POPULAR</span>
-            <div class="kicker">Growth</div><h3>Business Web Portal</h3><div class="amount">From ₹5k</div><p>For businesses ready to generate leads.</p>
-            <ul><li>Multi-page website</li><li>CMS / content updates</li><li>Analytics</li><li>Advanced forms</li><li>Domain + launch support</li></ul>
-            <a class="primary full" href="#contact">Get a Quote →</a>
-          </article>
-          <article class="price">
-            <div class="kicker">Platform</div><h3>Digital Platform</h3><div class="amount">From ₹15k</div><p>For custom workflows, portals and apps.</p>
-            <ul><li>Custom web application</li><li>Management modules</li><li>Payments / integrations</li><li>Mobile app options</li><li>Ongoing support</li></ul>
-            <a class="secondary full" href="#contact">Discuss Your Platform</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
+    <!-- =========================================================
+         4. CALL TO ACTION & CONTACT SECTION (#cta)
+         Direct Conversions & Form Inquiries
+         ========================================================= -->
+    <section class="cta-section" id="cta">
       <div class="container">
         <div class="contact-box">
-          <div>
-            <div class="kicker" style="color:#8fb7ff">Let's build it</div>
-            <h2>Not sure what you need?</h2>
-            <p>Tell us what your business does and what you need. We'll suggest the simplest practical solution — and show you how to keep the cost down.</p>
-            <p style="margin-top:22px;color:#fff;font-weight:750">Affordable proposal · No unnecessary features</p>
-            <div style="margin-top:24px;display:grid;gap:9px;font-size:14px">
-              <a href="mailto:angudas62@gmail.com" style="color:#fff">✉ angudas62@gmail.com</a>
-              <a href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20am%20interested%20in%20getting%20an%20affordable%20website%2Fapp%20for%20my%20business." target="_blank" rel="noopener" style="color:#8fb7ff;font-weight:750">☏ WhatsApp: +91 78965 95109</a>
+          <div class="contact-left">
+            <div class="section-badge" style="background:#1e293b; color:#38bdf8; border-color:#334155">04 / Call To Action</div>
+            <h2>Ready to build your digital system? Let's talk.</h2>
+            <p>Tell us what your business does and what you need. We'll send you an honest proposal with the simplest, most sensible solution.</p>
+            <p style="margin-top:20px; color:#fff; font-weight:750">✓ Affordable Quote · Zero Unnecessary Features</p>
+
+            <div class="contact-info">
+              <a href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20want%20an%20affordable%20website%2Fapp." target="_blank" rel="noopener" style="color:#38bdf8; font-size:17px">
+                💬 WhatsApp Us: +91 78965 95109
+              </a>
+              <a href="mailto:angudas62@gmail.com">
+                ✉ Email: angudas62@gmail.com
+              </a>
             </div>
           </div>
+
           <form action="https://formspree.io/f/xwlegzkn" method="POST">
-            <input type="hidden" name="_subject" value="New Angsumi Quotation Request">
+            <input type="hidden" name="_subject" value="New Angsumi Project Inquiry">
             <input type="hidden" name="_next" value="https://angsumi.online/">
+
             <div class="form-row">
-              <input required name="name" placeholder="Your name">
-              <input required name="phone" type="tel" placeholder="Phone / WhatsApp">
+              <input required name="name" placeholder="Your Name">
+              <input required name="phone" type="tel" placeholder="Phone / WhatsApp Number">
             </div>
-            <input required name="email" type="email" placeholder="Your email">
+
+            <input required name="email" type="email" placeholder="Your Email Address">
+
             <select required name="business_type">
               <option value="">What do you run?</option>
               <option>Doctor / Clinic</option>
-              <option>School / Coaching</option>
-              <option>Teacher / Course business</option>
-              <option>Local business</option>
-              <option>Other</option>
+              <option>School / Coaching Institute</option>
+              <option>Teacher / Course Creator</option>
+              <option>Local Business / Store</option>
+              <option>Other / Entrepreneur</option>
             </select>
+
             <select required name="project_type">
               <option value="">What do you need?</option>
-              <option>Website</option>
-              <option>Mobile app</option>
-              <option>Website + App</option>
-              <option>Management system / Portal</option>
-              <option>Learning platform</option>
-              <option>Document vault / download system</option>
-              <option>Not sure yet</option>
+              <option>Starter Website (From ₹2,000)</option>
+              <option>Business Web Portal (From ₹5,000)</option>
+              <option>Mobile App (Android / iOS)</option>
+              <option>Website + Mobile App Package</option>
+              <option>Clinic / School Management System</option>
+              <option>Not sure yet — Need Advice</option>
             </select>
+
             <select required name="budget">
-              <option value="">Approximate budget</option>
-              <option>Under ₹10,000</option>
-              <option>₹10,000 – ₹25,000</option>
-              <option>₹25,000 – ₹50,000</option>
-              <option>₹50,000 – ₹1,00,000</option>
-              <option>₹1,00,000+</option>
-              <option>Not sure</option>
+              <option value="">Approximate Budget</option>
+              <option>Under ₹5,000</option>
+              <option>₹5,000 – ₹15,000</option>
+              <option>₹15,000 – ₹30,000</option>
+              <option>₹30,000+</option>
+              <option>Flexible / Discuss First</option>
             </select>
-            <textarea required name="project_details" placeholder="Tell us briefly what you want to build..."></textarea>
-            <button class="primary" type="submit">Get an Affordable Project Quote →</button>
-            <small style="color:#aeb8c7">Your enquiry will be sent securely to Angsumi. We usually follow up by email or WhatsApp.</small>
+
+            <textarea required name="project_details" placeholder="Briefly describe what you want to build..."></textarea>
+
+            <button class="primary" type="submit" style="width:100%; justify-content:center; font-size:16px; padding:15px">
+              Get My Free Project Quote →
+            </button>
+            <small style="color:#94a3b8; font-size:12px; text-align:center; display:block">
+              Your inquiry is sent securely to Angsumi. We usually respond within a few hours via WhatsApp or email.
+            </small>
           </form>
         </div>
       </div>
     </section>
   </main>
 
-  <div class="mobile-cta"><a href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20want%20an%20affordable%20website%2Fapp%20for%20my%20business." target="_blank" rel="noopener">Chat on WhatsApp →</a></div>
+  <!-- Mobile Bottom Sticky Bar for 1-Tap WhatsApp Consultation -->
+  <div class="mobile-cta">
+    <a href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20want%20an%20affordable%20website%2Fapp%20for%20my%20business." target="_blank" rel="noopener">
+      💬 Chat on WhatsApp (+91 78965 95109)
+    </a>
+  </div>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
-      <div><strong style="color:var(--ink)">Angsumi</strong> — digital infrastructure for growing businesses.</div>
-      <div><a href="mailto:angudas62@gmail.com">angudas62@gmail.com</a> · <a href="https://wa.me/917896595109" target="_blank" rel="noopener">+91 78965 95109</a> · © 2026 Angsumi</div>
+      <div>
+        <strong style="color:var(--ink)">Angsumi</strong> — digital infrastructure for growing businesses in Northeast India &amp; beyond.
+      </div>
+      <div>
+        <a href="mailto:angudas62@gmail.com">angudas62@gmail.com</a> · 
+        <a href="https://wa.me/917896595109" target="_blank" rel="noopener">+91 78965 95109</a> · 
+        © 2026 Angsumi
+      </div>
     </div>
   </footer>
 
   <script>
     function toggleMenu(){
-      const links=document.querySelector('.links');
-      links.style.display = links.style.display==='flex' ? 'none' : 'flex';
-      if(links.style.display==='flex'){
-        links.style.position='absolute'; links.style.top='76px'; links.style.left='0'; links.style.right='0';
-        links.style.padding='18px 20px'; links.style.background='rgba(247,248,250,.98)';
-        links.style.flexDirection='column'; links.style.alignItems='flex-start'; links.style.borderBottom='1px solid var(--line)';
+      const links = document.querySelector('.links');
+      const isVisible = links.style.display === 'flex';
+      links.style.display = isVisible ? 'none' : 'flex';
+      if (!isVisible) {
+        links.style.position = 'absolute';
+        links.style.top = '76px';
+        links.style.left = '0';
+        links.style.right = '0';
+        links.style.padding = '20px 24px';
+        links.style.background = 'rgba(247, 248, 250, 0.98)';
+        links.style.flexDirection = 'column';
+        links.style.alignItems = 'flex-start';
+        links.style.borderBottom = '1px solid var(--line)';
+        links.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)';
       }
     }
   </script>
