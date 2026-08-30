@@ -329,21 +329,39 @@
     /* =========================================================
        SECTION 3: PROOF OF WORK & PRICING
        ========================================================= */
-    .proof-section { background: #f7f8fa; }
+    /* Products / Proof Showcase */
     .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .product-card {
-      background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 30px;
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px;
       position: relative; overflow: hidden; display: flex; flex-direction: column; justify-space-between;
-      transition: transform .25s, box-shadow .25s;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
     }
-    .product-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(11,18,32,.08); }
-    .product-top { display: flex; justify-space-between; align-items: flex-start; gap: 15px; }
-    .product-label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 850; color: var(--brand); }
-    .product-card h3 { font-size: 22px; font-weight: 850; margin-top: 4px; }
-    .product-num { font-size: 14px; font-weight: 900; color: #94a3b8; background: #f1f5f9; padding: 4px 10px; border-radius: 999px; }
-    .product-card p { font-size: 14px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
-    .feature-list { list-style: none; margin-top: 18px; display: flex; gap: 8px; flex-wrap: wrap; }
-    .feature-list li { font-size: 11px; font-weight: 700; background: #f1f5f9; padding: 6px 10px; border-radius: 999px; color: #475569; }
+    .product-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--brand); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: #cbd5e1;
+      box-shadow: 0 22px 45px rgba(11, 18, 32, 0.08);
+    }
+    .product-card:hover::after { transform: scaleX(1); }
+    .product-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; }
+    .product-label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 850; color: var(--brand); display: flex; align-items: center; gap: 6px; }
+    .product-card h3 { font-size: 22px; font-weight: 850; margin-top: 6px; letter-spacing: -.02em; }
+    .product-num { font-size: 13px; font-weight: 900; color: var(--muted); background: #f1f5f9; padding: 4px 12px; border-radius: 999px; border: 1px solid #e2e8f0; }
+    .product-card p { font-size: 14px; color: var(--muted); margin-top: 14px; line-height: 1.55; }
+    .feature-list { list-style: none; margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .feature-list li { font-size: 11px; font-weight: 750; background: #f1f5f9; padding: 6px 12px; border-radius: 999px; color: #475569; border: 1px solid #e2e8f0; }
+    .product-tag-btn {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 26px;
+      background: var(--ink); color: #fff; padding: 10px 20px; border-radius: 999px;
+      font-size: 13px; font-weight: 800; transition: background 0.25s, transform 0.25s, box-shadow 0.25s; width: fit-content;
+    }
+    .product-tag-btn:hover { background: var(--brand); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(18, 87, 214, 0.25); }
+    .product-tag-btn .arrow-diag { display: inline-block; transition: transform 0.25s ease; }
+    .product-tag-btn:hover .arrow-diag { transform: translate(3px, -3px); }
     
     /* Pricing Matrix */
     .pricing-wrap { margin-top: 70px; }
@@ -682,11 +700,15 @@
         </div>
 
         <!-- Live Projects Grid -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px">
+          <h3 style="font-size:22px; font-weight:850; letter-spacing:-.025em">Featured Client Work &amp; Live Demos</h3>
+          <div class="mobile-swipe-hint">Swipe ➔</div>
+        </div>
         <div class="products">
           <article class="product-card">
             <div class="product-top">
               <div>
-                <div class="product-label">Solar &amp; EV Business</div>
+                <div class="product-label">Solar &amp; EV Business · 🟢 Live Website</div>
                 <h3>Trishul Innovations</h3>
               </div>
               <span class="product-num">01</span>
@@ -695,13 +717,13 @@
             <ul class="feature-list">
               <li>Solar Solutions</li><li>EV Showcase</li><li>Lead Form</li><li>Responsive Design</li>
             </ul>
-            <a class="tag" style="margin-top:24px" href="https://trishul.tech" target="_blank" rel="noopener">Visit trishul.tech ↗</a>
+            <a class="product-tag-btn" href="https://trishul.tech" target="_blank" rel="noopener">Visit trishul.tech <span class="arrow-diag">↗</span></a>
           </article>
 
           <article class="product-card">
             <div class="product-top">
               <div>
-                <div class="product-label">Teacher Platform</div>
+                <div class="product-label">Teacher Platform · 🟢 Live App</div>
                 <h3>NIPAM Learning App</h3>
               </div>
               <span class="product-num">02</span>
@@ -710,13 +732,13 @@
             <ul class="feature-list">
               <li>Teacher UX</li><li>Web App</li><li>Low Infra Cost</li><li>Quiz Engine</li>
             </ul>
-            <a class="tag" style="margin-top:24px" href="https://nipam-fb25f.web.app/" target="_blank" rel="noopener">Open NIPAM App ↗</a>
+            <a class="product-tag-btn" href="https://nipam-fb25f.web.app/" target="_blank" rel="noopener">Open NIPAM App <span class="arrow-diag">↗</span></a>
           </article>
 
           <article class="product-card">
             <div class="product-top">
               <div>
-                <div class="product-label">Exam Preparation</div>
+                <div class="product-label">Exam Preparation · 🟢 Live Portal</div>
                 <h3>AxomRank Prep Engine</h3>
               </div>
               <span class="product-num">03</span>
@@ -725,13 +747,13 @@
             <ul class="feature-list">
               <li>ADRE / SLRC</li><li>Mock Tests</li><li>Instant Scoring</li><li>Assam Exam Prep</li>
             </ul>
-            <a class="tag" style="margin-top:24px" href="https://angsumi.online/ADRE/" target="_blank" rel="noopener">Explore AxomRank ↗</a>
+            <a class="product-tag-btn" href="https://angsumi.online/ADRE/" target="_blank" rel="noopener">Explore AxomRank <span class="arrow-diag">↗</span></a>
           </article>
 
           <article class="product-card">
             <div class="product-top">
               <div>
-                <div class="product-label">Automated E-Learning</div>
+                <div class="product-label">Automated E-Learning · 🟢 Live Portal</div>
                 <h3>Geography Learning Portal</h3>
               </div>
               <span class="product-num">04</span>
@@ -740,7 +762,7 @@
             <ul class="feature-list">
               <li>Self-Paced</li><li>Interactive Practice</li><li>Low Bandwidth</li><li>Focused UX</li>
             </ul>
-            <a class="tag" style="margin-top:24px" href="https://angsumi.online/Geography" target="_blank" rel="noopener">Try Geography Portal ↗</a>
+            <a class="product-tag-btn" href="https://angsumi.online/Geography" target="_blank" rel="noopener">Try Geography Portal <span class="arrow-diag">↗</span></a>
           </article>
         </div>
 
