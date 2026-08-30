@@ -355,13 +355,32 @@
     .feature-list { list-style: none; margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
     .feature-list li { font-size: 11px; font-weight: 750; background: #f1f5f9; padding: 6px 12px; border-radius: 999px; color: #475569; border: 1px solid #e2e8f0; }
     .product-tag-btn {
-      display: inline-flex; align-items: center; gap: 8px; margin-top: 26px;
-      background: var(--ink); color: #fff; padding: 10px 20px; border-radius: 999px;
-      font-size: 13px; font-weight: 800; transition: background 0.25s, transform 0.25s, box-shadow 0.25s; width: fit-content;
+      display: inline-flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 26px;
+      background: #0b1220; color: #ffffff; padding: 11px 18px 11px 22px; border-radius: 999px;
+      font-size: 13.5px; font-weight: 800; border: 1px solid #1e293b;
+      box-shadow: 0 4px 15px rgba(11, 18, 32, 0.12);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      width: fit-content; text-decoration: none; position: relative; overflow: hidden;
     }
-    .product-tag-btn:hover { background: var(--brand); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(18, 87, 214, 0.25); }
-    .product-tag-btn .arrow-diag { display: inline-block; transition: transform 0.25s ease; }
-    .product-tag-btn:hover .arrow-diag { transform: translate(3px, -3px); }
+    .product-tag-btn .btn-badge {
+      width: 26px; height: 26px; border-radius: 50%; background: rgba(255, 255, 255, 0.12);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 900; transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .product-tag-btn:hover {
+      background: var(--brand);
+      border-color: #3b82f6;
+      color: #ffffff;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(18, 87, 214, 0.35);
+    }
+    .product-tag-btn:hover .btn-badge {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translate(2px, -2px) scale(1.1);
+    }
+    .product-tag-btn:active {
+      transform: translateY(0) scale(0.98);
+    }
     
     /* Pricing Matrix */
     .pricing-wrap { margin-top: 70px; }
@@ -717,7 +736,7 @@
             <ul class="feature-list">
               <li>Solar Solutions</li><li>EV Showcase</li><li>Lead Form</li><li>Responsive Design</li>
             </ul>
-            <a class="product-tag-btn" href="https://trishul.tech" target="_blank" rel="noopener">Visit trishul.tech <span class="arrow-diag">↗</span></a>
+            <a class="product-tag-btn" href="https://trishul.tech" target="_blank" rel="noopener"><span>Visit trishul.tech</span> <span class="btn-badge">↗</span></a>
           </article>
 
           <article class="product-card">
@@ -732,7 +751,7 @@
             <ul class="feature-list">
               <li>Teacher UX</li><li>Web App</li><li>Low Infra Cost</li><li>Quiz Engine</li>
             </ul>
-            <a class="product-tag-btn" href="https://nipam-fb25f.web.app/" target="_blank" rel="noopener">Open NIPAM App <span class="arrow-diag">↗</span></a>
+            <a class="product-tag-btn" href="https://nipam-fb25f.web.app/" target="_blank" rel="noopener"><span>Open NIPAM App</span> <span class="btn-badge">↗</span></a>
           </article>
 
           <article class="product-card">
@@ -747,7 +766,7 @@
             <ul class="feature-list">
               <li>ADRE / SLRC</li><li>Mock Tests</li><li>Instant Scoring</li><li>Assam Exam Prep</li>
             </ul>
-            <a class="product-tag-btn" href="https://angsumi.online/ADRE/" target="_blank" rel="noopener">Explore AxomRank <span class="arrow-diag">↗</span></a>
+            <a class="product-tag-btn" href="https://angsumi.online/ADRE/" target="_blank" rel="noopener"><span>Explore AxomRank</span> <span class="btn-badge">↗</span></a>
           </article>
 
           <article class="product-card">
@@ -762,7 +781,7 @@
             <ul class="feature-list">
               <li>Self-Paced</li><li>Interactive Practice</li><li>Low Bandwidth</li><li>Focused UX</li>
             </ul>
-            <a class="product-tag-btn" href="https://angsumi.online/Geography" target="_blank" rel="noopener">Try Geography Portal <span class="arrow-diag">↗</span></a>
+            <a class="product-tag-btn" href="https://angsumi.online/Geography" target="_blank" rel="noopener"><span>Try Geography Portal</span> <span class="btn-badge">↗</span></a>
           </article>
         </div>
 
