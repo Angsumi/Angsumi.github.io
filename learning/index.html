@@ -4,18 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learning Hub | Angsumi</title>
-  <meta name="description" content="Interactive learning platforms across Geography, History, and Polity with bite-sized visual concepts and micro-quizzes.">
+  <meta name="description" content="Minimal, intuitive, and interactive learning hub for Geography, History, and Polity with visual maps, timelines, and active recall.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #090d16;
-      --card-bg: rgba(15, 23, 42, 0.75);
-      --card-border: rgba(255, 255, 255, 0.1);
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --primary: #10b981;
+      --bg: #07090e;
+      --bg-card: rgba(13, 18, 30, 0.7);
+      --bg-card-hover: rgba(20, 27, 44, 0.85);
+      --border-card: rgba(255, 255, 255, 0.07);
+      --border-hover: rgba(255, 255, 255, 0.18);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      
+      --accent-geo: #10b981;
+      --accent-geo-glow: rgba(16, 185, 129, 0.12);
+      --accent-geo-border: rgba(16, 185, 129, 0.25);
+      
+      --accent-hist: #f59e0b;
+      --accent-hist-glow: rgba(245, 158, 11, 0.12);
+      --accent-hist-border: rgba(245, 158, 11, 0.25);
+      
+      --accent-polity: #3b82f6;
+      --accent-polity-glow: rgba(59, 130, 246, 0.12);
+      --accent-polity-border: rgba(59, 130, 246, 0.25);
+      
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
     }
 
     * {
@@ -25,99 +43,288 @@
     }
 
     body {
-      background-color: var(--bg-dark);
+      background-color: var(--bg);
       background-image: 
-        radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.12) 0px, transparent 50%);
-      color: var(--text-main);
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 185, 129, 0.08), transparent 70%),
+        radial-gradient(ellipse 60% 40% at 100% 100%, rgba(59, 130, 246, 0.06), transparent 70%);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 2.5rem 1rem;
+      padding: 0;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .container {
+    /* Ambient top grid pattern */
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
       width: 100%;
-      max-width: 920px;
+      max-width: 1040px;
+      padding: 1.5rem 1.5rem 4rem 1.5rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 2.5rem;
+      gap: 3.5rem;
     }
 
-    .header {
+    /* Top Navigation */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0.75rem 1.25rem;
+      background: rgba(13, 18, 30, 0.5);
+      border: 1px solid var(--border-card);
+      border-radius: 100px;
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-brand {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .nav-brand:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-separator {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    .nav-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-geo);
+      background: var(--accent-geo-glow);
+      border: 1px solid var(--accent-geo-border);
+      padding: 0.25rem 0.65rem;
+      border-radius: 100px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--accent-geo);
+      box-shadow: 0 0 8px var(--accent-geo);
+    }
+
+    /* Hero Section */
+    .hero {
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-card);
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+    }
+
+    .hero-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      color: #ffffff;
+      max-width: 780px;
+    }
+
+    .hero-subtitle {
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      line-height: 1.6;
+      max-width: 620px;
+      font-weight: 400;
+    }
+
+    /* Search & Filter Controls */
+    .search-container {
+      width: 100%;
+      max-width: 580px;
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
       gap: 0.85rem;
     }
 
-    .badge {
-      display: inline-flex;
+    .search-box {
+      position: relative;
+      width: 100%;
+      display: flex;
       align-items: center;
-      gap: 0.45rem;
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      color: var(--primary);
-      padding: 0.4rem 1.1rem;
-      border-radius: 100px;
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
     }
 
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-    }
-
-    h1 span {
-      background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    p.subtitle {
+    .search-icon {
+      position: absolute;
+      left: 1.1rem;
+      width: 18px;
+      height: 18px;
       color: var(--text-muted);
-      font-size: clamp(0.95rem, 2vw, 1.1rem);
-      max-width: 620px;
-      line-height: 1.6;
+      pointer-events: none;
+      transition: color 0.2s;
     }
 
+    .search-input {
+      width: 100%;
+      padding: 0.85rem 3rem 0.85rem 2.8rem;
+      background: rgba(13, 18, 30, 0.8);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      outline: none;
+      backdrop-filter: blur(12px);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .search-input:focus {
+      border-color: var(--border-hover);
+      background: rgba(18, 25, 42, 0.9);
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.03);
+    }
+
+    .search-input:focus ~ .search-icon {
+      color: var(--text-primary);
+    }
+
+    .search-shortcut {
+      position: absolute;
+      right: 0.85rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .filter-chips {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .chip {
+      background: transparent;
+      border: 1px solid var(--border-card);
+      color: var(--text-secondary);
+      padding: 0.35rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .chip:hover {
+      border-color: var(--border-hover);
+      color: var(--text-primary);
+    }
+
+    .chip.active {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+
+    /* Cards Bento Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
       width: 100%;
     }
 
     .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 22px;
-      padding: 1.85rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
       text-decoration: none;
       color: inherit;
       display: flex;
       flex-direction: column;
-      gap: 1.1rem;
+      justify-content: space-between;
+      gap: 1.5rem;
       backdrop-filter: blur(16px);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
       overflow: hidden;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255, 255, 255, 0.25);
-      box-shadow: 0 16px 35px -10px rgba(0, 0, 0, 0.5);
+      transform: translateY(-4px);
+      background: var(--bg-card-hover);
+      border-color: var(--card-border-hover, var(--border-hover));
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
     }
 
     .card::before {
@@ -126,107 +333,500 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 4px;
-      background: var(--card-accent, var(--primary));
+      height: 2px;
+      background: var(--card-accent, transparent);
+      opacity: 0.8;
+      transition: opacity 0.3s;
     }
 
-    .card-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    .card-top {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
+      flex-direction: column;
+      gap: 1.25rem;
     }
 
-    .card-title {
-      font-size: 1.35rem;
-      font-weight: 800;
+    .card-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .card-desc {
+    .card-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--icon-bg, rgba(255, 255, 255, 0.04));
+      border: 1px solid var(--icon-border, rgba(255, 255, 255, 0.08));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--card-accent-color, var(--text-primary));
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card:hover .card-icon-wrapper {
+      transform: scale(1.05);
+    }
+
+    .card-icon-wrapper svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .card-category {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.25rem 0.55rem;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-desc {
+      color: var(--text-secondary);
       font-size: 0.88rem;
-      line-height: 1.55;
-      flex: 1;
+      line-height: 1.6;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 0.2rem 0.55rem;
+      border-radius: 100px;
+    }
+
+    .card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .card-stat {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .card-cta {
-      font-size: 0.88rem;
-      font-weight: 800;
-      color: var(--card-accent, var(--primary));
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--card-accent-color, var(--text-primary));
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      margin-top: 0.5rem;
+      transition: gap 0.2s;
     }
 
-    .footer {
-      margin-top: 1rem;
+    .card:hover .card-cta {
+      gap: 0.65rem;
+    }
+
+    /* Curriculum / Quick Index Drawer */
+    .overview-section {
+      background: rgba(13, 18, 30, 0.4);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .overview-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .overview-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .overview-subtitle {
       color: var(--text-muted);
-      font-size: 0.85rem;
-      text-align: center;
+      font-size: 0.82rem;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .topic-column {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .topic-col-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .topic-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .topic-item {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .topic-item::before {
+      content: '•';
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-card);
+      color: var(--text-muted);
+      font-size: 0.82rem;
     }
 
     .footer a {
-      color: var(--primary);
+      color: var(--text-secondary);
       text-decoration: none;
-      font-weight: 700;
+      transition: color 0.2s;
+    }
+
+    .footer a:hover {
+      color: #ffffff;
+    }
+
+    /* Search highlight & hidden classes */
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 640px) {
+      .wrapper {
+        padding: 1rem 1rem 3rem 1rem;
+        gap: 2.5rem;
+      }
+      .nav-brand span {
+        display: none;
+      }
+      .hero {
+        margin-top: 0;
+      }
+      .card {
+        padding: 1.5rem;
+      }
+      .footer {
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <div class="badge">🎓 Interactive Academy</div>
-      <h1>Learning <span>Hub</span></h1>
-      <p class="subtitle">Bite-sized visual concepts, map-based learning, and micro-quizzes across core disciplines.</p>
+  <div class="bg-grid"></div>
+
+  <div class="wrapper">
+    <!-- Navigation Header -->
+    <nav class="nav">
+      <div class="nav-left">
+        <a href="https://angsumi.online" class="nav-brand">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          angsumi.online
+        </a>
+        <span class="nav-separator">/</span>
+        <span class="nav-title">Learning Hub</span>
+      </div>
+      <div class="nav-right">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span>3 Modules Live</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Hero -->
+    <header class="hero">
+      <div class="hero-tag">DISTILLED KNOWLEDGE PLATFORM</div>
+      <h1 class="hero-title">Master Core Subjects with Visual Clarity</h1>
+      <p class="hero-subtitle">Interactive SVG maps, chronological timelines, active recall flashcards, and constitutional article breakdowns.</p>
+
+      <!-- Instant Filter Search -->
+      <div class="search-container">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search subjects, topics (e.g. river, constitution, timeline)..." autocomplete="off" />
+          <span class="search-shortcut">⌘K</span>
+        </div>
+        <div class="filter-chips">
+          <button class="chip active" data-filter="all">All Modules</button>
+          <button class="chip" data-filter="geography">Geography</button>
+          <button class="chip" data-filter="history">History</button>
+          <button class="chip" data-filter="polity">Polity</button>
+        </div>
+      </div>
     </header>
 
-    <main class="grid">
+    <!-- Bento Grid Cards -->
+    <main class="grid" id="modulesGrid">
+      
       <!-- Geography Card -->
-      <a href="./geography/" class="card" style="--card-accent: #10b981;">
-        <div class="card-icon">🌍</div>
-        <div class="card-title">
-          Geography
-          <span style="font-size: 1.2rem; opacity: 0.5;">➔</span>
+      <a href="./geography/" class="card" data-module="geography" data-keywords="geography assam river northeast 7 sisters map vector atlas district mountains lakes" style="--card-accent: var(--accent-geo); --card-border-hover: var(--accent-geo-border); --icon-bg: var(--accent-geo-glow); --icon-border: var(--accent-geo-border); --card-accent-color: var(--accent-geo);">
+        <div class="card-top">
+          <div class="card-header">
+            <div class="card-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                <path d="M2 12h20"></path>
+              </svg>
+            </div>
+            <span class="card-category">MAPS & ATLAS</span>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Geography</h2>
+            <p class="card-desc">Assam, Northeast 7 Sisters & Indian geography with interactive vector maps, river flow visualizers, sub-district atlas, and regional practice games.</p>
+            <div class="card-tags">
+              <span class="tag">Assam Rivers</span>
+              <span class="tag">Northeast Maps</span>
+              <span class="tag">Sub-District Atlas</span>
+              <span class="tag">Micro-Quizzes</span>
+            </div>
+          </div>
         </div>
-        <p class="card-desc">Assam, Northeast 7 Sisters & Indian Geography with interactive vector maps, river visualizers, and practice games.</p>
-        <div class="card-cta">Explore Geography &rarr;</div>
+        <div class="card-bottom">
+          <span class="card-stat">Vector Maps & Atlas</span>
+          <span class="card-cta">
+            Explore Geography
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </span>
+        </div>
       </a>
 
       <!-- History Card -->
-      <a href="./history/" class="card" style="--card-accent: #f59e0b;">
-        <div class="card-icon">📜</div>
-        <div class="card-title">
-          History
-          <span style="font-size: 1.2rem; opacity: 0.5;">➔</span>
+      <a href="./history/" class="card" data-module="history" data-keywords="history assam ahom dynasty timeline ancient medieval modern freedom movement active recall flashcards" style="--card-accent: var(--accent-hist); --card-border-hover: var(--accent-hist-border); --icon-bg: var(--accent-hist-glow); --icon-border: var(--accent-hist-border); --card-accent-color: var(--accent-hist);">
+        <div class="card-top">
+          <div class="card-header">
+            <div class="card-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+            </div>
+            <span class="card-category">CHRONOLOGY & RECALL</span>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">History</h2>
+            <p class="card-desc">Ancient, Medieval, Modern & Regional Assam history with chronological timelines, active recall flashcard decks, and exam-focused practice tests.</p>
+            <div class="card-tags">
+              <span class="tag">Assam Era Timelines</span>
+              <span class="tag">Ahom Dynasty</span>
+              <span class="tag">Flashcard Decks</span>
+              <span class="tag">MCQ Exams</span>
+            </div>
+          </div>
         </div>
-        <p class="card-desc">Ancient, Medieval, Modern & Regional History with visual timelines, active recall flashcards, and exam quizzes.</p>
-        <div class="card-cta" style="color: #f59e0b;">Explore History &rarr;</div>
+        <div class="card-bottom">
+          <span class="card-stat">Visual Timelines</span>
+          <span class="card-cta">
+            Explore History
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </span>
+        </div>
       </a>
 
       <!-- Polity Card -->
-      <a href="./polity/" class="card" style="--card-accent: #3b82f6;">
-        <div class="card-icon">🏛️</div>
-        <div class="card-title">
-          Polity
-          <span style="font-size: 1.2rem; opacity: 0.5;">➔</span>
+      <a href="./polity/" class="card" data-module="polity" data-keywords="polity constitution indian governance preamble articles fundamental rights executive judiciary parliament" style="--card-accent: var(--accent-polity); --card-border-hover: var(--accent-polity-border); --icon-bg: var(--accent-polity-glow); --icon-border: var(--accent-polity-border); --card-accent-color: var(--accent-polity);">
+        <div class="card-top">
+          <div class="card-header">
+            <div class="card-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="22" x2="21" y2="22"></line>
+                <line x1="6" y1="18" x2="6" y2="11"></line>
+                <line x1="10" y1="18" x2="10" y2="11"></line>
+                <line x1="14" y1="18" x2="14" y2="11"></line>
+                <line x1="18" y1="18" x2="18" y2="11"></line>
+                <polygon points="12 2 20 7 4 7 12 2"></polygon>
+              </svg>
+            </div>
+            <span class="card-category">GOVERNANCE & ARTICLES</span>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Polity</h2>
+            <p class="card-desc">Indian Constitution, Governance & Political Systems with interactive articles lookup, Preamble breakdown, amendments, and practice MCQs.</p>
+            <div class="card-tags">
+              <span class="tag">Preamble Breakdown</span>
+              <span class="tag">Articles Lookup</span>
+              <span class="tag">Rights & Duties</span>
+              <span class="tag">Topic MCQs</span>
+            </div>
+          </div>
         </div>
-        <p class="card-desc">Indian Constitution, Governance & Political Systems with interactive articles, preamble breakdown, and MCQs.</p>
-        <div class="card-cta" style="color: #3b82f6;">Explore Polity &rarr;</div>
+        <div class="card-bottom">
+          <span class="card-stat">Constitution Hub</span>
+          <span class="card-cta">
+            Explore Polity
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </span>
+        </div>
       </a>
+
     </main>
 
+    <!-- Quick Curriculum Overview -->
+    <section class="overview-section">
+      <div class="overview-header">
+        <div>
+          <h3 class="overview-title">Curriculum Index</h3>
+          <p class="overview-subtitle">Distilled interactive tools & micro-learning modules across all subjects</p>
+        </div>
+      </div>
+      <div class="topics-grid">
+        <div class="topic-column">
+          <span class="topic-col-title" style="color: var(--accent-geo);">🌍 Geography</span>
+          <ul class="topic-list">
+            <li class="topic-item">Assam River Systems & Tributaries</li>
+            <li class="topic-item">Northeast 7 Sisters Vector Map</li>
+            <li class="topic-item">Indian Sub-Districts Atlas</li>
+            <li class="topic-item">Physical Topography & Hills</li>
+          </ul>
+        </div>
+        <div class="topic-column">
+          <span class="topic-col-title" style="color: var(--accent-hist);">📜 History</span>
+          <ul class="topic-list">
+            <li class="topic-item">Ancient & Medieval Era Timelines</li>
+            <li class="topic-item">Ahom Kingdom & Regional Dynasties</li>
+            <li class="topic-item">Modern Freedom Movement</li>
+            <li class="topic-item">Active Recall Flashcard Decks</li>
+          </ul>
+        </div>
+        <div class="topic-column">
+          <span class="topic-col-title" style="color: var(--accent-polity);">🏛️ Polity</span>
+          <ul class="topic-list">
+            <li class="topic-item">Preamble Structure & Principles</li>
+            <li class="topic-item">Fundamental Rights & Articles</li>
+            <li class="topic-item">Union & State Executive Bodies</li>
+            <li class="topic-item">Constitutional Amendments Index</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
-      Powered by <a href="https://angsumi.online">Angsumi Online</a> • Built for distilled learning
+      <div>Powered by <a href="https://angsumi.online" target="_blank">Angsumi Online</a> • Distilled Knowledge Platform</div>
+      <div>Designed for fast active learning & recall</div>
     </footer>
   </div>
+
+  <script>
+    // Search and filter logic
+    const searchInput = document.getElementById('searchInput');
+    const filterChips = document.querySelectorAll('.chip');
+    const cards = document.querySelectorAll('.card');
+
+    let currentFilter = 'all';
+
+    function filterModules() {
+      const query = searchInput.value.toLowerCase().trim();
+
+      cards.forEach(card => {
+        const module = card.dataset.module;
+        const keywords = card.dataset.keywords.toLowerCase();
+        
+        const matchesCategory = (currentFilter === 'all' || module === currentFilter);
+        const matchesSearch = query === '' || keywords.includes(query) || card.textContent.toLowerCase().includes(query);
+
+        if (matchesCategory && matchesSearch) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    searchInput.addEventListener('input', filterModules);
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        currentFilter = chip.dataset.filter;
+        filterModules();
+      });
+    });
+
+    // Keyboard Shortcuts (Cmd+K or / to focus search, Esc to clear)
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInput.focus();
+      } else if (e.key === '/' && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      } else if (e.key === 'Escape' && document.activeElement === searchInput) {
+        searchInput.value = '';
+        searchInput.blur();
+        filterModules();
+      }
+    });
+  </script>
 </body>
 </html>
