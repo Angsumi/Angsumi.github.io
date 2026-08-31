@@ -7,33 +7,31 @@
   <meta name="description" content="Minimal, intuitive, and interactive learning hub for Geography, History, and Polity with visual maps, timelines, and active recall.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #07090e;
-      --bg-card: rgba(13, 18, 30, 0.7);
-      --bg-card-hover: rgba(20, 27, 44, 0.85);
-      --border-card: rgba(255, 255, 255, 0.07);
-      --border-hover: rgba(255, 255, 255, 0.18);
-      --text-primary: #f8fafc;
-      --text-secondary: #94a3b8;
-      --text-muted: #64748b;
+      --bg: #faf8f5;
+      --bg-card: #ffffff;
+      --border-card: #eae6df;
+      --border-hover: #d5cfc5;
+      --text-primary: #1a1a1a;
+      --text-secondary: #5a5955;
+      --text-muted: #8c8a84;
       
-      --accent-geo: #10b981;
-      --accent-geo-glow: rgba(16, 185, 129, 0.12);
-      --accent-geo-border: rgba(16, 185, 129, 0.25);
+      --accent-geo: #0d8a6a;
+      --accent-geo-bg: #edf7f4;
+      --accent-geo-border: #c6e9de;
       
-      --accent-hist: #f59e0b;
-      --accent-hist-glow: rgba(245, 158, 11, 0.12);
-      --accent-hist-border: rgba(245, 158, 11, 0.25);
+      --accent-hist: #c97a14;
+      --accent-hist-bg: #fdf6ea;
+      --accent-hist-border: #f6e1be;
       
-      --accent-polity: #3b82f6;
-      --accent-polity-glow: rgba(59, 130, 246, 0.12);
-      --accent-polity-border: rgba(59, 130, 246, 0.25);
+      --accent-polity: #2563eb;
+      --accent-polity-bg: #eff6ff;
+      --accent-polity-border: #bfdbfe;
       
       --radius-lg: 20px;
       --radius-md: 12px;
-      --radius-sm: 8px;
     }
 
     * {
@@ -44,9 +42,6 @@
 
     body {
       background-color: var(--bg);
-      background-image: 
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 185, 129, 0.08), transparent 70%),
-        radial-gradient(ellipse 60% 40% at 100% 100%, rgba(59, 130, 246, 0.06), transparent 70%);
       color: var(--text-primary);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
@@ -58,42 +53,42 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Ambient top grid pattern */
+    /* Subtle background grid pattern */
     .bg-grid {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       height: 100vh;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-      background-size: 32px 32px;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+      background-size: 28px 28px;
       pointer-events: none;
       z-index: 0;
-      opacity: 0.6;
     }
 
     .wrapper {
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 1040px;
+      max-width: 1000px;
       padding: 1.5rem 1.5rem 4rem 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 3.5rem;
+      gap: 3rem;
     }
 
-    /* Top Navigation */
+    /* Navigation */
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
       padding: 0.75rem 1.25rem;
-      background: rgba(13, 18, 30, 0.5);
+      background: rgba(255, 255, 255, 0.85);
       border: 1px solid var(--border-card);
       border-radius: 100px;
       backdrop-filter: blur(16px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
     }
 
     .nav-left {
@@ -127,13 +122,6 @@
       font-size: 0.88rem;
       font-weight: 700;
       color: var(--text-primary);
-      letter-spacing: -0.01em;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
     }
 
     .status-badge {
@@ -143,10 +131,11 @@
       font-size: 0.75rem;
       font-family: 'JetBrains Mono', monospace;
       color: var(--accent-geo);
-      background: var(--accent-geo-glow);
+      background: var(--accent-geo-bg);
       border: 1px solid var(--accent-geo-border);
       padding: 0.25rem 0.65rem;
       border-radius: 100px;
+      font-weight: 500;
     }
 
     .status-dot {
@@ -154,7 +143,6 @@
       height: 6px;
       border-radius: 50%;
       background-color: var(--accent-geo);
-      box-shadow: 0 0 8px var(--accent-geo);
     }
 
     /* Hero Section */
@@ -163,7 +151,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.25rem;
+      gap: 1.15rem;
       margin-top: 1rem;
     }
 
@@ -172,38 +160,38 @@
       align-items: center;
       gap: 0.5rem;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
+      font-size: 0.73rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-secondary);
-      background: rgba(255, 255, 255, 0.03);
+      background: #ffffff;
       border: 1px solid var(--border-card);
       padding: 0.35rem 0.85rem;
       border-radius: 100px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
     }
 
     .hero-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+      font-size: clamp(2.3rem, 5vw, 3.4rem);
       font-weight: 800;
-      letter-spacing: -0.035em;
-      line-height: 1.1;
-      color: #ffffff;
-      max-width: 780px;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      color: var(--text-primary);
+      max-width: 760px;
     }
 
     .hero-subtitle {
       color: var(--text-secondary);
-      font-size: clamp(1rem, 2vw, 1.125rem);
+      font-size: clamp(0.98rem, 2vw, 1.1rem);
       line-height: 1.6;
-      max-width: 620px;
-      font-weight: 400;
+      max-width: 600px;
     }
 
     /* Search & Filter Controls */
     .search-container {
       width: 100%;
-      max-width: 580px;
+      max-width: 560px;
       margin-top: 0.5rem;
       display: flex;
       flex-direction: column;
@@ -224,31 +212,25 @@
       height: 18px;
       color: var(--text-muted);
       pointer-events: none;
-      transition: color 0.2s;
     }
 
     .search-input {
       width: 100%;
       padding: 0.85rem 3rem 0.85rem 2.8rem;
-      background: rgba(13, 18, 30, 0.8);
+      background: #ffffff;
       border: 1px solid var(--border-card);
       border-radius: var(--radius-md);
       color: var(--text-primary);
       font-family: 'Inter', sans-serif;
       font-size: 0.92rem;
       outline: none;
-      backdrop-filter: blur(12px);
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      transition: all 0.2s ease;
     }
 
     .search-input:focus {
       border-color: var(--border-hover);
-      background: rgba(18, 25, 42, 0.9);
-      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.03);
-    }
-
-    .search-input:focus ~ .search-icon {
-      color: var(--text-primary);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
     }
 
     .search-shortcut {
@@ -257,8 +239,8 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.72rem;
       color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--bg);
+      border: 1px solid var(--border-card);
       padding: 0.15rem 0.45rem;
       border-radius: 4px;
       pointer-events: none;
@@ -273,10 +255,10 @@
     }
 
     .chip {
-      background: transparent;
+      background: #ffffff;
       border: 1px solid var(--border-card);
       color: var(--text-secondary);
-      padding: 0.35rem 0.75rem;
+      padding: 0.35rem 0.8rem;
       border-radius: 100px;
       font-size: 0.8rem;
       font-weight: 500;
@@ -290,12 +272,12 @@
     }
 
     .chip.active {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.25);
+      background: var(--text-primary);
+      border-color: var(--text-primary);
       color: #ffffff;
     }
 
-    /* Cards Bento Grid */
+    /* Cards Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -314,29 +296,15 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 1.5rem;
-      backdrop-filter: blur(16px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
-      overflow: hidden;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      background: var(--bg-card-hover);
       border-color: var(--card-border-hover, var(--border-hover));
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--card-accent, transparent);
-      opacity: 0.8;
-      transition: opacity 0.3s;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
     }
 
     .card-top {
@@ -355,12 +323,12 @@
       width: 48px;
       height: 48px;
       border-radius: var(--radius-md);
-      background: var(--icon-bg, rgba(255, 255, 255, 0.04));
-      border: 1px solid var(--icon-border, rgba(255, 255, 255, 0.08));
+      background: var(--icon-bg);
+      border: 1px solid var(--icon-border);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--card-accent-color, var(--text-primary));
+      color: var(--card-accent-color);
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -380,10 +348,10 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.03);
+      background: var(--bg);
       padding: 0.25rem 0.55rem;
       border-radius: 4px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-card);
     }
 
     .card-body {
@@ -397,10 +365,7 @@
       font-size: 1.4rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      color: var(--text-primary);
     }
 
     .card-desc {
@@ -419,8 +384,8 @@
     .tag {
       font-size: 0.73rem;
       color: var(--text-secondary);
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: var(--bg);
+      border: 1px solid var(--border-card);
       padding: 0.2rem 0.55rem;
       border-radius: 100px;
     }
@@ -430,7 +395,7 @@
       align-items: center;
       justify-content: space-between;
       padding-top: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid var(--border-card);
     }
 
     .card-stat {
@@ -442,7 +407,7 @@
     .card-cta {
       font-size: 0.85rem;
       font-weight: 600;
-      color: var(--card-accent-color, var(--text-primary));
+      color: var(--card-accent-color);
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
@@ -451,81 +416,6 @@
 
     .card:hover .card-cta {
       gap: 0.65rem;
-    }
-
-    /* Curriculum / Quick Index Drawer */
-    .overview-section {
-      background: rgba(13, 18, 30, 0.4);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .overview-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .overview-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .overview-subtitle {
-      color: var(--text-muted);
-      font-size: 0.82rem;
-    }
-
-    .topics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
-    }
-
-    .topic-column {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .topic-col-title {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .topic-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-
-    .topic-item {
-      font-size: 0.84rem;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .topic-item::before {
-      content: '•';
-      color: var(--text-muted);
     }
 
     /* Footer */
@@ -544,14 +434,14 @@
     .footer a {
       color: var(--text-secondary);
       text-decoration: none;
+      font-weight: 500;
       transition: color 0.2s;
     }
 
     .footer a:hover {
-      color: #ffffff;
+      color: var(--text-primary);
     }
 
-    /* Search highlight & hidden classes */
     .hidden {
       display: none !important;
     }
@@ -559,13 +449,10 @@
     @media (max-width: 640px) {
       .wrapper {
         padding: 1rem 1rem 3rem 1rem;
-        gap: 2.5rem;
+        gap: 2.2rem;
       }
       .nav-brand span {
         display: none;
-      }
-      .hero {
-        margin-top: 0;
       }
       .card {
         padding: 1.5rem;
@@ -628,7 +515,7 @@
     <main class="grid" id="modulesGrid">
       
       <!-- Geography Card -->
-      <a href="./geography/" class="card" data-module="geography" data-keywords="geography assam river northeast 7 sisters map vector atlas district mountains lakes" style="--card-accent: var(--accent-geo); --card-border-hover: var(--accent-geo-border); --icon-bg: var(--accent-geo-glow); --icon-border: var(--accent-geo-border); --card-accent-color: var(--accent-geo);">
+      <a href="./geography/" class="card" data-module="geography" data-keywords="geography assam river northeast 7 sisters map vector atlas district mountains lakes" style="--card-border-hover: var(--accent-geo-border); --icon-bg: var(--accent-geo-bg); --icon-border: var(--accent-geo-border); --card-accent-color: var(--accent-geo);">
         <div class="card-top">
           <div class="card-header">
             <div class="card-icon-wrapper">
@@ -661,7 +548,7 @@
       </a>
 
       <!-- History Card -->
-      <a href="./history/" class="card" data-module="history" data-keywords="history assam ahom dynasty timeline ancient medieval modern freedom movement active recall flashcards" style="--card-accent: var(--accent-hist); --card-border-hover: var(--accent-hist-border); --icon-bg: var(--accent-hist-glow); --icon-border: var(--accent-hist-border); --card-accent-color: var(--accent-hist);">
+      <a href="./history/" class="card" data-module="history" data-keywords="history assam ahom dynasty timeline ancient medieval modern freedom movement active recall flashcards" style="--card-border-hover: var(--accent-hist-border); --icon-bg: var(--accent-hist-bg); --icon-border: var(--accent-hist-border); --card-accent-color: var(--accent-hist);">
         <div class="card-top">
           <div class="card-header">
             <div class="card-icon-wrapper">
@@ -693,7 +580,7 @@
       </a>
 
       <!-- Polity Card -->
-      <a href="./polity/" class="card" data-module="polity" data-keywords="polity constitution indian governance preamble articles fundamental rights executive judiciary parliament" style="--card-accent: var(--accent-polity); --card-border-hover: var(--accent-polity-border); --icon-bg: var(--accent-polity-glow); --icon-border: var(--accent-polity-border); --card-accent-color: var(--accent-polity);">
+      <a href="./polity/" class="card" data-module="polity" data-keywords="polity constitution indian governance preamble articles fundamental rights executive judiciary parliament" style="--card-border-hover: var(--accent-polity-border); --icon-bg: var(--accent-polity-bg); --icon-border: var(--accent-polity-border); --card-accent-color: var(--accent-polity);">
         <div class="card-top">
           <div class="card-header">
             <div class="card-icon-wrapper">
@@ -729,45 +616,6 @@
       </a>
 
     </main>
-
-    <!-- Quick Curriculum Overview -->
-    <section class="overview-section">
-      <div class="overview-header">
-        <div>
-          <h3 class="overview-title">Curriculum Index</h3>
-          <p class="overview-subtitle">Distilled interactive tools & micro-learning modules across all subjects</p>
-        </div>
-      </div>
-      <div class="topics-grid">
-        <div class="topic-column">
-          <span class="topic-col-title" style="color: var(--accent-geo);">🌍 Geography</span>
-          <ul class="topic-list">
-            <li class="topic-item">Assam River Systems & Tributaries</li>
-            <li class="topic-item">Northeast 7 Sisters Vector Map</li>
-            <li class="topic-item">Indian Sub-Districts Atlas</li>
-            <li class="topic-item">Physical Topography & Hills</li>
-          </ul>
-        </div>
-        <div class="topic-column">
-          <span class="topic-col-title" style="color: var(--accent-hist);">📜 History</span>
-          <ul class="topic-list">
-            <li class="topic-item">Ancient & Medieval Era Timelines</li>
-            <li class="topic-item">Ahom Kingdom & Regional Dynasties</li>
-            <li class="topic-item">Modern Freedom Movement</li>
-            <li class="topic-item">Active Recall Flashcard Decks</li>
-          </ul>
-        </div>
-        <div class="topic-column">
-          <span class="topic-col-title" style="color: var(--accent-polity);">🏛️ Polity</span>
-          <ul class="topic-list">
-            <li class="topic-item">Preamble Structure & Principles</li>
-            <li class="topic-item">Fundamental Rights & Articles</li>
-            <li class="topic-item">Union & State Executive Bodies</li>
-            <li class="topic-item">Constitutional Amendments Index</li>
-          </ul>
-        </div>
-      </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
