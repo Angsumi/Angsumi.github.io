@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Hub | Angsumi</title>
+  <meta name="description" content="Interactive learning platforms across Geography, History, and Polity with bite-sized visual concepts and micro-quizzes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.12) 0px, transparent 50%);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 920px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--primary);
+      padding: 0.4rem 1.1rem;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      max-width: 620px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 1.85rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      backdrop-filter: blur(16px);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 16px 35px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--card-accent, var(--primary));
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .card-cta {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--card-accent, var(--primary));
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .footer {
+      margin-top: 1rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="badge">🎓 Interactive Academy</div>
+      <h1>Learning <span>Hub</span></h1>
+      <p class="subtitle">Bite-sized visual concepts, map-based learning, and micro-quizzes across core disciplines.</p>
+    </header>
+
+    <main class="grid">
+      <!-- Geography Card -->
+      <a href="./geography/" class="card" style="--card-accent: #10b981;">
+        <div class="card-icon">🌍</div>
+        <div class="card-title">
+          Geography
+          <span style="font-size: 1.2rem; opacity: 0.5;">➔</span>
+        </div>
+        <p class="card-desc">Assam, Northeast 7 Sisters & Indian Geography with interactive vector maps, river visualizers, and practice games.</p>
+        <div class="card-cta">Explore Geography &rarr;</div>
+      </a>
+
+      <!-- History Card -->
+      <a href="./history/" class="card" style="--card-accent: #f59e0b;">
+        <div class="card-icon">📜</div>
+        <div class="card-title">
+          History
+          <span style="font-size: 1.2rem; opacity: 0.5;">➔</span>
+        </div>
+        <p class="card-desc">Ancient, Medieval, Modern & Regional History with visual timelines, active recall flashcards, and exam quizzes.</p>
+        <div class="card-cta" style="color: #f59e0b;">Explore History &rarr;</div>
+      </a>
+
+      <!-- Polity Card -->
+      <a href="./polity/" class="card" style="--card-accent: #3b82f6;">
+        <div class="card-icon">🏛️</div>
+        <div class="card-title">
+          Polity
+          <span style="font-size: 1.2rem; opacity: 0.5;">➔</span>
+        </div>
+        <p class="card-desc">Indian Constitution, Governance & Political Systems with interactive articles, preamble breakdown, and MCQs.</p>
+        <div class="card-cta" style="color: #3b82f6;">Explore Polity &rarr;</div>
+      </a>
+    </main>
+
+    <footer class="footer">
+      Powered by <a href="https://angsumi.online">Angsumi Online</a> • Built for distilled learning
+    </footer>
+  </div>
+</body>
+</html>
