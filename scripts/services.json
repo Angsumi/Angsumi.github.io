@@ -1,0 +1,678 @@
+[
+  {
+    "service_id": "doctor-clinic-website-design",
+    "service_title": "Doctor & Clinic Website Design & OPD Management Systems in Assam",
+    "short_title": "Doctor & Clinic Websites",
+    "icon": "🏥",
+    "hero_badge": "Healthcare Digital Systems",
+    "h1": "Top Doctor Website Design & Clinic Management Systems in Assam",
+    "tagline": "OPD Token Booking, WhatsApp Prescriptions & Patient History with Zero Monthly Fees",
+    "description": "Stop losing patients to crowded waiting rooms and expensive third-party appointment aggregators. Angsumi builds custom, lightning-fast doctor websites, OPD queue management systems, and WhatsApp report delivery platforms for clinics, nursing homes, and diagnostic centers across Assam and Northeast India.",
+    "key_features": [
+      {
+        "title": "Smart OPD Token Booking",
+        "desc": "Patients book appointments online with live token numbers, reducing physical waiting hall crowding."
+      },
+      {
+        "title": "WhatsApp Automated Alerts",
+        "desc": "Send instant appointment confirmations, time reminders, and digital prescriptions straight to patient WhatsApp."
+      },
+      {
+        "title": "Zero Monthly SaaS Fees",
+        "desc": "Unlike Practo or generic SaaS that charge ₹2,000–₹5,000 every month, you own 100% of your system with zero recurring commissions."
+      },
+      {
+        "title": "Google Maps Local SEO",
+        "desc": "Rank at the top when patients in Guwahati, Dibrugarh, Silchar, Jorhat, or Tezpur search for doctors in your specialty."
+      }
+    ],
+    "workflow_steps": [
+      "1. Patient views your verified doctor profile and clinic consultation schedule.",
+      "2. Selects preferred date and receives an instant digital token with estimated time.",
+      "3. Receives automated WhatsApp reminder 1 hour before consultation.",
+      "4. Doctor issues digital prescription/report accessible via secure patient portal."
+    ],
+    "starter_price": "₹3,500",
+    "business_price": "₹7,500",
+    "custom_price": "From ₹18,000",
+    "case_study_link": "/blog/clinic-digital-system.html",
+    "faqs": [
+      {
+        "q": "How much does a doctor or clinic website cost in Assam?",
+        "a": "A professional doctor portfolio website with WhatsApp booking starts at ₹3,500. A full multi-speciality clinic portal with OPD token management and doctor schedule calendars is ₹7,500. Custom hospital ERP systems start from ₹18,000."
+      },
+      {
+        "q": "Can patients download test reports from the website?",
+        "a": "Yes! We can configure a secure patient report download module where diagnostic labs or clinics upload PDF reports and patients access them using their phone number and OTP or token ID."
+      },
+      {
+        "q": "Will my clinic rank on Google Maps for local searches in Assam?",
+        "a": "Yes. Every healthcare website we build includes local schema markup (`MedicalBusiness` / `Physician`), Google Business Profile optimization, and local citation integration."
+      }
+    ]
+  },
+  {
+    "service_id": "school-management-system",
+    "service_title": "School, College & Coaching Institute Website Design in Assam",
+    "short_title": "School & Coaching Systems",
+    "icon": "🎓",
+    "hero_badge": "Education Digital Infrastructure",
+    "h1": "School & Coaching Institute Website Design in Assam",
+    "tagline": "Student Portals, Digital Noticeboards, Fee Tracking & Admission Lead Funnels",
+    "description": "Empower your school, junior college, or coaching institute in Assam with a modern digital system. We build high-speed academic portals, online fee payment integrations, notice delivery systems, and admission lead capture funnels tailored for Northeast institutions.",
+    "key_features": [
+      {
+        "title": "Instant Online Noticeboard",
+        "desc": "Publish exam schedules, holiday notices, and circulars instantly to parents and students on mobile."
+      },
+      {
+        "title": "Online Fee Payment (UPI)",
+        "desc": "Direct fee payments with automated digital receipt generation straight into the school's bank account with zero intermediary delay."
+      },
+      {
+        "title": "Admission Lead Funnel",
+        "desc": "Capture parent inquiries for new academic sessions with automated WhatsApp brochures and lead tracking."
+      },
+      {
+        "title": "Report Card & Result Portal",
+        "desc": "Publish term examination marks and downloadable report cards secured by student roll numbers."
+      }
+    ],
+    "workflow_steps": [
+      "1. Prospective parents discover school achievements and submit admission inquiry forms.",
+      "2. Enrolled students check notices, timetable, and holiday calendar from any mobile device.",
+      "3. Parents pay monthly/quarterly tuition fees via Google Pay, PhonePe, or UPI with instant receipt.",
+      "4. Administration updates notices and notices with a simple 1-click admin interface."
+    ],
+    "starter_price": "₹4,000",
+    "business_price": "₹8,500",
+    "custom_price": "From ₹20,000",
+    "case_study_link": "/blog/school-web-design-assam.html",
+    "faqs": [
+      {
+        "q": "How does this compare to expensive school management software?",
+        "a": "Most software companies charge ₹30,000 to ₹1,00,000 per year in recurring subscriptions. Angsumi builds clean, lightweight web portals where you pay once and own the system forever with free hosting support."
+      },
+      {
+        "q": "Can teachers easily update circulars without technical training?",
+        "a": "Yes. We design ultra-simple admin dashboards where staff can upload a PDF or type a notice in 30 seconds from a phone or computer."
+      },
+      {
+        "q": "Is the student fee payment system secure?",
+        "a": "100%. We integrate RBI-authorized payment gateways (Razorpay/Cashfree/UPI) so payments deposit directly into the school's bank account."
+      }
+    ]
+  },
+  {
+    "service_id": "online-exam-portal-development",
+    "service_title": "Online Examination & Mock Test Portal Development in Assam (ADRE, APSC, TET)",
+    "short_title": "Online Exam Portals",
+    "icon": "📝",
+    "hero_badge": "EdTech & Test Engine",
+    "h1": "Online Examination & Mock Test Portal Development in Assam",
+    "tagline": "Live Timers, Negative Marking, Instant State Rankings & Automated Scorecards",
+    "description": "Launch your own branded test preparation platform for ADRE, APSC, Assam Police, SLRC, and competitive exams. Built with the same rock-solid engineering powering AxomRank (25,000+ candidates), our test engine delivers sub-second load times even during massive peak traffic.",
+    "key_features": [
+      {
+        "title": "State-Wide Rank Predictor",
+        "desc": "Real-time rank generation comparing thousands of students across Assam instantly upon exam submission."
+      },
+      {
+        "title": "Timed CBT Interface",
+        "desc": "Accurate computer-based test interface with question palettes, mark for review, and countdown timers."
+      },
+      {
+        "title": "Bilingual Questions (Assamese & English)",
+        "desc": "Seamless support for both Assamese script and English language questions with clean mobile typography."
+      },
+      {
+        "title": "Monetized Test Packages",
+        "desc": "Sell mock test series with instant UPI payment unlocking premium test access automatically."
+      }
+    ],
+    "workflow_steps": [
+      "1. Student signs up with phone number and enrolls in free or paid test series.",
+      "2. Attempts timed online examination with live question navigation.",
+      "3. Instant scorecard breakdown with accuracy %, negative mark calculation, and answer explanations.",
+      "4. Dynamic state-wide leaderboard shows ranking among all participating students."
+    ],
+    "starter_price": "₹6,000",
+    "business_price": "₹14,000",
+    "custom_price": "From ₹28,000",
+    "case_study_link": "/ADRE/",
+    "faqs": [
+      {
+        "q": "Can your test portal handle 10,000+ simultaneous test takers?",
+        "a": "Yes. Our architecture is built using lightweight client-side computation and highly scalable cloud backends, proven by our AxomRank ADRE examination portal."
+      },
+      {
+        "q": "Can I upload questions from Excel or Word?",
+        "a": "Yes. We build batch question upload tools supporting CSV, Excel, and JSON so you can upload 100 questions in 1 click."
+      },
+      {
+        "q": "Can coaching institutes sell tests under their own brand and domain?",
+        "a": "Yes. The entire platform runs under your custom domain (e.g., tests.youracademy.in) with your logo, brand colors, and payment gateway."
+      }
+    ]
+  },
+  {
+    "service_id": "hotel-homestay-booking-website",
+    "service_title": "Hotel, Resort & Homestay Direct Booking Website Design in Northeast India",
+    "short_title": "Hotel & Homestay Booking",
+    "icon": "🏨",
+    "hero_badge": "Tourism & Hospitality",
+    "h1": "Direct Booking Websites for Hotels, Homestays & Resorts in Northeast India",
+    "tagline": "Save 18-25% OTA Commissions with Direct WhatsApp Booking & UPI Advance Payments",
+    "description": "Stop paying 20%+ commission on every room night to Airbnb, MakeMyTrip, and Booking.com. Angsumi builds stunning, high-speed websites for homestays in Shillong, resorts in Kaziranga, lodges in Tawang, and hotels in Guwahati with direct booking engines and instant WhatsApp confirmations.",
+    "key_features": [
+      {
+        "title": "Zero Commission Direct Bookings",
+        "desc": "Keep 100% of your room revenue by enabling guests to book directly through your verified website."
+      },
+      {
+        "title": "1-Tap WhatsApp Inquiry",
+        "desc": "Guests pick room dates and click to send a pre-filled WhatsApp reservation request directly to your phone."
+      },
+      {
+        "title": "High-Resolution Photo Galleries",
+        "desc": "Ultra-fast optimized imagery showcasing rooms, scenic mountain views, local cuisine, and amenities."
+      },
+      {
+        "title": "Google Maps & Local Tourism SEO",
+        "desc": "Rank at the top when travellers search for homestays and resorts in your scenic Northeast location."
+      }
+    ],
+    "workflow_steps": [
+      "1. Tourist browses room categories, 360 photo galleries, tariff cards, and nearby attractions.",
+      "2. Selects check-in / check-out dates and room type.",
+      "3. Submits instant reservation request via WhatsApp or pays advance token amount via UPI.",
+      "4. Host receives instant notification with guest details and confirms reservation."
+    ],
+    "starter_price": "₹3,000",
+    "business_price": "₹6,500",
+    "custom_price": "From ₹16,000",
+    "case_study_link": "/locations/meghalaya/shillong/",
+    "faqs": [
+      {
+        "q": "Why do homestays and hotels in Northeast need their own website?",
+        "a": "OTAs charge 18% to 25% commission per room and withhold customer contact details. A direct website pays for itself in just 3-4 bookings while letting you build repeat guest relationships."
+      },
+      {
+        "q": "Can I show tourist guidance, taxi contacts, and safari bookings?",
+        "a": "Yes! We include custom pages for Kaziranga elephant safaris, Shillong day trips, Tawang permits, and local adventure activities."
+      },
+      {
+        "q": "Does the website load fast in hill stations with spotty 4G?",
+        "a": "Yes. We hand-code our sites to load in under 1 second even on 3G/4G mountain networks with optimized next-gen image compression."
+      }
+    ]
+  },
+  {
+    "service_id": "ecommerce-website-design",
+    "service_title": "E-Commerce Website & Online Store Design in Assam (UPI & WhatsApp Checkout)",
+    "short_title": "E-Commerce & Online Stores",
+    "icon": "🛍️",
+    "hero_badge": "Digital Commerce",
+    "h1": "High-Speed E-Commerce & Online Store Design in Assam",
+    "tagline": "Sell Assam Silk, Tea, Handicrafts, Fashion & Local Goods Pan-India with Zero Monthly Fees",
+    "description": "Sell your products across Assam and all of India with a modern, high-converting online store. Unlike Shopify or Wix that charge monthly subscription fees plus transaction cuts, Angsumi builds custom, lightning-fast e-commerce stores with automated UPI checkout and direct WhatsApp ordering.",
+    "key_features": [
+      {
+        "title": "Instant UPI & QR Checkout",
+        "desc": "Customers pay effortlessly via GPay, PhonePe, Paytm, or Credit/Debit Cards with zero friction."
+      },
+      {
+        "title": "1-Tap WhatsApp Cart Ordering",
+        "desc": "Popular in Northeast: customers add products to cart and checkout directly via WhatsApp with auto-generated order summary."
+      },
+      {
+        "title": "Automated Shipping & Tracking",
+        "desc": "Integrated pincode delivery check and order tracking for Shiprocket, Delhivery, and India Post."
+      },
+      {
+        "title": "100% Owned — Zero Monthly Fees",
+        "desc": "Never pay $29–$79/month in Shopify fees. You own your store completely."
+      }
+    ],
+    "workflow_steps": [
+      "1. Shopper browses clean product catalog with fast filtering and mobile search.",
+      "2. Adds items to bag and checks delivery availability by entering pincode.",
+      "3. Selects UPI / Card / COD or 1-Tap WhatsApp Checkout.",
+      "4. Store owner receives instant order notification and dispatches parcel."
+    ],
+    "starter_price": "₹4,500",
+    "business_price": "₹9,500",
+    "custom_price": "From ₹22,000",
+    "case_study_link": "/#proof",
+    "faqs": [
+      {
+        "q": "Can I sell Assamese traditional wear (Muga, Mekhela Chador) and tea?",
+        "a": "Absolutely! We specialize in tailoring stores for Northeast products with size charts, color variants, fabric purity certifications, and international shipping options."
+      },
+      {
+        "q": "Can I manage products and inventory from my mobile phone?",
+        "a": "Yes. We provide a lightweight, mobile-friendly admin panel where you can add new products, update prices, and mark items out of stock in seconds."
+      },
+      {
+        "q": "What payment gateways are supported?",
+        "a": "We integrate Razorpay, Cashfree, PhonePe PG, Paytm, and direct UPI QR codes."
+      }
+    ]
+  },
+  {
+    "service_id": "mobile-app-development",
+    "service_title": "Custom Android & iOS Mobile App Development in Assam — Angsumi",
+    "short_title": "Mobile App Development",
+    "icon": "📱",
+    "hero_badge": "Mobile Engineering",
+    "h1": "Custom Mobile App Development in Assam (Android & iOS)",
+    "tagline": "Native-Speed Flutter & Progressive Web Apps Engineered for Northeast Businesses",
+    "description": "Turn your business idea or management workflow into a published mobile application on Google Play Store and Apple App Store. Angsumi builds high-performance cross-platform apps with offline data caching, real-time push notifications, and seamless UPI payments.",
+    "key_features": [
+      {
+        "title": "Cross-Platform Flutter Codebase",
+        "desc": "One single codebase compiles into native Android and iOS apps, saving 50% on development time and cost."
+      },
+      {
+        "title": "Offline-First Caching",
+        "desc": "Apps remain fast and functional even when users experience intermittent mobile connectivity in rural and hilly regions."
+      },
+      {
+        "title": "Real-Time Push Notifications",
+        "desc": "Send instant promotional announcements, order updates, and emergency notices straight to user lock screens."
+      },
+      {
+        "title": "Play Store & App Store Publishing",
+        "desc": "Full end-to-end support for developer account setup, app signing, privacy policies, and Google/Apple review approval."
+      }
+    ],
+    "workflow_steps": [
+      "1. Architecture design and interactive UI wireframing aligned with your business model.",
+      "2. Frontend Flutter development + scalable REST API backend integration.",
+      "3. Comprehensive testing across multiple Android and iOS device form factors.",
+      "4. Production release and publishing on Google Play Store and Apple App Store."
+    ],
+    "starter_price": "₹15,000",
+    "business_price": "₹28,000",
+    "custom_price": "From ₹45,000",
+    "case_study_link": "/ADRE/",
+    "faqs": [
+      {
+        "q": "How long does it take to develop a mobile app in Assam?",
+        "a": "A standard business or portal mobile app takes 2 to 3 weeks. Complex multi-user platforms with custom logic and payment gateways take 4 to 6 weeks."
+      },
+      {
+        "q": "Do you develop for both Android and iPhone?",
+        "a": "Yes! Using Flutter, we build apps that run flawlessly on both Android smartphones and Apple iPhones with native 60fps performance."
+      },
+      {
+        "q": "Do you help with Google Play Store submission?",
+        "a": "Yes. We prepare all required store assets, screenshots, privacy policies, and guide you through account verification until your app is live."
+      }
+    ]
+  },
+  {
+    "service_id": "contractor-company-profile-website",
+    "service_title": "Contractor & Construction Company Profile Website Design in Assam",
+    "short_title": "Contractor & Corporate Profiles",
+    "icon": "🏗️",
+    "hero_badge": "Corporate & B2B Tenders",
+    "h1": "Contractor & Construction Company Profile Websites in Assam",
+    "tagline": "Tender-Compliant Corporate Portals Showcasing Completed Government & Private Projects",
+    "description": "Win larger government and private tenders with an authoritative digital profile. We build corporate websites for civil contractors, highway builders, electrical suppliers, and engineering firms in Assam seeking verification for CPWD, PWD, NHIDCL, NRL, ONGC, and OIL tenders.",
+    "key_features": [
+      {
+        "title": "Tender Verification Compliance",
+        "desc": "Showcase company registrations, GST, MSME, ISO certifications, and verified completed project credentials."
+      },
+      {
+        "title": "High-Resolution Project Portfolio",
+        "desc": "Categorize completed and ongoing projects (Highways, Bridges, Buildings, Pipelines) with client testimonials."
+      },
+      {
+        "title": "Downloadable Corporate PDF Profile",
+        "desc": "Automated 1-click download of your corporate brochure and capability statement for procurement officers."
+      },
+      {
+        "title": "Custom Corporate Email Setup",
+        "desc": "Professional email addresses (e.g. director@yourcompany.com) that establish instant corporate credibility."
+      }
+    ],
+    "workflow_steps": [
+      "1. We organize your work orders, machinery inventory, and team credentials into a structured layout.",
+      "2. Build high-speed corporate pages highlighting past completed infrastructure milestones.",
+      "3. Configure corporate email accounts and downloadable tender profile documents.",
+      "4. Launch on your branded .com/.in domain with SSL certificate and Google Search indexing."
+    ],
+    "starter_price": "₹3,500",
+    "business_price": "₹7,000",
+    "custom_price": "From ₹16,000",
+    "case_study_link": "/locations/assam/guwahati/",
+    "faqs": [
+      {
+        "q": "Why do contractors in Assam need a professional website?",
+        "a": "Modern tender evaluation committees and corporate clients routinely search and verify a contractor's website and digital footprint before awarding major contracts."
+      },
+      {
+        "q": "Can I update new projects when contracts are completed?",
+        "a": "Yes. You get a simple admin panel to add photos, client names, and project values anytime from your phone or laptop."
+      },
+      {
+        "q": "How fast can you launch a contractor profile website?",
+        "a": "We can build and launch a complete corporate contractor website within 48 to 72 hours."
+      }
+    ]
+  },
+  {
+    "service_id": "whatsapp-ordering-system",
+    "service_title": "WhatsApp Store & Digital Catalog Ordering System for Assam Businesses",
+    "short_title": "WhatsApp Store & Catalogs",
+    "icon": "💬",
+    "hero_badge": "Conversational Commerce",
+    "h1": "1-Tap WhatsApp Store & Digital Catalog Systems in Assam",
+    "tagline": "Turn Social Media & WhatsApp Inquiries into Instant Automated Orders",
+    "description": "Convert your WhatsApp chats into organized revenue. We build sleek mobile digital catalogs where local customers in Assam browse your menu or inventory, add items to cart, and send a pre-formatted order directly to your WhatsApp with one tap — zero app downloads needed.",
+    "key_features": [
+      {
+        "title": "No Customer App Download",
+        "desc": "Loads instantly in any browser from your Instagram bio, Facebook page, or Google Maps link."
+      },
+      {
+        "title": "Formatted WhatsApp Order Receipts",
+        "desc": "Orders arrive in your WhatsApp with customer name, delivery address, selected items, and total price calculated automatically."
+      },
+      {
+        "title": "Real-Time Stock & Menu Toggles",
+        "desc": "Turn items on/off or update daily specials in 10 seconds from your phone."
+      },
+      {
+        "title": "Integrated UPI QR Code",
+        "desc": "Customers can pay in advance by scanning your direct UPI QR code or pay on delivery."
+      }
+    ],
+    "workflow_steps": [
+      "1. Customer clicks your store link from Instagram, WhatsApp status, or Google Maps.",
+      "2. Selects products, options, and quantities in an interactive visual catalog.",
+      "3. Enters delivery address and clicks 'Order via WhatsApp'.",
+      "4. Your WhatsApp instantly receives the complete formatted order ready for dispatch."
+    ],
+    "starter_price": "₹2,500",
+    "business_price": "₹5,500",
+    "custom_price": "From ₹12,000",
+    "case_study_link": "/#proof",
+    "faqs": [
+      {
+        "q": "Who is the WhatsApp Store ideal for?",
+        "a": "Perfect for bakeries, cloud kitchens, boutique clothing stores, organic grocery vendors, electronics shops, and local artisans in Assam."
+      },
+      {
+        "q": "Do I need to pay any monthly fees for the WhatsApp store?",
+        "a": "No! Unlike third-party apps that charge ₹500–₹1,500 every month, our custom system runs with zero recurring monthly charges."
+      },
+      {
+        "q": "Can I share product links directly in WhatsApp chats?",
+        "a": "Yes! Each product has a clean direct link that generates beautiful image previews when shared in WhatsApp chats."
+      }
+    ]
+  },
+  {
+    "service_id": "restaurant-cafe-digital-menu",
+    "service_title": "Restaurant & Cafe Digital QR Menu and Website Design in Assam",
+    "short_title": "Restaurant QR Menus",
+    "icon": "🍽️",
+    "hero_badge": "Hospitality & Dining",
+    "h1": "Digital QR Code Menus & Restaurant Websites in Assam",
+    "tagline": "Modern Contactless QR Menus, Table Ordering & Local Google Maps Review Boosters",
+    "description": "Upgrade your restaurant, cafe, or rooftop lounge in Guwahati, Shillong, Jorhat, or Dibrugarh. We create stunning digital QR code menus that guests scan at their table to view dish photos, allergen info, chef specials, and leave 5-star Google reviews.",
+    "key_features": [
+      {
+        "title": "Instant Table QR Scanning",
+        "desc": "Diners scan the table QR code and view an elegant, animated digital menu in less than 0.8 seconds."
+      },
+      {
+        "title": "High-Appeal Food Photography",
+        "desc": "Showcase appetizing dish photos, ingredients, and portion sizes to boost average order value by 20–30%."
+      },
+      {
+        "title": "1-Click Google Review Booster",
+        "desc": "Direct 1-tap prompts encourage happy diners to leave 5-star reviews on your Google Business Profile."
+      },
+      {
+        "title": "Zero Printing Costs",
+        "desc": "Update prices, seasonal beverages, or mark sold-out items instantly without reprinting paper menus."
+      }
+    ],
+    "workflow_steps": [
+      "1. Guests sit down and scan the tabletop QR code with their phone camera.",
+      "2. Explore food categories, signature drinks, and chef specials with mouthwatering visuals.",
+      "3. Place order with server or click to WhatsApp order.",
+      "4. Post-meal 1-tap button prompts customer to leave a 5-star Google Maps review."
+    ],
+    "starter_price": "₹2,000",
+    "business_price": "₹4,500",
+    "custom_price": "From ₹10,000",
+    "case_study_link": "/locations/meghalaya/shillong/",
+    "faqs": [
+      {
+        "q": "Do we receive printable high-resolution QR table standee designs?",
+        "a": "Yes! We provide print-ready PDF designs for your table acrylic stands with your restaurant logo and custom QR code."
+      },
+      {
+        "q": "Can I change dish prices during peak festival seasons (Durga Puja, Bihu)?",
+        "a": "Yes! You can edit any item's price or description instantly from your smartphone browser."
+      },
+      {
+        "q": "Does the digital menu require customers to download an app?",
+        "a": "No app download is required. It opens instantly in mobile Chrome, Safari, or default camera scanners."
+      }
+    ]
+  },
+  {
+    "service_id": "tea-estate-factory-website-design",
+    "service_title": "Tea Estate, Factory & Exporter Website Design in Assam",
+    "short_title": "Tea Estate & Factory Portals",
+    "icon": "🍃",
+    "hero_badge": "Agri-Business & Exports",
+    "h1": "Tea Estate, Factory & Orthodox Exporter Website Design in Assam",
+    "tagline": "Bulk Buyer Inquiries, Private Label Portfolios & Garden Heritage Websites",
+    "description": "Showcase your tea garden heritage, single-estate orthodox teas, and CTC manufacturing capabilities to global buyers and domestic wholesalers. Angsumi builds ultra-fast, elegant websites and B2B inquiry funnels for tea estates, blenders, and packaging factories across Jorhat, Dibrugarh, Golaghat, Sivasagar, and Tinsukia.",
+    "key_features": [
+      {
+        "title": "Garden Heritage & Tasting Notes Showcase",
+        "desc": "Rich visual storytelling with harvest seasons, elevation details, liquor profiles, and grade specifications (FTGFOP, TGFOP, BOP, Dust)."
+      },
+      {
+        "title": "B2B Wholesale Sample Request Engine",
+        "desc": "Automated sample inquiry forms capturing buyer GST, target volume, and shipping destination straight to WhatsApp."
+      },
+      {
+        "title": "Export Compliance & Certifications Display",
+        "desc": "Highlight FSSAI, Tea Board of India, RainForest Alliance, and Organic certifications to build international buyer trust."
+      },
+      {
+        "title": "Private Garden & Factory Virtual Tour",
+        "desc": "High-resolution photo galleries and drone footage embedding showcasing sustainable cultivation and hygienic manufacturing."
+      }
+    ],
+    "workflow_steps": [
+      "1. Domestic and international buyers explore tea grades, harvest batches, and heritage profile.",
+      "2. Buyer submits structured sample tasting request or wholesale volume quote.",
+      "3. Estate sales management receives instant notification on WhatsApp and email.",
+      "4. Track inquiry history and sample dispatch status from simple dashboard."
+    ],
+    "starter_price": "₹4,500",
+    "business_price": "₹9,500",
+    "custom_price": "From ₹22,000",
+    "case_study_link": "",
+    "faqs": [
+      {
+        "q": "Can international tea buyers request sample shipments from our website?",
+        "a": "Yes! We build automated sample request funnels where domestic and international buyers specify desired grades, target volumes, and delivery addresses with automated notification to your sales team."
+      },
+      {
+        "q": "How fast will our tea estate website load for overseas buyers in Europe, US, or Middle East?",
+        "a": "Because Angsumi builds with pure, hand-coded lightweight architecture and global CDN delivery, your site loads in under 1 second worldwide, even on mobile devices."
+      },
+      {
+        "q": "Can we sell specialty packaged tea directly to consumers (D2C)?",
+        "a": "Yes. We can integrate 1-tap WhatsApp checkout or instant online UPI / Card payment gateways for direct garden-fresh consumer retail."
+      }
+    ]
+  },
+  {
+    "service_id": "tourism-safari-cab-booking-system",
+    "service_title": "Jeep Safari, Cab & Tourism Booking System in Assam & Northeast",
+    "short_title": "Safari & Tour Booking",
+    "icon": "🦏",
+    "hero_badge": "Tourism & Travel Tech",
+    "h1": "Jeep Safari, Cab & Tour Booking Systems in Assam & Northeast India",
+    "tagline": "0% Commission Direct Booking for Kaziranga, Manas, Meghalaya & Tawang",
+    "description": "Stop paying 20–30% commissions to travel portals and middleman agencies. Angsumi builds custom Jeep safari booking engines, tourist cab dispatch systems, and package itinerary platforms for operators in Kaziranga, Manas, Shillong, Guwahati, and Tawang with direct UPI advance payments.",
+    "key_features": [
+      {
+        "title": "Automated Safari Slot Reservation",
+        "desc": "Tourists select date, park zone (Kohora, Bagori, Agaratoli, Burapahar), and vehicle preference with instant slot confirmation."
+      },
+      {
+        "title": "Direct UPI Advance Payment",
+        "desc": "Collect booking advances directly into your bank account via PhonePe, Google Pay, or Paytm with zero gateway cuts."
+      },
+      {
+        "title": "Automated WhatsApp Voucher & Driver Slip",
+        "desc": "Instantly send digital booking vouchers with driver phone number and reporting point details to tourist WhatsApp."
+      },
+      {
+        "title": "Multi-Day Tour Itinerary Funnel",
+        "desc": "High-converting package showcases for Shillong–Cherrapunji, Kaziranga–Majuli, and Tawang circuits."
+      }
+    ],
+    "workflow_steps": [
+      "1. Tourist selects destination (Kaziranga, Manas, Meghalaya) and preferred date/slot.",
+      "2. Submits passenger details and pays booking token advance via UPI.",
+      "3. Receives automated PDF booking voucher on WhatsApp with reporting guidelines.",
+      "4. Operator dashboard updates vehicle availability and driver assignments in real-time."
+    ],
+    "starter_price": "₹3,500",
+    "business_price": "₹8,000",
+    "custom_price": "From ₹18,000",
+    "case_study_link": "",
+    "faqs": [
+      {
+        "q": "Can tourists book Kaziranga or Manas Jeep Safaris directly through the website?",
+        "a": "Yes. We configure dedicated safari booking calendars where guests choose the national park range, morning/afternoon shift, and vehicle type, paying advance tokens directly to your UPI."
+      },
+      {
+        "q": "Does the system send automated WhatsApp booking confirmations to tourists?",
+        "a": "Yes. The moment a booking is confirmed, the system delivers a formatted digital voucher to the tourist's WhatsApp with reporting time and driver contact."
+      },
+      {
+        "q": "Can we manage multiple cabs or safari gypsies under one admin account?",
+        "a": "Yes. Our business package includes fleet management where you can assign specific vehicles or drivers to each reservation."
+      }
+    ]
+  },
+  {
+    "service_id": "assam-silk-handloom-ecommerce",
+    "service_title": "Assam Silk, Handloom & Traditional Attire E-Commerce Website Design",
+    "short_title": "Silk & Handloom Stores",
+    "icon": "🧶",
+    "hero_badge": "Handloom & D2C Brands",
+    "h1": "Assam Silk, Mekhela Sador & Handloom E-Commerce Website Design",
+    "tagline": "Sell Pure Muga, Eri & Pat Silk Worldwide with 1-Tap WhatsApp & UPI Checkout",
+    "description": "Take your handloom brand from Sualkuchi, Dhemaji, or Guwahati to buyers across India and globally. We build stunning, lightweight online stores tailored for authentic Mekhela Sador, Muga silk sarees, Eri shawls, and traditional handicraft brands with zero monthly Shopify fees.",
+    "key_features": [
+      {
+        "title": "Authenticity & Silk Mark Badge Integration",
+        "desc": "Build unwavering buyer trust with Silk Mark India certifications, weaving video embeds, and artisan provenance."
+      },
+      {
+        "title": "1-Tap WhatsApp & UPI Instant Checkout",
+        "desc": "Allow Indian customers to order instantly via WhatsApp or pay directly through Google Pay, PhonePe, and Cards."
+      },
+      {
+        "title": "High-Definition Fabric Zoom & Video Reels",
+        "desc": "Showcase intricate zari borders, buta work, and natural silk sheen with lightning-fast media loading."
+      },
+      {
+        "title": "Automated Courier Integration & Pin-Code Checker",
+        "desc": "Auto-calculate shipping costs across India and international destinations with live delivery tracking."
+      }
+    ],
+    "workflow_steps": [
+      "1. Shopper browses curated collections by silk type (Muga, Pat, Eri, Cotton) and color palette.",
+      "2. Inspects weave details, fabric weight, and blouse piece specifications.",
+      "3. Places order via 1-Tap WhatsApp or completes online payment.",
+      "4. Receives automated order invoice and shipment tracking updates via WhatsApp."
+    ],
+    "starter_price": "₹4,000",
+    "business_price": "₹8,500",
+    "custom_price": "From ₹20,000",
+    "case_study_link": "",
+    "faqs": [
+      {
+        "q": "Why is an Angsumi silk store better than Shopify or Wix for handloom weavers in Assam?",
+        "a": "Shopify and Wix cost ₹2,500 to ₹6,000 every month in recurring software subscriptions and app store fees. Angsumi builds custom, high-speed stores you own 100% with zero recurring SaaS fees and instant UPI integration."
+      },
+      {
+        "q": "Can customers customize Mekhela Sador blouse pieces and color combinations?",
+        "a": "Yes! We can configure custom order inquiry buttons where buyers specify custom sizing, side-pari stitching, and fall-pico requirements."
+      },
+      {
+        "q": "Will our handloom website rank on Google for pure Muga silk searches?",
+        "a": "Yes. We include complete product schema markup (`Product`, `Offer`, `AggregateRating`), image SEO, and local search optimization."
+      }
+    ]
+  },
+  {
+    "service_id": "advocate-law-firm-website-design",
+    "service_title": "Advocate, Legal Practitioner & Law Firm Website Design in Assam",
+    "short_title": "Advocate & Law Firm Portfolios",
+    "icon": "⚖️",
+    "hero_badge": "Legal Digital Presence",
+    "h1": "Advocate, Legal Practitioner & Law Firm Website Design in Assam",
+    "tagline": "Professional Legal Portfolios, Case Consultations & Bar Council Compliant",
+    "description": "Establish a dignified, authoritative online presence for your legal practice. Angsumi builds clean, Bar Council compliant portfolio websites and consultation booking platforms for advocates and law chambers across Gauhati High Court and Assam District Courts.",
+    "key_features": [
+      {
+        "title": "Bar Council of India Compliant Structure",
+        "desc": "Dignified, professional design strictly adhering to legal ethics, focusing on verified expertise, bio, and practice areas."
+      },
+      {
+        "title": "Confidential Consultation Booking Engine",
+        "desc": "Prospective clients book in-person chamber appointments or secure video legal consultations with ease."
+      },
+      {
+        "title": "Practice Areas & Landmark Cases Profile",
+        "desc": "Showcase specialized expertise across Civil, Criminal, Constitutional, Revenue, Arbitration, and Family law."
+      },
+      {
+        "title": "Legal Insights & Case Law Publishing",
+        "desc": "Publish articles, High Court judgment summaries, and legal alerts to build authoritative digital presence."
+      }
+    ],
+    "workflow_steps": [
+      "1. Client discovers verified advocate profile, credentials, and practice areas.",
+      "2. Selects chamber location (Guwahati, Dibrugarh, Silchar) and requests consultation slot.",
+      "3. Client receives chamber address, Google Maps pin, and consultation instructions on WhatsApp.",
+      "4. Advocate manages consultation calendar with complete privacy and zero data leakage."
+    ],
+    "starter_price": "₹3,500",
+    "business_price": "₹7,500",
+    "custom_price": "From ₹16,000",
+    "case_study_link": "",
+    "faqs": [
+      {
+        "q": "Are the websites compliant with Bar Council of India regulations?",
+        "a": "Yes. Our advocate websites are designed as informative professional portfolios strictly complying with Bar Council guidelines without prohibited advertising elements."
+      },
+      {
+        "q": "Can clients book paid legal consultations online?",
+        "a": "Yes. We can integrate automated consultation booking calendars where clients select dates and optionally pay consultation fees via UPI or bank transfer."
+      },
+      {
+        "q": "How does this help our chamber in Gauhati High Court or District Courts?",
+        "a": "It ensures that when individuals, corporate clients, or out-of-state entities search for specialized advocates in Assam, they find your verified credentials, office address, and direct consultation channel."
+      }
+    ]
+  }
+]

@@ -1,0 +1,975 @@
+[
+  {
+    "state_id": "assam",
+    "state_name": "Assam",
+    "state_short": "AS",
+    "region_description": "Assam is the economic, educational, and commercial gateway of Northeast India, spanning the fertile Brahmaputra and Barak valleys.",
+    "state_focus": "Commercial hubs, tea & oil industries, healthcare networks, premier schools, and burgeoning digital commerce across upper, lower, and central Assam.",
+    "lat": 26.2006,
+    "lng": 92.9376,
+    "cities": [
+      {
+        "city_id": "guwahati",
+        "city_name": "Guwahati",
+        "tagline": "Commercial & IT Capital of Northeast India",
+        "market_desc": "Guwahati is the premier commercial, healthcare, and educational hub of Northeast India. With booming retail in GS Road, thriving clinics in Dispur and Panbazar, leading coaching institutes, and fast-growing startups, standing out online requires high-speed, modern websites and custom mobile apps.",
+        "local_sectors": [
+          "Specialist Medical Clinics & Diagnostic Centers",
+          "Coaching Institutes & Higher Secondary Colleges",
+          "GS Road & Zoo Road Retail, Boutiques & Restaurants",
+          "Logistics, Real Estate & Local Service Businesses"
+        ],
+        "challenges": [
+          "High local search competition among businesses in Guwahati requires robust Google Maps optimization and fast mobile loading.",
+          "Traditional offline businesses lose high-intent customers who search online before booking appointments or visiting stores.",
+          "Agencies in Guwahati often charge \u20b925,000\u2013\u20b950,000+ for slow WordPress sites with monthly maintenance bloat."
+        ],
+        "lat": 26.1445,
+        "lng": 91.7362
+      },
+      {
+        "city_id": "dibrugarh",
+        "city_name": "Dibrugarh",
+        "tagline": "Tea City & Medical Hub of Upper Assam",
+        "market_desc": "As the healthcare capital of Upper Assam and a global center for the tea industry, Dibrugarh's doctors, nursing homes, tea estate suppliers, and private colleges need specialized web platforms with automated appointment booking and patient record management.",
+        "local_sectors": [
+          "Doctors, Nursing Homes & Medical Diagnostic Labs",
+          "Tea Garden Equipment & Agro-Supply Companies",
+          "Private Colleges & Higher Secondary Institutes",
+          "Local Transport & River Tourism Operators"
+        ],
+        "challenges": [
+          "High patient inflow from surrounding districts (Tinsukia, Sivasagar, Dhemaji, Arunachal) needing digital appointment scheduling.",
+          "Tea estates and regional suppliers requiring private inventory and client management portals.",
+          "Lack of affordable, tech-first developers in Upper Assam who deliver fast mobile solutions without agency overhead."
+        ],
+        "lat": 27.4728,
+        "lng": 94.912
+      },
+      {
+        "city_id": "silchar",
+        "city_name": "Silchar",
+        "tagline": "Economic Hub of Barak Valley",
+        "market_desc": "Silchar is the commercial nerve center of Barak Valley, serving Cachar, Karimganj, and Hailakandi. With Assam University, NIT Silchar, flourishing retail at Fatak Bazar, and multi-speciality clinics, Silchar businesses need modern digital systems.",
+        "local_sectors": [
+          "Multi-Speciality Clinics & Pharmacies",
+          "Barak Valley Wholesale & Retail Businesses",
+          "Educational Institutions & Coaching Centers",
+          "Cross-Border Trade & Logistics Agencies"
+        ],
+        "challenges": [
+          "Businesses in Silchar rely heavily on mobile-first customers who demand instant WhatsApp ordering and mobile responsiveness.",
+          "Clinics need streamlined patient token systems to eliminate long physical waiting queues.",
+          "High agency costs from Kolkata or Guwahati when local businesses need direct, affordable developer support."
+        ],
+        "lat": 24.8333,
+        "lng": 92.7789
+      },
+      {
+        "city_id": "jorhat",
+        "city_name": "Jorhat",
+        "tagline": "Cultural & Tea Research Center of Assam",
+        "market_desc": "Home to premier research institutes like Tocklai and Assam Agricultural University, Jorhat combines rich cultural heritage with progressive retail at AT Road and Gar-Ali, alongside top private schools and clinics.",
+        "local_sectors": [
+          "Private Schools, Academies & Coaching Centers",
+          "Tea Planters, Nurseries & Agro-Enterprises",
+          "Gar-Ali & AT Road Retail Stores & Boutiques",
+          "Majuli Island Tourism & Cultural Homestays"
+        ],
+        "challenges": [
+          "Schools in Jorhat require parent-student portals for online fee notices and report cards without high monthly SaaS fees.",
+          "Boutique businesses and Majuli tour operators require clean visual booking websites to attract international and pan-India tourists.",
+          "Need for lightweight, reliable web solutions that load seamlessly across 4G and broadband networks."
+        ],
+        "lat": 26.7509,
+        "lng": 94.2037
+      },
+      {
+        "city_id": "tezpur",
+        "city_name": "Tezpur",
+        "tagline": "North Bank Educational & Cultural Hub",
+        "market_desc": "Situated on the northern bank of the Brahmaputra, Tezpur is an educational and administrative center with Tezpur University, regional defense hubs, healthcare facilities, and eco-tourism gateways to Arunachal Pradesh.",
+        "local_sectors": [
+          "Educational Institutes & Competitive Exam Academies",
+          "North Bank Medical Clinics & Diagnostics",
+          "Arunachal Transit Tourism & Hotel Booking",
+          "Local Construction & Supply Contractors"
+        ],
+        "challenges": [
+          "Local travel operators and hotels need mobile-first booking pages to capture travellers heading to Bhalukpong and Tawang.",
+          "Educational centers require digital student management and mock test portals.",
+          "Local businesses struggle with outdated websites that fail Google's mobile-friendly Core Web Vitals."
+        ],
+        "lat": 26.6338,
+        "lng": 92.7926
+      },
+      {
+        "city_id": "nagaon",
+        "city_name": "Nagaon",
+        "tagline": "Central Assam Agricultural & Trading Gateway",
+        "market_desc": "Nagaon is central Assam's key commercial and agricultural trading crossroads. With a bustling education sector, trade markets at Haibargaon, and regional healthcare centers, digital visibility is crucial for sustainable business growth.",
+        "local_sectors": [
+          "Agro-Trading & Supply Chain Businesses",
+          "Private Coaching Centers & Junior Colleges",
+          "Regional Healthcare Clinics & Pharmacies",
+          "Auto Dealerships & Local Retail Stores"
+        ],
+        "challenges": [
+          "High concentration of coaching institutes needing online test platforms and admission lead funnels.",
+          "Local merchants moving from traditional ledger accounting to modern web-based inventory and customer inquiry systems.",
+          "Need for cost-effective websites starting under \u20b95,000 with zero recurring agency bloat."
+        ],
+        "lat": 26.3452,
+        "lng": 92.684
+      },
+      {
+        "city_id": "tinsukia",
+        "city_name": "Tinsukia",
+        "tagline": "Industrial & Wholesale Trade Hub of Upper Assam",
+        "market_desc": "Tinsukia is Upper Assam's dominant trading, industrial, and railway hub. From wholesale food grains and timber to coal and machinery, B2B merchants and service companies require custom web systems and dynamic product catalogs.",
+        "local_sectors": [
+          "Industrial Machinery & Hardware Suppliers",
+          "Wholesale Distributors & FMCG Traders",
+          "Logistics & Fleet Transport Companies",
+          "Dibru-Saikhowa Eco-Tourism & Resorts"
+        ],
+        "challenges": [
+          "Wholesale traders needing instant digital catalogs with direct WhatsApp ordering for clients across Upper Assam & Arunachal.",
+          "Resorts near Dibru-Saikhowa needing direct booking systems to eliminate high OTA commission fees.",
+          "Fast, zero-maintenance web solutions that don't crash or require technical administrators."
+        ],
+        "lat": 27.4922,
+        "lng": 95.3468
+      },
+      {
+        "city_id": "bongaigaon",
+        "city_name": "Bongaigaon",
+        "tagline": "Lower Assam Industrial & Petrochemical Hub",
+        "market_desc": "Bongaigaon serves as the industrial backbone of Lower Assam with its petrochemical refinery, railway workshops, and commercial markets, creating high demand for contractor portals, technical service sites, and regional healthcare systems.",
+        "local_sectors": [
+          "Engineering & Petrochemical Contractors",
+          "Lower Assam Hospitals & Diagnostic Centers",
+          "Private Schools & Technical Training Centers",
+          "Retail & Electronics Showrooms"
+        ],
+        "challenges": [
+          "Contractors requiring professional company profile portals to bid on state and central tenders.",
+          "Local hospitals needing patient management and doctor schedule portals.",
+          "Local businesses requiring high-ranking Google Maps & search presence."
+        ],
+        "lat": 26.4789,
+        "lng": 90.5645
+      },
+      {
+        "city_id": "barpeta",
+        "city_name": "Barpeta",
+        "tagline": "Cultural & Traditional Crafts Center of Assam",
+        "market_desc": "Renowned for its historic Satras, traditional bell-metal handicrafts, and brassware, Barpeta's artisans, educational trusts, and retail merchants need e-commerce and digital showcase systems to reach customers across India.",
+        "local_sectors": [
+          "Traditional Bell-Metal & Handicraft E-commerce",
+          "Satra Heritage Tourism & Cultural Portals",
+          "Private Academies & Junior Colleges",
+          "Local Pharmacies & Retail Merchants"
+        ],
+        "challenges": [
+          "Artisans and handicraft sellers needing simple, fast online storefronts with UPI integration.",
+          "Local educational academies needing digital test and result announcement systems.",
+          "Eliminating reliance on expensive third-party platforms with custom, owned websites."
+        ],
+        "lat": 26.3211,
+        "lng": 91.0061
+      },
+      {
+        "city_id": "nalbari",
+        "city_name": "Nalbari",
+        "tagline": "Academic & Agro-Commercial Center of Lower Assam",
+        "market_desc": "Known for its academic pedigree, Sanskrit lore, and growing small enterprise ecosystem, Nalbari's doctors, coaching centers, and agro-businesses are rapidly modernizing through custom digital tools.",
+        "local_sectors": [
+          "Coaching Institutes & Science Academies",
+          "Dental & Eye Clinics",
+          "Agro-Equipment & Fertilizer Retailers",
+          "Local Event & Wedding Planners"
+        ],
+        "challenges": [
+          "Coaching institutes needing digital admission funnels and student portals.",
+          "Clinics needing WhatsApp appointment bots and Google Business Profile rankings.",
+          "Affordable startup packages for local entrepreneurs starting from just \u20b92,000."
+        ],
+        "lat": 26.4442,
+        "lng": 91.4398
+      },
+      {
+        "city_id": "sivasagar",
+        "city_name": "Sivasagar",
+        "tagline": "Historical Ahom Capital & Oil Industry Hub",
+        "market_desc": "Sivasagar is the historic capital of the Ahom Kingdom and a major operational center for ONGC and OIL India. Heritage tourism around Rang Ghar and Talatal Ghar, alongside engineering contractors, diagnostic centers, and premier private colleges, demands robust digital platforms.",
+        "local_sectors": [
+          "ONGC & OIL India Engineering Contractors",
+          "Ahom Heritage Tourism, Hotels & Homestays",
+          "Private Junior Colleges & Coaching Centers",
+          "Specialist Doctors & Diagnostic Labs"
+        ],
+        "challenges": [
+          "Engineering suppliers needing tender-ready company profile websites for public sector undertakings.",
+          "Heritage tourism operators needing mobile booking systems with direct UPI payment.",
+          "Eliminating heavy monthly maintenance fees for local educational and medical institutions."
+        ],
+        "lat": 26.9826,
+        "lng": 94.6425
+      },
+      {
+        "city_id": "golaghat",
+        "city_name": "Golaghat",
+        "tagline": "Kaziranga Tourism & Numaligarh Refinery Gateway",
+        "market_desc": "Golaghat is the proud gateway to Kaziranga National Park and home to the Numaligarh Refinery (NRL). With eco-resorts, wildlife safari bookings, organic tea gardens, and industrial contractors, businesses thrive when equipped with modern web apps.",
+        "local_sectors": [
+          "Kaziranga Eco-Resorts, Safari & Wildlife Tourism",
+          "Numaligarh Refinery (NRL) Vendors & Contractors",
+          "Organic Tea Estates & Agro-Processing Units",
+          "Private Schools & Academic Institutes"
+        ],
+        "challenges": [
+          "Resorts losing massive commission to online booking aggregators, needing direct WhatsApp booking engines.",
+          "Contractors needing corporate credibility portals for Numaligarh Refinery tenders.",
+          "High-speed mobile pages that load instantly for travellers on highway 37."
+        ],
+        "lat": 26.5186,
+        "lng": 93.9708
+      },
+      {
+        "city_id": "north-lakhimpur",
+        "city_name": "North Lakhimpur",
+        "tagline": "Commercial Capital of the North Bank",
+        "market_desc": "North Lakhimpur is the vibrant economic, educational, and medical hub of upper north bank Assam. Serving Lakhimpur and neighboring Arunachal districts, businesses need fast online customer capture and appointment systems.",
+        "local_sectors": [
+          "Regional Multi-Speciality Clinics & Pharmacies",
+          "North Bank Wholesale Distributors & Retailers",
+          "Private Colleges & Competitive Exam Academies",
+          "Arunachal Transit Logistics & Fleet Services"
+        ],
+        "challenges": [
+          "Clinics serving rural North Bank patients need simple WhatsApp appointment systems.",
+          "Wholesalers need digital catalogs for buyers across Assam and Arunachal borders.",
+          "Affordable, transparent pricing without hidden agency charges."
+        ],
+        "lat": 27.2359,
+        "lng": 94.1022
+      },
+      {
+        "city_id": "dhemaji",
+        "city_name": "Dhemaji",
+        "tagline": "Upper Assam & Arunachal Trade Nexus",
+        "market_desc": "Connected via the historic Bogibeel Bridge to Dibrugarh, Dhemaji is developing rapidly as an agricultural trade, sericulture, and logistics junction connecting Assam with eastern Arunachal Pradesh.",
+        "local_sectors": [
+          "Agro-Enterprises, Muga Silk & Sericulture",
+          "Civil Construction & Highway Contractors",
+          "Educational Institutes & Science Academies",
+          "Local Healthcare & Medical Clinics"
+        ],
+        "challenges": [
+          "Muga silk producers needing national e-commerce channels with UPI payments.",
+          "Contractors requiring formal digital credentials for infrastructure bidding.",
+          "Fast mobile websites optimized for remote connectivity."
+        ],
+        "lat": 27.4833,
+        "lng": 94.5833
+      },
+      {
+        "city_id": "dhubri",
+        "city_name": "Dhubri",
+        "tagline": "Historic River Port & Border Commerce Center",
+        "market_desc": "Dhubri is an ancient commercial and river port city on the Brahmaputra, bordering Bangladesh and West Bengal. Its wholesale trade in jute, terracotta handicrafts (Asharikandi), retail, and private clinics benefit massively from digital platforms.",
+        "local_sectors": [
+          "Asharikandi Terracotta & Handicraft E-commerce",
+          "River Trade, Jute & Agro-Wholesale Logistics",
+          "Diagnostic Labs & Medical Practitioners",
+          "Private Schools & Madrassas"
+        ],
+        "challenges": [
+          "Terracotta artisans requiring direct-to-consumer e-commerce storefronts.",
+          "Cross-border wholesale traders needing fast product inquiry forms.",
+          "Affordable web packages starting under \u20b92,000 for local small business owners."
+        ],
+        "lat": 26.0207,
+        "lng": 89.9744
+      },
+      {
+        "city_id": "goalpara",
+        "city_name": "Goalpara",
+        "tagline": "Lower Assam Agricultural & Rubber Center",
+        "market_desc": "Known for fertile rubber plantations, banana wholesale markets at Daranggiri (Asia's largest banana market), and expanding healthcare institutions, Goalpara businesses require custom digital ordering and scheduling tools.",
+        "local_sectors": [
+          "Daranggiri Banana & Agro-Wholesale Trading",
+          "Rubber Planters & Processing Units",
+          "Private Clinics, Doctors & Medical Stores",
+          "Private Schools & Junior Colleges"
+        ],
+        "challenges": [
+          "Wholesale agro-traders needing WhatsApp-connected catalog systems.",
+          "Doctors needing organized token and appointment scheduling.",
+          "Clean, lightweight web design without technical overhead."
+        ],
+        "lat": 26.1772,
+        "lng": 90.6247
+      },
+      {
+        "city_id": "kokrajhar",
+        "city_name": "Kokrajhar",
+        "tagline": "BTR Administrative & Educational Capital",
+        "market_desc": "Kokrajhar is the administrative capital of Bodoland Territorial Region (BTR) and home to Bodoland University and Central Institute of Technology (CIT). Academic institutions, cultural preservation platforms, and contractors need modern digital infrastructure.",
+        "local_sectors": [
+          "Bodoland University Academies & Colleges",
+          "BTR Government Contractors & Suppliers",
+          "Bodo Handloom & Cultural E-commerce",
+          "Specialist Healthcare Clinics & Labs"
+        ],
+        "challenges": [
+          "Universities and academies needing reliable student result and notice portals.",
+          "Handloom artisans needing digital stores with automated payment gateways.",
+          "Contractors needing professional company websites for government tenders."
+        ],
+        "lat": 26.4014,
+        "lng": 90.2719
+      },
+      {
+        "city_id": "diphu",
+        "city_name": "Diphu",
+        "tagline": "Karbi Anglong Hill Headquarters & Organic Hub",
+        "market_desc": "Diphu is the headquarters of Karbi Anglong, famous for organic GI-tagged ginger, spices, and vibrant hill culture. Local youth startups, colleges, and agro-exporters need direct digital marketing channels.",
+        "local_sectors": [
+          "Karbi Organic Ginger & Spice Exporters",
+          "Hill Homestays & Cultural Tourism Portals",
+          "Private Colleges & Higher Secondary Schools",
+          "Local Construction & Supply Agencies"
+        ],
+        "challenges": [
+          "Organic ginger farmers needing direct export and bulk buyer inquiry portals.",
+          "Homestays needing direct WhatsApp booking pages.",
+          "Zero-maintenance websites tailored for local entrepreneur budgets."
+        ],
+        "lat": 25.8454,
+        "lng": 93.4312
+      },
+      {
+        "city_id": "haflong",
+        "city_name": "Haflong",
+        "tagline": "Assam's Only Hill Station & Tourism Gem",
+        "market_desc": "Haflong in Dima Hasao is Assam's picturesque hill station, renowned for Jatinga, Borail wildlife, adventure trekking, and horticulture (Haflong oranges). Hospitality brands and local artisans require elegant visual websites.",
+        "local_sectors": [
+          "Hill Station Homestays, Resorts & Tour Guides",
+          "Dima Hasao Adventure & Trekking Platforms",
+          "Horticulture & Organic Orange/Honey Brands",
+          "Local Government Contractors & Schools"
+        ],
+        "challenges": [
+          "Hotels and homestays losing revenue to third-party travel apps.",
+          "Adventure clubs needing verified itinerary and booking engines.",
+          "Lightweight web solutions that load effortlessly on hill-station 4G networks."
+        ],
+        "lat": 25.1764,
+        "lng": 93.0189
+      },
+      {
+        "city_id": "karimganj",
+        "city_name": "Karimganj",
+        "tagline": "Barak Valley International Border Commerce Port",
+        "market_desc": "Karimganj is an international border trade port in the southern Barak Valley, active in wholesale trade, multi-speciality medical clinics, and academic academies serving the border region.",
+        "local_sectors": [
+          "Cross-Border Logistics & Wholesale Trading",
+          "Private Medical Clinics & Diagnostic Centers",
+          "Academic Coaching Centers & Colleges",
+          "Retail Stores & Hardware Merchants"
+        ],
+        "challenges": [
+          "Wholesale merchants needing digital product inquiry systems.",
+          "Diagnostic centers needing online test report delivery via WhatsApp.",
+          "Direct developer communication with honest, budget-friendly rates."
+        ],
+        "lat": 24.8697,
+        "lng": 92.3556
+      },
+      {
+        "city_id": "mangaldai",
+        "city_name": "Mangaldai",
+        "tagline": "Darrang District Commercial & Agro Center",
+        "market_desc": "Mangaldai is the administrative and commercial heart of Darrang district, with high agricultural productivity, busy medical clinics, coaching centers, and auto dealerships.",
+        "local_sectors": [
+          "Agricultural Equipment & Produce Trading",
+          "Private Medical Clinics & Nursing Homes",
+          "Junior Colleges & Competitive Exam Academies",
+          "Auto Showrooms & Retail Outlets"
+        ],
+        "challenges": [
+          "Coaching academies needing online mock test platforms for state exams.",
+          "Clinics needing streamlined patient appointment scheduling.",
+          "Fixed honest pricing starting from \u20b92,000."
+        ],
+        "lat": 26.4367,
+        "lng": 92.0361
+      },
+      {
+        "city_id": "pathsala",
+        "city_name": "Pathsala",
+        "tagline": "Education Hub & Theater Capital of Assam",
+        "market_desc": "Pathsala (Bajali district) is globally acclaimed as the home of Assam Mobile Theatres (Bhramyoman) and the premier educational and coaching capital of Lower Assam. Science academies, theatre troupes, and clinics need top-tier web portals.",
+        "local_sectors": [
+          "Premier Science Academies & Coaching Institutes",
+          "Bhramyoman Mobile Theatre Ticket & Media Portals",
+          "Private Diagnostic Centers & Clinics",
+          "Publishers, Bookstores & Local Enterprises"
+        ],
+        "challenges": [
+          "Science academies and coaching centers needing online test portals and student admission lead management.",
+          "Mobile theatre companies needing online show schedule and advance ticket booking portals.",
+          "Local entrepreneurs wanting high-speed web apps without recurring SaaS bloat."
+        ],
+        "lat": 26.4967,
+        "lng": 91.1764
+      },
+      {
+        "city_id": "biswanath-chariali",
+        "city_name": "Biswanath Chariali",
+        "tagline": "North Bank Tea & Temple Heritage Hub",
+        "market_desc": "Biswanath Chariali is a historic commercial town in northern Assam, famous for Biswanath Ghat (Gupta Kashi), vast tea estates, defense settlements, and private schools.",
+        "local_sectors": [
+          "Tea Garden Suppliers & Planters",
+          "Heritage Tourism & River Pilgrimage Platforms",
+          "Private Schools & Coaching Academies",
+          "Local Retailers & Contractors"
+        ],
+        "challenges": [
+          "Tea garden suppliers needing private catalog portals.",
+          "Tourism platforms needing simple mobile inquiry forms.",
+          "Direct developer support with rapid delivery."
+        ],
+        "lat": 26.7333,
+        "lng": 93.15
+      },
+      {
+        "city_id": "morigaon",
+        "city_name": "Morigaon",
+        "tagline": "Pobitora Wildlife & Central Assam Trade Hub",
+        "market_desc": "Located right beside Pobitora Wildlife Sanctuary (highest density of Indian one-horned rhinos in the world) and the ancient Mayong region, Morigaon businesses, resorts, and schools need digital reach.",
+        "local_sectors": [
+          "Pobitora Rhino Safari & Eco-Resorts",
+          "Mayong Mystery & Cultural Heritage Tourism",
+          "Agro-Trading & Rice Mills",
+          "Private Junior Colleges & Coaching"
+        ],
+        "challenges": [
+          "Resorts and safari operators needing direct WhatsApp booking engines.",
+          "Coaching centers needing student test portals.",
+          "Cost-effective custom websites tailored to local budgets."
+        ],
+        "lat": 26.25,
+        "lng": 92.3333
+      },
+      {
+        "city_id": "charaideo",
+        "city_name": "Charaideo",
+        "tagline": "UNESCO World Heritage & Ahom Sacred Capital",
+        "market_desc": "Home to the newly crowned UNESCO World Heritage Site Charaideo Moidams (the Pyramids of Assam), Charaideo is witnessing global tourist attention, requiring modern tourism, homestay, and local enterprise websites.",
+        "local_sectors": [
+          "UNESCO Moidams Heritage Tourism & Guided Tours",
+          "Boutique Homestays & Cultural Experience Hubs",
+          "Tea Gardens & Agro-Enterprises",
+          "Local Contractors & Retailers"
+        ],
+        "challenges": [
+          "Homestay and tour operators needing global-standard visual websites to welcome international visitors.",
+          "Fast mobile loading for tourists navigating on mobile networks.",
+          "Direct WhatsApp inquiry systems for rapid booking confirmation."
+        ],
+        "lat": 26.9667,
+        "lng": 94.9
+      }
+    ]
+  },
+  {
+    "state_id": "meghalaya",
+    "state_name": "Meghalaya",
+    "state_short": "ML",
+    "region_description": "Meghalaya, the Abode of the Clouds, is a global tourism hotspot and thriving center for education, music, cafes, and sustainable agriculture.",
+    "state_focus": "Boutique hospitality, homestay booking engines, live music platforms, educational institutions, cafes, and healthcare across the Khasi, Garo, and Jaintia Hills.",
+    "lat": 25.467,
+    "lng": 91.3662,
+    "cities": [
+      {
+        "city_id": "shillong",
+        "city_name": "Shillong",
+        "tagline": "Scotland of the East & Cultural Capital",
+        "market_desc": "Shillong is Northeast India hub for boutique tourism, cafes, live music, premier boarding schools, and top medical institutes (NEIGRIHMS). A standout digital identity with instant booking and mobile speed is essential for Shillong brands.",
+        "local_sectors": [
+          "Homestays, Boutique Hotels & Experiential Tourism",
+          "Cafes, Bakeries & Music Event Platforms",
+          "Private Boarding Schools & Higher Secondary Colleges",
+          "Specialist Clinics & Healthcare Practitioners"
+        ],
+        "challenges": [
+          "Homestay owners losing 18\u201325% commission on Airbnb/Booking.com needing their own direct booking website with WhatsApp integration.",
+          "Cafes and event promoters needing fast mobile menus and ticket RSVP systems that load effortlessly over hill-station networks.",
+          "Local brands needing stylish, high-aesthetic design that matches Shillong unique cultural sophistication."
+        ],
+        "lat": 25.5788,
+        "lng": 91.8933
+      },
+      {
+        "city_id": "tura",
+        "city_name": "Tura",
+        "tagline": "Commercial Capital of Garo Hills",
+        "market_desc": "As the commercial and administrative center of West Garo Hills, Tura is expanding rapidly in education, organic horticulture, handlooms, and community healthcare.",
+        "local_sectors": [
+          "Organic Produce & Cashew/Spice Processing",
+          "Educational Institutions & Mission Colleges",
+          "Regional Clinics & Diagnostic Centers",
+          "Local Construction & Supply Businesses"
+        ],
+        "challenges": [
+          "Farmers cooperatives and spice producers needing B2B e-commerce websites to sell pan-India.",
+          "Mission schools and colleges requiring easy-to-use digital noticeboards and fee portals.",
+          "Local businesses requiring fast, lightweight websites optimized for variable network speeds."
+        ],
+        "lat": 25.5144,
+        "lng": 90.2033
+      },
+      {
+        "city_id": "jowai",
+        "city_name": "Jowai",
+        "tagline": "Commercial Center of Jaintia Hills",
+        "market_desc": "Jowai is the bustling trade and cultural center of Jaintia Hills, serving mining logistics, spice trade (Lakadong turmeric), and world-famous tourism attractions like Krang Suri falls.",
+        "local_sectors": [
+          "Lakadong Turmeric & Agro-Export Brands",
+          "Krang Suri & Jaintia Tourism Operators",
+          "Heavy Machinery & Transport Agencies",
+          "Local Retail Showrooms & Clinics"
+        ],
+        "challenges": [
+          "Lakadong turmeric producers needing export-grade e-commerce websites with international payment options.",
+          "Local tour guides and camps needing mobile-first inquiry pages.",
+          "Cost-effective custom web development with direct local developer communication."
+        ],
+        "lat": 25.4484,
+        "lng": 92.2045
+      }
+    ]
+  },
+  {
+    "state_id": "tripura",
+    "state_name": "Tripura",
+    "state_short": "TR",
+    "region_description": "Tripura is a vital digital and trade corridor connecting Northeast India with Bangladesh, boasting high literacy and rapid tech adoption.",
+    "state_focus": "International internet gateway access, rubber & bamboo processing, healthcare services, state university portals, and retail digitization.",
+    "lat": 23.9408,
+    "lng": 91.9882,
+    "cities": [
+      {
+        "city_id": "agartala",
+        "city_name": "Agartala",
+        "tagline": "State Capital & International Internet Gateway",
+        "market_desc": "Agartala is one of Northeast India most connected cities, backed by the Coxs Bazar submarine cable link. With top medical colleges, bamboo technology, rubber exports, and busy markets at Maharaj Ganj Bazar, digital opportunities are immense.",
+        "local_sectors": [
+          "Multi-Speciality Hospitals & Private Clinics",
+          "Rubber, Tea & Bamboo Handicraft Exporters",
+          "Coaching Institutes & University Prep Centers",
+          "Cross-Border Logistics & B2B Trading"
+        ],
+        "challenges": [
+          "Diagnostic clinics and doctors needing automated appointment scheduling and patient reports delivery via WhatsApp.",
+          "Exporters needing international-standard corporate websites that rank high on Google across India and Bangladesh.",
+          "Retail businesses moving to omnichannel e-commerce to compete with national platforms."
+        ],
+        "lat": 23.8315,
+        "lng": 91.2868
+      },
+      {
+        "city_id": "dharmanagar",
+        "city_name": "Dharmanagar",
+        "tagline": "Northern Trade & Rail Gateway of Tripura",
+        "market_desc": "Dharmanagar is Tripura northern commercial gateway connecting the state with Assam. Its wholesale distributors, transport companies, and private academies require solid web presence.",
+        "local_sectors": [
+          "Wholesale Distribution & Rail Logistics",
+          "Private Coaching & Academic Centers",
+          "Retail Showrooms & Electronics Stores",
+          "Healthcare Clinics & Pharmacies"
+        ],
+        "challenges": [
+          "Wholesale traders needing fast digital product inquiry systems.",
+          "Coaching centers needing student test portals and admission lead generation.",
+          "Zero-maintenance, cost-effective websites tailored to local business budgets."
+        ],
+        "lat": 24.3725,
+        "lng": 92.1648
+      },
+      {
+        "city_id": "udaipur",
+        "city_name": "Udaipur",
+        "tagline": "Temple City & Tourism Center of South Tripura",
+        "market_desc": "Famous for the historic Tripureswari Temple, Kalyan Sagar, and agricultural production, Udaipur is South Tripura hub for pilgrim tourism, retail, and healthcare.",
+        "local_sectors": [
+          "Pilgrimage Tourism, Hotels & Guest Houses",
+          "Agro-Processing & Dairy Businesses",
+          "Private Clinics & Diagnostic Labs",
+          "Local Retailers & Service Centers"
+        ],
+        "challenges": [
+          "Hotels and guest houses needing mobile booking systems with direct UPI advance payments.",
+          "Clinics needing digital patient booking to avoid crowded waiting halls.",
+          "Transparent, affordable web packages starting from \u20b92,000."
+        ],
+        "lat": 23.5337,
+        "lng": 91.4878
+      }
+    ]
+  },
+  {
+    "state_id": "manipur",
+    "state_name": "Manipur",
+    "state_short": "MN",
+    "region_description": "Manipur is a vibrant powerhouse of sports, traditional handloom weaving, healthcare excellence, and entrepreneurial youth.",
+    "state_focus": "Healthcare & diagnostics (RIMS/JNIMS ecosystem), handloom e-commerce, competitive exam coaching, sports academies, and logistics.",
+    "lat": 24.6637,
+    "lng": 93.9063,
+    "cities": [
+      {
+        "city_id": "imphal",
+        "city_name": "Imphal",
+        "tagline": "Capital & Commercial Center of Manipur",
+        "market_desc": "Imphal is a major center for healthcare, competitive exam coaching, handloom e-commerce, and sports training. With Ima Keithel symbolizing entrepreneurial spirit, local businesses are creating digital brands to sell across India.",
+        "local_sectors": [
+          "Diagnostic Centers & Specialist Medical Clinics",
+          "Handloom, Manipuri Silk & Handicraft E-commerce",
+          "Civil Services & Medical Coaching Institutes",
+          "Sports Academies & Fitness Centers"
+        ],
+        "challenges": [
+          "Handloom creators needing sleek e-commerce stores with automated shipping calculators and UPI/card gateways.",
+          "Doctors and diagnostic centers requiring WhatsApp-integrated appointment and report delivery systems.",
+          "Coaching institutes needing robust student portal platforms for online mock tests."
+        ],
+        "lat": 24.817,
+        "lng": 93.9368
+      },
+      {
+        "city_id": "churachandpur",
+        "city_name": "Churachandpur",
+        "tagline": "Southern Commercial & Educational Hub",
+        "market_desc": "Churachandpur is a fast-growing center in southern Manipur known for its vibrant youth community, private schools, colleges, and local enterprises.",
+        "local_sectors": [
+          "Private Schools, Colleges & Academies",
+          "Healthcare Clinics & Pharmacies",
+          "Youth Apparel & Boutique Stores",
+          "Community Organizations & Media Portals"
+        ],
+        "challenges": [
+          "Educational institutions needing clean student management portals with online notice delivery.",
+          "Local retailers wanting mobile-friendly catalogs to drive WhatsApp sales.",
+          "Cost-effective web systems built without expensive recurring subscriptions."
+        ],
+        "lat": 24.3333,
+        "lng": 93.6833
+      }
+    ]
+  },
+  {
+    "state_id": "mizoram",
+    "state_name": "Mizoram",
+    "state_short": "MZ",
+    "region_description": "Mizoram boasts one of India highest literacy rates, an exceptionally tech-savvy youth population, and a thriving boutique culture.",
+    "state_focus": "Fashion boutiques, music & media studios, church & NGO management systems, private clinics, and scenic eco-tourism.",
+    "lat": 23.1645,
+    "lng": 92.9376,
+    "cities": [
+      {
+        "city_id": "aizawl",
+        "city_name": "Aizawl",
+        "tagline": "Capital & Digital Lifestyle Hub of Mizoram",
+        "market_desc": "Aizawl is renowned for its high digital literacy, vibrant music culture, modern cafes, and trendy fashion boutiques in Bara Bazar and Millennium Centre. Businesses here demand clean, minimalist aesthetics and seamless mobile experiences.",
+        "local_sectors": [
+          "Fashion Boutiques & Custom Apparel Stores",
+          "Music Studios, Media & Creative Agencies",
+          "Church, Community & NGO Digital Systems",
+          "Private Dental & Medical Specialist Clinics"
+        ],
+        "challenges": [
+          "Fashion boutiques selling on Instagram need dedicated e-commerce stores with automated inventory to stop manual DM ordering.",
+          "Clinics and dental centers needing easy WhatsApp appointment confirmation.",
+          "High demand for ultra-clean, minimalist design that matches modern international UI standards."
+        ],
+        "lat": 23.7271,
+        "lng": 92.7176
+      },
+      {
+        "city_id": "lunglei",
+        "city_name": "Lunglei",
+        "tagline": "Southern Commercial & Educational Center",
+        "market_desc": "As Mizoram second-largest city, Lunglei is the educational, healthcare, and administrative anchor of southern Mizoram.",
+        "local_sectors": [
+          "Educational Academies & Technical Institutes",
+          "Healthcare Centers & Specialist Clinics",
+          "Local Transport & Construction Firms",
+          "Community & Religious Portals"
+        ],
+        "challenges": [
+          "Educational institutes requiring streamlined student management without technical complexities.",
+          "Local businesses requiring fast mobile landing pages optimized for regional internet connectivity.",
+          "Affordable custom development directly from experienced Northeast engineers."
+        ],
+        "lat": 22.8872,
+        "lng": 92.738
+      }
+    ]
+  },
+  {
+    "state_id": "nagaland",
+    "state_name": "Nagaland",
+    "state_short": "NL",
+    "region_description": "Nagaland is world-famous for the Hornbill Festival, vibrant youth entrepreneurship, creative music/arts, and thriving trade corridors.",
+    "state_focus": "Hornbill tourism, event management, commercial wholesale in Dimapur, government contractor portals, and modern private schools.",
+    "lat": 26.1584,
+    "lng": 94.5624,
+    "cities": [
+      {
+        "city_id": "kohima",
+        "city_name": "Kohima",
+        "tagline": "Capital & Heritage Tourism Center of Nagaland",
+        "market_desc": "Kohima hosts global visitors during the Hornbill Festival and is the administrative heart of Nagaland. Government contractors, premier schools, cafes, and heritage resorts need top-tier digital assets to establish authority.",
+        "local_sectors": [
+          "Hornbill Festival Tourism, Homestays & Resorts",
+          "Government Contractors & Infrastructure Firms",
+          "Private Colleges & Higher Secondary Schools",
+          "Cafes, Music Platforms & Cultural Brands"
+        ],
+        "challenges": [
+          "Tourism businesses losing international bookings due to lack of fast, mobile-friendly direct payment pages.",
+          "Contractors needing corporate capability portals to showcase completed state infrastructure projects.",
+          "Schools needing secure parent portals for academic reports and fee management."
+        ],
+        "lat": 25.6751,
+        "lng": 94.1086
+      },
+      {
+        "city_id": "dimapur",
+        "city_name": "Dimapur",
+        "tagline": "Commercial & Wholesale Capital of Nagaland",
+        "market_desc": "Dimapur is Nagaland bustling economic powerhouse, air gateway, and wholesale hub. From Hong Kong Market and New Market to automotive dealerships, logistics companies, and private hospitals, Dimapur is the epicenter of regional trade.",
+        "local_sectors": [
+          "Wholesale & Retail Trading Establishments",
+          "Private Hospitals & Multi-Speciality Clinics",
+          "Logistics, Warehousing & Fleet Operators",
+          "Hotels, Event Venues & Banquets"
+        ],
+        "challenges": [
+          "Wholesale businesses requiring B2B digital catalogs with instant WhatsApp order generation.",
+          "Hospitals needing multi-doctor scheduling and emergency contact portals.",
+          "Businesses losing customers to competitors because their websites arent optimized on Google Maps."
+        ],
+        "lat": 25.9095,
+        "lng": 93.7265
+      },
+      {
+        "city_id": "mokokchung",
+        "city_name": "Mokokchung",
+        "tagline": "Cultural & Educational Hub of the Ao Region",
+        "market_desc": "Mokokchung is an intellectual and cultural landmark in Nagaland with premier educational institutions, thriving youth enterprises, and active community initiatives.",
+        "local_sectors": [
+          "Private Colleges & High Schools",
+          "Youth Creative & Media Agencies",
+          "Local Health Clinics & Pharmacies",
+          "Eco-Tourism & Village Heritage Homestays"
+        ],
+        "challenges": [
+          "Schools needing simple digital systems for attendance and exam results.",
+          "Local entrepreneurs wanting fast websites without monthly agency fees.",
+          "Direct developer communication with honest, transparent pricing."
+        ],
+        "lat": 26.3256,
+        "lng": 94.5204
+      }
+    ]
+  },
+  {
+    "state_id": "arunachal-pradesh",
+    "state_name": "Arunachal Pradesh",
+    "state_short": "AR",
+    "region_description": "Arunachal Pradesh, the Land of the Dawn-Lit Mountains, is experiencing massive infrastructure expansion, eco-tourism growth, and digital governance.",
+    "state_focus": "Infrastructure contractor portals, high-altitude tourism & homestays (Tawang/Ziro), smart city initiatives in Pasighat, and governance.",
+    "lat": 28.218,
+    "lng": 94.7278,
+    "cities": [
+      {
+        "city_id": "itanagar",
+        "city_name": "Itanagar",
+        "tagline": "State Capital & Administrative Hub",
+        "market_desc": "Itanagar is the administrative and business epicenter of Arunachal Pradesh. With large-scale government infrastructure, highway construction, emerging hotels, and educational academies, having a high-credibility digital portal is essential.",
+        "local_sectors": [
+          "Infrastructure, Road & Civil Engineering Contractors",
+          "Hotels, Transit Lodges & Car Rental Services",
+          "Competitive Coaching Institutes & Colleges",
+          "Healthcare Clinics & Pharmacies"
+        ],
+        "challenges": [
+          "Contractors needing high-authority corporate portals to present verified work history for government tenders.",
+          "Hotels and car rentals needing mobile-first booking tools for tourists heading to Ziro, Bomdila, and Tawang.",
+          "Educational centers needing digital mock test platforms for APPSC and competitive exams."
+        ],
+        "lat": 27.0844,
+        "lng": 93.6053
+      },
+      {
+        "city_id": "naharlagun",
+        "city_name": "Naharlagun",
+        "tagline": "Commercial & Railway Gateway of Arunachal",
+        "market_desc": "As the commercial twin city to Itanagar and home to the state primary railway station, Naharlagun is a bustling center for wholesale trading, logistics, and private healthcare.",
+        "local_sectors": [
+          "Wholesale Merchants & Commercial Distributors",
+          "Diagnostic Centers & Medical Practitioners",
+          "Logistics & Transport Fleet Companies",
+          "Retail Showrooms & Auto Centers"
+        ],
+        "challenges": [
+          "Merchants requiring fast online catalogs to showcase products to buyers from interior districts.",
+          "Diagnostic labs needing online report downloads for patients across Arunachal.",
+          "Need for lightweight websites that load quickly on any network."
+        ],
+        "lat": 27.1064,
+        "lng": 93.6934
+      },
+      {
+        "city_id": "pasighat",
+        "city_name": "Pasighat",
+        "tagline": "Oldest Town & Smart City of Arunachal",
+        "market_desc": "Pasighat, nestled along the Siang River, is Arunachal oldest town and an official Smart City. With JN College, agro-horticulture ventures, and river adventure tourism, digital tools are driving rapid growth.",
+        "local_sectors": [
+          "Siang River Rafting & Eco-Resorts",
+          "Horticulture & Organic Agro-Ventures",
+          "Educational Institutes & Coaching Centers",
+          "Local Construction & Supply Agencies"
+        ],
+        "challenges": [
+          "Adventure tour operators losing bookings without instant online reservation systems.",
+          "Organic fruit and spice producers needing e-commerce channels to sell across India.",
+          "Affordable website packages tailored for emerging startups."
+        ],
+        "lat": 28.0668,
+        "lng": 95.3268
+      },
+      {
+        "city_id": "tawang",
+        "city_name": "Tawang",
+        "tagline": "High-Altitude Tourism & Monastery Wonderland",
+        "market_desc": "Tawang attracts travellers from across the globe for its historic monastery, Sela Pass, and breathtaking Himalayan scenery. Homestays, luxury resorts, taxi fleets, and cultural preservation trusts require top-tier websites.",
+        "local_sectors": [
+          "Homestays, Hotels & Himalayan Resorts",
+          "Taxi Operators & High-Altitude Tour Packages",
+          "Local Handloom & Monastic Souvenir Shops",
+          "Adventure & Trekking Agencies"
+        ],
+        "challenges": [
+          "Homestays and hotels paying steep commissions to online travel agencies, requiring their own direct booking engines.",
+          "Tourists need fast-loading mobile pages with clear route, permit, and weather guidance.",
+          "Need for simple WhatsApp integration to finalize bookings instantly in sub-zero hill conditions."
+        ],
+        "lat": 27.5862,
+        "lng": 91.8594
+      }
+    ]
+  },
+  {
+    "state_id": "sikkim",
+    "state_name": "Sikkim",
+    "state_short": "SK",
+    "region_description": "Sikkim is India first 100% organic state, an international eco-tourism benchmark, and a major pharmaceutical manufacturing corridor.",
+    "state_focus": "Eco-resorts, organic agriculture portals, hotel management engines, pharmaceutical supplier websites, and trekking platforms.",
+    "lat": 27.533,
+    "lng": 88.5122,
+    "cities": [
+      {
+        "city_id": "gangtok",
+        "city_name": "Gangtok",
+        "tagline": "Capital & Eco-Tourism Capital of Sikkim",
+        "market_desc": "Gangtok is a world-renowned destination for eco-tourism, hospitality, organic products, and pharmaceutical operations. MG Marg retail, luxury resorts, and tour operators need elegant, high-speed digital experiences.",
+        "local_sectors": [
+          "Hotels, Eco-Resorts & MG Marg Hospitality",
+          "Trekking, Paragliding & Tour Operators",
+          "Organic Produce & Cardamom/Tea Exporters",
+          "Pharma Suppliers & Specialist Healthcare"
+        ],
+        "challenges": [
+          "Hotels losing 20%+ revenue to OTAs, needing direct reservation systems with UPI & card payments.",
+          "Adventure trekking organizers needing verified client inquiry and itinerary builders.",
+          "Clean, modern international aesthetics that appeal to high-value domestic and foreign tourists."
+        ],
+        "lat": 27.3314,
+        "lng": 88.6138
+      },
+      {
+        "city_id": "namchi",
+        "city_name": "Namchi",
+        "tagline": "South Sikkim Cultural & Pilgrimage Center",
+        "market_desc": "Home to Char Dham (Siddhesvara Dhaam) and Samdruptse, Namchi is South Sikkim epicenter for pilgrimage tourism, floriculture, and private schools.",
+        "local_sectors": [
+          "Pilgrimage Hotels & Tourist Guest Houses",
+          "Floriculture, Orchids & Organic Farming",
+          "Private Academies & Schools",
+          "Local Retail Showrooms & Pharmacies"
+        ],
+        "challenges": [
+          "Hotels needing simple mobile booking forms with WhatsApp integration.",
+          "Floriculture and organic nurseries needing nationwide parcel delivery websites.",
+          "Fast, lightweight web design without expensive recurring software fees."
+        ],
+        "lat": 27.1667,
+        "lng": 88.35
+      }
+    ]
+  },
+  {
+    "state_id": "west-bengal",
+    "state_name": "West Bengal",
+    "state_short": "WB",
+    "region_description": "West Bengal acts as the vital strategic gateway linking Northeast India with pan-Indian trade, industry, and maritime logistics.",
+    "state_focus": "Siliguri role as the North East Gateway for tea auctions, cross-border trade, and healthcare, plus Kolkata tech & commercial ecosystem.",
+    "lat": 22.9868,
+    "lng": 87.855,
+    "cities": [
+      {
+        "city_id": "siliguri",
+        "city_name": "Siliguri",
+        "tagline": "Gateway to Northeast India & Regional Trade Capital",
+        "market_desc": "Siliguri is the indispensable commercial gateway connecting Northeast India, North Bengal, Bhutan, and Nepal. With massive logistics hubs in Matigara, tea auctions, multi-speciality hospitals, and bustling markets at Sevoke Road and Hill Cart Road, high-performance web systems are critical.",
+        "local_sectors": [
+          "Super-Speciality Hospitals & Diagnostic Centers",
+          "Tea Auction Broking & Warehousing Logistics",
+          "North Bengal & Sikkim Tourism Operators",
+          "Sevoke Road & Matigara Wholesale/Retail Showrooms"
+        ],
+        "challenges": [
+          "Super-speciality hospitals attracting patients from all 8 NE states needing online doctor appointment systems.",
+          "Logistics and tea brokers requiring custom client management and tracking portals.",
+          "High local agency fees for generic templates, when businesses need tailored, high-converting web apps."
+        ],
+        "lat": 26.7271,
+        "lng": 88.3953
+      },
+      {
+        "city_id": "kolkata",
+        "city_name": "Kolkata",
+        "tagline": "Metropolitan Business & Cultural Tech Hub",
+        "market_desc": "Kolkata is eastern India economic capital with thriving tech startups in Salt Lake Sector V, legal & consulting practices, healthcare institutions, and creative agencies.",
+        "local_sectors": [
+          "Tech Startups & SaaS Ventures in Sector V",
+          "Professional Consulting, Law & Financial Firms",
+          "Healthcare Institutions & Diagnostic Chains",
+          "E-commerce Brands & Creative Agencies"
+        ],
+        "challenges": [
+          "Agencies charging massive retainers for simple web platforms that can be built faster and cleaner.",
+          "Need for custom digital workflow systems that integrate with existing business tools.",
+          "High-speed, SEO-optimized web development starting from transparent, budget-friendly rates."
+        ],
+        "lat": 22.5726,
+        "lng": 88.3639
+      }
+    ]
+  }
+]
