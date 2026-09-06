@@ -1,4 +1,7 @@
 User-agent: *
+Disallow: /locations/
+Disallow: /scripts/
 Allow: /
 
 Sitemap: https://angsumi.online/sitemap.xml
+

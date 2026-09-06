@@ -143,7 +143,7 @@ def get_matrix_page_html(state, city, service):
   <meta name="description" content="{page_desc}">
   <meta name="keywords" content="{short_title.lower()} {city_name}, {service_id.replace('-', ' ')} {city_name}, website designer {city_name}, app developer {city_name} {state_name}">
   <meta name="author" content="Angsumi">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#0b1220">
   <link rel="canonical" href="{canonical_url}">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">

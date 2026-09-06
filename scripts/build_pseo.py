@@ -189,7 +189,7 @@ def get_city_html(state, city):
   <meta name="description" content="{page_desc}">
   <meta name="keywords" content="website designer in {city_name}, app developer {city_name}, web development {city_name} {state_name}, affordable web design {city_name}, mobile app development {city_name}, clinic website {city_name}, school management software {city_name}, top web developer Northeast India">
   <meta name="author" content="Angsumi">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#0b1220">
   <link rel="canonical" href="{canonical_url}">
 
@@ -893,7 +893,7 @@ def get_state_html(state):
   <meta name="description" content="{page_desc}">
   <meta name="keywords" content="website designer {state_name}, app developer {state_name}, web design company {state_name}, affordable website {state_name}, software developer {state_name}, Northeast India web developer">
   <meta name="author" content="Angsumi">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#0b1220">
   <link rel="canonical" href="{canonical_url}">
 
@@ -1178,7 +1178,7 @@ def get_hub_html():
   <meta name="description" content="{page_desc}">
   <meta name="keywords" content="website designer Northeast India, app development Assam, web designer Guwahati, web developer Shillong, web designer Agartala, web designer Imphal, web designer Aizawl, web designer Kohima, web designer Itanagar, web designer Gangtok, web designer Siliguri">
   <meta name="author" content="Angsumi">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#0b1220">
   <link rel="canonical" href="{canonical_url}">
 
@@ -1334,17 +1334,38 @@ def update_sitemap(all_urls):
     # Core base URLs in sitemap
     core_urls = [
         ("https://angsumi.online/", "daily", "1.0"),
-        ("https://angsumi.online/blog/github-projects.html", "monthly", "0.7"),
-        ("https://angsumi.online/learning/", "weekly", "0.8"),
-        ("https://angsumi.online/learning/geography/", "weekly", "0.8"),
-        ("https://angsumi.online/learning/history/", "weekly", "0.8"),
-        ("https://angsumi.online/learning/polity/", "weekly", "0.8"),
+        ("https://angsumi.online/blog/", "weekly", "0.9"),
+        ("https://angsumi.online/blog/github-projects.html", "weekly", "0.9"),
+        ("https://angsumi.online/blog/axomrank-exam-portal-case-study.html", "monthly", "0.8"),
+        ("https://angsumi.online/blog/website-cost-assam-2026.html", "monthly", "0.8"),
+        ("https://angsumi.online/blog/wix-shopify-vs-custom-website-assam.html", "monthly", "0.8"),
+        ("https://angsumi.online/cv/", "monthly", "0.85"),
+        ("https://angsumi.online/learning/", "weekly", "0.9"),
+        ("https://angsumi.online/learning/geography/", "weekly", "0.85"),
+        ("https://angsumi.online/learning/history/", "weekly", "0.85"),
+        ("https://angsumi.online/learning/polity/", "weekly", "0.85"),
+        ("https://angsumi.online/ADRE/", "weekly", "0.85"),
+        ("https://angsumi.online/AHOM/", "monthly", "0.75"),
+        ("https://angsumi.online/bioinformatics/", "monthly", "0.8"),
+        ("https://angsumi.online/GenoTaste/", "monthly", "0.8"),
+        ("https://angsumi.online/Flood-Relief/", "monthly", "0.75"),
+        ("https://angsumi.online/genone/", "monthly", "0.75"),
+        ("https://angsumi.online/map/", "monthly", "0.75"),
+        ("https://angsumi.online/MD-chakra/", "monthly", "0.75"),
+        ("https://angsumi.online/MSEHS/", "monthly", "0.75"),
+        ("https://angsumi.online/pitch/", "monthly", "0.7"),
+        ("https://angsumi.online/Portfolio_Maker/", "monthly", "0.75"),
+        ("https://angsumi.online/1cr/", "monthly", "0.75"),
+        ("https://angsumi.online/business/", "monthly", "0.7"),
+        ("https://angsumi.online/tools/", "weekly", "0.85"),
+        ("https://angsumi.online/tools/cost-calculator/", "weekly", "0.8"),
+        ("https://angsumi.online/services/", "weekly", "0.85"),
     ]
 
     new_xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     
     # Write core URLs
-    new_xml += "  <!-- Core Platform Pages -->\n"
+    new_xml += "  <!-- Core Authority Pages & Web Applications -->\n"
     for url, changefreq, priority in core_urls:
         new_xml += f"""  <url>
     <loc>{url}</loc>
@@ -1353,54 +1374,10 @@ def update_sitemap(all_urls):
     <priority>{priority}</priority>
   </url>\n"""
 
-    # Write Tools URLs
-    new_xml += "\n  <!-- ===== DIGITAL TOOLS & CALCULATORS ===== -->\n"
-    tool_urls = [u for u in all_urls if "/tools/" in u[0]]
-    for url, changefreq, priority in tool_urls:
-        new_xml += f"""  <url>
-    <loc>{url}</loc>
-    <lastmod>{TODAY}</lastmod>
-    <changefreq>{changefreq}</changefreq>
-    <priority>{priority}</priority>
-  </url>\n"""
-
-    # Write Blog URLs
-    new_xml += "\n  <!-- ===== ENGINEERING & STRATEGY INSIGHTS ===== -->\n"
-    blog_urls = [u for u in all_urls if "/blog/" in u[0] and u[0] not in [c[0] for c in core_urls]]
-    for url, changefreq, priority in blog_urls:
-        new_xml += f"""  <url>
-    <loc>{url}</loc>
-    <lastmod>{TODAY}</lastmod>
-    <changefreq>{changefreq}</changefreq>
-    <priority>{priority}</priority>
-  </url>\n"""
-
-    # Write Services URLs
-    new_xml += "\n  <!-- ===== PROGRAMMATIC SEO: SPECIALIZED SERVICES ===== -->\n"
-    service_urls = [u for u in all_urls if "/services/" in u[0]]
+    # Write Services URLs (Core specialized categories)
+    new_xml += "\n  <!-- Specialized Service Offerings -->\n"
+    service_urls = [u for u in all_urls if "/services/" in u[0] and u[0] != "https://angsumi.online/services/"]
     for url, changefreq, priority in service_urls:
-        new_xml += f"""  <url>
-    <loc>{url}</loc>
-    <lastmod>{TODAY}</lastmod>
-    <changefreq>{changefreq}</changefreq>
-    <priority>{priority}</priority>
-  </url>\n"""
-
-    # Write Locations URLs (Hubs & Cities)
-    new_xml += "\n  <!-- ===== PROGRAMMATIC SEO: REGIONAL LOCATIONS & DISTRICTS ===== -->\n"
-    location_urls = [u for u in all_urls if "/locations/" in u[0] and u[0].count("/") <= 5]
-    for url, changefreq, priority in location_urls:
-        new_xml += f"""  <url>
-    <loc>{url}</loc>
-    <lastmod>{TODAY}</lastmod>
-    <changefreq>{changefreq}</changefreq>
-    <priority>{priority}</priority>
-  </url>\n"""
-
-    # Write Matrix Intersection URLs
-    new_xml += "\n  <!-- ===== PROGRAMMATIC SEO: MATRIX CITY × SERVICE INTERSECTIONS ===== -->\n"
-    matrix_urls = [u for u in all_urls if "/locations/" in u[0] and u[0].count("/") > 5]
-    for url, changefreq, priority in matrix_urls:
         new_xml += f"""  <url>
     <loc>{url}</loc>
     <lastmod>{TODAY}</lastmod>
@@ -1413,7 +1390,8 @@ def update_sitemap(all_urls):
     with open(sitemap_path, "w", encoding="utf-8") as f:
         f.write(new_xml)
 
-    print(f"✓ Rebuilt sitemap.xml with {len(core_urls) + len(all_urls)} total verified URLs.")
+    total_sitemap_count = len(core_urls) + len(service_urls)
+    print(f"✓ Rebuilt authoritative sitemap.xml with {total_sitemap_count} core high-value URLs.")
 
 def build_all():
     all_urls = []
