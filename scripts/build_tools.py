@@ -115,7 +115,7 @@ def get_calculator_html():
         <a href="{BASE_URL}/locations/">Locations</a>
         <a href="{BASE_URL}/tools/">Tools</a>
         <a href="{BASE_URL}/#pricing">Pricing</a>
-        <a href="{BASE_URL}/blog/">Insights</a>
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a>
       </nav>
       <a class="nav-cta" href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20used%20your%20Cost%20Calculator." target="_blank" rel="noopener">
         <span>WhatsApp Call</span> &rarr;
@@ -349,6 +349,7 @@ def get_calculator_html():
       <div>
         <a href="mailto:{EMAIL}">{EMAIL}</a> · 
         <a href="https://wa.me/917896595109" target="_blank" rel="noopener">{PHONE_DISPLAY}</a> · 
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a> · 
         © 2026 Angsumi
       </div>
     </div>
@@ -495,7 +496,7 @@ def get_tools_hub_html():
         <a href="{BASE_URL}/locations/">Locations</a>
         <a href="{BASE_URL}/tools/">Tools</a>
         <a href="{BASE_URL}/#pricing">Pricing</a>
-        <a href="{BASE_URL}/blog/">Insights</a>
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a>
       </nav>
       <a class="nav-cta" href="https://wa.me/917896595109?text=Hi%20Angsumi" target="_blank" rel="noopener">
         <span>WhatsApp Call</span> &rarr;
@@ -583,6 +584,7 @@ def get_tools_hub_html():
       <div>
         <a href="mailto:{EMAIL}">{EMAIL}</a> · 
         <a href="https://wa.me/917896595109" target="_blank" rel="noopener">{PHONE_DISPLAY}</a> · 
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a> · 
         © 2026 Angsumi
       </div>
     </div>

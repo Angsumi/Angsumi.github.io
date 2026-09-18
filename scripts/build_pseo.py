@@ -236,7 +236,7 @@ def get_city_html(state, city):
         <a href="{BASE_URL}/#proof">Live Systems</a>
         <a href="{BASE_URL}/#pricing">Pricing</a>
         <a href="{BASE_URL}/locations/">Locations</a>
-        <a href="{BASE_URL}/blog/">Insights</a>
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a>
         <a href="{BASE_URL}/learning/">Learning Hub</a>
       </nav>
       <a class="nav-cta" href="{wa_url}" target="_blank" rel="noopener">
@@ -445,7 +445,7 @@ def get_city_html(state, city):
               <h3>Doctor &amp; Clinic Digital System</h3>
               <p>Modern OPD token generation, WhatsApp prescription delivery, and patient history ledger system for private clinics.</p>
             </div>
-            <a class="proof-link" href="{BASE_URL}/blog/clinic-digital-system.html">View Case Study →</a>
+            <a class="proof-link" href="{BASE_URL}/#proof">View Case Study →</a>
           </div>
 
           <div class="proof-card">
@@ -454,7 +454,7 @@ def get_city_html(state, city):
               <h3>School &amp; Academy Digital Portal</h3>
               <p>Zero-maintenance parent portal, attendance tracking, online noticeboard, and report card generator without recurring SaaS fees.</p>
             </div>
-            <a class="proof-link" href="{BASE_URL}/blog/school-web-design-assam.html">View Case Study →</a>
+            <a class="proof-link" href="{BASE_URL}/#proof">View Case Study →</a>
           </div>
         </div>
       </div>
@@ -714,6 +714,7 @@ def get_city_html(state, city):
       <div>
         <a href="mailto:{EMAIL}">{EMAIL}</a> · 
         <a href="{wa_url}" target="_blank" rel="noopener">{PHONE_DISPLAY}</a> · 
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a> · 
         © 2026 Angsumi
       </div>
     </div>
@@ -934,7 +935,7 @@ def get_state_html(state):
         <a href="{BASE_URL}/#proof">Live Systems</a>
         <a href="{BASE_URL}/#pricing">Pricing</a>
         <a href="{BASE_URL}/locations/">Locations</a>
-        <a href="{BASE_URL}/blog/">Insights</a>
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a>
         <a href="{BASE_URL}/learning/">Learning Hub</a>
       </nav>
       <a class="nav-cta" href="{wa_url}" target="_blank" rel="noopener">
@@ -1070,6 +1071,7 @@ def get_state_html(state):
       <div>
         <a href="mailto:{EMAIL}">{EMAIL}</a> · 
         <a href="{wa_url}" target="_blank" rel="noopener">{PHONE_DISPLAY}</a> · 
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a> · 
         © 2026 Angsumi
       </div>
     </div>
@@ -1219,7 +1221,7 @@ def get_hub_html():
         <a href="{BASE_URL}/#proof">Live Systems</a>
         <a href="{BASE_URL}/#pricing">Pricing</a>
         <a href="{BASE_URL}/locations/">Locations</a>
-        <a href="{BASE_URL}/blog/">Insights</a>
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a>
         <a href="{BASE_URL}/learning/">Learning Hub</a>
       </nav>
       <a class="nav-cta" href="{wa_url}" target="_blank" rel="noopener">
@@ -1292,6 +1294,7 @@ def get_hub_html():
       <div>
         <a href="mailto:{EMAIL}">{EMAIL}</a> · 
         <a href="{wa_url}" target="_blank" rel="noopener">{PHONE_DISPLAY}</a> · 
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a> · 
         © 2026 Angsumi
       </div>
     </div>
@@ -1322,7 +1325,6 @@ def get_hub_html():
 
 from build_services import build_services
 from build_tools import build_tools
-from build_blog import build_blog
 from build_matrix import build_matrix
 
 def update_sitemap(all_urls):
@@ -1334,11 +1336,6 @@ def update_sitemap(all_urls):
     # Core base URLs in sitemap
     core_urls = [
         ("https://angsumi.online/", "daily", "1.0"),
-        ("https://angsumi.online/blog/", "weekly", "0.9"),
-        ("https://angsumi.online/blog/github-projects.html", "weekly", "0.9"),
-        ("https://angsumi.online/blog/axomrank-exam-portal-case-study.html", "monthly", "0.8"),
-        ("https://angsumi.online/blog/website-cost-assam-2026.html", "monthly", "0.8"),
-        ("https://angsumi.online/blog/wix-shopify-vs-custom-website-assam.html", "monthly", "0.8"),
         ("https://angsumi.online/cv/", "monthly", "0.85"),
         ("https://angsumi.online/learning/", "weekly", "0.9"),
         ("https://angsumi.online/learning/geography/", "weekly", "0.85"),
@@ -1434,12 +1431,7 @@ def build_all():
     tool_urls = build_tools()
     all_urls.extend(tool_urls)
 
-    # 5. Build Blog
-    print("\n--- Generating Authority Insights & Guides ---")
-    blog_urls = build_blog()
-    all_urls.extend(blog_urls)
-
-    # 6. Build Matrix pSEO Intersections
+    # 5. Build Matrix pSEO Intersections
     print("\n--- Generating Matrix City × Service Intersections ---")
     matrix_urls = build_matrix()
     all_urls.extend(matrix_urls)
@@ -1452,7 +1444,6 @@ def build_all():
     print(f"- Services Hub: 1")
     print(f"- Specialized Service Pages: {len(service_urls) - 1}")
     print(f"- Interactive Tools & Calculators: {len(tool_urls)}")
-    print(f"- Authority Blog & Case Studies: {len(blog_urls)}")
     print(f"- Matrix City × Service Intersections: {len(matrix_urls)}")
     print(f"Total Unique Programmatic & Core URLs Generated: {len(all_urls)}")
     print(f"=======================================================\n")

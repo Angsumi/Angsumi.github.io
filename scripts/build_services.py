@@ -170,7 +170,7 @@ def get_service_html(s):
         <a href="{BASE_URL}/services/">Services</a>
         <a href="{BASE_URL}/locations/">Locations</a>
         <a href="{BASE_URL}/#pricing">Pricing</a>
-        <a href="{BASE_URL}/blog/">Insights</a>
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a>
         <a href="{BASE_URL}/learning/">Learning Hub</a>
       </nav>
       <a class="nav-cta" href="{wa_url}" target="_blank" rel="noopener">
@@ -412,6 +412,7 @@ def get_service_html(s):
       <div>
         <a href="mailto:{EMAIL}">{EMAIL}</a> · 
         <a href="{wa_url}" target="_blank" rel="noopener">{PHONE_DISPLAY}</a> · 
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a> · 
         © 2026 Angsumi
       </div>
     </div>
@@ -534,7 +535,7 @@ def get_services_hub_html():
         <a href="{BASE_URL}/services/">Services</a>
         <a href="{BASE_URL}/locations/">Locations</a>
         <a href="{BASE_URL}/#pricing">Pricing</a>
-        <a href="{BASE_URL}/blog/">Insights</a>
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a>
         <a href="{BASE_URL}/learning/">Learning Hub</a>
       </nav>
       <a class="nav-cta" href="{wa_url}" target="_blank" rel="noopener">
@@ -666,6 +667,7 @@ def get_services_hub_html():
       <div>
         <a href="mailto:{EMAIL}">{EMAIL}</a> · 
         <a href="{wa_url}" target="_blank" rel="noopener">{PHONE_DISPLAY}</a> · 
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a> · 
         © 2026 Angsumi
       </div>
     </div>

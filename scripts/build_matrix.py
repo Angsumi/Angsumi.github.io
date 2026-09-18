@@ -177,7 +177,7 @@ def get_matrix_page_html(state, city, service):
         <a href="{BASE_URL}/locations/">Locations</a>
         <a href="{BASE_URL}/tools/">Tools</a>
         <a href="{BASE_URL}/#pricing">Pricing</a>
-        <a href="{BASE_URL}/blog/">Insights</a>
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a>
       </nav>
       <a class="nav-cta" href="{wa_url}" target="_blank" rel="noopener">
         <span>WhatsApp Call</span> &rarr;
@@ -406,6 +406,7 @@ def get_matrix_page_html(state, city, service):
       <div>
         <a href="mailto:{EMAIL}">{EMAIL}</a> · 
         <a href="{wa_url}" target="_blank" rel="noopener">{PHONE_DISPLAY}</a> · 
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a> · 
         © 2026 Angsumi
       </div>
     </div>
