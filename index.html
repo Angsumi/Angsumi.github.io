@@ -147,6 +147,60 @@
         "publisher": {
           "@id": "https://angsumi.online/#business"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://angsumi.online/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does a website or digital system cost with Angsumi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our starter websites start at ₹2,000 fixed price with zero agency bloat. Multi-page business web portals start from ₹5,000, and full custom web platforms/apps range from ₹8,500 to ₹18,000."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I have to pay recurring monthly subscription fees like Wix or Shopify?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Unlike SaaS platforms like Wix or Shopify that charge ₹2,000–₹4,000 every single month, Angsumi gives you 100% source code ownership with one-time transparent pricing and zero monthly platform hostage fees."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How fast will my website load on mobile 4G in Northeast India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every website we engineer achieves sub-second load speeds and a 100% Core Web Vitals score on mobile using clean hand-coded semantic HTML, CSS, and modern JavaScript."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you build specialized systems for clinics, schools, and local businesses in Assam & Northeast?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! We specialize in tailored digital systems for Northeast India: Doctor OPD token counters, school fee payment & noticeboard portals, Assam silk & handloom direct stores, tea estate export catalogs, and safari booking platforms."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I own my domain, assets, and website source code?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, 100%. You retain complete legal ownership of your domain name, website source code, assets, and database."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does it take to build and launch my project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Standard starter websites and business landing pages launch within 3 to 5 business days. Advanced portals and custom web applications typically take 7 to 14 days."
+            }
+          }
+        ]
       }
     ]
   }
@@ -534,6 +588,67 @@
     .form-submit-btn:hover .form-btn-arrow { transform: translateX(6px); }
     .form-btn-arrow { display: inline-block; transition: transform 0.25s ease; }
 
+    /* FAQ Accordion Section */
+    .faq-section {
+      background: #f8fafc;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 80px 0;
+    }
+    .faq-list {
+      max-width: 800px;
+      margin: 36px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .faq-item:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .faq-question {
+      padding: 20px 24px;
+      font-weight: 750;
+      font-size: 16px;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      list-style: none;
+    }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-question::after {
+      content: "+";
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--brand);
+      transition: transform .2s ease;
+    }
+    .faq-item[open] .faq-question::after {
+      content: "−";
+    }
+    .faq-answer {
+      padding: 0 24px 22px;
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--muted);
+      border-top: 1px solid transparent;
+    }
+    .faq-answer a {
+      color: var(--brand);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
     /* Sticky Mobile WhatsApp Bar */
     .mobile-cta { display: none; }
 
@@ -744,11 +859,10 @@
        ========================================================= -->
   <header class="nav">
     <div class="container nav-inner">
-      <a class="logo" href="#hook">
+      <a class="logo" href="/">
         <span class="logo-mark"><img src="logo.png" alt="Angsumi logo"></span>angsumi
       </a>
       <nav class="links">
-        <a href="#hook">Hook</a>
         <a href="#vp">Value Prop</a>
         <a href="#proof">Proof &amp; Work</a>
         <a href="https://angsumi.online/services/">Services</a>
@@ -1089,7 +1203,65 @@
     </section>
 
     <!-- =========================================================
-         4. CALL TO ACTION & CONTACT SECTION (#cta)
+         4. FREQUENTLY ASKED QUESTIONS (#faq)
+         High-Intent Query Answers & On-Page SEO
+         ========================================================= -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-badge" style="display:table; margin:0 auto 12px;">Got Questions?</div>
+        <div class="section-head" style="text-align:center; margin:0 auto 36px;">
+          <h2>Frequently Asked Questions</h2>
+          <p>Everything you need to know about our pricing, tech stack, and digital systems.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary class="faq-question">How much does a website or digital system cost with Angsumi?</summary>
+            <div class="faq-answer">
+              Our starter websites start at <strong>₹2,000 fixed price</strong> with zero agency bloat. Multi-page business web portals start from ₹5,000, and full custom web platforms/apps (such as doctor OPD systems, school management portals, or silk e-commerce stores) range from ₹8,500 to ₹18,000. You can also use our interactive <a href="https://angsumi.online/tools/cost-calculator/">Instant Cost Calculator</a> for a 30-second estimate.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Do I have to pay recurring monthly subscription fees like Wix or Shopify?</summary>
+            <div class="faq-answer">
+              <strong>No.</strong> Unlike SaaS platforms like Wix, Squarespace, or Shopify that charge ₹2,000–₹4,000 every single month for basic features and transaction fees, Angsumi gives you <strong>100% source code ownership</strong> with one-time transparent pricing and zero monthly platform hostage fees.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">How fast will my website load on mobile 4G in Northeast India?</summary>
+            <div class="faq-answer">
+              Every website we engineer achieves <strong>sub-second load speeds</strong> and a 100% Core Web Vitals score on mobile. We hand-code clean semantic HTML, CSS, and modern JavaScript, completely eliminating the database bloat and security vulnerabilities of 30+ slow WordPress plugins.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Can you build specialized systems for clinics, schools, and local businesses in Assam &amp; Northeast?</summary>
+            <div class="faq-answer">
+              Yes! We specialize in tailored digital systems for Northeast India: Doctor OPD token counters &amp; WhatsApp prescriptions, school fee payment &amp; noticeboard portals, Assam silk &amp; handloom direct-to-consumer stores, tea estate export catalogs, and wildlife safari booking platforms.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Do I own my domain, assets, and website source code?</summary>
+            <div class="faq-answer">
+              <strong>Yes, 100%.</strong> You retain complete legal ownership of your domain name, website source code, assets, and database. You are never locked into our services and can host your site anywhere you want.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">How long does it take to build and launch my project?</summary>
+            <div class="faq-answer">
+              Standard starter websites and business landing pages launch within <strong>3 to 5 business days</strong>. Advanced portals and custom web applications typically take 7 to 14 days.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. CALL TO ACTION & CONTACT SECTION (#cta)
          Direct Conversions & Form Inquiries
          ========================================================= -->
     <section class="cta-section" id="cta">
@@ -1182,7 +1354,7 @@
     <div class="container footer-grid">
       <!-- Column 1: Brand & Contact -->
       <div class="footer-brand">
-        <a class="logo" href="#hook">
+        <a class="logo" href="/">
           <span class="logo-mark"><img src="logo.png" alt="Angsumi logo"></span>angsumi
         </a>
         <p>

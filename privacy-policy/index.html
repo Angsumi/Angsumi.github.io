@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Angsumi</title>
+  <meta name="description" content="Angsumi Privacy Policy — how we protect your personal information, handle inquiries securely, and uphold data privacy across our web services.">
+  <link rel="canonical" href="https://angsumi.online/privacy-policy/">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://angsumi.online/privacy-policy/">
+  <meta property="og:title" content="Privacy Policy — Angsumi">
+  <meta property="og:description" content="Learn about our commitment to your privacy, data security, and transparent communication.">
+  <meta property="og:image" content="https://angsumi.online/logo.png">
+
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --ink: #0b1220;
+      --muted: #5e6a7c;
+      --line: #e4e8ef;
+      --brand: #1257d6;
+      --brand-dark: #0b3f9e;
+      --accent: #10b981;
+      --soft: #eef4ff;
+      --radius: 20px;
+      --shadow: 0 20px 45px rgba(11, 18, 32, 0.08);
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+
+    /* Sticky Nav */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: rgba(247, 248, 250, 0.92); backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(228, 232, 239, 0.85);
+    }
+    .nav-inner { height: 76px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 850; letter-spacing: -.05em; color: var(--ink); }
+    .logo-mark img { width: 36px; height: 36px; object-fit: contain; display: block; }
+    .links { display: flex; align-items: center; gap: 22px; font-size: 14px; font-weight: 650; color: #3e4755; }
+    .links a { padding: 6px 10px; border-radius: 8px; transition: color .2s, background .2s; }
+    .links a:hover, .links a.active { color: var(--brand); background: var(--soft); }
+    .nav-cta {
+      background: var(--ink); color: #fff; border: 0; border-radius: 999px; padding: 11px 20px;
+      font-weight: 750; font-size: 13.5px; cursor: pointer; transition: transform .2s, background .2s; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .nav-cta:hover { transform: translateY(-2px); background: #182233; color: #fff; }
+    .menu { display: none; background: none; border: 0; font-size: 26px; cursor: pointer; padding: 4px; }
+
+    /* Breadcrumbs */
+    .breadcrumb-strip {
+      padding-top: 96px; padding-bottom: 14px; background: #fff; border-bottom: 1px solid var(--line); font-size: 13px; font-weight: 600; color: var(--muted);
+    }
+    .breadcrumbs { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .breadcrumbs a { color: var(--brand); }
+    .breadcrumbs span { color: #94a3b8; }
+
+    /* Hero */
+    .page-hero { padding: 60px 0 40px; background: linear-gradient(180deg, #ffffff 0%, #f7f8fa 100%); border-bottom: 1px solid var(--line); }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px; background: var(--soft); color: var(--brand);
+      border: 1px solid #d9e6ff; border-radius: 999px; padding: 6px 14px; font-size: 12px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .06em; margin-bottom: 18px;
+    }
+    h1 { font-size: clamp(32px, 4vw, 50px); line-height: 1.12; letter-spacing: -.04em; font-weight: 900; color: var(--ink); }
+    .hero-sub { font-size: 17.5px; color: var(--muted); max-width: 800px; margin: 16px 0 0; line-height: 1.6; }
+
+    /* Content Layout */
+    .content-section { padding: 60px 0 80px; }
+    .doc-card {
+      background: #ffffff; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 48px; box-shadow: var(--shadow); max-width: 900px; margin: auto;
+    }
+    .article-body { font-size: 15.5px; line-height: 1.8; color: #334155; }
+    .article-body h2 { font-size: 22px; font-weight: 850; color: var(--ink); margin: 36px 0 14px; letter-spacing: -.03em; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+    .article-body h2:first-of-type { margin-top: 0; }
+    .article-body h3 { font-size: 17px; font-weight: 800; color: var(--ink); margin: 24px 0 10px; }
+    .article-body p { margin-bottom: 16px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px 24px; }
+    .article-body li { margin-bottom: 8px; }
+    .article-body strong { color: var(--ink); }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--line); padding: 60px 0 32px; color: #64748b; font-size: 14px; background: #fff; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand .logo { margin-bottom: 14px; }
+    .footer-brand p { font-size: 13.5px; line-height: 1.6; color: #64748b; margin-bottom: 20px; max-width: 320px; }
+    .footer-contact { display: flex; flex-direction: column; gap: 10px; }
+    .footer-contact a { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
+    .footer-col h4 { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--ink); margin-bottom: 16px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { color: #64748b; font-size: 13.5px; transition: color .2s; }
+    .footer-links a:hover { color: var(--brand); }
+    .footer-links a.footer-more { font-weight: 750; color: var(--brand); }
+    .footer-bottom { border-top: 1px solid var(--line); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; color: #94a3b8; }
+    .footer-bottom-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .footer-bottom-links a { color: #64748b; transition: color .2s; }
+    .footer-bottom-links a:hover { color: var(--brand); }
+
+    @media (max-width: 900px) {
+      .links { display: none; }
+      .menu { display: block; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .doc-card { padding: 28px 20px; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-bottom-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="/">
+        <span class="logo-mark"><img src="/logo.png" alt="Angsumi logo"></span>angsumi
+      </a>
+      <nav class="links">
+        <a href="/#vp">Why Us</a>
+        <a href="/#proof">Live Systems</a>
+        <a href="https://angsumi.online/services/">Services</a>
+        <a href="https://angsumi.online/locations/">Locations</a>
+        <a href="https://angsumi.online/tools/">Tools</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a>
+        <a href="/about/">About</a>
+        <a href="/#cta">Contact</a>
+      </nav>
+      <a class="nav-cta" href="https://wa.me/917896595109" target="_blank" rel="noopener">
+        <span>WhatsApp Call</span> &rarr;
+      </a>
+      <button class="menu" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <div class="breadcrumb-strip">
+    <div class="container breadcrumbs">
+      <a href="/">Home</a> <span>/</span>
+      <strong>Privacy Policy</strong>
+    </div>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="badge">🔒 Trust &amp; Transparency</div>
+      <h1>Privacy Policy</h1>
+      <p class="hero-sub">
+        Last updated: March 2026. Your privacy and data sovereignty are fundamental to how we build software.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="doc-card article-body">
+        <h2>1. Introduction</h2>
+        <p>
+          Angsumi ("we," "us," or "our") operates <strong>https://angsumi.online</strong> and associated digital systems. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our interactive tools, or submit project inquiry forms.
+        </p>
+
+        <h2>2. Information We Collect</h2>
+        <p>We collect information you provide directly to us when submitting inquiries or using our services:</p>
+        <ul>
+          <li><strong>Contact Details:</strong> Name, email address, phone/WhatsApp number provided in contact forms.</li>
+          <li><strong>Project Requirements:</strong> Business type, budget range, and platform feature requests submitted via our inquiry form or cost calculator.</li>
+          <li><strong>Technical Data:</strong> Anonymized browser type, operating system, and performance metrics collected solely to monitor Core Web Vitals and site availability.</li>
+        </ul>
+
+        <h2>3. How We Use Your Information</h2>
+        <p>We use the collected information strictly for legitimate business purposes:</p>
+        <ul>
+          <li>To respond to your project inquiries and provide tailored technical blueprints and cost estimates.</li>
+          <li>To deliver software engineering, website development, and app deployment services.</li>
+          <li>To operate, maintain, and optimize our website speed and security.</li>
+          <li>To protect against fraudulent inquiries or malicious security attempts.</li>
+        </ul>
+
+        <h2>4. Zero Selling of Personal Data</h2>
+        <p>
+          <strong>We never sell, rent, trade, or monetize your personal information to third parties, data brokers, or advertising networks.</strong> Your contact details are used solely to communicate directly with you regarding your projects.
+        </p>
+
+        <h2>5. Cookies &amp; Analytics</h2>
+        <p>
+          Our website uses minimal, privacy-respecting cookies necessary for core website functionality (such as remembering user selections on interactive calculators). If Google Analytics or Google AdSense is enabled, standard anonymized cookies may be used by Google in accordance with Google's Privacy &amp; Terms.
+        </p>
+
+        <h2>6. Third-Party Services &amp; Form Processing</h2>
+        <p>
+          We use secure third-party processors such as Formspree for handling inquiry form transmissions over encrypted SSL/TLS connections. These providers process data strictly on our instructions and maintain industry-standard security protocols.
+        </p>
+
+        <h2>7. Data Security &amp; Retention</h2>
+        <p>
+          We implement industry-grade technical and organizational security measures to protect your personal information against unauthorized access, loss, or alteration. We retain inquiry information only as long as necessary to fulfill project requirements or comply with legal obligations.
+        </p>
+
+        <h2>8. Your Rights (DPDP Act &amp; GDPR)</h2>
+        <p>
+          In accordance with the Indian Digital Personal Data Protection (DPDP) Act and global privacy standards, you have the right to request access to, correction of, or permanent deletion of your personal data stored with us at any time.
+        </p>
+
+        <h2>9. Contact Us</h2>
+        <p>
+          If you have any questions or concerns regarding this Privacy Policy, please reach out to us at:
+        </p>
+        <p>
+          <strong>Email:</strong> <a href="mailto:angudas62@gmail.com" style="color:var(--brand); font-weight:700;">angudas62@gmail.com</a><br>
+          <strong>WhatsApp:</strong> <a href="https://wa.me/917896595109" target="_blank" rel="noopener" style="color:var(--brand); font-weight:700;">+91 78965 95109</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="/">
+          <span class="logo-mark"><img src="/logo.png" alt="Angsumi logo"></span>angsumi
+        </a>
+        <p>
+          High-converting, ultra-fast digital systems &amp; websites engineered for growing businesses across Northeast India.
+        </p>
+        <div class="footer-contact">
+          <a href="mailto:angudas62@gmail.com">✉ angudas62@gmail.com</a>
+          <a href="https://wa.me/917896595109" target="_blank" rel="noopener">💬 +91 78965 95109</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Digital Systems</h4>
+        <ul class="footer-links">
+          <li><a href="https://angsumi.online/services/doctor-clinic-website-design/">Doctor &amp; Clinic OPD</a></li>
+          <li><a href="https://angsumi.online/services/school-management-system/">School &amp; Coaching Portals</a></li>
+          <li><a href="https://angsumi.online/services/assam-silk-handloom-ecommerce/">Silk &amp; Handloom D2C</a></li>
+          <li><a href="https://angsumi.online/services/tea-estate-factory-website-design/">Tea Estates &amp; Exports</a></li>
+          <li><a href="https://angsumi.online/services/tourism-safari-cab-booking-system/">Safari &amp; Tour Booking</a></li>
+          <li><a href="https://angsumi.online/services/mobile-app-development/">Mobile App Development</a></li>
+          <li><a href="https://angsumi.online/services/" class="footer-more">All Systems Directory &rarr;</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Coverage Areas</h4>
+        <ul class="footer-links">
+          <li><a href="https://angsumi.online/locations/assam/">Assam (Guwahati, Dibrugarh, Silchar)</a></li>
+          <li><a href="https://angsumi.online/locations/meghalaya/">Meghalaya (Shillong, Tura)</a></li>
+          <li><a href="https://angsumi.online/locations/arunachal-pradesh/">Arunachal Pradesh (Itanagar)</a></li>
+          <li><a href="https://angsumi.online/locations/tripura/">Tripura (Agartala)</a></li>
+          <li><a href="https://angsumi.online/locations/nagaland/">Nagaland (Kohima, Dimapur)</a></li>
+          <li><a href="https://angsumi.online/locations/west-bengal/">West Bengal (Siliguri)</a></li>
+          <li><a href="https://angsumi.online/locations/" class="footer-more">All Locations Directory &rarr;</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company &amp; Legal</h4>
+        <ul class="footer-links">
+          <li><a href="https://angsumi.online/about/">About Angsumi</a></li>
+          <li><a href="https://angsumi.online/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="https://angsumi.online/terms/">Terms of Service</a></li>
+          <li><a href="https://blog.angsumi.online" target="_blank" rel="noopener">Official Blog ↗</a></li>
+          <li><a href="https://angsumi.online/tools/cost-calculator/">Live Cost Estimator</a></li>
+          <li><a href="https://angsumi.online/tools/tech-detector/">Speed &amp; Tech Inspector</a></li>
+          <li><a href="https://angsumi.online/cv/">Founder Profile &amp; CV</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 Angsumi. Digital systems without the agency price tag.</div>
+      <div class="footer-bottom-links">
+        <a href="https://angsumi.online/about/">About</a>
+        <a href="https://angsumi.online/privacy-policy/">Privacy Policy</a>
+        <a href="https://angsumi.online/terms/">Terms</a>
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a>
+        <a href="https://wa.me/917896595109" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const links = document.querySelector('.links');
+      const isVisible = links.style.display === 'flex';
+      links.style.display = isVisible ? 'none' : 'flex';
+      if (!isVisible) {
+        links.style.position = 'absolute';
+        links.style.top = '76px';
+        links.style.left = '0';
+        links.style.right = '0';
+        links.style.padding = '20px 24px';
+        links.style.background = 'rgba(247, 248, 250, 0.98)';
+        links.style.flexDirection = 'column';
+        links.style.alignItems = 'flex-start';
+        links.style.borderBottom = '1px solid var(--line)';
+        links.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)';
+      }
+    }
+  </script>
+</body>
+</html>

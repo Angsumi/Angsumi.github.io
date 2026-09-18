@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Angsumi — Digital Infrastructure &amp; Web Engineering for Northeast India</title>
+  <meta name="description" content="Discover Angsumi — building ultra-fast, affordable websites, clinic OPD management portals, school systems, and custom apps for businesses across Northeast India without agency markups.">
+  <link rel="canonical" href="https://angsumi.online/about/">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://angsumi.online/about/">
+  <meta property="og:title" content="About Angsumi — Engineering Digital Infrastructure for Northeast India">
+  <meta property="og:description" content="Discover our mission to build fast, affordable, high-converting websites and management portals with 100% code ownership.">
+  <meta property="og:image" content="https://angsumi.online/logo.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Angsumi",
+    "url": "https://angsumi.online/about/",
+    "description": "Angsumi engineers ultra-fast, affordable websites, clinic OPD management systems, school portals, and custom apps for businesses across Northeast India.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Angsumi",
+      "url": "https://angsumi.online/",
+      "logo": "https://angsumi.online/logo.png"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --ink: #0b1220;
+      --muted: #5e6a7c;
+      --line: #e4e8ef;
+      --brand: #1257d6;
+      --brand-dark: #0b3f9e;
+      --accent: #10b981;
+      --soft: #eef4ff;
+      --radius: 20px;
+      --shadow: 0 20px 45px rgba(11, 18, 32, 0.08);
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+
+    /* Sticky Nav */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: rgba(247, 248, 250, 0.92); backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(228, 232, 239, 0.85);
+    }
+    .nav-inner { height: 76px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 850; letter-spacing: -.05em; color: var(--ink); }
+    .logo-mark img { width: 36px; height: 36px; object-fit: contain; display: block; }
+    .links { display: flex; align-items: center; gap: 22px; font-size: 14px; font-weight: 650; color: #3e4755; }
+    .links a { padding: 6px 10px; border-radius: 8px; transition: color .2s, background .2s; }
+    .links a:hover, .links a.active { color: var(--brand); background: var(--soft); }
+    .nav-cta {
+      background: var(--ink); color: #fff; border: 0; border-radius: 999px; padding: 11px 20px;
+      font-weight: 750; font-size: 13.5px; cursor: pointer; transition: transform .2s, background .2s; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .nav-cta:hover { transform: translateY(-2px); background: #182233; color: #fff; }
+    .menu { display: none; background: none; border: 0; font-size: 26px; cursor: pointer; padding: 4px; }
+
+    /* Breadcrumbs */
+    .breadcrumb-strip {
+      padding-top: 96px; padding-bottom: 14px; background: #fff; border-bottom: 1px solid var(--line); font-size: 13px; font-weight: 600; color: var(--muted);
+    }
+    .breadcrumbs { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .breadcrumbs a { color: var(--brand); }
+    .breadcrumbs span { color: #94a3b8; }
+
+    /* Hero */
+    .page-hero { padding: 60px 0 40px; background: linear-gradient(180deg, #ffffff 0%, #f7f8fa 100%); border-bottom: 1px solid var(--line); }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px; background: var(--soft); color: var(--brand);
+      border: 1px solid #d9e6ff; border-radius: 999px; padding: 6px 14px; font-size: 12px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .06em; margin-bottom: 18px;
+    }
+    h1 { font-size: clamp(32px, 4vw, 50px); line-height: 1.12; letter-spacing: -.04em; font-weight: 900; color: var(--ink); }
+    .hero-sub { font-size: 17.5px; color: var(--muted); max-width: 800px; margin: 16px 0 0; line-height: 1.6; }
+
+    /* Content Layout */
+    .content-section { padding: 60px 0 80px; }
+    .doc-card {
+      background: #ffffff; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 48px; box-shadow: var(--shadow); max-width: 900px; margin: auto;
+    }
+    .article-body { font-size: 15.5px; line-height: 1.8; color: #334155; }
+    .article-body h2 { font-size: 22px; font-weight: 850; color: var(--ink); margin: 36px 0 14px; letter-spacing: -.03em; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+    .article-body h2:first-of-type { margin-top: 0; }
+    .article-body h3 { font-size: 17px; font-weight: 800; color: var(--ink); margin: 24px 0 10px; }
+    .article-body p { margin-bottom: 16px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px 24px; }
+    .article-body li { margin-bottom: 8px; }
+    .article-body strong { color: var(--ink); }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--line); padding: 60px 0 32px; color: #64748b; font-size: 14px; background: #fff; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand .logo { margin-bottom: 14px; }
+    .footer-brand p { font-size: 13.5px; line-height: 1.6; color: #64748b; margin-bottom: 20px; max-width: 320px; }
+    .footer-contact { display: flex; flex-direction: column; gap: 10px; }
+    .footer-contact a { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
+    .footer-col h4 { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--ink); margin-bottom: 16px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { color: #64748b; font-size: 13.5px; transition: color .2s; }
+    .footer-links a:hover { color: var(--brand); }
+    .footer-links a.footer-more { font-weight: 750; color: var(--brand); }
+    .footer-bottom { border-top: 1px solid var(--line); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; color: #94a3b8; }
+    .footer-bottom-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .footer-bottom-links a { color: #64748b; transition: color .2s; }
+    .footer-bottom-links a:hover { color: var(--brand); }
+
+    @media (max-width: 900px) {
+      .links { display: none; }
+      .menu { display: block; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .doc-card { padding: 28px 20px; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-bottom-links { justify-content: center; }
+    }
+    .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; }
+    .highlight-card {
+      background: #ffffff; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 32px; box-shadow: var(--shadow); position: sticky; top: 100px;
+    }
+    .highlight-card h3 { font-size: 18px; font-weight: 800; color: var(--ink); margin-bottom: 14px; }
+    .stat-list { display: flex; flex-direction: column; gap: 16px; margin: 20px 0; }
+    .stat-item { border-left: 3px solid var(--brand); padding-left: 14px; }
+    .stat-number { font-size: 22px; font-weight: 900; color: var(--brand); }
+    .stat-label { font-size: 13px; color: var(--muted); }
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .highlight-card { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="/">
+        <span class="logo-mark"><img src="/logo.png" alt="Angsumi logo"></span>angsumi
+      </a>
+      <nav class="links">
+        <a href="/#vp">Why Us</a>
+        <a href="/#proof">Live Systems</a>
+        <a href="https://angsumi.online/services/">Services</a>
+        <a href="https://angsumi.online/locations/">Locations</a>
+        <a href="https://angsumi.online/tools/">Tools</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a>
+        <a href="/about/">About</a>
+        <a href="/#cta">Contact</a>
+      </nav>
+      <a class="nav-cta" href="https://wa.me/917896595109" target="_blank" rel="noopener">
+        <span>WhatsApp Call</span> &rarr;
+      </a>
+      <button class="menu" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <div class="breadcrumb-strip">
+    <div class="container breadcrumbs">
+      <a href="/">Home</a> <span>/</span>
+      <strong>About Angsumi</strong>
+    </div>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="badge">🚀 Mission &amp; Engineering</div>
+      <h1>Building Practical Digital Systems for Northeast India</h1>
+      <p class="hero-sub">
+        Eliminating agency bloat, slow WordPress templates, and recurring SaaS subscriptions with hand-crafted, high-converting digital infrastructure.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container about-grid">
+      <div class="article-body">
+        <h2>Who We Are</h2>
+        <p>
+          Angsumi is an independent software and digital systems engineering lab founded in Assam, dedicated to powering businesses, doctors, schools, handloom artisans, and local enterprises across Northeast India and beyond.
+        </p>
+        <p>
+          In an era where traditional agencies charge ₹25,000–₹50,000 to configure slow, generic WordPress templates that take 6+ seconds to load on mobile 4G networks, Angsumi was founded on a simple premise: <strong>Software should be blistering fast, transparently priced, and owned 100% by the client.</strong>
+        </p>
+
+        <h2>Our Core Engineering Philosophy</h2>
+        <ul>
+          <li><strong>Hand-Coded Semantic Precision:</strong> We write clean, high-performance HTML, CSS, and modern JavaScript. No 30+ unvetted plugins, no SQL database bloat, and zero hidden security vulnerabilities.</li>
+          <li><strong>Sub-Second Loading Speeds:</strong> Every system we deploy scores 100% on Google Core Web Vitals and loads in under 1 second on mobile networks across Assam, Meghalaya, Tripura, Nagaland, and Arunachal Pradesh.</li>
+          <li><strong>100% Code &amp; Domain Ownership:</strong> We believe in empowering clients, not trapping them in monthly subscription lock-ins. You own your code, your assets, and your database forever.</li>
+          <li><strong>Specialized Industry Workflows:</strong> Rather than generic "brochure" websites, we engineer actionable systems: OPD token counters for private clinics, online fee payment funnels for coaching institutes, and direct WhatsApp commerce engines for Northeast weavers.</li>
+        </ul>
+
+        <h2>Transparent Pricing Without Hostage Fees</h2>
+        <p>
+          Traditional SaaS platforms (Shopify, Wix, Squarespace) drain small businesses with monthly subscriptions of ₹2,000–₹4,000, plus transaction fee surcharges and plugin add-ons that add up to over ₹1,00,000 over two years.
+        </p>
+        <p>
+          At Angsumi, starter platforms start from <strong>₹2,000 fixed price</strong>, and multi-page business web portals start from <strong>₹5,000</strong>. Once built, you pay zero monthly platform fees.
+        </p>
+
+        <h2>Direct Northeast Developer Collaboration</h2>
+        <p>
+          When you work with Angsumi, you communicate directly with the engineer building your system. No account managers, no ticket delays, and no miscommunications.
+        </p>
+        <p>
+          <strong>Email:</strong> <a href="mailto:angudas62@gmail.com" style="color:var(--brand); font-weight:700;">angudas62@gmail.com</a><br>
+          <strong>WhatsApp Consultation:</strong> <a href="https://wa.me/917896595109" target="_blank" rel="noopener" style="color:var(--brand); font-weight:700;">+91 78965 95109</a>
+        </p>
+      </div>
+
+      <div>
+        <div class="highlight-card">
+          <h3>The Angsumi Standard</h3>
+          <div class="stat-list">
+            <div class="stat-item">
+              <div class="stat-number">&lt; 1.0s</div>
+              <div class="stat-label">Mobile Page Load Speed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Client Code &amp; Domain Ownership</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">₹2,000</div>
+              <div class="stat-label">Transparent Starting Price</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">8 States</div>
+              <div class="stat-label">Northeast India &amp; Gateway Coverage</div>
+            </div>
+          </div>
+          <a class="nav-cta" style="width:100%; justify-content:center;" href="/tools/cost-calculator/">
+            Estimate Your Project &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="/">
+          <span class="logo-mark"><img src="/logo.png" alt="Angsumi logo"></span>angsumi
+        </a>
+        <p>
+          High-converting, ultra-fast digital systems &amp; websites engineered for growing businesses across Northeast India.
+        </p>
+        <div class="footer-contact">
+          <a href="mailto:angudas62@gmail.com">✉ angudas62@gmail.com</a>
+          <a href="https://wa.me/917896595109" target="_blank" rel="noopener">💬 +91 78965 95109</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Digital Systems</h4>
+        <ul class="footer-links">
+          <li><a href="https://angsumi.online/services/doctor-clinic-website-design/">Doctor &amp; Clinic OPD</a></li>
+          <li><a href="https://angsumi.online/services/school-management-system/">School &amp; Coaching Portals</a></li>
+          <li><a href="https://angsumi.online/services/assam-silk-handloom-ecommerce/">Silk &amp; Handloom D2C</a></li>
+          <li><a href="https://angsumi.online/services/tea-estate-factory-website-design/">Tea Estates &amp; Exports</a></li>
+          <li><a href="https://angsumi.online/services/tourism-safari-cab-booking-system/">Safari &amp; Tour Booking</a></li>
+          <li><a href="https://angsumi.online/services/mobile-app-development/">Mobile App Development</a></li>
+          <li><a href="https://angsumi.online/services/" class="footer-more">All Systems Directory &rarr;</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Coverage Areas</h4>
+        <ul class="footer-links">
+          <li><a href="https://angsumi.online/locations/assam/">Assam (Guwahati, Dibrugarh, Silchar)</a></li>
+          <li><a href="https://angsumi.online/locations/meghalaya/">Meghalaya (Shillong, Tura)</a></li>
+          <li><a href="https://angsumi.online/locations/arunachal-pradesh/">Arunachal Pradesh (Itanagar)</a></li>
+          <li><a href="https://angsumi.online/locations/tripura/">Tripura (Agartala)</a></li>
+          <li><a href="https://angsumi.online/locations/nagaland/">Nagaland (Kohima, Dimapur)</a></li>
+          <li><a href="https://angsumi.online/locations/west-bengal/">West Bengal (Siliguri)</a></li>
+          <li><a href="https://angsumi.online/locations/" class="footer-more">All Locations Directory &rarr;</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company &amp; Legal</h4>
+        <ul class="footer-links">
+          <li><a href="https://angsumi.online/about/">About Angsumi</a></li>
+          <li><a href="https://angsumi.online/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="https://angsumi.online/terms/">Terms of Service</a></li>
+          <li><a href="https://blog.angsumi.online" target="_blank" rel="noopener">Official Blog ↗</a></li>
+          <li><a href="https://angsumi.online/tools/cost-calculator/">Live Cost Estimator</a></li>
+          <li><a href="https://angsumi.online/tools/tech-detector/">Speed &amp; Tech Inspector</a></li>
+          <li><a href="https://angsumi.online/cv/">Founder Profile &amp; CV</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 Angsumi. Digital systems without the agency price tag.</div>
+      <div class="footer-bottom-links">
+        <a href="https://angsumi.online/about/">About</a>
+        <a href="https://angsumi.online/privacy-policy/">Privacy Policy</a>
+        <a href="https://angsumi.online/terms/">Terms</a>
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a>
+        <a href="https://wa.me/917896595109" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const links = document.querySelector('.links');
+      const isVisible = links.style.display === 'flex';
+      links.style.display = isVisible ? 'none' : 'flex';
+      if (!isVisible) {
+        links.style.position = 'absolute';
+        links.style.top = '76px';
+        links.style.left = '0';
+        links.style.right = '0';
+        links.style.padding = '20px 24px';
+        links.style.background = 'rgba(247, 248, 250, 0.98)';
+        links.style.flexDirection = 'column';
+        links.style.alignItems = 'flex-start';
+        links.style.borderBottom = '1px solid var(--line)';
+        links.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)';
+      }
+    }
+  </script>
+</body>
+</html>
