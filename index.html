@@ -536,8 +536,113 @@
 
     /* Sticky Mobile WhatsApp Bar */
     .mobile-cta { display: none; }
-    footer { border-top: 1px solid var(--line); padding: 32px 0; color: #64748b; font-size: 14px; background: #fff; }
-    footer .container { display: flex; justify-space-between; align-items: center; gap: 20px; }
+
+    /* Clean Modern Footer */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 60px 0 32px;
+      color: #64748b;
+      font-size: 14px;
+      background: #ffffff;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 14px;
+      letter-spacing: -.03em;
+    }
+    .footer-brand p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #64748b;
+      margin-bottom: 20px;
+      max-width: 320px;
+    }
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-contact a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      transition: color .2s;
+    }
+    .footer-contact a:hover {
+      color: var(--brand);
+    }
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      color: #64748b;
+      font-size: 13.5px;
+      transition: color .2s, transform .2s;
+      display: inline-block;
+    }
+    .footer-links a:hover {
+      color: var(--brand);
+      transform: translateX(2px);
+    }
+    .footer-links a.footer-more {
+      font-weight: 750;
+      color: var(--brand);
+      margin-top: 4px;
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .footer-bottom-links a {
+      color: #64748b;
+      transition: color .2s;
+    }
+    .footer-bottom-links a:hover {
+      color: var(--brand);
+    }
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+    }
 
     /* Responsive Breakpoints & Mobile Enhancements */
     @media (max-width: 980px) {
@@ -596,7 +701,10 @@
       .side span { font-size: 9px; padding: 6px 4px; }
       .cards { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
-      footer .container { flex-direction: column; text-align: center; gap: 12px; }
+      footer { padding: 44px 0 24px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 12px; }
+      .footer-bottom-links { justify-content: center; }
 
       /* Touch Feedback Physics */
       a:active, button:active, .industry-card:active, .product-card:active {
@@ -1071,48 +1179,78 @@
 
   <!-- Footer -->
   <footer>
-    <div class="container">
-      <div>
-        <strong style="color:var(--ink)">Angsumi</strong> — digital infrastructure for growing businesses in Northeast India &amp; beyond.
+    <div class="container footer-grid">
+      <!-- Column 1: Brand & Contact -->
+      <div class="footer-brand">
+        <a class="logo" href="#hook">
+          <span class="logo-mark"><img src="logo.png" alt="Angsumi logo"></span>angsumi
+        </a>
+        <p>
+          High-converting, ultra-fast digital systems &amp; websites engineered for growing businesses across Northeast India.
+        </p>
+        <div class="footer-contact">
+          <a href="mailto:angudas62@gmail.com">
+            ✉ angudas62@gmail.com
+          </a>
+          <a href="https://wa.me/917896595109" target="_blank" rel="noopener">
+            💬 +91 78965 95109
+          </a>
+        </div>
       </div>
-      <div>
-        <a href="mailto:angudas62@gmail.com">angudas62@gmail.com</a> · 
-        <a href="https://wa.me/917896595109" target="_blank" rel="noopener">+91 78965 95109</a> · 
-        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a> · 
-        © 2026 Angsumi
+
+      <!-- Column 2: Specialized Systems -->
+      <div class="footer-col">
+        <h4>Digital Systems</h4>
+        <ul class="footer-links">
+          <li><a href="https://angsumi.online/services/doctor-clinic-website-design/">Doctor &amp; Clinic OPD</a></li>
+          <li><a href="https://angsumi.online/services/school-management-system/">School &amp; Coaching Portals</a></li>
+          <li><a href="https://angsumi.online/services/assam-silk-handloom-ecommerce/">Silk &amp; Handloom D2C</a></li>
+          <li><a href="https://angsumi.online/services/tea-estate-factory-website-design/">Tea Estates &amp; Exports</a></li>
+          <li><a href="https://angsumi.online/services/tourism-safari-cab-booking-system/">Safari &amp; Tour Booking</a></li>
+          <li><a href="https://angsumi.online/services/mobile-app-development/">Mobile App Development</a></li>
+          <li><a href="https://angsumi.online/services/" class="footer-more">All Systems Directory &rarr;</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Northeast Hubs -->
+      <div class="footer-col">
+        <h4>Coverage Areas</h4>
+        <ul class="footer-links">
+          <li><a href="https://angsumi.online/locations/assam/">Assam (Guwahati, Dibrugarh, Silchar)</a></li>
+          <li><a href="https://angsumi.online/locations/meghalaya/">Meghalaya (Shillong, Tura)</a></li>
+          <li><a href="https://angsumi.online/locations/arunachal-pradesh/">Arunachal Pradesh (Itanagar)</a></li>
+          <li><a href="https://angsumi.online/locations/tripura/">Tripura (Agartala)</a></li>
+          <li><a href="https://angsumi.online/locations/nagaland/">Nagaland (Kohima, Dimapur)</a></li>
+          <li><a href="https://angsumi.online/locations/west-bengal/">West Bengal (Siliguri)</a></li>
+          <li><a href="https://angsumi.online/locations/" class="footer-more">All Locations Directory &rarr;</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Resources & Links -->
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="https://blog.angsumi.online" target="_blank" rel="noopener">Official Blog &amp; Insights ↗</a></li>
+          <li><a href="https://angsumi.online/tools/cost-calculator/">Live Cost Estimator</a></li>
+          <li><a href="https://angsumi.online/tools/">Interactive Tools Hub</a></li>
+          <li><a href="https://angsumi.online/learning/">Learning Portal</a></li>
+          <li><a href="https://angsumi.online/cv/">Founder Profile &amp; CV</a></li>
+          <li><a href="#pricing">Transparent Pricing</a></li>
+          <li><a href="#cta">Request Free Blueprint</a></li>
+        </ul>
       </div>
     </div>
-    <div class="container" style="border-top: 1px solid var(--line); padding-top: 18px; margin-top: 18px; font-size: 12px; color: var(--muted); line-height: 1.8;">
-      <strong style="color: var(--ink);">Specialized Digital Systems:</strong>
-      <a href="https://angsumi.online/services/doctor-clinic-website-design/" style="color: var(--brand); margin-left: 4px;">Doctor &amp; Clinic OPD</a> ·
-      <a href="https://angsumi.online/services/school-management-system/" style="color: var(--brand);">School &amp; Coaching Portals</a> ·
-      <a href="https://angsumi.online/services/tea-estate-factory-website-design/" style="color: var(--brand);">Tea Estates &amp; Exports</a> ·
-      <a href="https://angsumi.online/services/tourism-safari-cab-booking-system/" style="color: var(--brand);">Safari &amp; Tour Booking</a> ·
-      <a href="https://angsumi.online/services/assam-silk-handloom-ecommerce/" style="color: var(--brand);">Silk &amp; Handloom D2C</a> ·
-      <a href="https://angsumi.online/services/online-exam-portal-development/" style="color: var(--brand);">Online Exam Portals</a> ·
-      <a href="https://angsumi.online/services/hotel-homestay-booking-website/" style="color: var(--brand);">Homestay Booking</a> ·
-      <a href="https://angsumi.online/services/ecommerce-website-design/" style="color: var(--brand);">E-Commerce Stores</a> ·
-      <a href="https://angsumi.online/services/mobile-app-development/" style="color: var(--brand);">Mobile Apps</a> ·
-      <a href="https://angsumi.online/services/advocate-law-firm-website-design/" style="color: var(--brand);">Legal &amp; Law Firms</a> ·
-      <a href="https://angsumi.online/services/contractor-company-profile-website/" style="color: var(--brand);">Contractor Profiles</a> ·
-      <a href="https://angsumi.online/services/whatsapp-ordering-system/" style="color: var(--brand);">WhatsApp Stores</a> ·
-      <a href="https://angsumi.online/services/restaurant-cafe-digital-menu/" style="color: var(--brand);">QR Menus</a> ·
-      <a href="https://angsumi.online/services/" style="font-weight: 800; color: var(--brand);">All Systems Directory →</a>
-    </div>
-    <div class="container" style="border-top: 1px solid var(--line); padding-top: 14px; margin-top: 14px; font-size: 12px; color: var(--muted); line-height: 1.8;">
-      <strong style="color: var(--ink);">Northeast India Digital Locations:</strong>
-      <a href="https://angsumi.online/locations/assam/" style="color: var(--brand); margin-left: 4px;">Assam</a> (Guwahati, Dibrugarh, Silchar, Jorhat, Tezpur, Nagaon, Tinsukia, Bongaigaon, Barpeta, Nalbari, Sivasagar, Golaghat, North Lakhimpur, Dhemaji, Dhubri, Goalpara, Kokrajhar, Diphu, Haflong, Karimganj, Mangaldai, Pathsala, Biswanath Chariali, Morigaon, Charaideo) ·
-      <a href="https://angsumi.online/locations/meghalaya/" style="color: var(--brand);">Meghalaya</a> (Shillong, Tura, Jowai) ·
-      <a href="https://angsumi.online/locations/tripura/" style="color: var(--brand);">Tripura</a> (Agartala, Dharmanagar, Udaipur) ·
-      <a href="https://angsumi.online/locations/manipur/" style="color: var(--brand);">Manipur</a> (Imphal, Churachandpur) ·
-      <a href="https://angsumi.online/locations/mizoram/" style="color: var(--brand);">Mizoram</a> (Aizawl, Lunglei) ·
-      <a href="https://angsumi.online/locations/nagaland/" style="color: var(--brand);">Nagaland</a> (Kohima, Dimapur, Mokokchung) ·
-      <a href="https://angsumi.online/locations/arunachal-pradesh/" style="color: var(--brand);">Arunachal Pradesh</a> (Itanagar, Naharlagun, Pasighat, Tawang) ·
-      <a href="https://angsumi.online/locations/sikkim/" style="color: var(--brand);">Sikkim</a> (Gangtok, Namchi) ·
-      <a href="https://angsumi.online/locations/west-bengal/" style="color: var(--brand);">West Bengal</a> (Siliguri, Kolkata) ·
-      <a href="https://angsumi.online/locations/" style="font-weight: 800; color: var(--brand);">All Locations Directory →</a> ·
-      <a href="https://angsumi.online/tools/cost-calculator/" style="font-weight: 800; color: var(--brand);">Live Cost Estimator Tool →</a> ·
-      <a href="https://blog.angsumi.online" target="_blank" rel="noopener" style="font-weight: 800; color: var(--brand);">Blog →</a>
+
+    <!-- Bottom Bar -->
+    <div class="container footer-bottom">
+      <div>&copy; 2026 Angsumi. Digital systems without the agency price tag.</div>
+      <div class="footer-bottom-links">
+        <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a>
+        <a href="https://angsumi.online/services/">Services</a>
+        <a href="https://angsumi.online/locations/">Locations</a>
+        <a href="https://angsumi.online/tools/">Tools</a>
+        <a href="https://wa.me/917896595109" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
     </div>
   </footer>
 
