@@ -1879,6 +1879,7 @@
     .workshop-highlights span::before { content: '✓'; display: grid; place-items: center; width: 21px; height: 21px; border-radius: 50%; background: rgba(16,185,129,.25); color: #a7f3d0; font-weight: 850; }
     .workshop-overview-price { font-size: 12px; color: #d1e7dc; }
     .workshop-overview-price strong { display: block; color: #fff; font-size: 30px; line-height: 1.2; }
+    .workshop-overview-price span { display: block; margin-top: 4px; }
     .workshop-checkout-main { padding: 28px 30px 30px; }
     .workshop-steps { display: flex; align-items: center; gap: 9px; margin-bottom: 24px; color: #64748b; font-size: 12px; font-weight: 750; }
     .workshop-steps .active { color: var(--brand); }
@@ -3306,7 +3307,7 @@
     <div class="container workshop-footer">
       <div>
         <strong>Learn GitHub in our online workshop</strong>
-        <p>Join the workshop for $20, or use a coupon at checkout.</p>
+        <p>$20 internationally · ₹2,000 in India. Coupon accepted.</p>
       </div>
       <button class="workshop-button" type="button" id="openWorkshop">Learn GitHub →</button>
     </div>
@@ -3341,7 +3342,7 @@
           <span>Calendar event included</span>
           <span>Workshop links after registration</span>
         </div>
-        <div class="workshop-overview-price">International price<strong>$20 USD</strong></div>
+        <div class="workshop-overview-price">International price<strong>$20 USD</strong><span>₹2,000 for attendees in India</span></div>
       </div>
       <div class="workshop-checkout-main">
         <div class="workshop-steps" aria-label="Registration steps"><span class="active">01 Your details</span><span class="divider"></span><span>02 Checkout</span></div>
@@ -3378,7 +3379,6 @@
           <div class="workshop-invite" id="workshopInvite" hidden>
             <a href="https://meet.google.com/zde-gmdp-wrg" target="_blank" rel="noopener">Join on Google Meet ↗</a>
             <a href="https://www.google.com/calendar/event?eid=YmtrNGNnaXR2bmN0bGYxMG02aWdkOTFjdGMgYW5nc3VtYW4uZGFzQHJndS5hYy5pbg" target="_blank" rel="noopener">Add workshop to Google Calendar ↗</a>
-            <a id="workshopWhatsApp" href="https://wa.me/" target="_blank" rel="noopener">Share both links on WhatsApp ↗</a>
           </div>
         </form>
       </div>
@@ -3427,14 +3427,8 @@
     const workshopAssurance = document.getElementById('workshopAssurance');
     const workshopStatus = document.getElementById('workshopStatus');
     const workshopInvite = document.getElementById('workshopInvite');
-    const workshopMeetUrl = 'https://meet.google.com/zde-gmdp-wrg';
-    const workshopCalendarUrl = 'https://www.google.com/calendar/event?eid=YmtrNGNnaXR2bmN0bGYxMG02aWdkOTFjdGMgYW5nc3VtYW4uZGFzQHJndS5hYy5pbg';
-    document.getElementById('workshopWhatsApp').href = 'https://wa.me/?text=' + encodeURIComponent(
-      'Join the Learn GitHub online workshop on Google Meet: ' + workshopMeetUrl +
-      '\nAdd it to your calendar: ' + workshopCalendarUrl
-    );
     // Set the Indian price and both provider-hosted payment links before enabling paid registration.
-    const workshopIndiaPriceInr = null;
+    const workshopIndiaPriceInr = 2000;
     const workshopPaymentLinks = { india: '', international: '' };
     let workshopCouponApplied = false;
     const workshopRegion = () => workshopForm.querySelector('input[name="payment_region"]:checked')?.value;
@@ -3445,9 +3439,9 @@
       const region = workshopRegion();
       const price = workshopPrice(region);
       workshopDiscount.hidden = !workshopCouponApplied;
-      workshopSubtotal.textContent = region ? (price || 'Price to be confirmed') : 'Choose region';
+      workshopSubtotal.textContent = region ? (price || 'INR price pending') : 'Choose region';
       workshopDiscountAmount.textContent = price ? `−${price}` : '100% off';
-      workshopTotal.textContent = workshopCouponApplied ? (region === 'india' ? '₹0' : '$0.00') : (price || '—');
+      workshopTotal.textContent = workshopCouponApplied ? (region === 'india' ? '₹0' : '$0.00') : (price || (region === 'india' ? 'INR price pending' : '—'));
       workshopSubmit.textContent = workshopCouponApplied ? 'Complete free registration →' : region === 'india' ? 'Continue to Indian checkout →' : region === 'international' ? 'Continue to PayPal →' : 'Choose a payment region';
       workshopAssurance.textContent = workshopCouponApplied ? 'No payment needed. Your joining links appear after registration.' : region === 'india' ? 'Payment is completed with the Indian payment provider. Use the same email there.' : region === 'international' ? 'Payment is completed on PayPal. Use the same email there so we can match your registration.' : 'Choose a region to see the checkout option.';
       workshopSubmit.disabled = !region || (!workshopCouponApplied && (!price || !workshopPaymentLinks[region]));
@@ -3462,7 +3456,13 @@
     workshopDialog.addEventListener('click', event => {
       if (event.target === workshopDialog) workshopDialog.close();
     });
-    workshopForm.querySelectorAll('input[name="payment_region"]').forEach(input => input.addEventListener('change', updateWorkshopPrice));
+    workshopForm.querySelectorAll('input[name="payment_region"]').forEach(input => input.addEventListener('change', () => {
+      workshopCouponApplied = false;
+      workshopCoupon.value = '';
+      workshopCouponFeedback.textContent = '';
+      workshopCouponFeedback.dataset.error = 'false';
+      updateWorkshopPrice();
+    }));
     workshopCoupon.addEventListener('input', () => {
       workshopCouponApplied = false;
       workshopCouponFeedback.textContent = '';
