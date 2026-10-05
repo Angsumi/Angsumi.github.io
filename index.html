@@ -1835,6 +1835,60 @@
     .footer-bottom-links a:hover {
       color: var(--brand-emerald);
     }
+    .workshop-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 0 24px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    .workshop-footer strong { display: block; color: var(--ink); font-size: 18px; }
+    .workshop-footer p { color: var(--muted); font-size: 14px; }
+    .workshop-button, .workshop-submit {
+      border: 0;
+      border-radius: 999px;
+      background: var(--brand);
+      color: #fff;
+      padding: 13px 22px;
+      font-weight: 750;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .workshop-button:hover, .workshop-submit:not(:disabled):hover { background: var(--brand-hover); }
+    .workshop-submit:disabled { opacity: .55; cursor: not-allowed; }
+    .workshop-dialog {
+      width: min(460px, calc(100% - 32px));
+      max-height: calc(100vh - 32px);
+      overflow: auto;
+      margin: auto;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 24px 80px rgba(7, 13, 23, .2);
+      color: var(--ink);
+    }
+    .workshop-dialog::backdrop { background: rgba(7, 13, 23, .62); }
+    .workshop-dialog-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .workshop-dialog h2 { font-size: 26px; line-height: 1.2; }
+    .workshop-dialog p { color: var(--muted); margin: 8px 0 20px; }
+    .workshop-close { border: 0; background: transparent; color: var(--muted); font-size: 28px; line-height: 1; cursor: pointer; }
+    .workshop-fields { display: grid; gap: 14px; }
+    .workshop-fields label { display: grid; gap: 6px; color: var(--ink); font-weight: 650; font-size: 14px; }
+    .workshop-fields input { width: 100%; padding: 11px 12px; border: 1px solid #cbd5e1; border-radius: 10px; outline-color: var(--brand-emerald); }
+    .workshop-total { display: flex; justify-content: space-between; margin: 20px 0 12px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 18px; font-weight: 750; }
+    .workshop-submit { width: 100%; }
+    .workshop-status { min-height: 22px; margin-top: 10px; font-size: 13px; color: var(--muted); }
+    .workshop-status[data-error="true"] { color: #b91c1c; }
+    .workshop-invite[hidden] { display: none; }
+    .workshop-invite { display: grid; gap: 9px; margin-top: 16px; }
+    .workshop-invite a { display: block; padding: 10px 12px; border: 1px solid var(--soft-border); border-radius: 10px; background: var(--brand-light); color: var(--brand); font-weight: 700; text-align: center; }
+    .workshop-invite a:hover { border-color: var(--brand-emerald); }
+    @media (max-width: 620px) {
+      .workshop-footer { flex-direction: column; align-items: stretch; text-align: center; }
+      .workshop-button { width: 100%; }
+    }
 
     /* Responsive Breakpoints & Mobile Enhancements */
     @media (max-width: 980px) {
@@ -3213,6 +3267,13 @@
 
   <!-- Footer -->
   <footer>
+    <div class="container workshop-footer">
+      <div>
+        <strong>Learn GitHub in our online workshop</strong>
+        <p>Join the workshop for $20, or use a coupon at checkout.</p>
+      </div>
+      <button class="workshop-button" type="button" id="openWorkshop">Learn Gihtub →</button>
+    </div>
     <!-- Bottom Bar -->
     <div class="container footer-bottom">
       <div>&copy; 2026 Angsumi. Digital systems without the agency price tag.</div>
@@ -3227,6 +3288,29 @@
         <a href="https://wa.me/917896595109" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </footer>
+
+  <dialog class="workshop-dialog" id="workshopDialog" aria-labelledby="workshopTitle">
+    <div class="workshop-dialog-header">
+      <h2 id="workshopTitle">Learn GitHub workshop</h2>
+      <button class="workshop-close" type="button" id="closeWorkshop" aria-label="Close workshop checkout">&times;</button>
+    </div>
+    <p>Reserve your place in the online workshop.</p>
+    <form id="workshopForm">
+      <div class="workshop-fields">
+        <label for="workshopName">Your name<input id="workshopName" name="name" autocomplete="name" required></label>
+        <label for="workshopEmail">Email for workshop details<input id="workshopEmail" name="email" type="email" autocomplete="email" required></label>
+        <label for="workshopCoupon">Coupon code (optional)<input id="workshopCoupon" name="coupon" autocomplete="off" placeholder="Enter code"></label>
+      </div>
+      <div class="workshop-total"><span>Total</span><span id="workshopTotal">$20.00</span></div>
+      <button class="workshop-submit" id="workshopSubmit" type="submit">Continue to payment</button>
+      <div class="workshop-status" id="workshopStatus" role="status" aria-live="polite"></div>
+      <div class="workshop-invite" id="workshopInvite" hidden>
+        <a href="https://meet.google.com/zde-gmdp-wrg" target="_blank" rel="noopener">Join on Google Meet ↗</a>
+        <a href="https://www.google.com/calendar/event?eid=YmtrNGNnaXR2bmN0bGYxMG02aWdkOTFjdGMgYW5nc3VtYW4uZGFzQHJndS5hYy5pbg" target="_blank" rel="noopener">Add workshop to Google Calendar ↗</a>
+        <a id="workshopWhatsApp" href="https://wa.me/" target="_blank" rel="noopener">Share both links on WhatsApp ↗</a>
+      </div>
+    </form>
+  </dialog>
 
   <script>
     function toggleMenu(){
@@ -3257,6 +3341,81 @@
         charCounter.textContent = `${detailsInput.value.length}/1000`;
       });
     }
+
+    const workshopDialog = document.getElementById('workshopDialog');
+    const workshopForm = document.getElementById('workshopForm');
+    const workshopCoupon = document.getElementById('workshopCoupon');
+    const workshopTotal = document.getElementById('workshopTotal');
+    const workshopSubmit = document.getElementById('workshopSubmit');
+    const workshopStatus = document.getElementById('workshopStatus');
+    const workshopInvite = document.getElementById('workshopInvite');
+    const workshopMeetUrl = 'https://meet.google.com/zde-gmdp-wrg';
+    const workshopCalendarUrl = 'https://www.google.com/calendar/event?eid=YmtrNGNnaXR2bmN0bGYxMG02aWdkOTFjdGMgYW5nc3VtYW4uZGFzQHJndS5hYy5pbg';
+    document.getElementById('workshopWhatsApp').href = 'https://wa.me/?text=' + encodeURIComponent(
+      'Join the Learn GitHub online workshop on Google Meet: ' + workshopMeetUrl +
+      '\nAdd it to your calendar: ' + workshopCalendarUrl
+    );
+    // Set this to the provider-hosted checkout URL for the $20 workshop product.
+    const workshopPaymentLink = '';
+    const hasFreeWorkshopCoupon = () => workshopCoupon.value.trim().toUpperCase() === 'GBF';
+    function updateWorkshopPrice() {
+      const free = hasFreeWorkshopCoupon();
+      workshopTotal.textContent = free ? '$0.00' : '$20.00';
+      workshopSubmit.textContent = free ? 'Register for free' : 'Continue to payment';
+      workshopStatus.textContent = free ? 'Coupon GBF applied: no payment required.' : '';
+      workshopStatus.dataset.error = 'false';
+    }
+    document.getElementById('openWorkshop').addEventListener('click', () => workshopDialog.showModal());
+    document.getElementById('closeWorkshop').addEventListener('click', () => workshopDialog.close());
+    workshopDialog.addEventListener('click', event => {
+      if (event.target === workshopDialog) workshopDialog.close();
+    });
+    workshopCoupon.addEventListener('input', updateWorkshopPrice);
+    workshopForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!workshopForm.reportValidity()) return;
+      if (!hasFreeWorkshopCoupon()) {
+        if (workshopPaymentLink) {
+          window.location.assign(workshopPaymentLink);
+        } else {
+          workshopStatus.textContent = 'Online payment is being set up. Please check back soon.';
+          workshopStatus.dataset.error = 'true';
+        }
+        return;
+      }
+      workshopSubmit.disabled = true;
+      workshopStatus.textContent = 'Registering…';
+      workshopStatus.dataset.error = 'false';
+      const registration = new FormData(workshopForm);
+      registration.set('_subject', 'Learn GitHub Workshop — Free Registration (GBF)');
+      registration.set('workshop', 'Learn GitHub online workshop');
+      registration.set('total', '$0.00');
+      try {
+        const response = await fetch('https://formspree.io/f/xwlegzkn', {
+          method: 'POST',
+          body: registration,
+          headers: { Accept: 'application/json' }
+        });
+        if (!response.ok) throw new Error('Registration was not accepted');
+        workshopForm.reset();
+        workshopTotal.textContent = '$0.00';
+        workshopSubmit.textContent = 'Registered';
+        workshopStatus.textContent = 'Registration received. Your workshop links are below.';
+        workshopInvite.hidden = false;
+        workshopSubmit.disabled = true;
+      } catch (error) {
+        workshopStatus.textContent = 'Registration could not be sent. Please try again.';
+        workshopStatus.dataset.error = 'true';
+        workshopSubmit.disabled = false;
+      }
+    });
+    workshopDialog.addEventListener('close', () => {
+      if (!workshopSubmit.disabled) return;
+      workshopSubmit.disabled = false;
+      workshopForm.reset();
+      workshopInvite.hidden = true;
+      updateWorkshopPrice();
+    });
   </script>
 </body>
 </html>

@@ -21,3 +21,8 @@ The official digital agency portfolio website for Angsumi. Hosted directly on Gi
 
 ## 🔗 Live Site
 Visit the live portfolio at: [https://angsumi.online](https://angsumi.online)
+
+## Learn GitHub workshop checkout
+The homepage footer opens a workshop registration dialog. Coupon `GBF` changes the total from $20 to $0 and sends the attendee's name and email to the existing Formspree inbox. After a successful free registration, the dialog displays the Google Meet link, calendar event, and a WhatsApp share link containing both. The browser cannot automatically send an email or WhatsApp message to the attendee.
+
+To enable paid registration, create a provider-hosted checkout link for a **$20 USD** Learn GitHub workshop product and set `workshopPaymentLink` near the end of `index.html` to that URL. The paid button stays unavailable until this link is configured. The payment provider should collect the attendee's email and provide a payment confirmation; the static site cannot verify payment itself.
