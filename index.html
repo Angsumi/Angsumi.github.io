@@ -241,27 +241,32 @@
 
   <style>
     :root {
-      --bg: #f7f8fa;
+      --bg: #ffffff;
       --surface: #ffffff;
-      --ink: #0b1220;
-      --muted: #5e6a7c;
-      --line: #e4e8ef;
-      --brand: #1257d6;
-      --brand-dark: #0b3f9e;
+      --ink: #0b1320;
+      --ink-dark: #070d17;
+      --muted: #4b5563;
+      --line: #e5e7eb;
+      --brand: #0c3e35;
+      --brand-hover: #072a24;
+      --brand-emerald: #059669;
+      --brand-light: #ecfdf5;
       --accent: #10b981;
-      --soft: #eef4ff;
+      --soft: #f0fdf4;
+      --soft-border: #d1fae5;
       --radius: 22px;
-      --shadow: 0 20px 50px rgba(11, 18, 32, 0.08);
-      --max: 1180px;
+      --shadow: 0 16px 40px rgba(12, 62, 53, 0.05);
+      --max: 1200px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
+      font-family: 'Plus Jakarta Sans', Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #ffffff;
       color: var(--ink);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
     a { text-decoration: none; color: inherit; }
     button, input, select, textarea { font: inherit; }
@@ -269,86 +274,185 @@
 
     /* Sticky Nav */
     .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      background: rgba(247, 248, 250, 0.88); backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(228, 232, 239, 0.8);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+      transition: all 0.3s ease;
     }
-    .nav-inner { height: 76px; display: flex; align-items: center; justify-content: space-between; }
-    .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 850; letter-spacing: -.05em; }
-    .logo-mark { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
-    .logo-mark img { width: 36px; height: 36px; object-fit: contain; display: block; }
+    .nav-inner { height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     
-    .links { display: flex; align-items: center; gap: 24px; font-size: 14px; font-weight: 650; color: #3e4755; }
+    /* Logo styling matching mockup */
+    .logo {
+      display: inline-flex; align-items: center; text-decoration: none;
+    }
+    .logo-box { display: flex; flex-direction: column; }
+    .logo-wordmark {
+      font-size: 27px; font-weight: 850; letter-spacing: -0.04em; color: #0b1320; line-height: 1.1;
+      display: inline-flex; align-items: baseline;
+    }
+    .logo-i-wrap {
+      position: relative; display: inline-block;
+    }
+    .logo-sprout {
+      position: absolute; top: -5px; left: 50%; transform: translateX(-50%);
+      width: 15px; height: 15px; display: flex; align-items: center; justify-content: center;
+      background: #ffffff; border-radius: 50%;
+    }
+    .logo-sprout svg {
+      width: 14px; height: 14px;
+    }
+    .logo-subtitle {
+      font-size: 8.5px; font-weight: 750; letter-spacing: 0.18em; color: #526071; text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .links { display: flex; align-items: center; gap: 22px; font-size: 14px; font-weight: 650; color: #3e4755; }
     .links a { padding: 6px 10px; border-radius: 8px; transition: color .2s, background .2s; }
-    .links a:hover { color: var(--brand); background: var(--soft); }
-    .nav-badge { background: #e0eafe; color: var(--brand); font-size: 11px; padding: 3px 8px; border-radius: 999px; font-weight: 800; }
+    .links a:hover { color: var(--brand-emerald); background: var(--soft); }
+    .nav-badge { background: #d1fae5; color: var(--brand-emerald); font-size: 11px; padding: 3px 8px; border-radius: 999px; font-weight: 800; }
     
-    .nav-cta, .primary {
-      background: var(--ink); color: #fff; border: 0; border-radius: 999px; padding: 12px 22px;
-      font-weight: 750; cursor: pointer; transition: transform .2s, background .2s; display: inline-flex; align-items: center; gap: 6px;
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .btn-get-quote {
+      background: #0c3e35; color: #ffffff; padding: 6.5px 14px; border-radius: 9999px;
+      font-weight: 750; font-size: 12px; display: inline-flex; align-items: center; gap: 5px;
+      transition: all 0.25s ease; border: none; text-decoration: none;
+      box-shadow: 0 3px 10px rgba(12, 62, 53, 0.15);
     }
-    .nav-cta:hover, .primary:hover { transform: translateY(-2px); background: #182233; }
-    .menu { display: none; background: none; border: 0; font-size: 26px; cursor: pointer; padding: 4px; }
+    .btn-get-quote:hover { background: #072a24; transform: translateY(-1px); box-shadow: 0 5px 14px rgba(12, 62, 53, 0.22); color: #ffffff; }
+    .btn-get-quote .arrow { transition: transform 0.2s ease; font-size: 11px; }
+    .btn-get-quote:hover .arrow { transform: translateX(3px); }
+
+    .menu-btn {
+      width: 42px; height: 42px; border-radius: 50%; background: #ffffff; border: 1.5px solid #e5e7eb;
+      display: none; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .menu-btn:hover { background: #f9fafb; border-color: #cbd5e1; }
+    .menu-btn .menu-bar { width: 18px; height: 2px; background: #0b1320; border-radius: 2px; transition: 0.2s; }
 
     /* Section Offsets for Header Smooth Scroll */
-    section { scroll-margin-top: 85px; padding: 90px 0; }
+    section { scroll-margin-top: 85px; padding: 75px 0; }
 
     /* Section Flow Badges */
     .section-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: #eef4ff; color: var(--brand); border: 1px solid #d4e3ff;
+      background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0;
       padding: 6px 14px; border-radius: 999px; font-size: 11px; font-weight: 850;
       text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px;
     }
     .section-head { max-width: 720px; margin-bottom: 42px; }
-    .section-head h2 { font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -.045em; margin-top: 8px; }
+    .section-head h2 { font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -.045em; margin-top: 8px; color: #0b1320; }
     .section-head p { color: var(--muted); margin-top: 14px; font-size: 17px; line-height: 1.55; }
 
     /* =========================================================
        SECTION 1: HOOK (HERO)
        ========================================================= */
-    .hero { padding: 150px 0 80px; overflow: hidden; background: linear-gradient(180deg, #f7f8fa 0%, #ffffff 100%); }
-    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 8px; background: var(--soft); color: var(--brand);
-      border: 1px solid #d9e6ff; border-radius: 999px; padding: 7px 14px; font-size: 12px; font-weight: 800;
-      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 22px;
+    .hero {
+      padding: 130px 0 60px;
+      overflow: hidden;
+      background: #ffffff;
+      position: relative;
     }
-    .dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; display: inline-block; box-shadow: 0 0 0 3px rgba(16,185,129,.2); }
-    h1 { font-size: clamp(42px, 5.5vw, 68px); line-height: 1.02; letter-spacing: -.06em; max-width: 720px; font-weight: 900; }
-    .hero-sub { font-size: 18px; color: var(--muted); max-width: 620px; margin: 24px 0 32px; line-height: 1.55; }
-    .actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-    .secondary {
-      border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px;
-      padding: 12px 20px; font-weight: 750; cursor: pointer; transition: border-color .2s, background .2s;
-      display: inline-flex; align-items: center; gap: 6px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 50px;
+      align-items: center;
     }
-    .secondary:hover { border-color: #b0b9c7; background: #fafbfc; }
-    .trust-strip { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; color: #6b778c; font-size: 12px; font-weight: 750; letter-spacing: .04em; }
-    .trust-strip span { background: #f0f4f9; padding: 5px 12px; border-radius: 999px; border: 1px solid #e2e7f0; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #f4f8f5; color: #0d4e3f;
+      border: 1px solid #d5e5dc; border-radius: 9999px;
+      padding: 7px 16px; font-size: 11.5px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 22px;
+    }
+    .badge-sparkle { color: #059669; font-size: 12px; }
 
-    /* Social Media Icons Strip (Hero & Footer) */
-    .social-strip {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 24px;
+    .hero-title {
+      font-size: clamp(42px, 5.4vw, 68px);
+      line-height: 1.03;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+      color: #0b1320;
+      max-width: 680px;
     }
-    .social-label {
-      font-size: 12px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: .06em; margin-right: 4px;
+    .text-accent-green {
+      color: #0c4e3f;
+      position: relative;
+      display: inline-block;
     }
-    .social-icon-btn {
-      width: 38px; height: 38px; border-radius: 50%;
-      background: #ffffff; border: 1px solid var(--line);
-      display: inline-flex; align-items: center; justify-content: center;
-      color: #475569; transition: all .25s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 2px 8px rgba(11, 18, 32, 0.04);
-      text-decoration: none; position: relative;
+    .title-underline {
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 18px;
+      pointer-events: none;
     }
-    .social-icon-btn svg { width: 17px; height: 17px; fill: currentColor; transition: transform .2s ease; }
-    .social-icon-btn:hover {
-      transform: translateY(-3px) scale(1.08);
+    .hero-subhead {
+      font-size: 18px;
+      color: #4b5563;
+      max-width: 580px;
+      margin: 24px 0 32px;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+    .hero-actions {
+      display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+    }
+    .btn-primary-pill {
+      background: #0c3e35; color: #ffffff; border-radius: 9999px;
+      padding: 7px 16px; font-weight: 750; font-size: 12px;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: all 0.25s ease; border: none; text-decoration: none;
+      box-shadow: 0 3px 12px rgba(12, 62, 53, 0.14);
+    }
+    .btn-primary-pill:hover {
+      background: #072a24; transform: translateY(-1.5px);
+      box-shadow: 0 6px 18px rgba(12, 62, 53, 0.22);
       color: #ffffff;
-      box-shadow: 0 8px 18px rgba(11, 18, 32, 0.12);
     }
-    .social-icon-btn:hover svg { transform: scale(1.1); }
+    .btn-primary-pill .arrow-icon { transition: transform 0.2s ease; font-size: 11px; }
+    .btn-primary-pill:hover .arrow-icon { transform: translateX(3px); }
+
+    .btn-secondary-pill {
+      background: #ffffff; color: #0b1320; border-radius: 9999px;
+      border: 1.5px solid #e5e7eb; padding: 6px 14px;
+      font-weight: 750; font-size: 11.5px; display: inline-flex; align-items: center; gap: 6px;
+      transition: all 0.25s ease; text-decoration: none;
+    }
+    .btn-secondary-pill:hover {
+      border-color: #cbd5e1; background: #fafbfc; transform: translateY(-1.5px);
+      color: #0b1320;
+    }
+    .play-icon {
+      width: 15px; height: 15px; border-radius: 50%; background: #0b1320; color: #ffffff;
+      display: inline-flex; align-items: center; justify-content: center; font-size: 6px;
+      padding-left: 1.5px;
+    }
+
+    /* Hero Social Row (Accommodating social media links) */
+    .hero-social-row {
+      display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; margin-top: 16px;
+    }
+    .social-row-label {
+      font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; flex-shrink: 0;
+    }
+    .social-icon-group {
+      display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+    }
+    .social-icon-group::-webkit-scrollbar { display: none; }
+    .social-icon-btn {
+      width: 30px; height: 30px; border-radius: 50%; background: #ffffff; flex-shrink: 0;
+      border: 1px solid #e5e7eb; display: inline-flex; align-items: center; justify-content: center;
+      color: #4b5563; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03); text-decoration: none;
+    }
+    .social-icon-btn svg { width: 14px; height: 14px; fill: currentColor; }
+    .social-icon-btn:hover {
+      transform: translateY(-2px) scale(1.08); color: #ffffff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
     .social-icon-btn[data-platform="youtube"]:hover { background: #ff0000; border-color: #ff0000; }
     .social-icon-btn[data-platform="threads"]:hover { background: #000000; border-color: #000000; }
     .social-icon-btn[data-platform="instagram"]:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); border-color: #d6249f; }
@@ -360,334 +464,1303 @@
     .social-icon-btn[data-platform="gmaps"]:hover { background: #ea4335; border-color: #ea4335; }
     .social-icon-btn[data-platform="whatsapp"]:hover { background: #25d366; border-color: #25d366; }
 
-    .footer-social-wrap { margin-top: 18px; }
-    .footer-social-wrap .social-strip { margin-top: 10px; }
-    .footer-social-wrap .social-icon-btn {
-      width: 34px; height: 34px; background: #f8fafc; border-color: #e2e8f0;
+    /* Hero Illustration Graphic */
+    .hero-illustration-col {
+      display: flex; justify-content: center; align-items: center; position: relative;
+    }
+    .hero-globe-img {
+      width: 100%; max-width: 530px; height: auto; object-fit: contain;
+      mix-blend-mode: multiply; border: none; outline: none;
+      filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.03));
+      transition: transform 0.4s ease;
+    }
+    .hero-globe-img:hover {
+      transform: scale(1.02);
     }
 
-    /* Dashboard Mockup */
-    .dashboard {
-      background: #0f172a; border-radius: 28px; padding: 14px; box-shadow: var(--shadow);
-      transform: rotate(1deg); transition: transform .3s ease; border: 1px solid #1e293b;
+    /* Showcase Wrapper for Mockup Proportions */
+    .showcase-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
     }
-    .dashboard:hover { transform: rotate(0deg) scale(1.01); }
-    .window { background: #f8fafc; border-radius: 20px; overflow: hidden; }
-    .window-top { height: 44px; background: #fff; border-bottom: 1px solid #e8ebf0; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; }
-    .dots { display: flex; gap: 6px; }
-    .dots i { width: 10px; height: 10px; border-radius: 50%; background: #cbd5e1; }
-    .dots i:nth-child(1) { background: #ef4444; }
-    .dots i:nth-child(2) { background: #f59e0b; }
-    .dots i:nth-child(3) { background: #10b981; }
-    .dash-status { font-size: 11px; font-weight: 800; color: #10b981; background: #ecfdf5; padding: 3px 9px; border-radius: 999px; border: 1px solid #a7f3d0; }
-    .dash { display: grid; grid-template-columns: 140px 1fr; min-height: 380px; }
-    .side { background: #0f172a; color: #94a3b8; padding: 20px 14px; font-size: 12px; }
-    .side b { display: block; color: #fff; margin-bottom: 20px; font-size: 13px; letter-spacing: -.02em; }
-    .side span { display: block; padding: 8px 10px; border-radius: 8px; font-size: 11px; margin: 4px 0; font-weight: 600; cursor: pointer; }
-    .side span.active { background: #1e293b; color: #38bdf8; font-weight: 750; }
-    .main { padding: 20px; background: #f8fafc; }
-    .dash-title { font-size: 18px; font-weight: 850; margin-bottom: 16px; color: #0f172a; }
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .mini { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px; }
-    .mini small { color: #64748b; font-size: 10px; font-weight: 700; text-transform: uppercase; }
-    .mini strong { display: block; font-size: 20px; margin-top: 4px; color: #0f172a; font-weight: 900; }
-    .chart { height: 140px; margin-top: 12px; border: 1px solid #e2e8f0; background: #fff; border-radius: 12px; padding: 16px; position: relative; }
-    .bars { height: 100%; display: flex; align-items: flex-end; gap: 8px; }
-    .bars span { display: block; flex: 1; background: #cbd5e1; border-radius: 4px 4px 0 0; transition: height .3s; }
-    .bars span:hover { background: var(--brand); }
-    .bars span:nth-child(1) { height: 35%; } .bars span:nth-child(2) { height: 60%; }
-    .bars span:nth-child(3) { height: 45%; } .bars span:nth-child(4) { height: 80%; }
-    .bars span:nth-child(5) { height: 68%; } .bars span:nth-child(6) { height: 95%; background: var(--brand); }
+
+    /* Trust / Metrics Pill Bar */
+    .hero-metrics-bar {
+      margin-top: 28px;
+      background: #ffffff;
+      border: 1px solid #f1f5f9;
+      border-radius: 20px;
+      padding: 22px 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      align-items: center;
+    }
+    .metric-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 10px;
+    }
+    .metric-icon-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      flex-shrink: 0;
+    }
+    .metric-icon-wrap.metric-screen { background: #eaf7f1; color: #047857; }
+    .metric-icon-wrap.metric-dna { background: #e0f2fe; color: #0284c7; }
+    .metric-icon-wrap.metric-lightning { background: #fef3c7; color: #b45309; }
+    .metric-icon-wrap.metric-shield { background: #ede9fe; color: #6366f1; }
+    .metric-icon-wrap svg { width: 22px; height: 22px; }
+    .metric-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .metric-val {
+      font-size: 18.5px;
+      font-weight: 800;
+      color: #0b1320;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .metric-desc {
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 500;
+      margin-top: 3px;
+      line-height: 1.3;
+    }
+    .metric-divider {
+      width: 1px;
+      height: 46px;
+      background: #f1f5f9;
+    }
 
     /* =========================================================
-       SECTION 2: VALUE PROPOSITION (VP)
+       SECTION: WHAT DO YOU NEED HELP WITH?
        ========================================================= */
-    .vp-section { background: #ffffff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    
-    .vp-banner {
-      background: #ffffff; color: #1c1917; border-radius: 28px; padding: 44px;
-      border: 1.5px solid #fde047; box-shadow: 0 20px 50px rgba(202, 138, 4, 0.08);
-      display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; margin-bottom: 50px;
-    }
-    .vp-banner .kicker {
-      color: #ca8a04 !important; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: .12em;
-    }
-    .vp-banner h3 {
-      font-size: 32px; font-weight: 900; line-height: 1.1; letter-spacing: -.03em;
-      color: #b45309; background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #78350f 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .vp-banner p { color: #57534e; margin-top: 14px; font-size: 16px; line-height: 1.6; }
-    .vp-features { display: grid; gap: 14px; }
-    .vp-feat-card {
-      background: #fffdf5; border: 1.5px solid #fde047; border-radius: 16px; padding: 20px 24px;
-      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.05); transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
-    }
-    .vp-feat-card:hover {
-      transform: translateY(-3px); border-color: #eab308;
-      box-shadow: 0 10px 25px rgba(217, 119, 6, 0.12);
-    }
-    .vp-feat-card h4 { font-size: 16.5px; color: #b45309; font-weight: 850; }
-    .vp-feat-card p { font-size: 13.5px; color: #78350f; margin-top: 4px; line-height: 1.5; }
-
-    .industries { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
-    .industry-card {
-      background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, background 0.35s;
-      display: flex; flex-direction: column; justify-space-between; position: relative; overflow: hidden;
-      cursor: pointer;
-    }
-    .industry-card::after {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: var(--ink); transform: scaleX(0); transform-origin: left;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .industry-card:hover {
-      transform: translateY(-8px) scale(1.015);
-      border-color: #cbd5e1;
-      box-shadow: 0 25px 45px rgba(11, 18, 32, 0.09);
+    .help-section {
+      padding: 40px 0 10px;
       background: #ffffff;
+      position: relative;
     }
-    .industry-card:hover::after { transform: scaleX(1); }
-    .industry-card:active { transform: translateY(-2px) scale(0.995); }
+    .help-heading-wrap {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+    .help-heading {
+      font-size: clamp(26px, 3.2vw, 36px);
+      font-weight: 850;
+      letter-spacing: -0.035em;
+      color: #0b1320;
+      line-height: 1.2;
+      margin: 0;
+    }
+    .help-accent {
+      color: #0c3e35;
+      position: relative;
+      display: inline-block;
+    }
+    .help-accent-bar {
+      display: block;
+      width: 42px;
+      height: 3px;
+      background: #6ee7b7;
+      border-radius: 999px;
+      margin: 6px auto 0;
+    }
+    .help-subhead {
+      font-size: 13.5px;
+      color: #64748b;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+    .help-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .help-card {
+      border-radius: 24px;
+      padding: 30px 28px 24px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 360px;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+    .help-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.05);
+    }
+    .help-card-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 250px;
+    }
+    .help-card.card-green {
+      background: linear-gradient(135deg, #eaf6f0 0%, #dff2e9 100%);
+      border: 1px solid #c2e8d6;
+    }
+    .help-icon-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .help-icon-circle.green-circle {
+      background: #cbf3e0;
+      color: #047857;
+    }
+    .help-icon-circle svg { width: 22px; height: 22px; }
     
-    .icon {
-      width: 50px; height: 50px; border-radius: 16px; background: var(--soft); color: var(--brand);
-      display: grid; place-items: center; font-size: 24px; margin-bottom: 22px; font-weight: 900;
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    .help-card-title {
+      font-size: 21px;
+      font-weight: 850;
+      color: #0b1320;
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
     }
-    .industry-card:hover .icon { transform: scale(1.12) rotate(-5deg); }
-    
-    .industry-card h3 { font-size: 20px; font-weight: 850; letter-spacing: -.025em; transition: color 0.25s; }
-    .industry-bullets {
-      list-style: none; margin-top: 10px; display: grid; gap: 4px; padding: 0;
+    .help-card-text {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.48;
+      margin-bottom: 20px;
     }
-    .industry-bullets li {
-      font-size: 13px; color: var(--muted); font-weight: 650;
-      display: flex; align-items: center; gap: 6px;
+    .btn-discuss-mint {
+      background: #064e3b;
+      color: #ffffff;
+      border-radius: 9999px;
+      padding: 8px 18px;
+      font-weight: 700;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(6, 78, 59, 0.18);
     }
-    .industry-bullets li::before {
-      content: "•"; color: var(--brand); font-weight: 900; font-size: 14px;
+    .btn-discuss-mint:hover {
+      background: #022c22;
+      transform: translateY(-1.5px);
+      box-shadow: 0 6px 18px rgba(6, 78, 59, 0.28);
+      color: #ffffff;
     }
-    .tag { display: inline-flex; align-items: center; gap: 6px; margin-top: 22px; font-size: 13px; font-weight: 850; color: var(--brand); }
-    .tag .arrow { display: inline-block; transition: transform 0.25s ease; }
-    .industry-card:hover .tag .arrow { transform: translateX(6px); }
 
+    .help-card.card-peach {
+      background: linear-gradient(135deg, #fdf4ec 0%, #fae8d8 100%);
+      border: 1px solid #fed7aa;
+    }
+    .help-icon-circle.peach-circle {
+      background: #ffedd5;
+      color: #c2410c;
+    }
+    .btn-discuss-peach {
+      background: #78350f;
+      color: #ffffff;
+      border-radius: 9999px;
+      padding: 8px 18px;
+      font-weight: 700;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(120, 53, 15, 0.18);
+    }
+    .btn-discuss-peach:hover {
+      background: #451a03;
+      transform: translateY(-1.5px);
+      box-shadow: 0 6px 18px rgba(120, 53, 15, 0.28);
+      color: #ffffff;
+    }
 
+    .help-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+      position: relative;
+      z-index: 2;
+    }
+    .card-pill-tag {
+      background: #ffffff;
+      border: 1px solid #c2e6d6;
+      color: #334155;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+    .card-pill-tag.peach-tag {
+      border-color: #fed7aa;
+      color: #7c2d12;
+    }
+
+    /* Art containers inside help cards */
+    .card-art-wrap {
+      position: absolute;
+      right: 4px;
+      bottom: 12px;
+      width: 52%;
+      max-width: 270px;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .art-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* =========================================================
+       SECTION: HOW IT WORKS (From idea to impact)
+       ========================================================= */
+    .how-it-works-box {
+      background: #eaf6f0;
+      border: 1px solid #c2e8d6;
+      border-radius: 24px;
+      padding: 32px 30px 30px;
+      margin-top: 24px;
+      position: relative;
+    }
+    .how-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .how-kicker {
+      color: #059669;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-bottom: 4px;
+    }
+    .how-title {
+      font-size: clamp(24px, 2.8vw, 32px);
+      font-weight: 850;
+      letter-spacing: -.035em;
+      color: #0b1320;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .how-title .impact-text {
+      color: #064e3b;
+    }
+    .how-desc {
+      font-size: 13px;
+      color: #475569;
+      max-width: 320px;
+      line-height: 1.45;
+      margin: 0;
+    }
+    .steps-grid-wrap {
+      position: relative;
+    }
+    .steps-connector-line {
+      position: absolute;
+      top: 28px;
+      left: 30px;
+      right: 30px;
+      height: 1.5px;
+      background: #c2e8d6;
+      z-index: 1;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      position: relative;
+      z-index: 2;
+    }
+    .step-card {
+      background: #ffffff;
+      border: 1px solid #e1f2ea;
+      border-radius: 16px;
+      padding: 14px 12px 14px;
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 135px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .step-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(5, 150, 105, 0.08);
+      border-color: #a7f3d0;
+    }
+    .step-top {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .step-pill {
+      background: #e6f7ef;
+      color: #047857;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 999px;
+      line-height: 1.2;
+    }
+    .step-pill.pill-peach {
+      background: #ffedd5;
+      color: #c2410c;
+    }
+    .step-icon-wrap {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #e6f7ef;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #047857;
+      flex-shrink: 0;
+    }
+    .step-icon-wrap.icon-cyan {
+      background: #e0f2fe;
+      color: #0284c7;
+    }
+    .step-icon-wrap.icon-peach {
+      background: #ffedd5;
+      color: #c2410c;
+    }
+    .step-icon-wrap svg { width: 14px; height: 14px; }
+    .step-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #0b1320;
+      margin-bottom: 4px;
+      line-height: 1.25;
+    }
+    .step-desc {
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* =========================================================
+       SECTION: WHO WE WORK WITH (Ideal for)
+       ========================================================= */
+    .who-we-work-box {
+      background: linear-gradient(135deg, #f2f5ff 0%, #edf1fd 100%);
+      border: 1px solid #e0e7ff;
+      border-radius: 24px;
+      padding: 32px 30px 30px;
+      margin-top: 24px;
+    }
+    .who-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .who-kicker {
+      color: #818cf8;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-bottom: 4px;
+    }
+    .who-title {
+      font-size: clamp(24px, 2.8vw, 32px);
+      font-weight: 850;
+      letter-spacing: -.035em;
+      color: #0b1320;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .who-title .work-with-text {
+      color: #0c3e35;
+    }
+    .who-desc-wrap strong {
+      font-size: 13px;
+      font-weight: 800;
+      color: #1e293b;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .who-desc-wrap p {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.45;
+      margin: 0;
+      max-width: 380px;
+    }
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    .audience-card {
+      background: #ffffff;
+      border: 1px solid #edf0ff;
+      border-radius: 18px;
+      padding: 20px 15px 16px;
+      box-shadow: 0 4px 16px rgba(79, 70, 229, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 215px;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+    .audience-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(79, 70, 229, 0.08);
+      border-color: #c7d2fe;
+    }
+    .audience-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #eef2ff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #4338ca;
+      margin-bottom: 12px;
+    }
+    .audience-icon svg { width: 22px; height: 22px; }
+    .audience-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #0b1320;
+      line-height: 1.25;
+      margin-bottom: 5px;
+    }
+    .audience-desc {
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.42;
+      margin: 0;
+    }
+    .audience-arrow-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #eef2ff;
+      color: #4338ca;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 14px;
+      transition: all 0.2s ease;
+    }
+    .audience-arrow-btn svg {
+      width: 13px;
+      height: 13px;
+    }
+    .audience-card:hover .audience-arrow-btn {
+      background: #4338ca;
+      color: #ffffff;
+      transform: translateX(2px);
+    }
 
     /* =========================================================
        SECTION 3: PROOF OF WORK & PRICING
        ========================================================= */
-    /* Products / Proof Showcase */
-    .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .proof-section { background: #fafbfc; }
+    .proof-section-head { margin-bottom: 24px; max-width: 640px; }
+    .proof-section-head .section-badge { font-size: 10px; padding: 4px 10px; margin-bottom: 8px; }
+    .proof-section-head h2 { font-size: clamp(22px, 2.5vw, 30px); letter-spacing: -0.035em; line-height: 1.15; margin-top: 4px; }
+    .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .product-card {
-      background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px;
-      position: relative; overflow: hidden; display: flex; flex-direction: column; justify-space-between;
+      background: #ffffff; border: 1px solid var(--line); border-radius: 20px; padding: 24px 24px 0 24px;
+      position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-start;
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+      z-index: 1;
     }
-    .product-card::after {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: var(--brand); transform: scaleX(0); transform-origin: left;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+    .product-card:nth-child(1) { background: linear-gradient(145deg, #f4fbf7 0%, #eaf5ee 100%); border-color: #d1ebd9; }
+    .product-card:nth-child(2) { background: linear-gradient(145deg, #fff9f5 0%, #ffefe5 100%); border-color: #fce1d2; }
+    .product-card:nth-child(3) { background: linear-gradient(145deg, #f8faff 0%, #ebf1ff 100%); border-color: #d6e2ff; }
+    .product-card:nth-child(4) { background: linear-gradient(145deg, #fbf7ff 0%, #f3ebff 100%); border-color: #e6d5ff; }
+
     .product-card:hover {
       transform: translateY(-6px);
-      border-color: #cbd5e1;
-      box-shadow: 0 22px 45px rgba(11, 18, 32, 0.08);
+      box-shadow: 0 25px 50px rgba(12, 62, 53, 0.08);
     }
-    .product-card:hover::after { transform: scaleX(1); }
-    .product-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; }
-    .product-label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 850; color: var(--brand); display: flex; align-items: center; gap: 6px; }
-    .product-card h3 { font-size: 22px; font-weight: 850; margin-top: 6px; letter-spacing: -.02em; }
-    .product-num { font-size: 13px; font-weight: 900; color: var(--muted); background: #f1f5f9; padding: 4px 12px; border-radius: 999px; border: 1px solid #e2e8f0; }
-    .product-card p { font-size: 14px; color: var(--muted); margin-top: 14px; line-height: 1.55; }
-    .feature-list { list-style: none; margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
-    .feature-list li { font-size: 11px; font-weight: 750; background: #f1f5f9; padding: 6px 12px; border-radius: 999px; color: #475569; border: 1px solid #e2e8f0; }
-    /* Creative Mini Browser Bar */
+    
+    .product-top-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    
     .browser-bar {
-      display: flex; align-items: center; justify-content: space-between;
-      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;
-      padding: 7px 12px; margin-bottom: 18px; font-size: 11px; color: #64748b; font-weight: 700;
-      transition: all 0.3s ease;
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.75); border: 1px solid rgba(0,0,0,0.06); border-radius: 999px;
+      padding: 5px 12px; font-size: 11px; color: #475569; font-weight: 700;
+      backdrop-filter: blur(4px);
     }
     .browser-dots { display: flex; gap: 5px; }
     .browser-dots i { width: 7px; height: 7px; border-radius: 50%; background: #cbd5e1; }
-    .browser-dots i:nth-child(1) { background: #ef4444; }
-    .browser-dots i:nth-child(2) { background: #f59e0b; }
-    .browser-dots i:nth-child(3) { background: #10b981; }
-    .browser-url { font-family: monospace, monospace; font-size: 11px; letter-spacing: -.02em; }
-
-    .product-card:hover .browser-bar {
-      background: #ecfdf5; border-color: #a7f3d0; color: #047857;
-    }
-
-    /* Creative Action Button */
-    .product-tag-btn {
-      display: inline-flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 26px;
-      background: #0b1220; color: #ffffff; padding: 10px 16px 10px 22px; border-radius: 999px;
-      font-size: 13.5px; font-weight: 850; border: 1px solid #1e293b;
-      box-shadow: 0 6px 20px rgba(11, 18, 32, 0.14);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      width: fit-content; text-decoration: none; position: relative; overflow: hidden;
-    }
-    .product-tag-btn::before {
-      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-      transition: left 0.6s ease;
-    }
-    .product-tag-btn:hover::before { left: 100%; }
-    .product-tag-btn .btn-badge {
-      width: 28px; height: 28px; border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      display: inline-flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 900; transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .product-tag-btn:hover {
-      background: var(--brand);
-      border-color: #3b82f6;
-      color: #ffffff;
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 12px 30px rgba(18, 87, 214, 0.4);
-    }
-    .product-tag-btn:hover .btn-badge {
-      background: #ffffff;
-      color: var(--brand);
-      transform: translate(3px, -3px) rotate(45deg);
-    }
-    .product-tag-btn:active {
-      transform: translateY(-1px) scale(0.98);
+    .browser-dots i:nth-child(1) { background: #ff5f56; }
+    .browser-dots i:nth-child(2) { background: #ffbd2e; }
+    .browser-dots i:nth-child(3) { background: #27c93f; }
+    
+    .product-watermark {
+      position: absolute;
+      top: -15px; right: 10px;
+      font-size: 100px; font-weight: 900;
+      color: rgba(0,0,0,0.03);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      z-index: -1;
+      pointer-events: none;
     }
     
-    /* Pricing Matrix */
-    .pricing-wrap { margin-top: 70px; }
-    .prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .price-card {
-      background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px;
-      display: flex; flex-direction: column; justify-space-between; position: relative; transition: transform .25s;
+    .product-label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 850; color: var(--brand-emerald); display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+    .product-card h3 { font-size: 22px; font-weight: 850; margin: 0 0 8px 0; letter-spacing: -.03em; color: #0b1320; line-height: 1.15; }
+    .product-card p { font-size: 13.5px; color: #475569; margin: 0 0 14px 0; line-height: 1.5; max-width: 95%; }
+    
+    .feature-list { list-style: none; margin: 0 0 16px 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; padding: 0; }
+    .feature-list li { 
+      font-size: 11.5px; font-weight: 700; background: rgba(255,255,255,0.85); 
+      padding: 6px 10px; border-radius: 8px; color: #1e293b; 
+      border: 1px solid rgba(0,0,0,0.04);
+      display: flex; align-items: center; gap: 6px;
     }
-    .price-card:hover { transform: translateY(-4px); }
-    .popular { position: absolute; top: 20px; right: 20px; background: var(--brand); color: #fff; border-radius: 999px; padding: 4px 12px; font-size: 10px; font-weight: 850; letter-spacing: .05em; }
-    .amount { font-size: 36px; font-weight: 900; letter-spacing: -.05em; margin: 16px 0 4px; color: var(--ink); }
-    .price-card ul { list-style: none; margin: 24px 0 30px; }
-    .price-card li { font-size: 14px; color: #475569; padding: 8px 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 8px; }
-    .price-card li::before { content: "✓"; color: var(--accent); font-weight: 900; font-size: 15px; }
+    .feature-list li svg { width: 13px; height: 13px; color: var(--brand-emerald); flex-shrink: 0; }
+    
+    .product-tag-btn {
+      display: inline-flex; align-items: center; justify-content: space-between; gap: 10px;
+      background: #0b1320; color: #ffffff; padding: 7px 12px 7px 16px; border-radius: 999px;
+      font-size: 12px; font-weight: 800; border: none;
+      box-shadow: 0 4px 12px rgba(11, 19, 32, 0.12);
+      transition: all 0.3s ease; width: fit-content; text-decoration: none;
+      margin-bottom: 16px; z-index: 2;
+    }
+    .product-tag-btn .btn-badge {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900; transition: transform 0.3s ease;
+    }
+    .product-tag-btn:hover {
+      background: var(--brand-emerald);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(5, 150, 105, 0.25);
+    }
+    .product-tag-btn:hover .btn-badge { transform: translate(3px, -3px) rotate(45deg); background: #fff; color: var(--brand-emerald); }
 
-    .price-card.featured {
-      background: #ffffff;
-      color: var(--ink);
+    .card-mockup-wrapper {
       position: relative;
-      border: 3px solid transparent;
-      border-radius: var(--radius);
-      box-shadow: 0 15px 40px rgba(18, 87, 214, 0.1);
+      margin-top: auto;
+      height: 160px;
+      width: 100%;
+      perspective: 1200px;
+      display: flex; justify-content: center;
+      z-index: 1;
     }
-    .price-card.featured::before {
+    .card-mockup-window {
+      width: 90%; height: 190px;
+      background: #fff; border-radius: 10px 10px 0 0;
+      box-shadow: -15px 25px 45px rgba(0,0,0,0.12), inset 0 0 0 1px rgba(255,255,255,0.7);
+      position: absolute;
+      bottom: -25px;
+      left: 10%;
+      transform-style: preserve-3d;
+      transform: rotateX(28deg) rotateY(-22deg) rotateZ(8deg);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+      overflow: hidden;
+    }
+    .product-card:nth-child(even) .card-mockup-window {
+      left: auto; right: 10%;
+      transform: rotateX(28deg) rotateY(22deg) rotateZ(-8deg);
+      box-shadow: 15px 25px 45px rgba(0,0,0,0.12), inset 0 0 0 1px rgba(255,255,255,0.7);
+    }
+    
+    .product-card:hover .card-mockup-window {
+      transform: rotateX(15deg) rotateY(-10deg) rotateZ(3deg) translateY(-15px);
+      box-shadow: -10px 30px 50px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.9);
+    }
+    .product-card:nth-child(even):hover .card-mockup-window {
+      transform: rotateX(15deg) rotateY(10deg) rotateZ(-3deg) translateY(-15px);
+      box-shadow: 10px 30px 50px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.9);
+    }
+    
+    .card-mockup-header {
+      height: 22px; border-bottom: 1px solid #e2e8f0; background: #f1f5f9;
+      display: flex; align-items: center; padding: 0 12px; gap: 5px;
+      width: 100%;
+    }
+    .card-mockup-header i { width: 6px; height: 6px; border-radius: 50%; background: #cbd5e1; }
+    .card-mockup-header i:nth-child(1) { background: #ff5f56; }
+    .card-mockup-header i:nth-child(2) { background: #ffbd2e; }
+    .card-mockup-header i:nth-child(3) { background: #27c93f; }
+    
+    .iframe-container {
+      width: 100%; height: calc(100% - 22px);
+      position: relative; overflow: hidden; background: #f8fafc;
+    }
+    .preview-iframe {
+      position: absolute; top: 0; left: 0;
+      width: 400%; height: 400%;
+      transform: scale(0.25); transform-origin: 0 0;
+      border: none; pointer-events: none;
+    }
+    /* Pricing Matrix */
+    .pricing-wrap { margin-top: 36px; }
+    .pricing-header-row { display: flex; flex-direction: column; align-items: center; position: relative; margin-bottom: 22px; width: 100%; text-align: center; }
+    .pricing-kicker {
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #065f46;
+      display: inline-block;
+      position: relative;
+      padding-bottom: 5px;
+      margin-bottom: 6px;
+    }
+    .pricing-kicker::after {
       content: '';
       position: absolute;
-      top: -3px; left: -3px; right: -3px; bottom: -3px;
-      background: linear-gradient(60deg, #ff4500, #ff8c00, #ffd700, #32cd32, #00bfff, #8a2be2, #ff1493, #ff4500);
-      border-radius: calc(var(--radius) + 3px);
-      z-index: -1;
-      background-size: 300% 300%;
-      animation: rainbowBorder 8s ease infinite;
-    }
-    @keyframes rainbowBorder {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 2px;
+      background: #059669;
+      border-radius: 2px;
     }
 
+    .prices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: stretch; }
 
+    .price-card {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 32px 24px;
+      display: flex; flex-direction: column; position: relative; transition: transform .25s, box-shadow .25s;
+    }
+    .price-card:hover { transform: translateY(-4px); }
+    .price-icon {
+      width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;
+    }
+    .price-icon svg { width: 26px; height: 26px; }
+    .price-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .kicker-top { font-size: 13px; font-weight: 750; }
 
+    .price-card h3 { font-size: 21px; font-weight: 850; margin: 0 0 12px 0; letter-spacing: -.02em; color: #0b1320; line-height: 1.25; }
+    .amount-wrap { display: flex; flex-direction: column; margin-bottom: 16px; }
+    .amount-main { font-size: 42px; font-weight: 900; letter-spacing: -.05em; color: #0b1320; line-height: 1; margin-bottom: 6px; }
+    .amount-sub { font-size: 18px; font-weight: 750; color: #64748b; margin: 0; line-height: 1; }
+    .price-card p.desc { font-size: 14px; color: #64748b; margin: 0 0 28px 0; line-height: 1.5; min-height: 42px; }
+
+    .price-card ul { list-style: none; margin: 0 0 36px 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+    .price-card li { font-size: 13px; color: #475569; display: flex; align-items: flex-start; gap: 10px; line-height: 1.4; font-weight: 500; border: none; padding: 0; }
+    .price-card li svg { width: 16px; height: 16px; flex-shrink: 0; border-radius: 50%; color: #fff; padding: 3px; margin-top: 1px; }
+
+    .price-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 16px; font-size: 13px; font-weight: 750; border-radius: 999px;
+      transition: all 0.2s ease; text-decoration: none; width: 100%; margin-top: auto;
+    }
+
+    .popular-badge {
+      position: absolute; top: -14px; right: 24px; background: #9a3412; color: #fff; border-radius: 999px; padding: 6px 14px; font-size: 10px; font-weight: 850; letter-spacing: .05em; text-transform: uppercase;
+    }
+
+    /* Themes */
+    /* 1. Green */
+    .theme-green { border-color: #d1fae5; box-shadow: 0 15px 40px rgba(16, 185, 129, 0.05); }
+    .theme-green:hover { box-shadow: 0 20px 50px rgba(16, 185, 129, 0.1); }
+    .theme-green .price-icon { background: #ecfdf5; color: #059669; }
+    .theme-green .kicker-top { color: #059669; }
+    .theme-green li svg { background: #10b981; }
+    .theme-green .price-btn { background: #fff; border: 1.5px solid #059669; color: #064e3b; }
+    .theme-green .price-btn:hover { background: #ecfdf5; }
+
+    /* 2. Orange/Brown */
+    .theme-orange { border-color: #ffedd5; box-shadow: 0 15px 40px rgba(234, 88, 12, 0.07); background: #fffdfa; }
+    .theme-orange:hover { box-shadow: 0 20px 50px rgba(234, 88, 12, 0.12); }
+    .theme-orange .price-icon { background: #ffedd5; color: #c2410c; }
+    .theme-orange .kicker-top { color: #c2410c; }
+    .theme-orange li svg { background: #ea580c; }
+    .theme-orange .price-btn { background: #9a3412; border: 1.5px solid #9a3412; color: #fff; }
+    .theme-orange .price-btn:hover { background: #7c2d12; }
+
+    /* 3. Blue */
+    .theme-blue { border-color: #dbeafe; box-shadow: 0 15px 40px rgba(59, 130, 246, 0.05); }
+    .theme-blue:hover { box-shadow: 0 20px 50px rgba(59, 130, 246, 0.1); }
+    .theme-blue .price-icon { background: #eff6ff; color: #2563eb; }
+    .theme-blue .kicker-top { color: #1d4ed8; }
+    .theme-blue li svg { background: #3b82f6; }
+    .theme-blue .price-btn { background: #fff; border: 1.5px solid #2563eb; color: #1e3a8a; }
+    .theme-blue .price-btn:hover { background: #eff6ff; }
+
+    /* 4. Purple */
+    .theme-purple { border-color: #f3e8ff; box-shadow: 0 15px 40px rgba(168, 85, 247, 0.05); }
+    .theme-purple:hover { box-shadow: 0 20px 50px rgba(168, 85, 247, 0.1); }
+    .theme-purple .price-icon { background: #faf5ff; color: #9333ea; }
+    .theme-purple .kicker-top { color: #7e22ce; }
+    .theme-purple li svg { background: #a855f7; }
+    .theme-purple .price-btn { background: #fff; border: 1.5px solid #9333ea; color: #581c87; }
+    .theme-purple .price-btn:hover { background: #faf5ff; }
+    .price-card a.primary:hover {
+      background: #072a24; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(12, 62, 53, 0.22); color: #ffffff;
+    }
+    .price-card a.secondary {
+      background: #f8fafc; color: #0b1320; border: 1.5px solid #e2e8f0;
+    }
+    .price-card a.secondary:hover {
+      background: #edf2f7; border-color: #cbd5e1; transform: translateY(-1px); color: #0b1320;
+    }
+
+    /* Pricing Responsive Single Line (Tiny Version) */
+    @media (max-width: 992px) {
+      .prices {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 10px !important;
+      }
+      .price-card {
+        padding: 16px 10px !important;
+        border-radius: 14px !important;
+      }
+      .price-icon {
+        width: 36px !important;
+        height: 36px !important;
+        margin-bottom: 14px !important;
+      }
+      .price-icon svg { width: 18px !important; height: 18px !important; }
+      .kicker-top { font-size: 10px !important; }
+      .price-card h3 { font-size: 14px !important; margin-bottom: 8px !important; }
+      .amount-main { font-size: 26px !important; }
+      .amount-sub { font-size: 12px !important; }
+      .price-card p.desc { font-size: 11px !important; margin-bottom: 16px !important; min-height: auto !important; }
+      .price-card ul { gap: 8px !important; margin-bottom: 20px !important; }
+      .price-card li { font-size: 9.5px !important; gap: 5px !important; }
+      .price-card li svg { width: 12px !important; height: 12px !important; }
+      .price-btn { font-size: 10.5px !important; padding: 8px 6px !important; }
+      .popular-badge { font-size: 7.5px !important; padding: 3px 7px !important; right: 8px !important; top: -10px !important; }
+    }
+
+    @media (max-width: 640px) {
+      .pricing-wrap { margin-top: 24px !important; }
+      .pricing-header-row { margin-bottom: 16px !important; }
+      .prices {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 5px !important;
+      }
+      .price-card {
+        padding: 10px 4px !important;
+        border-radius: 10px !important;
+        box-shadow: none !important;
+      }
+      .price-top {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
+        margin-bottom: 6px !important;
+      }
+      .price-icon {
+        width: 24px !important;
+        height: 24px !important;
+        margin-bottom: 0 !important;
+      }
+      .price-icon svg { width: 12px !important; height: 12px !important; }
+      .kicker-top { font-size: 8px !important; }
+      .price-card h3 {
+        font-size: 10px !important;
+        margin-bottom: 4px !important;
+        line-height: 1.15 !important;
+        word-break: break-word !important;
+      }
+      .amount-wrap { margin-bottom: 8px !important; }
+      .amount-main { font-size: 16px !important; margin-bottom: 2px !important; }
+      .amount-sub { font-size: 8px !important; }
+      .price-card p.desc {
+        font-size: 7.5px !important;
+        margin-bottom: 10px !important;
+        line-height: 1.25 !important;
+        min-height: auto !important;
+      }
+      .price-card ul { gap: 4px !important; margin-bottom: 12px !important; }
+      .price-card li { font-size: 6.8px !important; gap: 3px !important; line-height: 1.2 !important; }
+      .price-card li svg {
+        width: 8px !important;
+        height: 8px !important;
+        padding: 1.5px !important;
+      }
+      .price-btn {
+        font-size: 7.2px !important;
+        padding: 6px 2px !important;
+        text-align: center !important;
+        white-space: normal !important;
+        line-height: 1.2 !important;
+        word-wrap: break-word !important;
+      }
+      .popular-badge {
+        font-size: 5.5px !important;
+        padding: 2px 4px !important;
+        top: -6px !important;
+        right: 2px !important;
+      }
+    }
 
     /* =========================================================
        SECTION 4: CALL TO ACTION & CONTACT (CTA)
        ========================================================= */
-    .cta-section { padding-bottom: 110px; }
-    .contact-box {
-      background: linear-gradient(145deg, #0b1220 0%, #0f1c30 100%);
-      color: #fff; border-radius: 32px; padding: 52px;
-      border: 1px solid #1e2d45;
-      display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 50px;
-      box-shadow: 0 25px 60px rgba(11, 18, 32, 0.15); position: relative; overflow: hidden;
+    .cta-section {
+      padding: 70px 0 90px;
+      background: radial-gradient(circle at 10% 15%, #e6f6ee 0%, transparent 45%),
+                  radial-gradient(circle at 90% 85%, #edf7f2 0%, transparent 45%),
+                  #f4f8f5;
+      position: relative;
+      overflow: hidden;
     }
-    .contact-left h2 { color: #fff; font-size: clamp(32px, 3.5vw, 46px); line-height: 1.06; letter-spacing: -.03em; }
-    .contact-left p { color: #94a3b8; margin-top: 16px; font-size: 16px; line-height: 1.6; }
-    
-    .contact-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
-    .contact-badge { background: #132238; border: 1px solid #203554; color: #38bdf8; font-size: 12px; font-weight: 800; padding: 6px 14px; border-radius: 999px; }
-    
-    .contact-info { margin-top: 28px; display: grid; gap: 12px; }
-    .contact-chip {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: #111d2e; border: 1px solid #20334d; padding: 13px 18px; border-radius: 16px;
-      color: #fff; font-weight: 750; font-size: 14.5px; transition: all 0.25s ease; text-decoration: none;
+    .botanical-bg {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
     }
-    .contact-chip:hover {
-      background: #192b45; border-color: #38bdf8; transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    .botanical-top-right {
+      top: -30px;
+      right: -30px;
+      width: 280px;
+      height: 280px;
+      transform: rotate(15deg);
+      opacity: 0.9;
     }
-    .contact-chip.wa { color: #34d399; }
-    .contact-chip.wa:hover { border-color: #34d399; }
+    .botanical-bottom-left {
+      bottom: -40px;
+      left: -40px;
+      width: 250px;
+      height: 250px;
+      transform: rotate(-10deg);
+      opacity: 0.85;
+    }
+    .glass-form-card {
+      max-width: 720px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1.5px solid rgba(255, 255, 255, 0.95);
+      border-radius: 32px;
+      padding: 42px 46px;
+      box-shadow: 0 25px 60px rgba(12, 62, 53, 0.07), 0 4px 18px rgba(0, 0, 0, 0.03);
+      position: relative;
+      z-index: 1;
+    }
+    .form-card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .form-leaf-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #e3f2e9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .form-leaf-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: #0c3e35;
+    }
+    .form-header-text h2 {
+      color: #0c3e35;
+      font-size: clamp(22px, 2.5vw, 28px);
+      font-weight: 850;
+      letter-spacing: -0.025em;
+      margin: 0;
+      line-height: 1.2;
+    }
+    .form-header-text p {
+      color: #526359;
+      font-size: 14px;
+      margin-top: 4px;
+      margin-bottom: 0;
+      line-height: 1.45;
+    }
+    .form-accent-bar {
+      width: 44px;
+      height: 4.5px;
+      background: #8cd4b1;
+      border-radius: 999px;
+      margin-top: 10px;
+      margin-bottom: 24px;
+    }
 
-    form { display: grid; gap: 14px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    input, select, textarea {
-      width: 100%; border: 1px solid #23344d; background: #111d2e; color: #fff;
-      border-radius: 14px; padding: 14px 18px; outline: none; font-size: 14.5px;
-      transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+    #requirementsForm {
+      display: grid;
+      gap: 16px;
     }
-    select { cursor: pointer; }
-    option { background: #0b1220; color: #fff; }
-    textarea { min-height: 110px; resize: vertical; }
-    input::placeholder, textarea::placeholder { color: #64748b; }
-    input:focus, select:focus, textarea:focus {
-      border-color: #38bdf8; background: #15243a;
-      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    .form-grid-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .form-grid-bottom {
+      align-items: stretch;
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+    .field-group label {
+      font-size: 13px;
+      font-weight: 750;
+      color: #1e293b;
+      letter-spacing: -0.01em;
+    }
+    .input-icon-wrap, .select-wrap, .textarea-icon-wrap {
+      position: relative;
+      width: 100%;
+      min-width: 0;
+    }
+    .field-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 17px;
+      height: 17px;
+      color: #94a3b8;
+      pointer-events: none;
+    }
+    .input-icon-wrap input {
+      width: 100%;
+      border: 1.5px solid #dce4de;
+      background: rgba(255, 255, 255, 0.95);
+      color: #0f172a;
+      border-radius: 12px;
+      padding: 12px 14px 12px 42px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .input-icon-wrap input::placeholder {
+      color: #94a3b8;
+    }
+    .input-icon-wrap input:focus {
+      border-color: #059669;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.12);
     }
 
-    .form-submit-btn {
-      width: 100%; background: linear-gradient(135deg, #1257d6 0%, #0d44a8 100%);
-      color: #fff; border: none; border-radius: 999px; padding: 16px;
-      font-size: 16px; font-weight: 850; cursor: pointer;
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      box-shadow: 0 10px 25px rgba(18, 87, 214, 0.35); transition: all 0.25s ease;
+    .select-wrap select {
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 1.5px solid #dce4de;
+      background: rgba(255, 255, 255, 0.95);
+      color: #0f172a;
+      border-radius: 12px;
+      padding: 12px 38px 12px 14px;
+      font-size: 13.5px;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
     }
-    .form-submit-btn:hover {
-      background: linear-gradient(135deg, #1d64e8 0%, #1257d6 100%);
-      transform: translateY(-2px); box-shadow: 0 14px 30px rgba(18, 87, 214, 0.45);
+    .select-wrap select:focus {
+      border-color: #059669;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.12);
     }
-    .form-submit-btn:hover .form-btn-arrow { transform: translateX(6px); }
-    .form-btn-arrow { display: inline-block; transition: transform 0.25s ease; }
+    .select-chevron {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      color: #64748b;
+      pointer-events: none;
+    }
+    .select-wrap option {
+      background: #ffffff;
+      color: #0f172a;
+      font-size: 13.5px;
+      padding: 8px 12px;
+    }
+
+    .textarea-icon-wrap {
+      position: relative;
+      height: 100%;
+    }
+    .textarea-icon {
+      position: absolute;
+      left: 14px;
+      top: 13px;
+      width: 16px;
+      height: 16px;
+      color: #94a3b8;
+      pointer-events: none;
+    }
+    .textarea-icon-wrap textarea {
+      width: 100%;
+      height: 100%;
+      min-height: 105px;
+      border: 1.5px solid #dce4de;
+      background: rgba(255, 255, 255, 0.95);
+      color: #0f172a;
+      border-radius: 12px;
+      padding: 11px 14px 26px 40px;
+      font-size: 13.5px;
+      line-height: 1.45;
+      outline: none;
+      resize: none;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+    .textarea-icon-wrap textarea::placeholder {
+      color: #94a3b8;
+    }
+    .textarea-icon-wrap textarea:focus {
+      border-color: #059669;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.12);
+    }
+    .char-count {
+      position: absolute;
+      right: 12px;
+      bottom: 8px;
+      font-size: 11px;
+      color: #94a3b8;
+      pointer-events: none;
+      font-family: monospace;
+    }
+
+    .glass-submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #0e8a64 0%, #06543e 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 28px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 10px 26px rgba(6, 78, 59, 0.28);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-top: 4px;
+    }
+    .glass-submit-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: #ffffff;
+    }
+    .glass-submit-btn .btn-arrow {
+      transition: transform 0.2s ease;
+      font-size: 15px;
+    }
+    .glass-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(6, 78, 59, 0.38);
+      background: linear-gradient(135deg, #10986e 0%, #086148 100%);
+    }
+    .glass-submit-btn:hover .btn-arrow {
+      transform: translateX(4px);
+    }
+
+    .form-trust-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+      text-align: center;
+      font-size: 12.5px;
+      color: #526359;
+      line-height: 1.45;
+    }
+    .shield-icon {
+      width: 18px;
+      height: 18px;
+      color: #059669;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 640px) {
+      .cta-section {
+        padding: 40px 0 60px;
+      }
+      .glass-form-card {
+        padding: 22px 14px;
+        border-radius: 22px;
+      }
+      .form-card-header {
+        gap: 12px;
+      }
+      .form-leaf-icon {
+        width: 40px;
+        height: 40px;
+      }
+      .form-leaf-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+      .form-header-text h2 {
+        font-size: 19px;
+      }
+      .form-header-text p {
+        font-size: 12px;
+        line-height: 1.35;
+      }
+      .form-accent-bar {
+        width: 36px;
+        height: 3.5px;
+        margin-top: 8px;
+        margin-bottom: 16px;
+      }
+      #requirementsForm {
+        gap: 12px;
+      }
+      .form-grid-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px;
+      }
+      .field-group {
+        gap: 4px;
+      }
+      .field-group label {
+        font-size: 11px;
+        line-height: 1.2;
+        min-height: 26px;
+        display: flex;
+        align-items: flex-end;
+      }
+      .field-icon {
+        left: 10px;
+        width: 14px;
+        height: 14px;
+      }
+      .input-icon-wrap input {
+        padding: 10px 8px 10px 30px;
+        font-size: 11.5px;
+        border-radius: 10px;
+      }
+      .select-wrap select {
+        padding: 10px 22px 10px 8px;
+        font-size: 11px;
+        border-radius: 10px;
+        text-overflow: ellipsis;
+      }
+      .select-chevron {
+        right: 8px;
+        width: 13px;
+        height: 13px;
+      }
+      .textarea-icon {
+        left: 10px;
+        top: 10px;
+        width: 14px;
+        height: 14px;
+      }
+      .textarea-icon-wrap textarea {
+        padding: 9px 8px 20px 28px;
+        font-size: 11px;
+        border-radius: 10px;
+        min-height: 80px;
+      }
+      .char-count {
+        font-size: 9px;
+        right: 8px;
+        bottom: 5px;
+      }
+      .glass-submit-btn {
+        font-size: 13px;
+        padding: 12px 18px;
+        gap: 8px;
+      }
+      .glass-submit-btn svg {
+        width: 16px;
+        height: 16px;
+      }
+      .form-trust-footer {
+        font-size: 11px;
+        gap: 6px;
+        margin-top: 6px;
+      }
+      .shield-icon {
+        width: 15px;
+        height: 15px;
+      }
+    }
 
     /* FAQ Accordion Section */
     .faq-section {
-      background: #f8fafc;
+      background: #fafbfc;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      padding: 80px 0;
+      padding: 32px 0 38px;
+    }
+    .faq-section .section-head {
+      margin-bottom: 18px;
+    }
+    .faq-section .section-head h2 {
+      font-size: clamp(22px, 2.5vw, 28px);
+      letter-spacing: -0.03em;
+      margin-top: 4px;
+    }
+    .faq-section .section-head p {
+      font-size: 13.5px;
+      color: #64748b;
+      margin-top: 6px;
+      line-height: 1.45;
     }
     .faq-list {
-      max-width: 800px;
-      margin: 36px auto 0;
+      max-width: 760px;
+      margin: 16px auto 0;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 6px;
     }
     .faq-item {
       background: #ffffff;
       border: 1px solid var(--line);
-      border-radius: 16px;
+      border-radius: 10px;
       overflow: hidden;
       transition: border-color .2s, box-shadow .2s;
     }
     .faq-item:hover {
       border-color: #cbd5e1;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
     .faq-question {
-      padding: 20px 24px;
-      font-weight: 750;
-      font-size: 16px;
+      padding: 10px 15px;
+      font-weight: 700;
+      font-size: 13.5px;
       color: var(--ink);
       cursor: pointer;
       display: flex;
@@ -699,23 +1772,37 @@
     .faq-question::-webkit-details-marker { display: none; }
     .faq-question::after {
       content: "+";
-      font-size: 22px;
-      font-weight: 600;
-      color: var(--brand);
-      transition: transform .2s ease;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--brand-emerald);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #f0fdf4;
+      border: 1px solid #d1fae5;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: all .2s ease;
+      flex-shrink: 0;
+      margin-left: 10px;
     }
     .faq-item[open] .faq-question::after {
       content: "−";
+      background: #ecfdf5;
+      color: #047857;
+      border-color: #a7f3d0;
     }
     .faq-answer {
-      padding: 0 24px 22px;
-      font-size: 14.5px;
-      line-height: 1.65;
+      padding: 0 15px 12px;
+      font-size: 13px;
+      line-height: 1.55;
       color: var(--muted);
       border-top: 1px solid transparent;
     }
     .faq-answer a {
-      color: var(--brand);
+      color: var(--brand-emerald);
       font-weight: 600;
       text-decoration: underline;
     }
@@ -738,14 +1825,7 @@
       margin-bottom: 48px;
     }
     .footer-brand .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--ink);
       margin-bottom: 14px;
-      letter-spacing: -.03em;
     }
     .footer-brand p {
       font-size: 13.5px;
@@ -769,7 +1849,7 @@
       transition: color .2s;
     }
     .footer-contact a:hover {
-      color: var(--brand);
+      color: var(--brand-emerald);
     }
     .footer-col h4 {
       font-size: 12px;
@@ -792,12 +1872,12 @@
       display: inline-block;
     }
     .footer-links a:hover {
-      color: var(--brand);
+      color: var(--brand-emerald);
       transform: translateX(2px);
     }
     .footer-links a.footer-more {
       font-weight: 750;
-      color: var(--brand);
+      color: var(--brand-emerald);
       margin-top: 4px;
     }
     .footer-bottom {
@@ -821,7 +1901,7 @@
       transition: color .2s;
     }
     .footer-bottom-links a:hover {
-      color: var(--brand);
+      color: var(--brand-emerald);
     }
     @media (max-width: 900px) {
       .footer-grid {
@@ -832,89 +1912,336 @@
 
     /* Responsive Breakpoints & Mobile Enhancements */
     @media (max-width: 980px) {
+      .nav-inner { height: 64px; }
+      .logo-wordmark { font-size: 22px; }
+      .logo-subtitle { font-size: 7.5px; }
       .links { display: none; }
-      .menu { display: block; }
-      .hero { padding-top: 120px; padding-bottom: 50px; text-align: center; }
-      .hero-grid { grid-template-columns: 1fr; gap: 36px; text-align: center; }
-      .hero .eyebrow { margin-left: auto; margin-right: auto; }
-      .hero h1 { text-align: center; margin-left: auto; margin-right: auto; }
-      .hero-sub { text-align: center; margin-left: auto; margin-right: auto; }
-      .hero .actions { justify-content: center; margin-left: auto; margin-right: auto; }
-      .social-strip { justify-content: center; }
-      .trust-strip { justify-content: center; text-align: center; margin-left: auto; margin-right: auto; }
-      .hero-promise-badge { margin-left: auto !important; margin-right: auto !important; text-align: center; }
-      .vp-banner { grid-template-columns: 1fr; padding: 30px; gap: 28px; }
-      .products { grid-template-columns: 1fr; }
-      .prices { grid-template-columns: 1fr; }
-      .contact-box { grid-template-columns: 1fr; padding: 32px 24px; }
-      .dashboard { transform: none; margin-left: auto; margin-right: auto; }
-    }
+      .btn-get-quote { padding: 8px 16px; font-size: 12.5px; white-space: nowrap; }
+      .menu-btn { display: flex; width: 38px; height: 38px; }
 
-    @media (max-width: 768px) {
-      /* Mobile Touch-Snap Horizontal Carousel for Industry Cards */
-      .industries {
+      .hero {
+        padding: 76px 0 14px;
+        overflow: hidden;
+      }
+      .hero-grid {
+        display: block;
+        position: relative;
+        min-height: auto;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        width: 60%;
+        max-width: 330px;
+        text-align: left;
+      }
+      .hero-badge {
+        font-size: 8.5px;
+        padding: 5px 12px;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        margin-bottom: 12px;
+        margin-left: 0;
+        margin-right: 0;
+        display: inline-flex;
+      }
+      .hero-title {
+        font-size: clamp(28px, 6.8vw, 38px);
+        line-height: 1.04;
+        letter-spacing: -0.05em;
+        text-align: left;
+        margin: 0;
+      }
+      .hero-subhead {
+        font-size: 13.5px;
+        line-height: 1.45;
+        margin: 12px 0 16px 0;
+        text-align: left;
+      }
+      .hero-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .btn-primary-pill {
+        padding: 6px 13px;
+        font-size: 11px;
+        width: fit-content;
+        white-space: nowrap;
+      }
+      .btn-secondary-pill {
+        padding: 5.5px 11px;
+        font-size: 10.5px;
+        width: fit-content;
+        white-space: nowrap;
+      }
+      .hero-social-row {
+        margin-top: 10px;
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        width: 100%;
+      }
+      .social-row-label {
+        display: none;
+      }
+      .social-icon-group {
+        display: flex;
+        gap: 4px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        max-width: 100%;
+        padding-bottom: 2px;
+      }
+      .social-icon-group::-webkit-scrollbar {
+        display: none;
+      }
+      .social-icon-btn {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      }
+      .social-icon-btn svg {
+        width: 11px;
+        height: 11px;
+      }
+
+      /* Hero Illustration matching exact mobile positioning */
+      .hero-illustration-col {
+        position: absolute;
+        top: -20px;
+        right: -10%;
+        width: 72%;
+        max-width: 420px;
+        z-index: 1;
+        pointer-events: none;
+      }
+      .hero-globe-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      /* Single-row 4-column Metrics Bar on mobile */
+      .hero-metrics-bar {
+        margin-top: 14px;
+        background: #ffffff;
+        border: 1px solid #edf2f7;
+        border-radius: 18px;
+        padding: 14px 8px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+      }
+      .metric-card {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 4px;
+        border-right: 1px solid #f1f5f9;
+      }
+      .metric-card:last-child {
+        border-right: none;
+      }
+      .metric-icon-wrap {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 6px;
+      }
+      .metric-icon-wrap svg {
+        width: 15px;
+        height: 15px;
+      }
+      .metric-val {
+        font-size: 13.5px;
+        font-weight: 850;
+        color: #0b1320;
+        line-height: 1.15;
+      }
+      .metric-desc {
+        font-size: 8.5px;
+        color: #64748b;
+        font-weight: 600;
+        line-height: 1.25;
+        margin-top: 2px;
+      }
+      .metric-divider {
+        display: none;
+      }
+
+      /* 2-column side-by-side What do you need help with? */
+      .help-section {
+        padding: 36px 0 10px;
+      }
+      .help-heading-wrap {
+        margin-bottom: 20px;
+      }
+      .help-heading {
+        font-size: 21px;
+      }
+      .help-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .help-card {
+        padding: 18px 12px 16px;
+        border-radius: 18px;
+        min-height: 210px;
+      }
+      .help-icon-circle {
+        width: 36px;
+        height: 36px;
+        margin-bottom: 10px;
+      }
+      .help-icon-circle svg {
+        width: 18px;
+        height: 18px;
+      }
+      .help-card-title {
+        font-size: 14.5px;
+        margin-bottom: 4px;
+      }
+      .help-card-text {
+        font-size: 10.5px;
+        line-height: 1.4;
+        margin-bottom: 14px;
+      }
+      .help-btn {
+        padding: 7px 12px;
+        font-size: 10.5px;
+      }
+
+      .help-card-tags {
+        gap: 5px;
+        margin-top: 14px;
+      }
+      .card-pill-tag {
+        font-size: 9px;
+        padding: 3px 7px;
+      }
+      .card-art-wrap {
+        width: 45%;
+        bottom: 6px;
+        right: 2px;
+        opacity: 0.85;
+      }
+
+      .how-it-works-box {
+        padding: 24px 16px 20px;
+        border-radius: 20px;
+        margin-top: 24px;
+      }
+      .how-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+      }
+      .step-card {
+        min-height: auto;
+        padding: 12px 8px;
+        border-radius: 14px;
+      }
+      .step-title {
+        font-size: 11px;
+      }
+      .step-desc {
+        font-size: 9px;
+        line-height: 1.3;
+      }
+      .step-icon-wrap {
+        width: 22px;
+        height: 22px;
+      }
+      .step-icon-wrap svg {
+        width: 12px;
+        height: 12px;
+      }
+      .step-pill {
+        font-size: 8.5px;
+        padding: 1.5px 5px;
+      }
+      .steps-connector-line {
+        top: 22px;
+        left: 15px;
+        right: 15px;
+      }
+
+      .who-we-work-box {
+        padding: 24px 16px 20px;
+        border-radius: 20px;
+        margin-top: 18px;
+      }
+      .who-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+      .audience-grid {
         display: flex !important;
         overflow-x: auto !important;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        gap: 14px;
-        padding: 6px 4px 18px;
-        margin-top: 10px;
+        gap: 10px;
+        padding-bottom: 8px;
         scrollbar-width: none;
       }
-      .industries::-webkit-scrollbar { display: none; }
-      .industry-card {
-        flex: 0 0 84% !important;
+      .audience-grid::-webkit-scrollbar { display: none; }
+      .audience-card {
+        flex: 0 0 170px !important;
         scroll-snap-align: start;
-        min-width: 260px;
-        margin-top: 0 !important;
+        min-height: 180px;
+        padding: 16px 14px;
       }
-      .mobile-swipe-hint {
-        display: flex !important;
-        align-items: center; justify-content: flex-end; gap: 6px;
-        font-size: 12px; font-weight: 750; color: var(--brand); margin-bottom: 8px;
+
+      .products { grid-template-columns: 1fr; }
+      .contact-box { grid-template-columns: 1fr; padding: 28px 20px; }
+    }
+
+    @media (max-width: 992px) {
+      .steps-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+      .audience-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
     .mobile-swipe-hint { display: none; }
 
     @media (max-width: 620px) {
-      .container { width: min(var(--max), calc(100% - 24px)); }
-      h1 { font-size: 34px; letter-spacing: -.05em; text-align: center; margin-left: auto; margin-right: auto; }
-      .hero-sub { font-size: 15.5px; margin: 18px auto 24px auto; text-align: center; }
-      .actions { flex-direction: column; width: 100%; align-items: center; }
-      .actions a, .actions button { width: 100%; justify-content: center; text-align: center; padding: 14px; font-size: 15px; }
-      .dash { grid-template-columns: 85px 1fr; min-height: 320px; }
-      .side span { font-size: 9px; padding: 6px 4px; }
-      .cards { grid-template-columns: 1fr; }
+      .container { width: min(var(--max), calc(100% - 20px)); }
       .form-row { grid-template-columns: 1fr; }
-      footer { padding: 44px 0 24px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      footer { padding: 40px 0 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
       .footer-bottom { flex-direction: column; text-align: center; gap: 12px; }
       .footer-bottom-links { justify-content: center; }
 
-      /* Touch Feedback Physics */
       a:active, button:active, .industry-card:active, .product-card:active {
         transform: scale(0.97) !important;
         transition: transform 0.1s ease !important;
       }
-
-      /* Premium Compact Translucent Mobile Sticky WhatsApp Bar */
-      .mobile-cta { display: block; position: fixed; bottom: 12px; left: 24px; right: 24px; z-index: 99; }
-      .mobile-cta a {
-        display: flex; align-items: center; justify-content: center; gap: 8px;
-        background: rgba(16, 185, 129, 0.78);
-        color: #ffffff; padding: 10px 18px; border-radius: 999px;
-        font-weight: 800; font-size: 13.5px;
-        box-shadow: 0 8px 25px rgba(11, 18, 32, 0.18);
-        backdrop-filter: blur(16px) saturate(180%);
-        -webkit-backdrop-filter: blur(16px) saturate(180%);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-      }
-      .mobile-cta .pulse-dot {
-        width: 8px; height: 8px; background: #ffffff; border-radius: 50%; display: inline-block;
-        box-shadow: 0 0 0 3px rgba(255,255,255,0.3); animation: pulseGreen 1.8s infinite;
-      }
+      
+      .mobile-cta { display: none !important; }
     }
 
     @keyframes pulseGreen {
@@ -931,8 +2258,13 @@
        ========================================================= -->
   <header class="nav">
     <div class="container nav-inner">
-      <a class="logo" href="/">
-        <span class="logo-mark"><img src="logo.png" alt="Angsumi logo"></span>angsumi
+      <a class="logo" href="/" aria-label="Angsumi Home">
+        <div class="logo-box">
+          <div class="logo-wordmark">
+            angsum<span class="logo-i-wrap">i<span class="logo-sprout"><svg viewBox="0 0 16 16" fill="none"><path d="M8 2C8 2 11.5 4 11 7.5C10.5 10 8.5 10.5 8 10.5C7.5 10.5 5.5 10 5 7.5C4.5 4 8 2 8 2Z" fill="#059669"/><path d="M8 6C9.5 4.5 13 5 14 7.5C14.5 9 13.5 11 11.5 11C9.5 11 8.2 9 8 7.5" fill="#10b981"/></svg></span></span>
+          </div>
+          <div class="logo-subtitle">RESEARCH &bull; DATA &bull; CODE &bull; BUILD</div>
+        </div>
       </a>
       <nav class="links">
         <a href="https://angsumi.online/about/">About</a>
@@ -944,7 +2276,14 @@
         <a href="https://blog.angsumi.online" target="_blank" rel="noopener">Blog</a>
         <a href="#cta">Contact</a>
       </nav>
-      <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+      <div class="nav-right">
+        <a href="#cta" class="btn-get-quote">Get a Quote <span class="arrow">→</span></a>
+        <button class="menu-btn" aria-label="Toggle navigation menu" onclick="toggleMenu()">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -954,215 +2293,515 @@
          Immediate Attention & Value Positioning
          ========================================================= -->
     <section class="hero" id="hook">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow"><span class="dot"></span> Websites, Bioinformatics &amp; Data Analysis</div>
-          <h1>Professional digital systems &amp; data solutions. <span style="color:var(--brand)">Without the agency price tag.</span></h1>
-          <p class="hero-sub">We build high-converting websites, apps, and digital platforms — plus dedicated <strong>Bioinformatics &amp; Statistical Data Analysis</strong> for researchers, clinics, educators, and businesses. Starting from ₹2,000. Transparent pricing, zero bloat.</p>
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="badge-sparkle">✦</span> RESEARCH &bull; DATA &bull; DIGITAL SYSTEMS
+            </div>
+            <h1 class="hero-title">
+              From<br>
+              research data<br>
+              to <span class="text-accent-green">real results.<svg class="title-underline" viewBox="0 0 280 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 14 C 70 4, 210 4, 276 14" stroke="#059669" stroke-width="4.5" stroke-linecap="round"/></svg></span>
+            </h1>
+            <p class="hero-subhead">
+              Bioinformatics, scientific data analysis, websites and custom digital systems for researchers and growing organizations.
+            </p>
 
-          <div class="actions">
-            <a class="primary" href="#cta">Get Free Consultation / Blueprint →</a>
-            <a class="secondary" href="#proof">Explore Live Work &amp; Services ↓</a>
+            <div class="hero-actions">
+              <a class="btn-primary-pill" href="#cta">
+                Get a Free Project Review <span class="arrow-icon">→</span>
+              </a>
+              <a class="btn-secondary-pill" href="#proof">
+                <span class="play-icon">▶</span> See Real Work
+              </a>
+            </div>
+
+            <!-- Accommodate Social Media Profiles Strip -->
+            <div class="hero-social-row" aria-label="Official Social Media Profiles">
+              <span class="social-row-label">Connect:</span>
+              <div class="social-icon-group">
+                <a class="social-icon-btn" href="https://www.youtube.com/@angsumi.online" target="_blank" rel="noopener" aria-label="YouTube" data-platform="youtube" title="YouTube">
+                  <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a class="social-icon-btn" href="https://www.threads.com/@angsumi.online" target="_blank" rel="noopener" aria-label="Threads" data-platform="threads" title="Threads">
+                  <svg viewBox="0 0 24 24"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.249 18.296 1.39 15.223 1.436 11.36c.05-4.144 1.34-7.234 3.834-9.185C7.525.437 10.32 0 13.565 0c3.153 0 5.859.429 8.042 1.275l-1.396 3.58c-1.895-.733-4.04-1.09-6.376-1.09-2.459 0-4.526.31-6.144 1.577-1.82 1.424-2.738 3.737-2.775 6.877-.038 3.238.647 5.762 2.035 7.498 1.34 1.677 3.39 2.534 6.096 2.552 2.515.017 4.542-.716 6.027-2.18 1.493-1.472 2.274-3.567 2.322-6.23-.008-.344-.025-.765-.05-1.258h-7.986v-3.76h11.966c.15 1.05.228 2.126.233 3.22.016 3.864-1.077 7.025-3.25 9.394C19.78 22.864 16.544 23.97 12.186 24zm-.17-10.024c-1.385 0-2.434.398-3.033 1.15-.592.744-.654 1.764-.174 2.872.482 1.11 1.455 1.763 2.741 1.838 1.286.075 2.45-.44 3.277-1.45.83-1.01 1.205-2.316 1.058-3.68-.97-.48-2.314-.73-3.87-.73z"/></svg>
+                </a>
+                <a class="social-icon-btn" href="https://maps.app.goo.gl/vAZCDRvES9hxBJnv7" target="_blank" rel="noopener" aria-label="Google Maps" data-platform="gmaps" title="Google Business Profile &amp; Reviews">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                </a>
+                <a class="social-icon-btn" href="https://www.instagram.com/angsumi.online/" target="_blank" rel="noopener" aria-label="Instagram" data-platform="instagram" title="Instagram">
+                  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a class="social-icon-btn" href="https://www.facebook.com/profile.php?viewas=100000686899395&id=61594091363601" target="_blank" rel="noopener" aria-label="Facebook" data-platform="facebook" title="Facebook">
+                  <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a class="social-icon-btn" href="https://www.linkedin.com/company/angsumi/" target="_blank" rel="noopener" aria-label="LinkedIn Company" data-platform="linkedin" title="LinkedIn">
+                  <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a class="social-icon-btn" href="https://in.pinterest.com/angsumi_online/" target="_blank" rel="noopener" aria-label="Pinterest" data-platform="pinterest" title="Pinterest">
+                  <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+                </a>
+                <a class="social-icon-btn" href="https://x.com/angsumi_online" target="_blank" rel="noopener" aria-label="X (Twitter)" data-platform="x" title="X (Twitter)">
+                  <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a class="social-icon-btn" href="https://github.com/Angsumi" target="_blank" rel="noopener" aria-label="GitHub" data-platform="github" title="GitHub">
+                  <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a class="social-icon-btn" href="https://wa.me/917896595109" target="_blank" rel="noopener" aria-label="WhatsApp" data-platform="whatsapp" title="WhatsApp Chat">
+                  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.275-.101-.475-.15-.675.15-.199.3-.774.979-.95 1.179-.175.2-.35.225-.65.075-.301-.15-1.27-.468-2.42-1.494-.894-.798-1.498-1.783-1.674-2.083-.175-.3-.019-.462.131-.611.136-.134.301-.35.451-.525.15-.175.2-.3.301-.5.1-.2.05-.375-.025-.525-.075-.15-.675-1.625-.925-2.225-.244-.585-.492-.506-.675-.515L7.99 6.78c-.2 0-.525.075-.8.375s-1.05 1.025-1.05 2.5 1.075 2.9 1.225 3.1c.15.2 2.115 3.23 5.124 4.53.716.31 1.275.495 1.71.634.72.23 1.375.197 1.893.12.578-.087 1.78-.727 2.03-1.43.25-.702.25-1.303.175-1.43-.075-.125-.275-.2-.575-.35zM12 2a10 10 0 0 0-8.625 15.075L2 22l5.05-1.325A10 10 0 1 0 12 2zm0 18.15c-1.63 0-3.17-.44-4.505-1.22l-.323-.19-3.345.877.893-3.26-.21-.334A8.15 8.15 0 1 1 12 20.15z"/></svg>
+                </a>
+              </div>
+            </div>
           </div>
 
-          <!-- Hero Social Media Connect -->
-          <div class="social-strip" aria-label="Official Social Media Profiles">
-            <span class="social-label">Connect:</span>
-            <a class="social-icon-btn" href="https://www.youtube.com/@angsumi.online" target="_blank" rel="noopener" aria-label="YouTube" data-platform="youtube">
-              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            </a>
-            <a class="social-icon-btn" href="https://www.threads.com/@angsumi.online" target="_blank" rel="noopener" aria-label="Threads" data-platform="threads">
-              <svg viewBox="0 0 24 24"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.249 18.296 1.39 15.223 1.436 11.36c.05-4.144 1.34-7.234 3.834-9.185C7.525.437 10.32 0 13.565 0c3.153 0 5.859.429 8.042 1.275l-1.396 3.58c-1.895-.733-4.04-1.09-6.376-1.09-2.459 0-4.526.31-6.144 1.577-1.82 1.424-2.738 3.737-2.775 6.877-.038 3.238.647 5.762 2.035 7.498 1.34 1.677 3.39 2.534 6.096 2.552 2.515.017 4.542-.716 6.027-2.18 1.493-1.472 2.274-3.567 2.322-6.23-.008-.344-.025-.765-.05-1.258h-7.986v-3.76h11.966c.15 1.05.228 2.126.233 3.22.016 3.864-1.077 7.025-3.25 9.394C19.78 22.864 16.544 23.97 12.186 24zm-.17-10.024c-1.385 0-2.434.398-3.033 1.15-.592.744-.654 1.764-.174 2.872.482 1.11 1.455 1.763 2.741 1.838 1.286.075 2.45-.44 3.277-1.45.83-1.01 1.205-2.316 1.058-3.68-.97-.48-2.314-.73-3.87-.73z"/></svg>
-            </a>
-            <a class="social-icon-btn" href="https://maps.app.goo.gl/vAZCDRvES9hxBJnv7" target="_blank" rel="noopener" aria-label="Google Business Profile &amp; Maps" data-platform="gmaps">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            </a>
-            <a class="social-icon-btn" href="https://www.instagram.com/angsumi.online/" target="_blank" rel="noopener" aria-label="Instagram" data-platform="instagram">
-              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-            <a class="social-icon-btn" href="https://www.facebook.com/profile.php?viewas=100000686899395&id=61594091363601" target="_blank" rel="noopener" aria-label="Facebook" data-platform="facebook">
-              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a class="social-icon-btn" href="https://www.linkedin.com/company/angsumi/" target="_blank" rel="noopener" aria-label="LinkedIn Company" data-platform="linkedin">
-              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </a>
-            <a class="social-icon-btn" href="https://in.pinterest.com/angsumi_online/" target="_blank" rel="noopener" aria-label="Pinterest" data-platform="pinterest">
-              <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
-            </a>
-            <a class="social-icon-btn" href="https://x.com/angsumi_online" target="_blank" rel="noopener" aria-label="X (Twitter)" data-platform="x">
-              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a class="social-icon-btn" href="https://github.com/Angsumi" target="_blank" rel="noopener" aria-label="GitHub" data-platform="github">
-              <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            </a>
-            <a class="social-icon-btn" href="https://wa.me/917896595109" target="_blank" rel="noopener" aria-label="WhatsApp" data-platform="whatsapp">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.275-.101-.475-.15-.675.15-.199.3-.774.979-.95 1.179-.175.2-.35.225-.65.075-.301-.15-1.27-.468-2.42-1.494-.894-.798-1.498-1.783-1.674-2.083-.175-.3-.019-.462.131-.611.136-.134.301-.35.451-.525.15-.175.2-.3.301-.5.1-.2.05-.375-.025-.525-.075-.15-.675-1.625-.925-2.225-.244-.585-.492-.506-.675-.515L7.99 6.78c-.2 0-.525.075-.8.375s-1.05 1.025-1.05 2.5 1.075 2.9 1.225 3.1c.15.2 2.115 3.23 5.124 4.53.716.31 1.275.495 1.71.634.72.23 1.375.197 1.893.12.578-.087 1.78-.727 2.03-1.43.25-.702.25-1.303.175-1.43-.075-.125-.275-.2-.575-.35zM12 2a10 10 0 0 0-8.625 15.075L2 22l5.05-1.325A10 10 0 1 0 12 2zm0 18.15c-1.63 0-3.17-.44-4.505-1.22l-.323-.19-3.345.877.893-3.26-.21-.334A8.15 8.15 0 1 1 12 20.15z"/></svg>
-            </a>
-          </div>
-
-          <div class="trust-strip">
-            <span>BIOINFORMATICS</span>
-            <span>DATA ANALYSIS</span>
-            <span>WEBSITES</span>
-            <span>MOBILE APPS</span>
-            <span>WEB PORTALS</span>
-            <span>DOMAINS</span>
-            <span>CLOUD HOSTING</span>
-            <span>RESEARCH SUPPORT</span>
-          </div>
-
-          <div class="hero-promise-badge" style="margin-top:24px; display:inline-flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--line); border-radius:14px; padding:10px 16px; font-size:13px; font-weight:750; box-shadow:0 8px 20px rgba(11,18,32,.04)">
-            <span style="color:var(--accent); font-size:18px">✓</span>
-            <span>Our promise: <strong>scientific precision &amp; useful technology at sensible prices.</strong></span>
+          <!-- Hero Illustration Graphics -->
+          <div class="hero-illustration-col" aria-label="Angsumi Scientific and Digital Ecosystem Illustration">
+            <picture>
+              <source srcset="hero-illustration.webp" type="image/webp">
+              <img src="hero-illustration.jpg" alt="Bioinformatics, Scientific Data and Digital Systems Ecosystem" class="hero-globe-img" width="1024" height="1024" loading="eager" fetchpriority="high">
+            </picture>
           </div>
         </div>
 
-        <!-- Dashboard Visual Anchor -->
-        <div class="dashboard" aria-label="Angsumi platform mockup">
-          <div class="window">
-            <div class="window-top">
-              <div class="dots"><i></i><i></i><i></i></div>
-              <div class="dash-status">🟢 Systems Active</div>
+        <!-- Showcase Wrapper for Mockup Exact Alignment -->
+        <div class="showcase-wrapper">
+          <!-- Trust / Metrics Bar -->
+          <div class="hero-metrics-bar" aria-label="Key Metrics &amp; Guarantees">
+            <div class="metric-card">
+              <div class="metric-icon-wrap metric-screen" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="12" x="3" y="4" rx="2"/><line x1="2" x2="22" y1="20" y2="20"/></svg>
+              </div>
+              <div class="metric-info">
+                <div class="metric-val">&#8377;2,000+</div>
+                <div class="metric-desc">Starter websites</div>
+              </div>
             </div>
-            <div class="dash">
-              <aside class="side">
-                <b>ANGSUMI OS</b>
-                <span class="active">Overview</span>
-                <span>Bioinformatics</span>
-                <span>Data Analysis</span>
-                <span>Appointments</span>
-                <span>Admissions</span>
-                <span>Payments</span>
-                <span>Reports</span>
-              </aside>
-              <div class="main">
-                <div class="dash-title">Your projects &amp; data, connected.</div>
-                <div class="cards">
-                  <div class="mini"><small>Data Pipelines</small><strong>100%</strong></div>
-                  <div class="mini"><small>Active Leads</small><strong>46</strong></div>
-                  <div class="mini"><small>Revenue / ROI</small><strong>₹84k+</strong></div>
+            <div class="metric-divider"></div>
+            <div class="metric-card">
+              <div class="metric-icon-wrap metric-dna" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <g transform="rotate(-20 12 12)">
+                    <path d="M9 3 C6 6, 6 10, 12 12 C18 14, 18 18, 15 21"/>
+                    <path d="M15 3 C18 6, 18 10, 12 12 C6 14, 6 18, 9 21"/>
+                    <line x1="8.5" y1="6.5" x2="15.5" y2="6.5"/>
+                    <line x1="7.5" y1="9" x2="16.5" y2="9"/>
+                    <line x1="7.5" y1="15" x2="16.5" y2="15"/>
+                    <line x1="8.5" y1="17.5" x2="15.5" y2="17.5"/>
+                  </g>
+                </svg>
+              </div>
+              <div class="metric-info">
+                <div class="metric-val">&#8377;3,000+</div>
+                <div class="metric-desc">Research &amp; data projects</div>
+              </div>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-card">
+              <div class="metric-icon-wrap metric-lightning" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <div class="metric-info">
+                <div class="metric-val">3–5 days</div>
+                <div class="metric-desc">Typical delivery</div>
+              </div>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-card">
+              <div class="metric-icon-wrap metric-shield" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <div class="metric-info">
+                <div class="metric-val">100%</div>
+                <div class="metric-desc">Code &amp; data ownership</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section: What do you need help with? -->
+          <div class="help-section" id="services-overview">
+            <div class="help-heading-wrap">
+              <h2 class="help-heading">What do you need <span class="help-accent">help with?<span class="help-accent-bar"></span></span></h2>
+              <p class="help-subhead">Choose your goal and let's turn it into a working solution.</p>
+            </div>
+          
+          <div class="help-grid">
+            <!-- Card 1: Research & Data -->
+            <div class="help-card card-green">
+              <!-- Background Science Figures SVG -->
+              <div class="card-art-wrap science-art" aria-hidden="true">
+                <svg viewBox="0 0 260 220" fill="none" xmlns="http://www.w3.org/2000/svg" class="art-svg">
+                  <!-- DNA Strand Helix -->
+                  <path d="M190 20 C220 50, 240 90, 220 130 C200 170, 230 200, 250 215" stroke="#10b981" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.35"/>
+                  <path d="M230 20 C200 50, 190 90, 210 130 C230 170, 210 200, 190 215" stroke="#059669" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.35"/>
+                  <line x1="200" y1="35" x2="220" y2="35" stroke="#10b981" stroke-width="1.5" opacity="0.4"/>
+                  <line x1="205" y1="75" x2="225" y2="75" stroke="#059669" stroke-width="1.5" opacity="0.4"/>
+                  <line x1="195" y1="115" x2="215" y2="115" stroke="#10b981" stroke-width="1.5" opacity="0.4"/>
+                  <line x1="210" y1="155" x2="230" y2="155" stroke="#059669" stroke-width="1.5" opacity="0.4"/>
+
+                  <!-- Cluster Scatter Plot Card -->
+                  <g filter="drop-shadow(0 8px 16px rgba(5,150,105,0.08))">
+                    <rect x="75" y="15" width="95" height="75" rx="10" fill="#ffffff" stroke="#cce8dc" stroke-width="1"/>
+                    <line x1="87" y1="80" x2="160" y2="80" stroke="#cbd5e1" stroke-width="1"/>
+                    <line x1="87" y1="25" x2="87" y2="80" stroke="#cbd5e1" stroke-width="1"/>
+                    <!-- Magenta Cluster -->
+                    <circle cx="115" cy="42" r="3" fill="#ec4899"/>
+                    <circle cx="119" cy="38" r="2.5" fill="#f43f5e"/>
+                    <circle cx="122" cy="45" r="3.2" fill="#ec4899"/>
+                    <circle cx="112" cy="48" r="2.5" fill="#f43f5e"/>
+                    <circle cx="126" cy="42" r="2" fill="#ec4899"/>
+                    <!-- Cyan / Blue Cluster -->
+                    <circle cx="102" cy="62" r="3" fill="#0284c7"/>
+                    <circle cx="98" cy="66" r="2.5" fill="#38bdf8"/>
+                    <circle cx="106" cy="68" r="3" fill="#0ea5e9"/>
+                    <circle cx="103" cy="58" r="2" fill="#0284c7"/>
+                    <!-- Emerald Cluster -->
+                    <circle cx="140" cy="58" r="3.2" fill="#10b981"/>
+                    <circle cx="145" cy="52" r="2.5" fill="#059669"/>
+                    <circle cx="148" cy="62" r="3" fill="#34d399"/>
+                    <circle cx="136" cy="64" r="2" fill="#10b981"/>
+                    <!-- Amber Cluster -->
+                    <circle cx="130" cy="30" r="2.8" fill="#f59e0b"/>
+                    <circle cx="135" cy="26" r="2.2" fill="#d97706"/>
+                    <circle cx="140" cy="32" r="2.5" fill="#fbbf24"/>
+                  </g>
+
+                  <!-- Radial Dendrogram / Tree Network -->
+                  <g filter="drop-shadow(0 6px 14px rgba(5,150,105,0.06))">
+                    <rect x="60" y="105" width="80" height="80" rx="10" fill="#ffffff" stroke="#cce8dc" stroke-width="1"/>
+                    <circle cx="100" cy="145" r="3.5" fill="#0c3e35"/>
+                    <line x1="100" y1="145" x2="80" y2="128" stroke="#059669" stroke-width="1.2"/>
+                    <line x1="100" y1="145" x2="120" y2="128" stroke="#059669" stroke-width="1.2"/>
+                    <line x1="100" y1="145" x2="78" y2="158" stroke="#059669" stroke-width="1.2"/>
+                    <line x1="100" y1="145" x2="122" y2="158" stroke="#059669" stroke-width="1.2"/>
+                    <line x1="100" y1="145" x2="100" y2="172" stroke="#059669" stroke-width="1.2"/>
+                    <circle cx="80" cy="128" r="2.5" fill="#10b981"/>
+                    <circle cx="120" cy="128" r="2.5" fill="#10b981"/>
+                    <circle cx="78" cy="158" r="2.5" fill="#10b981"/>
+                    <circle cx="122" cy="158" r="2.5" fill="#10b981"/>
+                    <circle cx="100" cy="172" r="2.5" fill="#10b981"/>
+                    <line x1="80" y1="128" x2="72" y2="120" stroke="#94a3b8" stroke-width="1"/>
+                    <line x1="80" y1="128" x2="86" y2="118" stroke="#94a3b8" stroke-width="1"/>
+                    <line x1="120" y1="128" x2="116" y2="118" stroke="#94a3b8" stroke-width="1"/>
+                    <line x1="120" y1="128" x2="128" y2="120" stroke="#94a3b8" stroke-width="1"/>
+                    <circle cx="72" cy="120" r="1.8" fill="#64748b"/>
+                    <circle cx="86" cy="118" r="1.8" fill="#64748b"/>
+                    <circle cx="116" cy="118" r="1.8" fill="#64748b"/>
+                    <circle cx="128" cy="120" r="1.8" fill="#64748b"/>
+                  </g>
+
+                  <!-- Heatmap Matrix -->
+                  <g filter="drop-shadow(0 6px 14px rgba(5,150,105,0.06))">
+                    <rect x="155" y="105" width="70" height="70" rx="10" fill="#ffffff" stroke="#cce8dc" stroke-width="1"/>
+                    <rect x="163" y="113" width="11" height="11" rx="2" fill="#0284c7"/>
+                    <rect x="176" y="113" width="11" height="11" rx="2" fill="#38bdf8"/>
+                    <rect x="189" y="113" width="11" height="11" rx="2" fill="#f59e0b"/>
+                    <rect x="202" y="113" width="11" height="11" rx="2" fill="#ef4444"/>
+
+                    <rect x="163" y="126" width="11" height="11" rx="2" fill="#38bdf8"/>
+                    <rect x="176" y="126" width="11" height="11" rx="2" fill="#0284c7"/>
+                    <rect x="189" y="126" width="11" height="11" rx="2" fill="#10b981"/>
+                    <rect x="202" y="126" width="11" height="11" rx="2" fill="#f59e0b"/>
+
+                    <rect x="163" y="139" width="11" height="11" rx="2" fill="#f59e0b"/>
+                    <rect x="176" y="139" width="11" height="11" rx="2" fill="#10b981"/>
+                    <rect x="189" y="139" width="11" height="11" rx="2" fill="#0284c7"/>
+                    <rect x="202" y="139" width="11" height="11" rx="2" fill="#38bdf8"/>
+
+                    <rect x="163" y="152" width="11" height="11" rx="2" fill="#ef4444"/>
+                    <rect x="176" y="152" width="11" height="11" rx="2" fill="#f59e0b"/>
+                    <rect x="189" y="152" width="11" height="11" rx="2" fill="#38bdf8"/>
+                    <rect x="202" y="152" width="11" height="11" rx="2" fill="#0284c7"/>
+                  </g>
+
+                  <!-- Botanical Leaf Accents -->
+                  <path d="M225 15 C210 25, 205 45, 218 55 C230 45, 235 30, 225 15Z" fill="#059669" opacity="0.6"/>
+                  <path d="M245 40 C235 48, 232 60, 242 66 C250 58, 252 48, 245 40Z" fill="#10b981" opacity="0.5"/>
+                  <path d="M235 185 C220 195, 215 210, 226 218 C238 208, 242 195, 235 185Z" fill="#059669" opacity="0.6"/>
+                </svg>
+              </div>
+
+              <div class="help-card-inner">
+                <div class="help-icon-circle green-circle" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="rotate(-20 12 12)">
+                      <path d="M9 3 C6 6, 6 10, 12 12 C18 14, 18 18, 15 21"/>
+                      <path d="M15 3 C18 6, 18 10, 12 12 C6 14, 6 18, 9 21"/>
+                      <line x1="8.5" y1="6.5" x2="15.5" y2="6.5"/>
+                      <line x1="7.5" y1="9" x2="16.5" y2="9"/>
+                      <line x1="7.5" y1="15" x2="16.5" y2="15"/>
+                      <line x1="8.5" y1="17.5" x2="15.5" y2="17.5"/>
+                    </g>
+                  </svg>
                 </div>
-                <div class="chart">
-                  <div class="bars">
-                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                <h3 class="help-card-title">Research &amp; Data</h3>
+                <p class="help-card-text">Bioinformatics, statistics, R/Python, scientific visualization and custom analysis.</p>
+                <a href="#proof" class="btn-discuss-mint">Discuss My Data <span class="arrow">→</span></a>
+              </div>
+
+              <!-- Pill tags row matching mockup -->
+              <div class="help-card-tags">
+                <span class="card-pill-tag">Genomics</span>
+                <span class="card-pill-tag">R / Python</span>
+                <span class="card-pill-tag">Modelling</span>
+                <span class="card-pill-tag">Scientific Figures</span>
+              </div>
+            </div>
+
+            <!-- Card 2: Build & Automate -->
+            <div class="help-card card-peach">
+              <!-- Background Tech Devices Mockup SVG -->
+              <div class="card-art-wrap tech-art" aria-hidden="true">
+                <svg viewBox="0 0 260 220" fill="none" xmlns="http://www.w3.org/2000/svg" class="art-svg">
+                  <!-- Tablet Device -->
+                  <g filter="drop-shadow(0 12px 24px rgba(120,53,15,0.12))">
+                    <rect x="105" y="18" width="145" height="175" rx="14" fill="#1e293b"/>
+                    <rect x="111" y="24" width="133" height="163" rx="10" fill="#f8fafc"/>
+                    <rect x="111" y="24" width="133" height="16" rx="8" fill="#e2e8f0"/>
+                    <circle cx="118" cy="32" r="2.5" fill="#ef4444"/>
+                    <circle cx="125" cy="32" r="2.5" fill="#f59e0b"/>
+                    <circle cx="132" cy="32" r="2.5" fill="#10b981"/>
+                    <rect x="145" y="28" width="50" height="8" rx="4" fill="#cbd5e1"/>
+                    <!-- Mountain Landscape inside tablet -->
+                    <path d="M111 75 L145 48 L170 65 L195 44 L244 80 L244 85 L111 85 Z" fill="#93c5fd" opacity="0.75"/>
+                    <path d="M135 85 L160 55 L190 85 Z" fill="#3b82f6" opacity="0.5"/>
+                    <rect x="111" y="85" width="133" height="102" fill="#ffffff"/>
+                    <!-- Dashboard widgets -->
+                    <rect x="120" y="96" width="36" height="24" rx="4" fill="#f1f5f9"/>
+                    <rect x="162" y="96" width="36" height="24" rx="4" fill="#f1f5f9"/>
+                    <rect x="204" y="96" width="32" height="24" rx="4" fill="#f1f5f9"/>
+                    <rect x="122" y="145" width="8" height="28" rx="2" fill="#fed7aa"/>
+                    <rect x="134" y="132" width="8" height="41" rx="2" fill="#fb923c"/>
+                    <rect x="146" y="125" width="8" height="48" rx="2" fill="#ea580c"/>
+                    <rect x="158" y="138" width="8" height="35" rx="2" fill="#fb923c"/>
+                  </g>
+
+                  <!-- Smartphone Device -->
+                  <g filter="drop-shadow(0 16px 28px rgba(120,53,15,0.18))">
+                    <rect x="68" y="55" width="90" height="155" rx="16" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+                    <rect x="72" y="60" width="82" height="145" rx="12" fill="#ffffff"/>
+                    <rect x="98" y="64" width="30" height="4" rx="2" fill="#0f172a"/>
+                    <!-- App Hero Landscape -->
+                    <path d="M72 105 L95 85 L118 100 L135 82 L154 105 Z" fill="#60a5fa" opacity="0.8"/>
+                    <rect x="72" y="105" width="82" height="100" fill="#ffffff"/>
+                    <!-- UI Card on Phone -->
+                    <rect x="78" y="114" width="70" height="32" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="0.8"/>
+                    <circle cx="88" cy="130" r="5" fill="#fb923c"/>
+                    <rect x="98" y="124" width="42" height="5" rx="2.5" fill="#475569"/>
+                    <rect x="98" y="132" width="28" height="4" rx="2" fill="#94a3b8"/>
+                    <rect x="78" y="152" width="70" height="18" rx="5" fill="#ea580c"/>
+                    <rect x="95" y="159" width="36" height="4" rx="2" fill="#ffffff"/>
+                    <rect x="78" y="176" width="32" height="16" rx="4" fill="#f1f5f9"/>
+                    <rect x="116" y="176" width="32" height="16" rx="4" fill="#f1f5f9"/>
+                  </g>
+
+                  <!-- Botanical Leaf Accents -->
+                  <path d="M230 40 C240 30, 255 35, 252 50 C245 48, 238 46, 230 40Z" fill="#15803d" opacity="0.6"/>
+                  <path d="M245 60 C255 52, 260 62, 254 72 C248 68, 245 62, 245 60Z" fill="#16a34a" opacity="0.5"/>
+                  <path d="M210 185 C222 178, 235 185, 232 196 C222 194, 215 190, 210 185Z" fill="#15803d" opacity="0.7"/>
+                  <path d="M50 145 C42 155, 48 168, 60 165 C56 155, 52 148, 50 145Z" fill="#16a34a" opacity="0.6"/>
+                </svg>
+              </div>
+
+              <div class="help-card-inner">
+                <div class="help-icon-circle peach-circle" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="18" height="12" x="3" y="4" rx="2"/><line x1="2" x2="22" y1="20" y2="20"/>
+                  </svg>
+                </div>
+                <h3 class="help-card-title">Build &amp; Automate</h3>
+                <p class="help-card-text">Websites, apps, portals and custom digital systems for real-world use.</p>
+                <a href="#cta" class="btn-discuss-peach">Discuss My Project <span class="arrow">→</span></a>
+              </div>
+
+              <!-- Pill tags row matching mockup -->
+              <div class="help-card-tags">
+                <span class="card-pill-tag peach-tag">Websites</span>
+                <span class="card-pill-tag peach-tag">Apps</span>
+                <span class="card-pill-tag peach-tag">Portals</span>
+                <span class="card-pill-tag peach-tag">Automation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section: HOW IT WORKS (From idea to impact) -->
+          <div class="how-it-works-box">
+            <div class="how-header">
+              <div>
+                <div class="how-kicker">How It Works</div>
+                <h2 class="how-title">From idea to <span class="impact-text">impact</span></h2>
+              </div>
+            </div>
+
+            <div class="steps-grid-wrap">
+              <div class="steps-connector-line" aria-hidden="true"></div>
+              <div class="steps-grid">
+                <!-- Step 01 -->
+                <div class="step-card">
+                  <div class="step-top">
+                    <span class="step-pill">01</span>
+                    <div class="step-icon-wrap" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="step-title">Tell us your goal</h3>
+                    <p class="step-desc">Share your research problem or project idea.</p>
+                  </div>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="step-card">
+                  <div class="step-top">
+                    <span class="step-pill">02</span>
+                    <div class="step-icon-wrap icon-cyan" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><circle cx="11.5" cy="14.5" r="2.5"/><line x1="13.5" y1="16.5" x2="16" y2="19"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="step-title">We plan the solution</h3>
+                    <p class="step-desc">Get a clear proposal with timeline and pricing.</p>
+                  </div>
+                </div>
+
+              <!-- Step 03 -->
+              <div class="step-card">
+                <div class="step-top">
+                  <span class="step-pill">03</span>
+                  <div class="step-icon-wrap" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="step-title">We build &amp; deliver</h3>
+                  <p class="step-desc">Analysis, website, app or custom system.</p>
+                </div>
+              </div>
+
+                <!-- Step 04 -->
+                <div class="step-card">
+                  <div class="step-top">
+                    <span class="step-pill pill-peach">04</span>
+                    <div class="step-icon-wrap icon-peach" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/><polyline points="14 9 19 9 19 14"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="step-title">You get real results</h3>
+                    <p class="step-desc">Useful outputs, full ownership and ongoing support.</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <!-- Section: IDEAL FOR (Who we work with) -->
+          <div class="who-we-work-box" id="vp">
+            <div class="who-header">
+              <div>
+                <div class="who-kicker">Ideal For</div>
+                <h2 class="who-title">Who we <span class="work-with-text">work with</span></h2>
+              </div>
+              <div class="who-desc-wrap">
+                <strong>Different goals. Same partner.</strong>
+                <p>Researchers, institutions and businesses who value practical solutions and direct support.</p>
+              </div>
+            </div>
+
+            <div class="audience-grid">
+              <!-- Audience 1: Researchers -->
+              <a class="audience-card" href="#proof" title="Bioinformatics & Data Solutions for Researchers">
+                <div>
+                  <div class="audience-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M10 2v7.31L4.36 19.4A2 2 0 0 0 6.09 22h11.82a2 2 0 0 0 1.73-2.6L14 9.31V2z"/><path d="M8.5 2h7"/><path d="M14 9.3 6.6 20"/>
+                    </svg>
+                  </div>
+                  <h3 class="audience-title">Researchers</h3>
+                  <p class="audience-desc">Genomics, data analysis, modelling, visualization.</p>
+                </div>
+                <div class="audience-arrow-btn" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+              </a>
+
+              <!-- Audience 2: Universities & Institutions -->
+              <a class="audience-card" href="#proof" title="Academic and Research Portals for Universities">
+                <div>
+                  <div class="audience-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                  </div>
+                  <h3 class="audience-title">Universities &amp; Institutions</h3>
+                  <p class="audience-desc">Research projects, academic systems.</p>
+                </div>
+                <div class="audience-arrow-btn" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+              </a>
+
+              <!-- Audience 3: Clinics & Healthcare -->
+              <a class="audience-card" href="#proof" title="Websites & Portals for Clinics & Healthcare">
+                <div>
+                  <div class="audience-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="18" height="18" x="3" y="3" rx="4"/><path d="M12 8v8"/><path d="M8 12h8"/>
+                    </svg>
+                  </div>
+                  <h3 class="audience-title">Clinics &amp; Healthcare</h3>
+                  <p class="audience-desc">Websites, portals, patient management tools.</p>
+                </div>
+                <div class="audience-arrow-btn" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+              </a>
+
+              <!-- Audience 4: Educators & Schools -->
+              <a class="audience-card" href="#proof" title="Learning Platforms for Educators & Schools">
+                <div>
+                  <div class="audience-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                  </div>
+                  <h3 class="audience-title">Educators &amp; Schools</h3>
+                  <p class="audience-desc">Learning platforms, admission systems, payment automation.</p>
+                </div>
+                <div class="audience-arrow-btn" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+              </a>
+
+              <!-- Audience 5: Businesses -->
+              <a class="audience-card" href="#proof" title="Digital Systems for Businesses">
+                <div>
+                  <div class="audience-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/>
+                    </svg>
+                  </div>
+                  <h3 class="audience-title">Businesses</h3>
+                  <p class="audience-desc">Websites, apps and digital systems to grow and operate.</p>
+                </div>
+                <div class="audience-arrow-btn" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
-
-    <!-- =========================================================
-         2. VALUE PROPOSITION SECTION (#vp)
-         Why Angsumi vs. Expensive Agencies
-         ========================================================= -->
-    <section class="vp-section" id="vp">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-badge">02 / Value Proposition</div>
-          <h2>Why pay ₹2–5 Lakh when you can get real results first?</h2>
-          <p>We build high-converting websites, intuitive mobile apps, and perform rigorous Bioinformatics &amp; Data Analysis tailored to your exact objectives — with zero agency overhead and zero risk.</p>
-        </div>
-
-        <div class="vp-banner">
-          <div>
-            <div class="kicker" style="color:#ca8a04; font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.1em">Risk-Free Engineering &amp; Research</div>
-            <h3>1st See Results, Then Pay. Built For Growth &amp; Discovery.</h3>
-          </div>
-          <div class="vp-features">
-            <div class="vp-feat-card">
-              <h4>🎯 1st Result, Then Payment</h4>
-              <p>See live working prototypes or preliminary data pipelines before full commitment. Work with 100% confidence.</p>
-            </div>
-            <div class="vp-feat-card">
-              <h4>🧬 Research-Grade Bioinformatics &amp; Analytics</h4>
-              <p>Genomic data pipelines, molecular modeling, phylogenetic trees, statistical tests, and publication-ready graphs.</p>
-            </div>
-            <div class="vp-feat-card">
-              <h4>🚀 SEO-Optimized Websites &amp; Fast Apps</h4>
-              <p>Built with Google SEO standards, sub-second load times, and distraction-free mobile interfaces.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Industry Solutions Grid -->
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px">
-          <h3 style="font-size:24px; font-weight:850; letter-spacing:-.03em">Tailored Solutions for Your Field</h3>
-          <div class="mobile-swipe-hint">Swipe ➔</div>
-        </div>
-        <div class="industries">
-          <article class="industry-card" onclick="location.href='#proof'">
-            <div>
-              <div class="icon">🧬</div>
-              <h3>Bioinformatics &amp; Data</h3>
-              <ul class="industry-bullets">
-                <li>Genomic &amp; NGS Analysis</li>
-                <li>Homology Modeling &amp; Docking</li>
-                <li>Statistical Analysis (R/Python)</li>
-                <li>Publication Visualizations</li>
-              </ul>
-            </div>
-            <a class="tag" href="#proof">Explore BioDataOS <span class="arrow">→</span></a>
-          </article>
-          <article class="industry-card" onclick="location.href='#proof'">
-            <div>
-              <div class="icon">✚</div>
-              <h3>Doctors &amp; Clinics</h3>
-              <ul class="industry-bullets">
-                <li>Appointments</li>
-                <li>Patient Records</li>
-                <li>Digital Prescriptions</li>
-                <li>WhatsApp Reminders</li>
-              </ul>
-            </div>
-            <a class="tag" href="#proof">Explore ClinicOS <span class="arrow">→</span></a>
-          </article>
-          <article class="industry-card" onclick="location.href='#proof'">
-            <div>
-              <div class="icon">🏫</div>
-              <h3>Schools &amp; Coaching</h3>
-              <ul class="industry-bullets">
-                <li>Online Admissions</li>
-                <li>Student Fee Tracking</li>
-                <li>Parent Notices</li>
-                <li>Attendance System</li>
-              </ul>
-            </div>
-            <a class="tag" href="#proof">Explore SchoolOS <span class="arrow">→</span></a>
-          </article>
-          <article class="industry-card" onclick="location.href='#proof'">
-            <div>
-              <div class="icon">📚</div>
-              <h3>Teachers &amp; Educators</h3>
-              <ul class="industry-bullets">
-                <li>Course Portals</li>
-                <li>Notes &amp; PDF Library</li>
-                <li>Automated Quizzes</li>
-                <li>Fee &amp; Payment Engine</li>
-              </ul>
-            </div>
-            <a class="tag" href="#proof">Explore LearnOS <span class="arrow">→</span></a>
-          </article>
-          <article class="industry-card" onclick="location.href='#proof'">
-            <div>
-              <div class="icon">🛍️</div>
-              <h3>Local Businesses</h3>
-              <ul class="industry-bullets">
-                <li>Product Catalogs</li>
-                <li>Lead Booking Engine</li>
-                <li>Google Maps SEO</li>
-                <li>Direct WhatsApp Orders</li>
-              </ul>
-            </div>
-            <a class="tag" href="#proof">Explore BusinessOS <span class="arrow">→</span></a>
-          </article>
-        </div>
-
-
-      </div>
-    </section>
+    </div>
+  </section>
 
     <!-- =========================================================
          3. PROOF SECTION (#proof)
@@ -1170,194 +2809,424 @@
          ========================================================= -->
     <section class="proof-section" id="proof">
       <div class="container">
-        <div class="section-head">
-          <div class="section-badge">03 / Proof of Work &amp; Services</div>
+        <div class="section-head proof-section-head">
+          <div class="section-badge">Proof of Work &amp; Services</div>
           <h2>Explore our client work, data solutions &amp; live platforms.</h2>
-          <p>From computational biology and statistical data analysis to high-performance web applications, see the solutions Angsumi delivers for real clients.</p>
         </div>
 
         <!-- Live Projects Grid -->
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px">
-          <h3 style="font-size:22px; font-weight:850; letter-spacing:-.025em">Featured Client Work &amp; Specialized Services</h3>
-          <div class="mobile-swipe-hint">Swipe ➔</div>
-        </div>
-        <div class="products">
+                <div class="products showcase-wrapper">
           <article class="product-card">
-            <div class="browser-bar">
-              <div class="browser-dots"><i></i><i></i><i></i></div>
-              <div class="browser-url">angsumi.online/bioinformatics-data</div>
-            </div>
-            <div class="product-top">
-              <div>
-                <div class="product-label">Client Service · 🟢 Active Service</div>
-                <h3>Bioinformatics &amp; Data Analysis</h3>
+            <div class="product-watermark">01</div>
+            <div class="product-top-row">
+              <div class="browser-bar">
+                <div class="browser-dots"><i></i><i></i><i></i></div>
+                <div class="browser-url">angsumi.online/bioinformatics</div>
               </div>
-              <span class="product-num">01</span>
             </div>
-            <p>End-to-end bioinformatics workflows, genomic data mining, 3D homology modeling, molecular docking, and scientific statistical analysis in R &amp; Python for research projects and client datasets.</p>
+            <div class="product-label">Client Service • 🟢 Active Service</div>
+            <h3>Bioinformatics &amp; Data Analysis</h3>
+            <p>End-to-end bioinformatics workflows, genomic data mining, 3D homology modeling, molecular docking, and scientific statistical analysis in R &amp; Python.</p>
             <ul class="feature-list">
-              <li>Genomic Data Science</li><li>Homology Modeling</li><li>R &amp; Python Analytics</li><li>Publication Graphs</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Genomic Data Science</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Homology Modeling</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> R &amp; Python Analytics</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Publication Graphs</li>
             </ul>
-            <a class="product-tag-btn" href="#cta"><span>Book Data Consultation</span> <span class="btn-badge">↗</span></a>
+            <a class="product-tag-btn" href="https://angsumi.online/MD-chakra/" target="_blank" rel="noopener">
+              <span>Client's Bioinformatics Dashboard</span> 
+              <span class="btn-badge">↗</span>
+            </a>
+            <div class="card-mockup-wrapper">
+              <div class="card-mockup-window">
+                <div class="card-mockup-header"><i></i><i></i><i></i></div>
+                <div class="iframe-container"><iframe class="preview-iframe" src="https://angsumi.online/MD-chakra/" tabindex="-1" aria-hidden="true"></iframe></div>
+              </div>
+            </div>
           </article>
 
           <article class="product-card">
-            <div class="browser-bar">
-              <div class="browser-dots"><i></i><i></i><i></i></div>
-              <div class="browser-url">trishul.tech</div>
-            </div>
-            <div class="product-top">
-              <div>
-                <div class="product-label">Solar &amp; EV Business · 🟢 Live Website</div>
-                <h3>Trishul Innovations</h3>
+            <div class="product-watermark">02</div>
+            <div class="product-top-row">
+              <div class="browser-bar">
+                <div class="browser-dots"><i></i><i></i><i></i></div>
+                <div class="browser-url">trishul.tech</div>
               </div>
-              <span class="product-num">02</span>
             </div>
+            <div class="product-label">Solar &amp; EV Business • 🟢 Live Website</div>
+            <h3>Trishul Innovations</h3>
             <p>Full corporate website created for a solar rooftop and electric vehicle solutions company in Assam, featuring product showcases and automated lead capture.</p>
             <ul class="feature-list">
-              <li>Solar Solutions</li><li>EV Showcase</li><li>Lead Form</li><li>Responsive Design</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Solar Solutions</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> EV Showcase</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Lead Form</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Responsive Design</li>
             </ul>
-            <a class="product-tag-btn" href="https://trishul.tech" target="_blank" rel="noopener"><span>Visit trishul.tech</span> <span class="btn-badge">↗</span></a>
+            <a class="product-tag-btn" href="https://trishul.tech" target="_blank" rel="noopener">
+              <span>Visit trishul.tech</span> 
+              <span class="btn-badge">↗</span>
+            </a>
+            <div class="card-mockup-wrapper">
+              <div class="card-mockup-window">
+                <div class="card-mockup-header"><i></i><i></i><i></i></div>
+                <div class="iframe-container"><iframe class="preview-iframe" src="https://trishul.tech" tabindex="-1" aria-hidden="true"></iframe></div>
+              </div>
+            </div>
           </article>
 
           <article class="product-card">
-            <div class="browser-bar">
-              <div class="browser-dots"><i></i><i></i><i></i></div>
-              <div class="browser-url">nipam-fb25f.web.app</div>
-            </div>
-            <div class="product-top">
-              <div>
-                <div class="product-label">Teacher Platform · 🟢 Live App</div>
-                <h3>NIPAM Learning App</h3>
+            <div class="product-watermark">03</div>
+            <div class="product-top-row">
+              <div class="browser-bar">
+                <div class="browser-dots"><i></i><i></i><i></i></div>
+                <div class="browser-url">nipam.web.app</div>
               </div>
-              <span class="product-num">03</span>
             </div>
+            <div class="product-label">Teacher Platform • 🟢 Live App</div>
+            <h3>NIPAM Learning App</h3>
             <p>Dedicated online teaching application engineered for educators — delivering structured lessons without expensive video hosting overhead.</p>
             <ul class="feature-list">
-              <li>Teacher UX</li><li>Web App</li><li>Low Infra Cost</li><li>Quiz Engine</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Teacher UX</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Web App</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Low Infra Cost</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Quiz Engine</li>
             </ul>
-            <a class="product-tag-btn" href="https://nipam-fb25f.web.app/" target="_blank" rel="noopener"><span>Open NIPAM App</span> <span class="btn-badge">↗</span></a>
+            <a class="product-tag-btn" href="https://nipam-fb25f.web.app/" target="_blank" rel="noopener">
+              <span>Open NIPAM App</span> 
+              <span class="btn-badge">↗</span>
+            </a>
+            <div class="card-mockup-wrapper">
+              <div class="card-mockup-window">
+                <div class="card-mockup-header"><i></i><i></i><i></i></div>
+                <div class="iframe-container"><iframe class="preview-iframe" src="https://nipam-fb25f.web.app/" tabindex="-1" aria-hidden="true"></iframe></div>
+              </div>
+            </div>
           </article>
 
           <article class="product-card">
-            <div class="browser-bar">
-              <div class="browser-dots"><i></i><i></i><i></i></div>
-              <div class="browser-url">angsumi.online/ADRE</div>
-            </div>
-            <div class="product-top">
-              <div>
-                <div class="product-label">Exam Preparation · 🟢 Live Portal</div>
-                <h3>AxomRank Prep Engine</h3>
+            <div class="product-watermark">04</div>
+            <div class="product-top-row">
+              <div class="browser-bar">
+                <div class="browser-dots"><i></i><i></i><i></i></div>
+                <div class="browser-url">angsumi.online/ADRE</div>
               </div>
-              <span class="product-num">04</span>
             </div>
+            <div class="product-label">Exam Preparation • 🟢 Live Portal</div>
+            <h3>AxomRank Prep Engine</h3>
             <p>Focused practice and mock test portal built for Assam's ADRE / SLRC examination candidates, providing fast mobile test-taking capabilities.</p>
             <ul class="feature-list">
-              <li>ADRE / SLRC</li><li>Mock Tests</li><li>Instant Scoring</li><li>Assam Exam Prep</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> ADRE / SLRC</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Mock Tests</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Instant Scoring</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Assam Exam Prep</li>
             </ul>
-            <a class="product-tag-btn" href="https://angsumi.online/ADRE/" target="_blank" rel="noopener"><span>Explore AxomRank</span> <span class="btn-badge">↗</span></a>
+            <a class="product-tag-btn" href="https://angsumi.online/ADRE/" target="_blank" rel="noopener">
+              <span>Explore AxomRank</span> 
+              <span class="btn-badge">↗</span>
+            </a>
+            <div class="card-mockup-wrapper">
+              <div class="card-mockup-window">
+                <div class="card-mockup-header"><i></i><i></i><i></i></div>
+                <div class="iframe-container"><iframe class="preview-iframe" src="https://angsumi.online/ADRE/" tabindex="-1" aria-hidden="true"></iframe></div>
+              </div>
+            </div>
           </article>
         </div>
-
-
 
         <!-- Pricing Grid -->
         <div class="pricing-wrap" id="pricing">
-          <div class="section-head" style="margin-bottom:32px">
-            <div class="kicker" style="color:var(--brand); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.1em">Transparent Pricing</div>
-            <h2>Start small. Spend sensibly. Grow when ready.</h2>
-            <p>Clear upfront pricing with zero hidden fees. Final investment depends on your required features, dataset size, and custom integrations.</p>
+          <div class="pricing-header-row">
+            <div class="section-head" style="margin-bottom:0; max-width: 680px; text-align: center;">
+              <div class="pricing-kicker">PRICING</div>
+              <h2 style="font-size: clamp(24px, 3vw, 36px); margin-top: 4px; margin-bottom: 8px;">Start small. Spend sensibly. <span style="color:#0c3e35;">Grow when ready.</span></h2>
+              <p style="font-size: 14.5px; margin-top: 6px; line-height: 1.45;">Clear upfront pricing with zero hidden fees. Final investment depends on your required features, dataset size, and custom integrations.</p>
+            </div>
           </div>
 
           <div class="prices">
-            <article class="price-card">
-              <div>
-                <div class="kicker">Starter</div>
-                <h3>Website Launch</h3>
-                <div class="amount">From ₹2,000</div>
-                <p style="font-size:13px; color:var(--muted)">For a fast, professional first digital presence.</p>
-                <ul>
-                  <li>Responsive 1–3 Page Website</li>
-                  <li>Contact &amp; WhatsApp Lead Form</li>
-                  <li>Google Search Indexing &amp; SEO</li>
-                  <li>Mobile-Optimized Layout</li>
-                </ul>
+            <!-- Card 1: Starter -->
+            <article class="price-card theme-green">
+              <div class="price-top">
+                <div class="price-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </div>
+                <div class="kicker-top">Starter</div>
               </div>
-              <a class="secondary" style="width:100%; justify-content:center; text-align:center" href="#cta">Start Starter Website</a>
+              <h3>Website Launch</h3>
+              <div class="amount-wrap">
+                <div class="amount-main">$24</div>
+                <div class="amount-sub">₹2,000</div>
+              </div>
+              <p class="desc">For a fast, professional first digital presence.</p>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Responsive 1–3 Page Website</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Contact &amp; WhatsApp Lead Form</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Google Search Indexing &amp; SEO</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Mobile-Optimized Layout</li>
+              </ul>
+              <a class="price-btn" href="#cta">Start Starter Website &rarr;</a>
             </article>
 
-            <article class="price-card featured">
-              <span class="popular">MOST POPULAR</span>
-              <div>
-                <div class="kicker">Growth</div>
-                <h3>Business Web Portal</h3>
-                <div class="amount">From ₹5,000</div>
-                <p style="font-size:13px; color:var(--muted)">For growing businesses ready to collect inquiries &amp; manage content.</p>
-                <ul>
-                  <li>Multi-Page Business Website</li>
-                  <li>Content Management Setup</li>
-                  <li>Analytics &amp; Visitor Tracking</li>
-                  <li>Google Maps &amp; SEO Package</li>
-                  <li>Domain &amp; SSL Launch Support</li>
-                </ul>
+            <!-- Card 2: Growth -->
+            <article class="price-card theme-orange">
+              <span class="popular-badge">MOST POPULAR</span>
+              <div class="price-top">
+                <div class="price-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="3" width="4" height="18"></rect><rect x="10" y="8" width="4" height="13"></rect><rect x="2" y="13" width="4" height="8"></rect></svg>
+                </div>
+                <div class="kicker-top">Growth</div>
               </div>
-              <a class="primary" style="width:100%; justify-content:center; text-align:center" href="#cta">Get Growth Quote →</a>
+              <h3>Business Web Portal</h3>
+              <div class="amount-wrap">
+                <div class="amount-main">$60</div>
+                <div class="amount-sub">₹5,000</div>
+              </div>
+              <p class="desc">For growing businesses ready to collect inquiries &amp; manage content.</p>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-Page Business Website</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Content Management Setup</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Analytics &amp; Visitor Tracking</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Google Maps &amp; SEO Package</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Domain &amp; SSL Launch Support</li>
+              </ul>
+              <a class="price-btn" href="#cta">Get Growth Quote &rarr;</a>
             </article>
 
-            <article class="price-card">
-              <div>
-                <div class="kicker">Research &amp; Analytics</div>
-                <h3>Bioinformatics &amp; Data</h3>
-                <div class="amount">From ₹3,000</div>
-                <p style="font-size:13px; color:var(--muted)">For researchers, academicians &amp; data-driven clients.</p>
-                <ul>
-                  <li>Genomic Sequence &amp; NGS Analysis</li>
-                  <li>Homology Modeling &amp; Molecular Docking</li>
-                  <li>Statistical Analysis in R / Python</li>
-                  <li>Publication-Quality Plots &amp; Reports</li>
-                  <li>Custom Reproducible Scripts</li>
-                </ul>
+            <!-- Card 3: Research -->
+            <article class="price-card theme-blue">
+              <div class="price-top">
+                <div class="price-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2.5l5 5"></path><path d="M9.5 7.5l5 5"></path><path d="M4.5 12.5l5 5"></path><path d="M2.5 14.5l5 5"></path><path d="M19.5 9.5l-5-5"></path><path d="M14.5 14.5l-5-5"></path><path d="M9.5 19.5l-5-5"></path></svg>
+                </div>
+                <div class="kicker-top">Research &amp; Analytics</div>
               </div>
-              <a class="secondary" style="width:100%; justify-content:center; text-align:center" href="#cta">Inquire Data Project</a>
+              <h3>Bioinformatics &amp; Data</h3>
+              <div class="amount-wrap">
+                <div class="amount-main">$24</div>
+                <div class="amount-sub">₹2,000</div>
+              </div>
+              <p class="desc">For researchers, academicians &amp; data-driven clients.</p>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Genomics, transcriptomics, metagenomics, metabolomics</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Data analysis of all domains</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Eco-informatics</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Econometrics</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Statistical analysis in R / Python</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Publication-quality plots &amp; reports</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom reproducible scripts</li>
+              </ul>
+              <a class="price-btn" href="#cta">Inquire Data Project &rarr;</a>
             </article>
 
-            <article class="price-card">
-              <div>
-                <div class="kicker">Platform</div>
-                <h3>Custom App / System</h3>
-                <div class="amount">From ₹15,000</div>
-                <p style="font-size:13px; color:var(--muted)">For custom management workflows, portals &amp; mobile apps.</p>
-                <ul>
-                  <li>Custom Web Application</li>
-                  <li>Doctor/School Management Modules</li>
-                  <li>Payment Gateway Integration</li>
-                  <li>Android &amp; iOS App Options</li>
-                  <li>Priority Ongoing Support</li>
-                </ul>
+            <!-- Card 4: Platform -->
+            <article class="price-card theme-purple">
+              <div class="price-top">
+                <div class="price-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>
+                </div>
+                <div class="kicker-top">Platform</div>
               </div>
-              <a class="secondary" style="width:100%; justify-content:center; text-align:center" href="#cta">Discuss Custom Platform</a>
+              <h3>Custom App / System</h3>
+              <div class="amount-wrap">
+                <div class="amount-main">$180</div>
+                <div class="amount-sub">₹15,000</div>
+              </div>
+              <p class="desc">For custom management workflows, portals &amp; mobile apps.</p>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom Web Application</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Doctor/School Management Modules</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Payment Gateway Integration</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Android &amp; iOS App Options</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority Ongoing Support</li>
+              </ul>
+              <a class="price-btn" href="#cta">Discuss Custom Platform &rarr;</a>
             </article>
           </div>
         </div>
-
-
       </div>
     </section>
 
-    <!-- =========================================================
+    
+
+        <!-- =========================================================
+         4. CALL TO ACTION & CONTACT SECTION (#cta)
+         Direct Conversions & Form Inquiries
+         ========================================================= -->
+    <section class="cta-section" id="cta">
+      <!-- Decorative Botanical Foliage Background Elements -->
+      <div class="botanical-bg botanical-top-right" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="none">
+          <path d="M40 180 C40 100, 100 40, 180 20 C180 100, 120 160, 40 180 Z" fill="rgba(16, 185, 129, 0.08)"/>
+          <path d="M70 150 C80 90, 130 50, 190 40 C170 100, 130 140, 70 150 Z" fill="rgba(5, 150, 105, 0.06)"/>
+        </svg>
+      </div>
+      <div class="botanical-bg botanical-bottom-left" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="none">
+          <path d="M160 20 C160 100, 100 160, 20 180 C20 100, 80 40, 160 20 Z" fill="rgba(16, 185, 129, 0.08)"/>
+        </svg>
+      </div>
+
+      <div class="container">
+        <div class="glass-form-card">
+          <!-- Card Header -->
+          <div class="form-card-header">
+            <div class="form-leaf-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 4 13C4 8.5 7.5 4 12 3c4.5 0 8 4.5 8 10a7 7 0 0 1-7 7z"/>
+                <path d="M12 3v17"/>
+              </svg>
+            </div>
+            <div class="form-header-text">
+              <h2>Send Us Your Requirements</h2>
+              <p>Fill out the form below and we'll get back to you with a customized proposal.</p>
+            </div>
+          </div>
+          <div class="form-accent-bar" aria-hidden="true"></div>
+
+          <!-- The Form -->
+          <form action="https://formspree.io/f/xwlegzkn" method="POST" id="requirementsForm">
+            <input type="hidden" name="_subject" value="New Angsumi Project / Data Inquiry">
+            <input type="hidden" name="_next" value="https://angsumi.online/">
+
+            <!-- Field: Your Name -->
+            <div class="field-group">
+              <label for="form_name">Your Name</label>
+              <div class="input-icon-wrap">
+                <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                </svg>
+                <input id="form_name" required name="name" type="text" placeholder="Enter your full name">
+              </div>
+            </div>
+
+            <!-- Row: Phone & Email -->
+            <div class="form-grid-row">
+              <div class="field-group">
+                <label for="form_phone">Phone / WhatsApp Number</label>
+                <div class="input-icon-wrap">
+                  <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                  <input id="form_phone" required name="phone" type="tel" placeholder="+91 78965 95109">
+                </div>
+              </div>
+              <div class="field-group">
+                <label for="form_email">Your Email Address</label>
+                <div class="input-icon-wrap">
+                  <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                  <input id="form_email" required name="email" type="email" placeholder="you@example.com">
+                </div>
+              </div>
+            </div>
+
+            <!-- Row: What do you represent & What service do you need -->
+            <div class="form-grid-row">
+              <div class="field-group">
+                <label for="form_represent">What do you represent?</label>
+                <div class="select-wrap">
+                  <select id="form_represent" required name="business_type">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Researcher / Academic / University">🎓 &nbsp;Researcher / Academic / University</option>
+                    <option value="Doctor / Clinic / Hospital">➕ &nbsp;Doctor / Clinic / Hospital</option>
+                    <option value="School / Coaching Institute">📖 &nbsp;School / Coaching Institute</option>
+                    <option value="Teacher / Course Creator">👤 &nbsp;Teacher / Course Creator</option>
+                    <option value="Local Business / Store">🏪 &nbsp;Local Business / Store</option>
+                    <option value="Biotech / Pharma Startup">🔬 &nbsp;Biotech / Pharma Startup</option>
+                    <option value="Other / Entrepreneur">💬 &nbsp;Other / Entrepreneur</option>
+                  </select>
+                  <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="field-group">
+                <label for="form_service">What service do you need?</label>
+                <div class="select-wrap">
+                  <select id="form_service" required name="project_type">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Bioinformatics & Genomic Data Analysis">🧬 &nbsp;Bioinformatics &amp; Genomic Data Analysis</option>
+                    <option value="Statistical / Scientific Data Analysis (R/Python)">📊 &nbsp;Statistical / Scientific Data Analysis (R/Python)</option>
+                    <option value="Starter Website (From ₹2,000)">💻 &nbsp;Starter Website (From ₹2,000)</option>
+                    <option value="Business Web Portal (From ₹5,000)">🗂 &nbsp;Business Web Portal (From ₹5,000)</option>
+                    <option value="Mobile App (Android / iOS)">📱 &nbsp;Mobile App (Android / iOS)</option>
+                    <option value="Website + Mobile App Package">📚 &nbsp;Website + Mobile App Package</option>
+                    <option value="Clinic / School Management System">⚙️ &nbsp;Clinic / School Management System</option>
+                    <option value="Not sure yet — Need Consultation">❓ &nbsp;Not sure yet — Need Consultation</option>
+                  </select>
+                  <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row: Approximate Budget & Brief Project Details -->
+            <div class="form-grid-row form-grid-bottom">
+              <div class="field-group">
+                <label for="form_budget">Approximate Budget</label>
+                <div class="select-wrap">
+                  <select id="form_budget" required name="budget">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Under ₹5,000">🪙 &nbsp;Under ₹5,000</option>
+                    <option value="₹5,000 – ₹15,000">🪙 &nbsp;₹5,000 – ₹15,000</option>
+                    <option value="₹15,000 – ₹30,000">🪙 &nbsp;₹15,000 – ₹30,000</option>
+                    <option value="₹30,000+">🪙 &nbsp;₹30,000+</option>
+                    <option value="Flexible / Discuss First">💬 &nbsp;Flexible / Discuss First</option>
+                  </select>
+                  <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="field-group">
+                <label for="form_details">Brief Project Details</label>
+                <div class="textarea-icon-wrap">
+                  <svg class="textarea-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                  </svg>
+                  <textarea id="form_details" required name="project_details" placeholder="Briefly describe what you want to build or what dataset/research problem you need analyzed..." maxlength="1000"></textarea>
+                  <span class="char-count">0/1000</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button class="glass-submit-btn" type="submit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+              <span>Get Free Proposal / Blueprint</span>
+              <span class="btn-arrow">&rarr;</span>
+            </button>
+
+            <!-- Trust Badge -->
+            <div class="form-trust-footer">
+              <svg class="shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>
+              </svg>
+              <span>Your inquiry is sent securely to Angsumi. We usually respond within a few hours via WhatsApp or email.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+<!-- =========================================================
          4. FREQUENTLY ASKED QUESTIONS (#faq)
          High-Intent Query Answers & On-Page SEO
          ========================================================= -->
     <section class="faq-section" id="faq">
       <div class="container">
-        <div class="section-badge" style="display:table; margin:0 auto 12px;">Got Questions?</div>
-        <div class="section-head" style="text-align:center; margin:0 auto 36px;">
+        <div class="section-badge" style="display:table; margin:0 auto 6px;">Got Questions?</div>
+        <div class="section-head" style="text-align:center; margin:0 auto 12px;">
           <h2>Frequently Asked Questions</h2>
           <p>Everything you need to know about our web development, bioinformatics, data analysis, and pricing.</p>
         </div>
 
         <div class="faq-list">
-          <details class="faq-item" open>
+          <details class="faq-item">
             <summary class="faq-question">What bioinformatics and data analysis services do you offer for clients?</summary>
             <div class="faq-answer">
               We provide comprehensive <strong>Bioinformatics &amp; Data Analysis consulting</strong> including: Genomic &amp; NGS data analysis, protein homology modeling, molecular docking, sequence alignment &amp; phylogenetics, biological and statistical data processing in R and Python, publication-grade figures, and custom data workflows for university researchers, clinicians, biotech startups, and students.
@@ -1408,91 +3277,6 @@
         </div>
       </div>
     </section>
-
-    <!-- =========================================================
-         5. CALL TO ACTION & CONTACT SECTION (#cta)
-         Direct Conversions & Form Inquiries
-         ========================================================= -->
-    <section class="cta-section" id="cta">
-      <div class="container">
-        <div class="contact-box">
-          <div class="contact-left">
-            <div class="section-badge" style="background:#1e293b; color:#38bdf8; border-color:#334155">04 / Instant Quote &amp; Launch</div>
-            <h2>Ready to build your digital system or analyze your data? Let's talk.</h2>
-            <p>Tell us what your business or research project needs. We'll send you an honest proposal with the simplest, most sensible solution.</p>
-
-            <div class="contact-badges">
-              <span class="contact-badge">⚡ Fast Proposal</span>
-              <span class="contact-badge">✓ Sensible Pricing</span>
-              <span class="contact-badge">🔒 100% Confidential &amp; Secure</span>
-            </div>
-
-            <div class="contact-info">
-              <a class="contact-chip wa" href="https://wa.me/917896595109?text=Hi%20Angsumi%2C%20I%20want%20to%20discuss%20a%20website%2Fbioinformatics%2Fdata%20project." target="_blank" rel="noopener">
-                <span>Phone number:</span> <strong>+91 78965 95109</strong>
-              </a>
-              <a class="contact-chip" href="mailto:angudas62@gmail.com">
-                <span>✉ Email Direct:</span> <strong>angudas62@gmail.com</strong>
-              </a>
-            </div>
-          </div>
-
-          <form action="https://formspree.io/f/xwlegzkn" method="POST">
-            <input type="hidden" name="_subject" value="New Angsumi Project / Data Inquiry">
-            <input type="hidden" name="_next" value="https://angsumi.online/">
-
-            <div class="form-row">
-              <input required name="name" placeholder="Your Name">
-              <input required name="phone" type="tel" placeholder="Phone / WhatsApp Number">
-            </div>
-
-            <input required name="email" type="email" placeholder="Your Email Address">
-
-            <select required name="business_type">
-              <option value="">What do you represent?</option>
-              <option>Researcher / Academic / University</option>
-              <option>Doctor / Clinic / Hospital</option>
-              <option>School / Coaching Institute</option>
-              <option>Teacher / Course Creator</option>
-              <option>Local Business / Store</option>
-              <option>Biotech / Pharma Startup</option>
-              <option>Other / Entrepreneur</option>
-            </select>
-
-            <select required name="project_type">
-              <option value="">What service do you need?</option>
-              <option>Bioinformatics &amp; Genomic Data Analysis</option>
-              <option>Statistical / Scientific Data Analysis (R/Python)</option>
-              <option>Starter Website (From ₹2,000)</option>
-              <option>Business Web Portal (From ₹5,000)</option>
-              <option>Mobile App (Android / iOS)</option>
-              <option>Website + Mobile App Package</option>
-              <option>Clinic / School Management System</option>
-              <option>Not sure yet — Need Consultation</option>
-            </select>
-
-            <select required name="budget">
-              <option value="">Approximate Budget</option>
-              <option>Under ₹5,000</option>
-              <option>₹5,000 – ₹15,000</option>
-              <option>₹15,000 – ₹30,000</option>
-              <option>₹30,000+</option>
-              <option>Flexible / Discuss First</option>
-            </select>
-
-            <textarea required name="project_details" placeholder="Briefly describe what you want to build or what dataset/research problem you need analyzed..."></textarea>
-
-            <button class="form-submit-btn" type="submit">
-              <span>Get Free Proposal / Blueprint</span>
-              <span class="form-btn-arrow">→</span>
-            </button>
-            <small style="color:#94a3b8; font-size:12px; text-align:center; display:block; margin-top:4px">
-              Your inquiry is sent securely to Angsumi. We usually respond within a few hours via WhatsApp or email.
-            </small>
-          </form>
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- Mobile Bottom Sticky Bar for 1-Tap WhatsApp Consultation -->
@@ -1507,8 +3291,13 @@
     <div class="container footer-grid">
       <!-- Column 1: Brand & Contact -->
       <div class="footer-brand">
-        <a class="logo" href="/">
-          <span class="logo-mark"><img src="logo.png" alt="Angsumi logo"></span>angsumi
+        <a class="logo" href="/" aria-label="Angsumi Home">
+          <div class="logo-box">
+            <div class="logo-wordmark">
+              angsum<span class="logo-i-wrap">i<span class="logo-sprout"><svg viewBox="0 0 16 16" fill="none"><path d="M8 2C8 2 11.5 4 11 7.5C10.5 10 8.5 10.5 8 10.5C7.5 10.5 5.5 10 5 7.5C4.5 4 8 2 8 2Z" fill="#059669"/><path d="M8 6C9.5 4.5 13 5 14 7.5C14.5 9 13.5 11 11.5 11C9.5 11 8.2 9 8 7.5" fill="#10b981"/></svg></span></span>
+            </div>
+            <div class="logo-subtitle">RESEARCH &bull; DATA &bull; CODE &bull; BUILD</div>
+          </div>
         </a>
         <p>
           High-converting digital systems, modern websites, and scientific Bioinformatics &amp; Data Analysis solutions engineered for growing businesses and researchers.
@@ -1625,16 +3414,27 @@
       links.style.display = isVisible ? 'none' : 'flex';
       if (!isVisible) {
         links.style.position = 'absolute';
-        links.style.top = '76px';
+        links.style.top = '78px';
         links.style.left = '0';
         links.style.right = '0';
-        links.style.padding = '20px 24px';
-        links.style.background = 'rgba(247, 248, 250, 0.98)';
+        links.style.padding = '22px 24px';
+        links.style.background = 'rgba(255, 255, 255, 0.98)';
+        links.style.backdropFilter = 'blur(16px)';
         links.style.flexDirection = 'column';
         links.style.alignItems = 'flex-start';
+        links.style.gap = '14px';
         links.style.borderBottom = '1px solid var(--line)';
-        links.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)';
+        links.style.boxShadow = '0 12px 30px rgba(0,0,0,0.06)';
       }
+    }
+
+    // Live character counter for project details
+    const detailsInput = document.getElementById('form_details');
+    const charCounter = document.querySelector('.char-count');
+    if (detailsInput && charCounter) {
+      detailsInput.addEventListener('input', () => {
+        charCounter.textContent = `${detailsInput.value.length}/1000`;
+      });
     }
   </script>
 </body>
