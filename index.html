@@ -3442,10 +3442,11 @@
       workshopSubtotal.textContent = region ? (price || 'INR price pending') : 'Choose region';
       workshopDiscountAmount.textContent = price ? `−${price}` : '100% off';
       workshopTotal.textContent = workshopCouponApplied ? (region === 'india' ? '₹0' : '$0.00') : (price || (region === 'india' ? 'INR price pending' : '—'));
-      workshopSubmit.textContent = workshopCouponApplied ? 'Complete free registration →' : region === 'india' ? 'Continue to Indian checkout →' : region === 'international' ? 'Continue to PayPal →' : 'Choose a payment region';
-      workshopAssurance.textContent = workshopCouponApplied ? 'No payment needed. Your joining links appear after registration.' : region === 'india' ? 'Payment is completed with the Indian payment provider. Use the same email there.' : region === 'international' ? 'Payment is completed on PayPal. Use the same email there so we can match your registration.' : 'Choose a region to see the checkout option.';
-      workshopSubmit.disabled = !region || (!workshopCouponApplied && (!price || !workshopPaymentLinks[region]));
-      workshopStatus.textContent = !region || workshopCouponApplied ? '' : !price ? 'The India price is being finalized. You can still register with a valid coupon.' : !workshopPaymentLinks[region] ? 'This payment checkout is being connected. You can still register with a valid coupon.' : '';
+      const paymentReady = Boolean(region && price && workshopPaymentLinks[region]);
+      workshopSubmit.textContent = workshopCouponApplied ? 'Complete free registration →' : !region ? 'Choose a payment region' : !paymentReady ? 'Payment setup pending' : region === 'india' ? 'Continue to Indian checkout →' : 'Continue to PayPal →';
+      workshopAssurance.textContent = workshopCouponApplied ? 'No payment needed. Your joining links appear after registration.' : !region ? 'Choose a region to see the checkout option.' : !paymentReady ? 'Paid checkout is unavailable until its payment link is connected.' : region === 'india' ? 'Payment is completed with the Indian payment provider. Use the same email there.' : 'Payment is completed on PayPal. Use the same email there so we can match your registration.';
+      workshopSubmit.disabled = !region || (!workshopCouponApplied && !paymentReady);
+      workshopStatus.textContent = !region || workshopCouponApplied ? '' : !price ? 'The India price is being finalized. You can still register with a valid coupon.' : !paymentReady ? `${region === 'india' ? 'Indian' : 'PayPal'} payment link has not been added yet. GBF still works for free registration.` : '';
       workshopStatus.dataset.error = 'false';
     }
     document.getElementById('openWorkshop').addEventListener('click', () => {
