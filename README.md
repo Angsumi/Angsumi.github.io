@@ -22,6 +22,11 @@ The official digital agency portfolio website for Angsumi. Hosted directly on Gi
 ## 🔗 Live Site
 Visit the live portfolio at: [https://angsumi.online](https://angsumi.online)
 
+## Google Analytics 4
+Public site pages load `/assets/analytics-consent.js` with GA4 Measurement ID `G-DKV62LEMV2`. The Google tag loads only after a visitor accepts analytics; rejection sends no Analytics request from this script. Visitors can reopen **Privacy choices** and change their decision; the saved choice expires after 180 days. The script sends a single page view per page load using URLs and referrers without query strings, keeps advertising consent denied, and does not attach form values or attendee details to analytics events. A successful workshop form submission also sends GA4's `generate_lead` event with a fixed free/pending label, only when analytics is accepted.
+
+In the GA4 web stream, disable Enhanced Measurement events that collect form interactions or automatic history-based page views, so they cannot duplicate the site's controlled page views. Set your preferred data retention and internal-traffic exclusions in Analytics Admin, then verify an opt-in visit in Realtime and a rejected visit in browser network tools.
+
 ## Learn GitHub workshop checkout
 The homepage footer opens a workshop registration dialog. The price is $20 USD internationally or ₹2,000 in India. Coupon `GBF` changes the selected total to zero and sends the attendee's name and email to the existing Formspree inbox. After a successful free registration, the dialog displays the Google Meet link and calendar event. The browser does not automatically send an email or WhatsApp message to the attendee.
 

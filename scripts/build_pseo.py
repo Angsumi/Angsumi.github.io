@@ -221,6 +221,7 @@ def get_city_html(state, city):
   <style>
   {CSS_STYLES}
   </style>
+  <script defer src="/assets/analytics-consent.js"></script>
 </head>
 <body>
 
@@ -920,6 +921,7 @@ def get_state_html(state):
   <style>
   {CSS_STYLES}
   </style>
+  <script defer src="/assets/analytics-consent.js"></script>
 </head>
 <body>
 
@@ -1206,6 +1208,7 @@ def get_hub_html():
   <style>
   {CSS_STYLES}
   </style>
+  <script defer src="/assets/analytics-consent.js"></script>
 </head>
 <body>
 

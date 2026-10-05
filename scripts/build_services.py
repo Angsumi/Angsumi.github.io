@@ -156,6 +156,7 @@ def get_service_html(s):
   <style>
 {CSS_STYLES}
   </style>
+  <script defer src="/assets/analytics-consent.js"></script>
 </head>
 <body>
   <header class="nav">
@@ -521,6 +522,7 @@ def get_services_hub_html():
   <style>
 {CSS_STYLES}
   </style>
+  <script defer src="/assets/analytics-consent.js"></script>
 </head>
 <body>
   <header class="nav">

@@ -100,6 +100,7 @@ def get_calculator_html():
     .calc-card-hero {{ border: none; box-shadow: none; padding: 0; }}
   }}
   </style>
+  <script defer src="/assets/analytics-consent.js"></script>
 </head>
 <body>
   <header class="nav">
@@ -481,6 +482,7 @@ def get_tools_hub_html():
   <style>
 {CSS_STYLES}
   </style>
+  <script defer src="/assets/analytics-consent.js"></script>
 </head>
 <body>
   <header class="nav">

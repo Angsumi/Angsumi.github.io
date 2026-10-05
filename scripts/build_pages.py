@@ -279,6 +279,7 @@ def build_about():
       .highlight-card {{ position: static; }}
     }}
   </style>
+  <script defer src="/assets/analytics-consent.js"></script>
 </head>
 <body>
 
@@ -397,6 +398,7 @@ def build_privacy():
   <style>
 {BASE_CSS}
   </style>
+  <script defer src="/assets/analytics-consent.js"></script>
 </head>
 <body>
 
@@ -414,7 +416,7 @@ def build_privacy():
       <div class="badge">🔒 Trust &amp; Transparency</div>
       <h1>Privacy Policy</h1>
       <p class="hero-sub">
-        Last updated: March 2026. Your privacy and data sovereignty are fundamental to how we build software.
+        Last updated: October 2026. Your privacy and data sovereignty are fundamental to how we build software.
       </p>
     </div>
   </section>
@@ -432,7 +434,7 @@ def build_privacy():
         <ul>
           <li><strong>Contact Details:</strong> Name, email address, phone/WhatsApp number provided in contact forms.</li>
           <li><strong>Project Requirements:</strong> Business type, budget range, and platform feature requests submitted via our inquiry form or cost calculator.</li>
-          <li><strong>Technical Data:</strong> Anonymized browser type, operating system, and performance metrics collected solely to monitor Core Web Vitals and site availability.</li>
+          <li><strong>Technical Data:</strong> If you accept analytics, Google Analytics may process your browser and device information, page titles and paths, referring page, and a browser identifier stored in analytics cookies. Our tag removes URL query strings from the page URLs it sends.</li>
         </ul>
 
         <h2>3. How We Use Your Information</h2>
@@ -451,12 +453,12 @@ def build_privacy():
 
         <h2>5. Cookies &amp; Analytics</h2>
         <p>
-          Our website uses minimal, privacy-respecting cookies necessary for core website functionality (such as remembering user selections on interactive calculators). If Google Analytics or Google AdSense is enabled, standard anonymized cookies may be used by Google in accordance with Google's Privacy &amp; Terms.
+          Our website stores your analytics choice locally. Google Analytics loads only after you select <strong>Accept analytics</strong>. If you reject analytics, our Google Analytics tag does not load. You can change your choice using the <strong>Privacy choices</strong> control on the site. When accepted, Google Analytics uses first-party cookies to measure visits and non-personal workshop signup events; our tag configures those cookies to expire after 30 days and does not intentionally send names, email addresses, form entries, or URL query strings. Advertising consent remains denied. Google may process analytics data under its <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.
         </p>
 
         <h2>6. Third-Party Services &amp; Form Processing</h2>
         <p>
-          We use secure third-party processors such as Formspree for handling inquiry form transmissions over encrypted SSL/TLS connections. These providers process data strictly on our instructions and maintain industry-standard security protocols.
+          We use Formspree to handle inquiry and workshop registration forms, and Google Analytics for site measurement only when you opt in. Form data is sent to Formspree, not intentionally to Google Analytics. Each provider processes information under its own terms and privacy policy.
         </p>
 
         <h2>7. Data Security &amp; Retention</h2>
@@ -511,6 +513,7 @@ def build_terms():
   <style>
 {BASE_CSS}
   </style>
+  <script defer src="/assets/analytics-consent.js"></script>
 </head>
 <body>
 
@@ -622,6 +625,7 @@ def build_404():
     }}
     .quick-link:hover {{ background: var(--soft); border-color: #b0ccff; color: var(--brand); }}
   </style>
+  <script defer src="/assets/analytics-consent.js"></script>
 </head>
 <body>
 
@@ -774,6 +778,7 @@ def build_tech_detector():
       .tool-box {{ padding: 24px 18px; }}
     }}
   </style>
+  <script defer src="/assets/analytics-consent.js"></script>
 </head>
 <body>
 
