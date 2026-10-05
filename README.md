@@ -19,6 +19,13 @@ The official digital agency portfolio website for Angsumi. Hosted directly on Gi
 2. **View Locally:**
    Open `index.html` in your web browser.
 
+## Repository layout
+- `index.html`, `404.html`, and the top-level image/icon files are published at their current URLs. Keep these paths stable when tidying assets.
+- `about/`, `business/`, `locations/`, `services/`, `tools/`, `learning/`, `privacy-policy/`, and `terms/` contain site pages.
+- `assets/` contains shared site scripts; `cv/` contains the separate CV pages and their assets.
+- `scripts/` contains page generators and their source data. Regenerate pages from these files when changing generated content.
+- `.github/workflows/` contains deployment automation. Local credentials and generated Python files are excluded by `.gitignore`.
+
 ## 🔗 Live Site
 Visit the live portfolio at: [https://angsumi.online](https://angsumi.online)
 
