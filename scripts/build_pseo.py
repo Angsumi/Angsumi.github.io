@@ -1351,7 +1351,7 @@ def update_sitemap(all_urls):
         ("https://angsumi.online/Flood-Relief/", "monthly", "0.75"),
         ("https://angsumi.online/genone/", "monthly", "0.75"),
         ("https://angsumi.online/map/", "monthly", "0.75"),
-        ("https://angsumi.online/MD-chakra/", "monthly", "0.75"),
+        ("https://angsumi.online/MD_RNAseq/", "monthly", "0.75"),
         ("https://angsumi.online/MSEHS/", "monthly", "0.75"),
         ("https://angsumi.online/pitch/", "monthly", "0.7"),
         ("https://angsumi.online/Portfolio_Maker/", "monthly", "0.75"),
