@@ -85,6 +85,20 @@
     });
   };
 
+  // Closed vocabularies only. User-entered fields and arbitrary URLs never cross this boundary.
+  window.angsumiTrackBusiness = function (event, context = {}) {
+    const events = ['cta_click', 'form_start', 'form_abandonment', 'generate_lead', 'resource_download', 'calculator_usage', 'service_visit'];
+    if (!tagLoaded || currentChoice !== 'accepted' || !events.includes(event)) return;
+    const category = ['research', 'digital', 'training'].includes(context.category) ? context.category : 'other';
+    const campaign = ['research-checklist', 'digital-readiness', 'bioinformatics-labs', 'workshop'].includes(context.campaign) ? context.campaign : 'none';
+    window.gtag('event', event, { service_category: category, resource_campaign: campaign, send_to: measurementId });
+  };
+
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[data-growth-event]');
+    if (link) window.angsumiTrackBusiness(link.dataset.growthEvent, {category:link.dataset.category, campaign:link.dataset.campaign});
+  });
+
   function buildControls() {
     const style = document.createElement('style');
     style.textContent = `

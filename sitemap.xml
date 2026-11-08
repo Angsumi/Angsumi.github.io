@@ -213,4 +213,15 @@
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
+<url><loc>https://angsumi.online/inquiry/</loc></url>
+<url><loc>https://angsumi.online/resources/</loc></url>
+<url><loc>https://angsumi.online/resources/labs/</loc></url>
+<url><loc>https://angsumi.online/portfolio/</loc></url>
+<url><loc>https://angsumi.online/training/</loc></url>
+<url><loc>https://angsumi.online/services/rna-seq-analysis/</loc></url>
+<url><loc>https://angsumi.online/services/metagenomics-analysis/</loc></url>
+<url><loc>https://angsumi.online/services/bioinformatics-consulting/</loc></url>
+<url><loc>https://angsumi.online/services/scientific-data-analysis/</loc></url>
+<url><loc>https://angsumi.online/services/scientific-figure-preparation/</loc></url>
+<url><loc>https://angsumi.online/services/python-research-automation/</loc></url>
 </urlset>
