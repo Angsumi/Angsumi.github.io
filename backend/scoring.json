@@ -1,0 +1,10 @@
+{
+  "category_relevance": 20,
+  "clear_requirements": 20,
+  "known_budget": 10,
+  "ready_to_start": 20,
+  "defined_timeline": 15,
+  "organization_context": 15,
+  "high_threshold": 70,
+  "medium_threshold": 40
+}

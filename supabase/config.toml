@@ -1,0 +1,9 @@
+# Gateway remains enabled; public intake uses the standard anon client key and admin routes also verify the owner.
+[functions.lead-api]
+verify_jwt = true
+entrypoint = "./functions/lead-api/index.js"
+
+# The worker separately validates a high-entropy secret. Never expose it in browser code.
+[functions.lead-notifications]
+verify_jwt = true
+entrypoint = "./functions/lead-notifications/index.js"

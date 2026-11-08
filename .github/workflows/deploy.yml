@@ -24,13 +24,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Test lead system
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Test analytics privacy
+        run: node --test tests/analytics.test.cjs tests/supabase.test.mjs
+
+      - name: Check static contracts
+        run: python3 scripts/check_growth.py
+
+      - name: Package public files only
+        run: python3 scripts/build_public.py
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: 'dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
