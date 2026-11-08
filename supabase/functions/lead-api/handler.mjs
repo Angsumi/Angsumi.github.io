@@ -35,7 +35,13 @@ export function createHandler({db,auth,env}){
     if(p.mode==='otp'){
      // Return the same response for unknown addresses; only the configured owner receives a link.
      if(p.email.trim().toLowerCase()===env('ADMIN_EMAIL')){
-      const {error}=await auth.auth.signInWithOtp({email:p.email.trim().toLowerCase(),options:{shouldCreateUser:false,emailRedirectTo:'https://angsumi.online/owner/'}});
+      const {data:ownerRecord,error:lookupError}=await db.auth.admin.getUserById(env('ADMIN_USER_ID'));
+      if(lookupError||!ownerRecord?.user)return respond(503,{error:'Owner account could not be verified.'});
+      // Pre-provisioned owners must verify their invitation before ordinary passwordless sign-in.
+      // Public signup stays disabled; no account is auto-confirmed here.
+      const {error}=ownerRecord.user.email_confirmed_at
+       ? await auth.auth.signInWithOtp({email:p.email.trim().toLowerCase(),options:{shouldCreateUser:false,emailRedirectTo:'https://angsumi.online/owner/'}})
+       : await db.auth.admin.inviteUserByEmail(p.email.trim().toLowerCase(),{redirectTo:'https://angsumi.online/owner/'});
       if(error)return respond(503,{error:'Unable to send a sign-in link. Please retry later.'});
      }
      return respond(200,{link_requested:true});
