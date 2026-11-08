@@ -11,12 +11,14 @@
   let submissionKey = crypto.randomUUID();
   // Fixed public labels only; never read user-entered content for analytics.
   const category = form.elements.category;
-  const validCategories = ['research', 'digital', 'training'];
+  const validCategories = ['research', 'training'];
   const params = new URLSearchParams(location.search);
   if (validCategories.includes(params.get('category'))) category.value = params.get('category');
-  const campaign = ['research-checklist','digital-readiness','bioinformatics-labs','workshop'].includes(params.get('campaign')) ? params.get('campaign') : 'none';
+  const knownServices = ['rna-seq-analysis','metagenomics-analysis','bioinformatics-consulting','scientific-data-analysis','scientific-figure-preparation','python-research-automation'];
+  if (knownServices.includes(params.get('service'))) form.elements.project_type.value = params.get('service');
+  const campaign = ['research-checklist','bioinformatics-labs','workshop'].includes(params.get('campaign')) ? params.get('campaign') : 'none';
   const source = ['google','instagram','github','youtube','referral'].includes(params.get('utm_source')) ? params.get('utm_source') : document.referrer ? 'other' : 'direct';
-  const knownLandingPaths = ['/', '/resources/', '/resources/labs/', '/portfolio/', '/training/', '/services/rna-seq-analysis/', '/services/metagenomics-analysis/', '/services/bioinformatics-consulting/', '/services/scientific-data-analysis/', '/services/scientific-figure-preparation/', '/services/python-research-automation/', '/services/doctor-clinic-website-design/', '/services/school-management-system/', '/services/online-exam-portal-development/'];
+  const knownLandingPaths = ['/', '/resources/', '/resources/labs/', '/portfolio/', '/training/', '/services/rna-seq-analysis/', '/services/metagenomics-analysis/', '/services/bioinformatics-consulting/', '/services/scientific-data-analysis/', '/services/scientific-figure-preparation/', '/services/python-research-automation/'];
   let landingPage = '/inquiry/';
   try { const ref = new URL(document.referrer); if (ref.origin===location.origin && knownLandingPaths.includes(ref.pathname)) landingPage=ref.pathname; } catch (_) { /* Direct visit. */ }
   const track = (name) => window.angsumiTrackBusiness?.(name, {category:category.value, campaign});
@@ -47,7 +49,7 @@
   form.addEventListener('input',()=>{if(!started){started=true;track('form_start');}});
   window.addEventListener('pagehide',()=>{if(started&&!saved)track('form_abandonment');});
   if (base===null) {
-    message('Structured inquiry delivery is being configured. Use the existing inquiry form or WhatsApp below; this form will not claim to save an inquiry.',true);
+    message('Structured inquiry delivery is being configured. Use the email or WhatsApp contact links below; this form will not claim to save an inquiry.',true);
     document.querySelector('#send').disabled=true;
   }
   form.addEventListener('submit',async event=>{

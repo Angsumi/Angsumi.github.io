@@ -24,6 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build research pages
+        run: python3 scripts/build_growth.py
+
       - name: Test lead system
         run: python3 -m unittest discover -s tests -v
 

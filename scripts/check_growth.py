@@ -18,8 +18,22 @@ class Parser(HTMLParser):
   if tag=='link' and d.get('rel')=='canonical':self.canonical=True
 
 def main():
- paths=list((ROOT/'inquiry').rglob('*.html'))+list((ROOT/'resources').rglob('*.html'))+list((ROOT/'portfolio').rglob('*.html'))+list((ROOT/'training').rglob('*.html'))
- paths += [ROOT/'services'/slug/'index.html' for slug in ['rna-seq-analysis','metagenomics-analysis','bioinformatics-consulting','scientific-data-analysis','scientific-figure-preparation','python-research-automation']]
+ paths=[ROOT/'index.html', ROOT/'404.html']+[p for family in ['about','services','inquiry','resources','portfolio','training','privacy-policy','terms'] for p in (ROOT/family).rglob('*.html')]
+ retired=json.loads((ROOT/'scripts/retired_urls.json').read_text())['retired_files']
+ assert all(not (ROOT/name).exists() for name in retired),'Retired file regenerated'
+ from xml.etree import ElementTree
+ sitemap=ElementTree.parse(ROOT/'sitemap.xml')
+ for loc in sitemap.findall('.//{*}loc'):
+  url=urlparse(loc.text)
+  assert not url.query and url.netloc=='angsumi.online','Invalid canonical sitemap URL'
+  assert not any(url.path.startswith('/'+family+'/') for family in ['business','locations','tools','learning']),'Retired sitemap family'
+  local=ROOT/url.path.lstrip('/')/'index.html'
+  assert local.is_file() or url.path in ['/bioinformatics/','/MD_RNAseq/'],f'Sitemap destination missing: {loc.text}'
+ inquiry=(ROOT/'inquiry/index.html').read_text()
+ assert 'value="digital"' not in inquiry and 'data-category="digital"' not in inquiry,'Legacy public inquiry category'
+ assert 'type="file"' not in inquiry,'Public inquiry must not accept uploads'
+ for required in ['contact_consent','marketing_consent','lead-runtime.js','intake.js','name="website"']:
+  assert required in inquiry,f'Inquiry contract missing: {required}'
  for path in paths:
   p=Parser();text=path.read_text();p.feed(text)
   assert len(p.ids)==len(set(p.ids)),f'Duplicate IDs: {path}'
@@ -32,6 +46,6 @@ def main():
    target=ROOT/unquote(u.path.lstrip('/')) if u.path.startswith('/') else path.parent/unquote(u.path)
    if target.is_dir():target=target/'index.html'
    assert target.is_file(),f'Missing local destination {link} in {path}'
- print(f'Checked {len(paths)} new pages: metadata, JSON-LD, unique IDs, form labels and local destinations')
+ print(f'Checked {len(paths)} public pages: retirement, sitemap, inquiry, metadata, JSON-LD, unique IDs, form labels and local destinations')
 
 if __name__=='__main__':main()

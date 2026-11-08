@@ -1,0 +1,1609 @@
+{
+  "date": "2026-11-08",
+  "projectId": "a62af541-4084-41c6-9b63-ffcd4585f6e0",
+  "audit": {
+    "summary": [
+      {
+        "issueType": "broken-page",
+        "title": "Page returns an error (4xx)",
+        "severity": "warning",
+        "count": 9
+      },
+      {
+        "issueType": "javascript-rendering-suspected",
+        "title": "Content may require JavaScript",
+        "severity": "warning",
+        "count": 3
+      },
+      {
+        "issueType": "thin-content",
+        "title": "Thin content",
+        "severity": "warning",
+        "count": 3
+      },
+      {
+        "issueType": "missing-h1",
+        "title": "Missing H1 heading",
+        "severity": "warning",
+        "count": 1
+      },
+      {
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "severity": "info",
+        "count": 21
+      },
+      {
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "severity": "info",
+        "count": 18
+      },
+      {
+        "issueType": "heading-order-skip",
+        "title": "Heading levels skip",
+        "severity": "info",
+        "count": 6
+      },
+      {
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "severity": "info",
+        "count": 2
+      },
+      {
+        "issueType": "title-too-short",
+        "title": "Title too short",
+        "severity": "info",
+        "count": 1
+      }
+    ],
+    "issues": [
+      {
+        "severity": "warning",
+        "issueType": "broken-page",
+        "title": "Page returns an error (4xx)",
+        "url": "https://angsumi.online/1cr/",
+        "details": {
+          "statusCode": 404
+        },
+        "howToFix": "If the page should exist, restore it. If it is intentionally gone, remove it from the sitemap and internal links, and consider a 301 redirect to the closest live page."
+      },
+      {
+        "severity": "warning",
+        "issueType": "broken-page",
+        "title": "Page returns an error (4xx)",
+        "url": "https://angsumi.online/ADRE/",
+        "details": {
+          "statusCode": 404
+        },
+        "howToFix": "If the page should exist, restore it. If it is intentionally gone, remove it from the sitemap and internal links, and consider a 301 redirect to the closest live page."
+      },
+      {
+        "severity": "warning",
+        "issueType": "broken-page",
+        "title": "Page returns an error (4xx)",
+        "url": "https://angsumi.online/AHOM/",
+        "details": {
+          "statusCode": 404
+        },
+        "howToFix": "If the page should exist, restore it. If it is intentionally gone, remove it from the sitemap and internal links, and consider a 301 redirect to the closest live page."
+      },
+      {
+        "severity": "warning",
+        "issueType": "broken-page",
+        "title": "Page returns an error (4xx)",
+        "url": "https://angsumi.online/Flood-Relief/",
+        "details": {
+          "statusCode": 404
+        },
+        "howToFix": "If the page should exist, restore it. If it is intentionally gone, remove it from the sitemap and internal links, and consider a 301 redirect to the closest live page."
+      },
+      {
+        "severity": "warning",
+        "issueType": "broken-page",
+        "title": "Page returns an error (4xx)",
+        "url": "https://angsumi.online/genone/",
+        "details": {
+          "statusCode": 404
+        },
+        "howToFix": "If the page should exist, restore it. If it is intentionally gone, remove it from the sitemap and internal links, and consider a 301 redirect to the closest live page."
+      },
+      {
+        "severity": "warning",
+        "issueType": "broken-page",
+        "title": "Page returns an error (4xx)",
+        "url": "https://angsumi.online/GenoTaste/",
+        "details": {
+          "statusCode": 404
+        },
+        "howToFix": "If the page should exist, restore it. If it is intentionally gone, remove it from the sitemap and internal links, and consider a 301 redirect to the closest live page."
+      },
+      {
+        "severity": "warning",
+        "issueType": "broken-page",
+        "title": "Page returns an error (4xx)",
+        "url": "https://angsumi.online/map/",
+        "details": {
+          "statusCode": 404
+        },
+        "howToFix": "If the page should exist, restore it. If it is intentionally gone, remove it from the sitemap and internal links, and consider a 301 redirect to the closest live page."
+      },
+      {
+        "severity": "warning",
+        "issueType": "broken-page",
+        "title": "Page returns an error (4xx)",
+        "url": "https://angsumi.online/pitch/",
+        "details": {
+          "statusCode": 404
+        },
+        "howToFix": "If the page should exist, restore it. If it is intentionally gone, remove it from the sitemap and internal links, and consider a 301 redirect to the closest live page."
+      },
+      {
+        "severity": "warning",
+        "issueType": "broken-page",
+        "title": "Page returns an error (4xx)",
+        "url": "https://angsumi.online/Portfolio_Maker/",
+        "details": {
+          "statusCode": 404
+        },
+        "howToFix": "If the page should exist, restore it. If it is intentionally gone, remove it from the sitemap and internal links, and consider a 301 redirect to the closest live page."
+      },
+      {
+        "severity": "warning",
+        "issueType": "javascript-rendering-suspected",
+        "title": "Content may require JavaScript",
+        "url": "https://angsumi.online/learning/geography/",
+        "details": {
+          "wordCount": 0
+        },
+        "howToFix": "If this audit did not render JavaScript, start a new audit with \"Render JavaScript\" enabled to check the loaded content. For reliable crawling, serve important content and navigation in the initial HTML using server-side rendering or prerendering. This warning does not prove that search engines cannot index the page."
+      },
+      {
+        "severity": "warning",
+        "issueType": "javascript-rendering-suspected",
+        "title": "Content may require JavaScript",
+        "url": "https://angsumi.online/learning/history/",
+        "details": {
+          "wordCount": 0
+        },
+        "howToFix": "If this audit did not render JavaScript, start a new audit with \"Render JavaScript\" enabled to check the loaded content. For reliable crawling, serve important content and navigation in the initial HTML using server-side rendering or prerendering. This warning does not prove that search engines cannot index the page."
+      },
+      {
+        "severity": "warning",
+        "issueType": "javascript-rendering-suspected",
+        "title": "Content may require JavaScript",
+        "url": "https://angsumi.online/learning/polity/",
+        "details": {
+          "wordCount": 0
+        },
+        "howToFix": "If this audit did not render JavaScript, start a new audit with \"Render JavaScript\" enabled to check the loaded content. For reliable crawling, serve important content and navigation in the initial HTML using server-side rendering or prerendering. This warning does not prove that search engines cannot index the page."
+      },
+      {
+        "severity": "warning",
+        "issueType": "missing-h1",
+        "title": "Missing H1 heading",
+        "url": "https://angsumi.online/business/",
+        "details": null,
+        "howToFix": "Add a single H1 that states the page's main topic, consistent with the title tag."
+      },
+      {
+        "severity": "warning",
+        "issueType": "thin-content",
+        "title": "Thin content",
+        "url": "https://angsumi.online/business/",
+        "details": {
+          "wordCount": 3
+        },
+        "howToFix": "Either expand the page with genuinely useful content, noindex it, or consolidate it into a stronger page. If the content exists but is rendered by JavaScript, ensure it is server-rendered or pre-rendered."
+      },
+      {
+        "severity": "warning",
+        "issueType": "thin-content",
+        "title": "Thin content",
+        "url": "https://angsumi.online/learning/",
+        "details": {
+          "wordCount": 79
+        },
+        "howToFix": "Either expand the page with genuinely useful content, noindex it, or consolidate it into a stronger page. If the content exists but is rendered by JavaScript, ensure it is server-rendered or pre-rendered."
+      },
+      {
+        "severity": "warning",
+        "issueType": "thin-content",
+        "title": "Thin content",
+        "url": "https://angsumi.online/training/",
+        "details": {
+          "wordCount": 136
+        },
+        "howToFix": "Either expand the page with genuinely useful content, noindex it, or consolidate it into a stronger page. If the content exists but is rendered by JavaScript, ensure it is server-rendered or pre-rendered."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://angsumi.online/inquiry/?category=digital",
+        "details": {
+          "canonicalUrl": "https://angsumi.online/inquiry/"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://angsumi.online/inquiry/?category=research",
+        "details": {
+          "canonicalUrl": "https://angsumi.online/inquiry/"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "heading-order-skip",
+        "title": "Heading levels skip",
+        "url": "https://angsumi.online/bioinformatics/",
+        "details": null,
+        "howToFix": "Adjust heading levels so they descend one step at a time (H1 → H2 → H3) without skipping."
+      },
+      {
+        "severity": "info",
+        "issueType": "heading-order-skip",
+        "title": "Heading levels skip",
+        "url": "https://angsumi.online/cv/",
+        "details": null,
+        "howToFix": "Adjust heading levels so they descend one step at a time (H1 → H2 → H3) without skipping."
+      },
+      {
+        "severity": "info",
+        "issueType": "heading-order-skip",
+        "title": "Heading levels skip",
+        "url": "https://angsumi.online/MSEHS/",
+        "details": null,
+        "howToFix": "Adjust heading levels so they descend one step at a time (H1 → H2 → H3) without skipping."
+      },
+      {
+        "severity": "info",
+        "issueType": "heading-order-skip",
+        "title": "Heading levels skip",
+        "url": "https://angsumi.online/privacy-policy/",
+        "details": null,
+        "howToFix": "Adjust heading levels so they descend one step at a time (H1 → H2 → H3) without skipping."
+      },
+      {
+        "severity": "info",
+        "issueType": "heading-order-skip",
+        "title": "Heading levels skip",
+        "url": "https://angsumi.online/tools/",
+        "details": null,
+        "howToFix": "Adjust heading levels so they descend one step at a time (H1 → H2 → H3) without skipping."
+      },
+      {
+        "severity": "info",
+        "issueType": "heading-order-skip",
+        "title": "Heading levels skip",
+        "url": "https://angsumi.online/tools/cost-calculator/",
+        "details": null,
+        "howToFix": "Adjust heading levels so they descend one step at a time (H1 → H2 → H3) without skipping."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/",
+        "details": {
+          "length": 253,
+          "max": 160,
+          "description": "Angsumi provides custom software, websites, mobile apps, alongside professional Bioinformatics and D…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/about/",
+        "details": {
+          "length": 185,
+          "max": 160,
+          "description": "Discover Angsumi — building ultra-fast, affordable websites, clinic OPD management portals, school s…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/MD_RNAseq/",
+        "details": {
+          "length": 206,
+          "max": 160,
+          "description": "Comprehensive Transcriptomic expression profiling and 20-Analysis Suite for Nephila pilipes (NPFM1-4…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/MSEHS/",
+        "details": {
+          "length": 200,
+          "max": 160,
+          "description": "Official website of Mount Sinai English High School, Rangachakua, Sonitpur, Assam. Established in 19…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/services/",
+        "details": {
+          "length": 207,
+          "max": 160,
+          "description": "Custom digital systems tailored for Assam & Northeast India: Doctor OPD booking, school portals, onl…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/services/advocate-law-firm-website-design/",
+        "details": {
+          "length": 186,
+          "max": 160,
+          "description": "Establish a dignified, authoritative online presence for your legal practice. Angsumi builds clean, …"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/services/assam-silk-handloom-ecommerce/",
+        "details": {
+          "length": 186,
+          "max": 160,
+          "description": "Take your handloom brand from Sualkuchi, Dhemaji, or Guwahati to buyers across India and globally. W…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/services/contractor-company-profile-website/",
+        "details": {
+          "length": 186,
+          "max": 160,
+          "description": "Win larger government and private tenders with an authoritative digital profile. We build corporate …"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/services/doctor-clinic-website-design/",
+        "details": {
+          "length": 186,
+          "max": 160,
+          "description": "Stop losing patients to crowded waiting rooms and expensive third-party appointment aggregators. Ang…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/services/ecommerce-website-design/",
+        "details": {
+          "length": 186,
+          "max": 160,
+          "description": "Sell your products across Assam and all of India with a modern, high-converting online store. Unlike…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/services/hotel-homestay-booking-website/",
+        "details": {
+          "length": 186,
+          "max": 160,
+          "description": "Stop paying 20%+ commission on every room night to Airbnb, MakeMyTrip, and Booking.com. Angsumi buil…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/services/mobile-app-development/",
+        "details": {
+          "length": 187,
+          "max": 160,
+          "description": "Turn your business idea or management workflow into a published mobile application on Google Play St…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/services/online-exam-portal-development/",
+        "details": {
+          "length": 186,
+          "max": 160,
+          "description": "Launch your own branded test preparation platform for ADRE, APSC, Assam Police, SLRC, and competitiv…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/services/restaurant-cafe-digital-menu/",
+        "details": {
+          "length": 186,
+          "max": 160,
+          "description": "Upgrade your restaurant, cafe, or rooftop lounge in Guwahati, Shillong, Jorhat, or Dibrugarh. We cre…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/services/school-management-system/",
+        "details": {
+          "length": 186,
+          "max": 160,
+          "description": "Empower your school, junior college, or coaching institute in Assam with a modern digital system. We…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/services/tea-estate-factory-website-design/",
+        "details": {
+          "length": 186,
+          "max": 160,
+          "description": "Showcase your tea garden heritage, single-estate orthodox teas, and CTC manufacturing capabilities t…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/services/tourism-safari-cab-booking-system/",
+        "details": {
+          "length": 186,
+          "max": 160,
+          "description": "Stop paying 20–30% commissions to travel portals and middleman agencies. Angsumi builds custom Jeep …"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://angsumi.online/services/whatsapp-ordering-system/",
+        "details": {
+          "length": 186,
+          "max": 160,
+          "description": "Convert your WhatsApp chats into organized revenue. We build sleek mobile digital catalogs where loc…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Angsumi — More Than a Website | Websites, Bioinformatics & Data Analysis"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/about/",
+        "details": {
+          "length": 76,
+          "max": 60,
+          "title": "About Angsumi — Digital Infrastructure & Web Engineering for Northeast India"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/cv/",
+        "details": {
+          "length": 71,
+          "max": 60,
+          "title": "Angsuman Das | CSIR-UGC NET JRF Researcher, Bioinformatician & Educator"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/MD_RNAseq/",
+        "details": {
+          "length": 63,
+          "max": 60,
+          "title": "Transcriptomic Analysis Results & 20-Analysis Suite | MD Chakra"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/MSEHS/",
+        "details": {
+          "length": 62,
+          "max": 60,
+          "title": "Mount Sinai English High School · Rangachakua, Sonitpur, Assam"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/services/",
+        "details": {
+          "length": 64,
+          "max": 60,
+          "title": "Specialized Website & Digital System Services in Assam — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/services/advocate-law-firm-website-design/",
+        "details": {
+          "length": 73,
+          "max": 60,
+          "title": "Advocate, Legal Practitioner & Law Firm Website Design in Assam — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/services/assam-silk-handloom-ecommerce/",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Assam Silk, Mekhela Sador & Handloom E-Commerce Website Design — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/services/contractor-company-profile-website/",
+        "details": {
+          "length": 69,
+          "max": 60,
+          "title": "Contractor & Construction Company Profile Websites in Assam — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/services/doctor-clinic-website-design/",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Top Doctor Website Design & Clinic Management Systems in Assam — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/services/ecommerce-website-design/",
+        "details": {
+          "length": 62,
+          "max": 60,
+          "title": "High-Speed E-Commerce & Online Store Design in Assam — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/services/hotel-homestay-booking-website/",
+        "details": {
+          "length": 84,
+          "max": 60,
+          "title": "Direct Booking Websites for Hotels, Homestays & Resorts in Northeast India — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/services/mobile-app-development/",
+        "details": {
+          "length": 64,
+          "max": 60,
+          "title": "Custom Mobile App Development in Assam (Android & iOS) — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/services/online-exam-portal-development/",
+        "details": {
+          "length": 68,
+          "max": 60,
+          "title": "Online Examination & Mock Test Portal Development in Assam — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/services/restaurant-cafe-digital-menu/",
+        "details": {
+          "length": 62,
+          "max": 60,
+          "title": "Digital QR Code Menus & Restaurant Websites in Assam — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/services/school-management-system/",
+        "details": {
+          "length": 61,
+          "max": 60,
+          "title": "School & Coaching Institute Website Design in Assam — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/services/tea-estate-factory-website-design/",
+        "details": {
+          "length": 73,
+          "max": 60,
+          "title": "Tea Estate, Factory & Orthodox Exporter Website Design in Assam — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/services/tourism-safari-cab-booking-system/",
+        "details": {
+          "length": 76,
+          "max": 60,
+          "title": "Jeep Safari, Cab & Tour Booking Systems in Assam & Northeast India — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/services/whatsapp-ordering-system/",
+        "details": {
+          "length": 65,
+          "max": 60,
+          "title": "1-Tap WhatsApp Store & Digital Catalog Systems in Assam — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/tools/",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Free Digital Tools & Cost Calculators for Northeast Businesses — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://angsumi.online/tools/cost-calculator/",
+        "details": {
+          "length": 69,
+          "max": 60,
+          "title": "Interactive Website & App Cost Calculator Assam & Northeast — Angsumi"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-short",
+        "title": "Title too short",
+        "url": "https://angsumi.online/business/",
+        "details": {
+          "length": 7,
+          "min": 10,
+          "title": "Angsumi"
+        },
+        "howToFix": "Expand the title into a descriptive phrase (roughly 30–60 characters) that states what the page offers."
+      }
+    ],
+    "total": 64,
+    "page": 1,
+    "meta": {
+      "projectId": "a62af541-4084-41c6-9b63-ffcd4585f6e0",
+      "url": "https://app.openseo.so/p/a62af541-4084-41c6-9b63-ffcd4585f6e0/audit?auditId=ed64454a-b3f9-4e8e-b7e3-e88a4da74dfc"
+    }
+  },
+  "serps": [
+    {
+      "keyword": "bioinformatics consulting",
+      "ok": true,
+      "items": [
+        {
+          "domain": "kolabtree.com",
+          "title": "Freelance Bioinformatics Specialist",
+          "type": "organic",
+          "bestPosition": 2,
+          "seenIn": 3
+        },
+        {
+          "domain": "in.linkedin.com",
+          "title": "Bioinformatics Consultant Jobs in India (2000+ Open Roles)",
+          "type": "organic",
+          "bestPosition": 1,
+          "seenIn": 3
+        },
+        {
+          "domain": "ziprecruiter.com",
+          "title": "Q: What is bioinformatics consulting?",
+          "type": "organic",
+          "bestPosition": 13,
+          "seenIn": 3
+        },
+        {
+          "domain": "biostatistics.ca",
+          "title": "Bioinformatics Consulting: A Comprehensive Guide",
+          "type": "organic",
+          "bestPosition": 1,
+          "seenIn": 2
+        },
+        {
+          "domain": "sequentiabiotech.com",
+          "title": "Bioinformatics Consulting Services",
+          "type": "organic",
+          "bestPosition": 2,
+          "seenIn": 2
+        },
+        {
+          "domain": null,
+          "title": "Starting as a bioinformatics consultant",
+          "type": "organic",
+          "bestPosition": 3,
+          "seenIn": 2
+        },
+        {
+          "domain": "geneviatechnologies.com",
+          "title": "Expert Bioinformatics Support When and Where You Need It",
+          "type": "organic",
+          "bestPosition": 4,
+          "seenIn": 2
+        },
+        {
+          "domain": "research.utexas.edu",
+          "title": "Bioinformatics Consulting Group | Texas Research",
+          "type": "organic",
+          "bestPosition": 5,
+          "seenIn": 2
+        },
+        {
+          "domain": "github.com",
+          "title": "List of Consultants/Companies that provide bioinformatic ...",
+          "type": "organic",
+          "bestPosition": 6,
+          "seenIn": 2
+        },
+        {
+          "domain": "crownbio.com",
+          "title": "Data Science and Bioinformatics Services",
+          "type": "organic",
+          "bestPosition": 7,
+          "seenIn": 2
+        },
+        {
+          "domain": "careers.abrf.org",
+          "title": "Bioinformatics Consultant Job Description",
+          "type": "organic",
+          "bestPosition": 3,
+          "seenIn": 2
+        },
+        {
+          "domain": "researchgate.net",
+          "title": "Typical workflow for a bioinformatics consulting service. ...",
+          "type": "organic",
+          "bestPosition": 5,
+          "seenIn": 2
+        },
+        {
+          "domain": "nexco.ch",
+          "title": "Bioinformatics as a service",
+          "type": "organic",
+          "bestPosition": 10,
+          "seenIn": 2
+        },
+        {
+          "domain": "zubairkhalid.com",
+          "title": "Bioinformatics Freelance vs. Consulting | Dr. Zubair Khalid",
+          "type": "organic",
+          "bestPosition": 6,
+          "seenIn": 2
+        },
+        {
+          "domain": "bioinformatics.cioapplications.com",
+          "title": "Top Bioinformatics Consulting/Service Companies",
+          "type": "organic",
+          "bestPosition": 12,
+          "seenIn": 2
+        },
+        {
+          "domain": "mentorcruise.com",
+          "title": "Expert Bioinformatics Consulting for Your Business",
+          "type": "organic",
+          "bestPosition": 11,
+          "seenIn": 2
+        },
+        {
+          "domain": "blog.gene-test.com",
+          "title": "Exploring the Value of External Bioinformatics Consultants",
+          "type": "organic",
+          "bestPosition": 15,
+          "seenIn": 2
+        },
+        {
+          "domain": null,
+          "title": "Working for a bioinformatics CRO/BaaS/Consulting firm?",
+          "type": "organic",
+          "bestPosition": 4,
+          "seenIn": 1
+        },
+        {
+          "domain": "outsource2india.com",
+          "title": "Bioinformatics and Cheminformatics - Outsource2india",
+          "type": "organic",
+          "bestPosition": 7,
+          "seenIn": 1
+        },
+        {
+          "domain": "bioinformatics.ca",
+          "title": "Bioinformatics Consultant",
+          "type": "organic",
+          "bestPosition": 8,
+          "seenIn": 1
+        },
+        {
+          "domain": "dir.indiamart.com",
+          "title": "Bioinformatics Services - Delhi",
+          "type": "organic",
+          "bestPosition": 8,
+          "seenIn": 1
+        },
+        {
+          "domain": "catalyst.harvard.edu",
+          "title": "Bioinformatics Consulting",
+          "type": "organic",
+          "bestPosition": 9,
+          "seenIn": 1
+        },
+        {
+          "domain": "genobiomics.com",
+          "title": "Bioinformatics services",
+          "type": "organic",
+          "bestPosition": 9,
+          "seenIn": 1
+        },
+        {
+          "domain": "pubrica.com",
+          "title": "Bioinformatics Services | Genomic, Proteomic & NGS ...",
+          "type": "organic",
+          "bestPosition": 11,
+          "seenIn": 1
+        },
+        {
+          "domain": "corealgo.com",
+          "title": "Bio Informatics Consulting | Services - Corealgo Systems",
+          "type": "organic",
+          "bestPosition": 11,
+          "seenIn": 1
+        },
+        {
+          "domain": "revenuebase.ai",
+          "title": "Top 13 Bioinformatics consulting firms based in Bangalore ...",
+          "type": "organic",
+          "bestPosition": 13,
+          "seenIn": 1
+        },
+        {
+          "domain": "bioinformat.org",
+          "title": "Bioinformatics Consulting: Bioinformat",
+          "type": "organic",
+          "bestPosition": 17,
+          "seenIn": 1
+        },
+        {
+          "domain": "excelra.com",
+          "title": "4 major bioinformatics expertise sources for biotech start-ups",
+          "type": "organic",
+          "bestPosition": 18,
+          "seenIn": 1
+        },
+        {
+          "domain": null,
+          "title": null,
+          "type": "ai_overview",
+          "bestPosition": null,
+          "seenIn": 3
+        },
+        {
+          "domain": null,
+          "title": "Discussions and forums",
+          "type": "discussions_and_forums",
+          "bestPosition": null,
+          "seenIn": 1
+        },
+        {
+          "domain": null,
+          "title": null,
+          "type": "related_searches",
+          "bestPosition": null,
+          "seenIn": 3
+        }
+      ],
+      "locationCode": 2356,
+      "languageCode": "en",
+      "device": "desktop"
+    },
+    {
+      "keyword": "bioinformatics services",
+      "ok": true,
+      "items": [
+        {
+          "domain": "embl.org",
+          "title": "Bioinformatics services",
+          "type": "organic",
+          "bestPosition": 1,
+          "seenIn": 3
+        },
+        {
+          "domain": "dir.indiamart.com",
+          "title": "Bioinformatics Services, Bioinformatics Job Work in India",
+          "type": "organic",
+          "bestPosition": 4,
+          "seenIn": 3
+        },
+        {
+          "domain": "med.stanford.edu",
+          "title": "Bioinformatics-as-a-Service - Stanford Medicine",
+          "type": "organic",
+          "bestPosition": 2,
+          "seenIn": 3
+        },
+        {
+          "domain": "pmc.ncbi.nlm.nih.gov",
+          "title": "Bioinformatics services for analyzing massive genomic datasets",
+          "type": "organic",
+          "bestPosition": 5,
+          "seenIn": 2
+        },
+        {
+          "domain": "sphericalinsights.com",
+          "title": "Global Bioinformatics Services Market Size, Share, ...",
+          "type": "organic",
+          "bestPosition": 6,
+          "seenIn": 2
+        },
+        {
+          "domain": "precedenceresearch.com",
+          "title": "What is the Bioinformatics-as-a-Service (BaaS) Market Size?",
+          "type": "organic",
+          "bestPosition": 7,
+          "seenIn": 2
+        },
+        {
+          "domain": "scdiscoveries.com",
+          "title": "How and When to Utilize Bioinformatics Consulting Expertise",
+          "type": "organic",
+          "bestPosition": 8,
+          "seenIn": 2
+        },
+        {
+          "domain": "bioinfo.cd-genomics.com",
+          "title": "Bioinformatics Analysis Platform",
+          "type": "organic",
+          "bestPosition": 3,
+          "seenIn": 2
+        },
+        {
+          "domain": "sciencedirect.com",
+          "title": "Bioinformatics service center projects go beyond service",
+          "type": "organic",
+          "bestPosition": 11,
+          "seenIn": 2
+        },
+        {
+          "domain": "skyquestt.com",
+          "title": "Bioinformatics Services Market Companies",
+          "type": "organic",
+          "bestPosition": 12,
+          "seenIn": 2
+        },
+        {
+          "domain": "en.wikipedia.org",
+          "title": "Bioinformatics",
+          "type": "organic",
+          "bestPosition": 13,
+          "seenIn": 2
+        },
+        {
+          "domain": "plone.bcgsc.ca",
+          "title": "List of Bioinformatic Services",
+          "type": "organic",
+          "bestPosition": 15,
+          "seenIn": 2
+        },
+        {
+          "domain": "arraygen.com",
+          "title": "Bioinformatics Services in India | NGS, Genomics & Data ...",
+          "type": "organic",
+          "bestPosition": 14,
+          "seenIn": 2
+        },
+        {
+          "domain": "bioteam.net",
+          "title": "Bioinformatics Consulting Services",
+          "type": "organic",
+          "bestPosition": 17,
+          "seenIn": 2
+        },
+        {
+          "domain": "genomicseducation.hee.nhs.uk",
+          "title": "What is bioinformatics?",
+          "type": "organic",
+          "bestPosition": 18,
+          "seenIn": 2
+        },
+        {
+          "domain": "pubrica.com",
+          "title": "Bioinformatics Services | Genomic, Proteomic & NGS ...",
+          "type": "organic",
+          "bestPosition": 1,
+          "seenIn": 1
+        },
+        {
+          "domain": "genomaxtech.com",
+          "title": "Bioinformatics Services",
+          "type": "organic",
+          "bestPosition": 2,
+          "seenIn": 1
+        },
+        {
+          "domain": "criver.com",
+          "title": "Bioinformatics Services",
+          "type": "organic",
+          "bestPosition": 2,
+          "seenIn": 1
+        },
+        {
+          "domain": "eurofinsgenomics.eu",
+          "title": "Bioinformatic Services",
+          "type": "organic",
+          "bestPosition": 3,
+          "seenIn": 1
+        },
+        {
+          "domain": "lexogen.com",
+          "title": "Lexogen Bioinformatics Services | Consult with us",
+          "type": "organic",
+          "bestPosition": 4,
+          "seenIn": 1
+        },
+        {
+          "domain": "bcgsc.ca",
+          "title": "Bioinformatics & Data Analysis Services",
+          "type": "organic",
+          "bestPosition": 6,
+          "seenIn": 1
+        },
+        {
+          "domain": "bionity.com",
+          "title": "Bioinformatics Services companies from around the world ...",
+          "type": "organic",
+          "bestPosition": 7,
+          "seenIn": 1
+        },
+        {
+          "domain": "scientist.com",
+          "title": "Top 10 Bioinformatics Services",
+          "type": "organic",
+          "bestPosition": 9,
+          "seenIn": 1
+        },
+        {
+          "domain": "excelra.com",
+          "title": "Bioinformatics - Hyderabad",
+          "type": "organic",
+          "bestPosition": 10,
+          "seenIn": 1
+        },
+        {
+          "domain": "grandviewresearch.com",
+          "title": "Bioinformatics Services Market Size And Share Report, 2033",
+          "type": "organic",
+          "bestPosition": 11,
+          "seenIn": 1
+        },
+        {
+          "domain": "nucleomeinfo.com",
+          "title": "Nucleome Informatics – Genomics, Sequencing ...",
+          "type": "organic",
+          "bestPosition": 13,
+          "seenIn": 1
+        },
+        {
+          "domain": "polarismarketresearch.com",
+          "title": "Bioinformatics Services Market Industry Forecast 2034",
+          "type": "organic",
+          "bestPosition": 14,
+          "seenIn": 1
+        },
+        {
+          "domain": "cd-genomics.com",
+          "title": "Bioinformatic Service for Next Generation Sequencing",
+          "type": "organic",
+          "bestPosition": 15,
+          "seenIn": 1
+        },
+        {
+          "domain": null,
+          "title": "Bioinformatics Solution services",
+          "type": "organic",
+          "bestPosition": 16,
+          "seenIn": 1
+        },
+        {
+          "domain": null,
+          "title": "Top 7 Bioinformatics Service Market share by company",
+          "type": "organic",
+          "bestPosition": 16,
+          "seenIn": 1
+        },
+        {
+          "domain": "velsera.com",
+          "title": "Bioinformatics Services",
+          "type": "organic",
+          "bestPosition": 16,
+          "seenIn": 1
+        },
+        {
+          "domain": "eurofins.com",
+          "title": "Bioinformatics Services - Genomics data analysis",
+          "type": "organic",
+          "bestPosition": 17,
+          "seenIn": 1
+        },
+        {
+          "domain": "crownbio.com",
+          "title": "Data Science and Bioinformatics Services",
+          "type": "organic",
+          "bestPosition": 18,
+          "seenIn": 1
+        },
+        {
+          "domain": "isomerase.com",
+          "title": "Bioinformatics services CRO - Isomerase",
+          "type": "organic",
+          "bestPosition": 19,
+          "seenIn": 1
+        },
+        {
+          "domain": "tcs.com",
+          "title": "TCS' cutting-edge Genomics Research Services",
+          "type": "organic",
+          "bestPosition": 19,
+          "seenIn": 1
+        },
+        {
+          "domain": null,
+          "title": null,
+          "type": "ai_overview",
+          "bestPosition": null,
+          "seenIn": 3
+        },
+        {
+          "domain": null,
+          "title": null,
+          "type": "related_searches",
+          "bestPosition": null,
+          "seenIn": 3
+        }
+      ],
+      "locationCode": 2356,
+      "languageCode": "en",
+      "device": "desktop"
+    },
+    {
+      "keyword": "bioinformatics consulting",
+      "ok": true,
+      "items": [
+        {
+          "domain": "bioinformatics.babraham.ac.uk",
+          "title": "Consultancy Services - Babraham Bioinformatics",
+          "type": "organic",
+          "bestPosition": 1,
+          "seenIn": 3
+        },
+        {
+          "domain": "ziprecruiter.com",
+          "title": "$68k-$135k Bioinformatics Consulting Jobs in New Jersey",
+          "type": "organic",
+          "bestPosition": 4,
+          "seenIn": 3
+        },
+        {
+          "domain": "jobs.asgct.org",
+          "title": "Bioinformatics Consultant Overview - ASGCT Career Center",
+          "type": "organic",
+          "bestPosition": 5,
+          "seenIn": 3
+        },
+        {
+          "domain": "bioinformatics.cioapplications.com",
+          "title": "Top Bioinformatics Consulting/Service Companies",
+          "type": "organic",
+          "bestPosition": 3,
+          "seenIn": 3
+        },
+        {
+          "domain": "biostars.org",
+          "title": "Making a living with bioinformatics",
+          "type": "organic",
+          "bestPosition": 9,
+          "seenIn": 3
+        },
+        {
+          "domain": null,
+          "title": "How do you become a “consultant” and what does it entail?",
+          "type": "organic",
+          "bestPosition": 2,
+          "seenIn": 2
+        },
+        {
+          "domain": "denbi.de",
+          "title": "Bioinformatics consulting and analysis of proteomics data",
+          "type": "organic",
+          "bestPosition": 7,
+          "seenIn": 2
+        },
+        {
+          "domain": "biostatistics.ca",
+          "title": "bioinformatics-consulting -",
+          "type": "organic",
+          "bestPosition": 6,
+          "seenIn": 2
+        },
+        {
+          "domain": "kolabtree.com",
+          "title": "Freelance Bioinformatics Specialist",
+          "type": "organic",
+          "bestPosition": 13,
+          "seenIn": 2
+        },
+        {
+          "domain": "ventureradar.com",
+          "title": "Top bioinformatics consulting companies",
+          "type": "organic",
+          "bestPosition": 17,
+          "seenIn": 2
+        },
+        {
+          "domain": "copoly.ai",
+          "title": "Bioinformatics",
+          "type": "organic",
+          "bestPosition": 18,
+          "seenIn": 2
+        },
+        {
+          "domain": null,
+          "title": "consultancy-like structure for academic bioinformaticians",
+          "type": "organic",
+          "bestPosition": 1,
+          "seenIn": 1
+        },
+        {
+          "domain": "procogia.com",
+          "title": "Bioinformatics Consulting In Next-Generation Sequencing",
+          "type": "organic",
+          "bestPosition": 2,
+          "seenIn": 1
+        },
+        {
+          "domain": "bioinformatics.consulting",
+          "title": "Bioinformatics Consulting: Scope Genomics Work Before You ...",
+          "type": "organic",
+          "bestPosition": 2,
+          "seenIn": 1
+        },
+        {
+          "domain": "diamondage.com",
+          "title": "What to Expect From Your First Bioinformatics Consulting ...",
+          "type": "organic",
+          "bestPosition": 3,
+          "seenIn": 1
+        },
+        {
+          "domain": "biopharmguy.com",
+          "title": "Consulting - Bioinformatics - Worldwide",
+          "type": "organic",
+          "bestPosition": 4,
+          "seenIn": 1
+        },
+        {
+          "domain": "revenuebase.ai",
+          "title": "Top 11 Bioinformatics consulting firms based in New York, ...",
+          "type": "organic",
+          "bestPosition": 6,
+          "seenIn": 1
+        },
+        {
+          "domain": "indeed.com",
+          "title": "Bioinformatic consultant jobs",
+          "type": "organic",
+          "bestPosition": 7,
+          "seenIn": 1
+        },
+        {
+          "domain": "bioinformaticscro.com",
+          "title": "Bioinformatics Jobs",
+          "type": "organic",
+          "bestPosition": 15,
+          "seenIn": 1
+        },
+        {
+          "domain": "careers.abrf.org",
+          "title": "Bioinformatics Consultant Job Description",
+          "type": "organic",
+          "bestPosition": 16,
+          "seenIn": 1
+        },
+        {
+          "domain": "geneviatechnologies.com",
+          "title": "Bioinformatics Advice: Benefits of a Consultation",
+          "type": "organic",
+          "bestPosition": 17,
+          "seenIn": 1
+        },
+        {
+          "domain": null,
+          "title": null,
+          "type": "ai_overview",
+          "bestPosition": null,
+          "seenIn": 3
+        },
+        {
+          "domain": null,
+          "title": "Discussions and forums",
+          "type": "discussions_and_forums",
+          "bestPosition": null,
+          "seenIn": 3
+        },
+        {
+          "domain": null,
+          "title": null,
+          "type": "related_searches",
+          "bestPosition": null,
+          "seenIn": 3
+        }
+      ],
+      "locationCode": 2840,
+      "languageCode": "en",
+      "device": "desktop"
+    }
+  ],
+  "metrics": [
+    {
+      "market": "India",
+      "language": "en",
+      "keywords": [
+        {
+          "keyword": "bioinformatics services",
+          "search_volume": 40,
+          "keyword_difficulty": null,
+          "main_intent": "commercial",
+          "latest_months": [
+            {
+              "year": 2026,
+              "month": 9,
+              "search_volume": 50
+            },
+            {
+              "year": 2026,
+              "month": 8,
+              "search_volume": 30
+            },
+            {
+              "year": 2026,
+              "month": 7,
+              "search_volume": 50
+            }
+          ]
+        },
+        {
+          "keyword": "bioinformatics consulting",
+          "search_volume": 20,
+          "keyword_difficulty": null,
+          "main_intent": "commercial",
+          "latest_months": [
+            {
+              "year": 2026,
+              "month": 9,
+              "search_volume": 10
+            },
+            {
+              "year": 2026,
+              "month": 8,
+              "search_volume": 10
+            },
+            {
+              "year": 2026,
+              "month": 7,
+              "search_volume": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "market": "United States",
+      "language": "en",
+      "keywords": [
+        {
+          "keyword": "bioinformatics consulting",
+          "search_volume": 50,
+          "keyword_difficulty": 4,
+          "main_intent": "commercial",
+          "latest_months": [
+            {
+              "year": 2026,
+              "month": 9,
+              "search_volume": 70
+            },
+            {
+              "year": 2026,
+              "month": 8,
+              "search_volume": 50
+            },
+            {
+              "year": 2026,
+              "month": 7,
+              "search_volume": 30
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "backlinks": {
+    "target": "angsumi.online",
+    "scope": "domain",
+    "scopeNote": "Summary excludes subdomains; trend data includes subdomains (provider limitation).",
+    "overview": {
+      "overview": {
+        "target": "angsumi.online",
+        "displayTarget": "angsumi.online",
+        "scope": "domain",
+        "summary": {
+          "rank": 0,
+          "backlinks": 12,
+          "referringPages": 12,
+          "referringDomains": 7,
+          "brokenBacklinks": 0,
+          "brokenPages": 0,
+          "backlinksSpamScore": 53,
+          "targetSpamScore": 0,
+          "newBacklinks": null,
+          "lostBacklinks": null,
+          "newReferringDomains": null,
+          "lostReferringDomains": null
+        },
+        "trends": [
+          {
+            "date": "2026-09-30",
+            "backlinks": 8,
+            "referringDomains": 5,
+            "rank": 0
+          }
+        ],
+        "newLostTrends": [
+          {
+            "date": "2026-09-30",
+            "newBacklinks": 8,
+            "lostBacklinks": 0,
+            "newReferringDomains": 5,
+            "lostReferringDomains": 0
+          }
+        ],
+        "fetchedAt": "2026-11-08T12:58:55.085Z"
+      }
+    },
+    "referringDomains": {
+      "rows": [
+        {
+          "domain": "active-life-shop.shop",
+          "backlinks": 1,
+          "referringPages": 1,
+          "rank": 0,
+          "spamScore": 15,
+          "firstSeen": "2026-09-25 04:30:19 +00:00",
+          "brokenBacklinks": 0,
+          "brokenPages": 0
+        }
+      ],
+      "totalCount": 1,
+      "hasMore": false,
+      "page": 1,
+      "pageSize": 100,
+      "fetchedAt": "2026-11-08T12:58:55.372Z"
+    },
+    "meta": {
+      "projectId": "a62af541-4084-41c6-9b63-ffcd4585f6e0",
+      "url": "https://app.openseo.so/p/a62af541-4084-41c6-9b63-ffcd4585f6e0/backlinks?target=angsumi.online&scope=domain"
+    }
+  },
+  "rankingSample": {
+    "keywords": [],
+    "totalCount": null,
+    "target": "angsumi.online",
+    "scope": "domain",
+    "meta": {
+      "projectId": "a62af541-4084-41c6-9b63-ffcd4585f6e0",
+      "url": "https://app.openseo.so/p/a62af541-4084-41c6-9b63-ffcd4585f6e0/domain?domain=angsumi.online&scope=domain"
+    }
+  }
+}
