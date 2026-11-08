@@ -8,3 +8,5 @@ __pycache__/
 output/
 dist/
 supabase/.temp/
+
+.playwright-cli/
