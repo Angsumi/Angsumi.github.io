@@ -29,6 +29,12 @@ def main():
   assert not any(url.path.startswith('/'+family+'/') for family in ['business','locations','tools','learning']),'Retired sitemap family'
   local=ROOT/url.path.lstrip('/')/'index.html'
   assert local.is_file() or url.path in ['/bioinformatics/','/MD_RNAseq/'],f'Sitemap destination missing: {loc.text}'
+ home=(ROOT/'index.html').read_text()
+ assert 'id="requirementsForm"' in home and '/assets/home-intake.js' in home,'Homepage lead form missing'
+ for field in ['form_name','form_email','form_phone','form_represent','form_service','form_budget','form_details','legacy-consent']:
+  assert 'id="'+field+'"' in home,'Homepage field missing: '+field
+ for project in ['MD_RNAseq','Shruti_RNAseq_DeNovo','Sahil_Metagenome']:
+  assert 'src="https://angsumi.online/'+project+'/' in home,'Client preview missing: '+project
  inquiry=(ROOT/'inquiry/index.html').read_text()
  assert 'value="digital"' not in inquiry and 'data-category="digital"' not in inquiry,'Legacy public inquiry category'
  assert 'type="file"' not in inquiry,'Public inquiry must not accept uploads'

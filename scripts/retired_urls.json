@@ -358,8 +358,7 @@
     "services/whatsapp-ordering-system/index.html",
     "tools/cost-calculator/index.html",
     "tools/index.html",
-    "tools/tech-detector/index.html",
-    "assets/home-intake.js"
+    "tools/tech-detector/index.html"
   ],
   "reason": "Unrelated commercial or exam-preparation material; no equivalent research replacement. GitHub Pages serves a real 404 when absent."
 }
