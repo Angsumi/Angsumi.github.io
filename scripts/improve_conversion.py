@@ -106,3 +106,17 @@ p=ROOT/'index.html';s=p.read_text()
 if '/assets/home-intake.js' not in s:s=s.replace('</head>','<script defer src="/assets/lead-runtime.js"></script><script defer src="/assets/home-intake.js"></script></head>')
 s=s.replace('This existing contact route uses Formspree to deliver your inquiry. Please do not include confidential records. A response time is agreed when we contact you.','We use these details to review and reply to your inquiry. Please do not include confidential records.')
 p.write_text(s)
+
+# Avoid auto-loading complete client/research applications inside marketing previews.
+p=ROOT/'index.html';s=p.read_text()
+previews={
+ 'https://angsumi.online/MD_RNAseq/':('Research workflow evidence','/portfolio/'),
+ 'https://trishul.tech':('Trishul Innovations','https://trishul.tech/'),
+ 'https://nipam-fb25f.web.app/':('NIPAM learning platform','https://nipam-fb25f.web.app/'),
+ 'https://angsumi.online/bioinformatics/':('Bioinformatics learning labs','/resources/labs/')}
+for source,(label,target) in previews.items():
+ old='<iframe class="preview-iframe" src="'+source+'" tabindex="-1" aria-hidden="true"></iframe>'
+ replacement='<a class="preview-project-link" href="'+target+'" target="_blank" rel="noopener"><strong>'+label+'</strong><span>Open project ↗</span></a>'
+ s=s.replace(old,replacement)
+if '.preview-project-link {' not in s:s=s.replace('</head>','<style>.preview-project-link {height:100%;min-height:160px;display:flex;flex-direction:column;gap:18px;align-items:center;justify-content:center;padding:24px;background:#f5f7f3;color:#163f35;text-decoration:none;text-align:center}.preview-project-link span{font-size:14px;text-decoration:underline;text-underline-offset:4px}</style></head>')
+p.write_text(s)
