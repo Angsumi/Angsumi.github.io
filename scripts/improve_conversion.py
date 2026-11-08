@@ -100,3 +100,9 @@ for relative,url in [('cv/index.html','https://angsumi.online/cv/'),('cv/downloa
 p=ROOT/'business/index.html';s=p.read_text().replace('rel="canonical" href="https://angsumi.online/"','rel="canonical" href="https://angsumi.online/business/"')
 if 'name="description"' not in s:s=s.replace('</head>','<meta name="description" content="ANGSUMI research and digital project pathways. Discuss scoped analysis, websites and business systems."></head>')
 p.write_text(s)
+
+# Enhance the retained homepage form with the same central lead API. Native fallback remains available.
+p=ROOT/'index.html';s=p.read_text()
+if '/assets/home-intake.js' not in s:s=s.replace('</head>','<script defer src="/assets/lead-runtime.js"></script><script defer src="/assets/home-intake.js"></script></head>')
+s=s.replace('This existing contact route uses Formspree to deliver your inquiry. Please do not include confidential records. A response time is agreed when we contact you.','We use these details to review and reply to your inquiry. Please do not include confidential records.')
+p.write_text(s)
