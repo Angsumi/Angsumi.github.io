@@ -29,6 +29,15 @@ def main():
   assert not any(url.path.startswith('/'+family+'/') for family in ['business','locations','tools','learning']),'Retired sitemap family'
   local=ROOT/url.path.lstrip('/')/'index.html'
   assert local.is_file() or url.path in ['/bioinformatics/','/MD_RNAseq/'],f'Sitemap destination missing: {loc.text}'
+ robots=(ROOT/'robots.txt').read_text()
+ assert 'Disallow: /\n' not in robots and 'Sitemap: https://angsumi.online/sitemap.xml' in robots,'robots.txt must allow crawling and list the sitemap'
+ for bot in ['GPTBot','OAI-SearchBot','PerplexityBot','ClaudeBot','Bingbot']:
+  assert f'User-agent: {bot}\nAllow: /' in robots,f'Answer-engine crawler not allowed: {bot}'
+ llms=(ROOT/'llms.txt').read_text()
+ assert llms.startswith('# ') and '\n> ' in llms,'llms.txt needs a title and summary'
+ for loc in sitemap.findall('.//{*}loc'):
+  if '/services/' in loc.text and loc.text.rstrip('/')!='https://angsumi.online/services':
+   assert loc.text in llms,f'Service missing from llms.txt: {loc.text}'
  home=(ROOT/'index.html').read_text()
  assert 'id="requirementsForm"' in home and '/assets/home-intake.js' in home,'Homepage lead form missing'
  for field in ['form_name','form_email','form_phone','form_represent','form_service','form_budget','form_details','legacy-consent']:

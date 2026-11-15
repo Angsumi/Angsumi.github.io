@@ -23,7 +23,7 @@ PUBLIC_DIRS = {'assets', 'about', 'business', 'cv', 'learning', 'locations', 'pr
 PUBLIC_FILES = {'index.html', '404.html', 'CNAME', 'robots.txt', 'sitemap.xml', 'favicon.ico',
                 'favicon-32x32.png', 'apple-touch-icon.png', 'logo.png', 'og-icon.png',
                 'hero-illustration.jpg', 'hero-illustration.webp', 'ads.txt', 'google98f2be4e341a535a.html',
-                '6c3d5fd49dcb41b5ac4b7e3a74b7c048.txt'}
+                '6c3d5fd49dcb41b5ac4b7e3a74b7c048.txt', 'llms.txt'}
 
 
 def password_hash(password, salt=None):

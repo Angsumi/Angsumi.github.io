@@ -63,4 +63,31 @@ def finish(page, services):
     for path in sorted(set(paths)):
         SubElement(SubElement(urls,'url'),'loc').text='https://angsumi.online/'+(path+'/' if path else '')
     (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="utf-8"?>\n'+tostring(urls,encoding='unicode')+'\n')
-    (ROOT/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: https://angsumi.online/sitemap.xml\n')
+    write_robots_and_llms(services)
+
+# Search and answer-engine crawlers named explicitly so a future blanket rule cannot silently block them.
+AI_CRAWLERS=['Googlebot','Bingbot','GPTBot','OAI-SearchBot','ChatGPT-User','PerplexityBot','ClaudeBot','Claude-SearchBot','Google-Extended','Applebot']
+
+def write_robots_and_llms(services):
+    robots=''.join(f'User-agent: {bot}\nAllow: /\n\n' for bot in AI_CRAWLERS)
+    robots+='User-agent: *\nAllow: /\n\nSitemap: https://angsumi.online/sitemap.xml\n'
+    (ROOT/'robots.txt').write_text(robots)
+    # llms.txt (https://llmstxt.org): a plain summary answer engines can read; facts only, no outcome claims.
+    lines=['# ANGSUMI — bioinformatics and scientific data analysis','',
+           '> ANGSUMI provides scoped, reproducible bioinformatics and scientific data analysis for research labs, PIs and PhD scholars: RNA-seq, metagenomics and microbiome analysis, research automation in Python, and publication figures. Every project starts with a feasibility review and a written scope. Run by Angsuman Das.','',
+           '## Services']
+    lines+=[f'- [{title}](https://angsumi.online/services/{slug}/): {desc}' for slug,title,_,desc,*_ in services]
+    lines+=['','## Planning guides']
+    lines+=[f'- [{title}](https://angsumi.online/resources/{slug}/)' for slug,title,*_ in GUIDES]
+    lines+=['','## Research projects',
+            '- [Bioinformatics & multi-omics learning hub](https://angsumi.online/bioinformatics/): interactive guides and workflows for genomics, transcriptomics, proteomics and microbiome data.',
+            '- [RNA-seq transcriptomic analysis dashboard](https://angsumi.online/MD_RNAseq/): example transcriptome analysis project.',
+            '- [De novo transcriptome analysis](https://angsumi.online/Shruti_RNAseq_DeNovo/): example de novo RNA-seq project.',
+            '- [Environmental metabarcoding](https://angsumi.online/Sahil_Metagenome/): example environmental metabarcoding project.',
+            '','## About',
+            '- [About ANGSUMI](https://angsumi.online/about/)',
+            '- [Angsuman Das — academic profile](https://angsumi.online/cv/)',
+            '- [Research portfolio](https://angsumi.online/portfolio/)',
+            '- [Start an inquiry](https://angsumi.online/inquiry/)',
+            '- [GitHub](https://github.com/Angsumi)','']
+    (ROOT/'llms.txt').write_text('\n'.join(lines))

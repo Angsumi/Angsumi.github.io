@@ -1,0 +1,31 @@
+# ANGSUMI — bioinformatics and scientific data analysis
+
+> ANGSUMI provides scoped, reproducible bioinformatics and scientific data analysis for research labs, PIs and PhD scholars: RNA-seq, metagenomics and microbiome analysis, research automation in Python, and publication figures. Every project starts with a feasibility review and a written scope. Run by Angsuman Das.
+
+## Services
+- [RNA-seq analysis services](https://angsumi.online/services/rna-seq-analysis/): We review feasibility and scope analysis around your biological question, study design and available reference. A count matrix alone cannot replace experimental context.
+- [Metagenomics analysis services](https://angsumi.online/services/metagenomics-analysis/): Amplicon profiling and shotgun metagenomics answer different questions. We first review assay type, controls, metadata and reference coverage.
+- [Bioinformatics consulting](https://angsumi.online/services/bioinformatics-consulting/): Bring your research question, available data types and the decisions you need to make. We can scope a focused review or a complete computational workflow.
+- [Scientific data analysis](https://angsumi.online/services/scientific-data-analysis/): We review requests to clean, explore and model data in Python or R, with clear assumptions and reproducible outputs.
+- [Scientific figure preparation](https://angsumi.online/services/scientific-figure-preparation/): We turn documented analysis outputs into readable scientific figures. Figure preparation does not change or manufacture the underlying evidence.
+- [Python for research automation](https://angsumi.online/services/python-research-automation/): We scope scripts around a documented input/output contract, so recurring data work can be repeated and checked.
+
+## Planning guides
+- [What to send for an RNA-seq analysis quote](https://angsumi.online/resources/rna-seq-quote/)
+- [FASTQ versus count matrix: how the starting point changes scope](https://angsumi.online/resources/fastq-versus-count-matrix/)
+- [Planning microbiome analysis: amplicon or shotgun?](https://angsumi.online/resources/microbiome-analysis-planning/)
+- [What a reproducible bioinformatics handover should contain](https://angsumi.online/resources/reproducible-handover/)
+- [Preparing figures and methods for a manuscript or reviewer response](https://angsumi.online/resources/manuscript-figures-methods/)
+
+## Research projects
+- [Bioinformatics & multi-omics learning hub](https://angsumi.online/bioinformatics/): interactive guides and workflows for genomics, transcriptomics, proteomics and microbiome data.
+- [RNA-seq transcriptomic analysis dashboard](https://angsumi.online/MD_RNAseq/): example transcriptome analysis project.
+- [De novo transcriptome analysis](https://angsumi.online/Shruti_RNAseq_DeNovo/): example de novo RNA-seq project.
+- [Environmental metabarcoding](https://angsumi.online/Sahil_Metagenome/): example environmental metabarcoding project.
+
+## About
+- [About ANGSUMI](https://angsumi.online/about/)
+- [Angsuman Das — academic profile](https://angsumi.online/cv/)
+- [Research portfolio](https://angsumi.online/portfolio/)
+- [Start an inquiry](https://angsumi.online/inquiry/)
+- [GitHub](https://github.com/Angsumi)
