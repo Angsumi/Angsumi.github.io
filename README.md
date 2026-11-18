@@ -14,7 +14,7 @@ python3 scripts/check_growth.py
 python3 scripts/build_public.py /tmp/angsumi-public-artifact
 ```
 
-`build_growth.py` and `research_site.py` own the research journey. Authored policy bodies live in `scripts/content/`; blog posts are Markdown in `scripts/content/blog/`. `retired_urls.json` enumerates removed source files. Unrelated pages have no equivalent research destination and return GitHub Pages 404s after publication.
+`build_growth.py` and `research_site.py` own the research journey. Authored policy bodies live in `scripts/content/`. Blog posts live in the Angsumi/blog repo (blog.angsumi.online); the build reads its `posts.json` (cached in `scripts/blog_posts.json`) to link recent posts and forward old `/blog/` URLs. `retired_urls.json` enumerates removed source files. Unrelated pages have no equivalent research destination and return GitHub Pages 404s after publication.
 
 The release checkout is `public-release` on `codex/angsumi-launch-polish`. The sibling `website` is an older linked worktree; do not edit both. GitHub Actions packages an allowlisted static artifact and deploys pushes to `main`. Backend, tests, scripts and operational notes are excluded.
 

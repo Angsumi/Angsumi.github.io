@@ -3,7 +3,7 @@ from pathlib import Path
 from html import escape
 import json
 from research_content import build_guides, GUIDES
-import blog
+import urllib.request
 from xml.etree.ElementTree import Element, SubElement, tostring
 import re
 from html import unescape
@@ -22,7 +22,36 @@ PERSON={'@type':'Person','@id':SITE+'#person','name':'Angsuman Das','url':SITE+'
 PREVIEWS=[('RNA-seq analysis','md-rnaseq','https://angsumi.online/MD_RNAseq/','Explore the existing transcriptomic analysis dashboard.'),
           ('Shruti — de novo RNA-seq','shruti-rnaseq-denovo','https://angsumi.online/Shruti_RNAseq_DeNovo/','Explore the existing de novo transcriptome analysis project.'),
           ('Sahil — metagenomics','sahil-metagenome','https://angsumi.online/Sahil_Metagenome/','Explore the existing environmental metabarcoding project.')]
-SECTIONS={'services':'Services','resources':'Resources','blog':'Blog'}
+SECTIONS={'services':'Services','resources':'Resources'}
+BLOG='https://blog.angsumi.online/'
+LEARN='https://learn.angsumi.online/'
+
+def blog_posts():
+    """Posts published by the blog repo (blog.angsumi.online/posts.json), cached so offline builds stay deterministic."""
+    cache=ROOT/'scripts/blog_posts.json'
+    try:
+        posts=json.load(urllib.request.urlopen(BLOG+'posts.json',timeout=20))
+        cache.write_text(json.dumps(posts,indent=1)+'\n')
+    except Exception:
+        posts=json.loads(cache.read_text()) if cache.exists() else []
+    return posts
+
+def blog_stubs(posts):
+    """Old /blog/ URLs forward to the blog subdomain (GitHub Pages cannot send 301s)."""
+    for path,target in [('blog',BLOG)]+[('blog/'+q['slug'],q['url']) for q in posts]:
+        out=ROOT/path/'index.html';out.parent.mkdir(parents=True,exist_ok=True)
+        out.write_text(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Moved to the ANGSUMI blog</title><meta name="robots" content="noindex"><link rel="canonical" href="{target}"><meta http-equiv="refresh" content="0; url={target}"></head><body><p>This article is now at <a href="{target}">{target}</a>.</p></body></html>\n')
+
+def cluster_links(posts):
+    """Each service page and planning guide links to its blog posts."""
+    for q in posts:
+        link=f'<li><a href="{q["url"]}">{escape(q["title"])}</a></li>'
+        for target in (ROOT/'services'/q['service']/'index.html',ROOT/'resources'/q['guide']/'index.html'):
+            if not target.exists():continue
+            html=target.read_text()
+            if '<section id="further-reading">' not in html:
+                html=html.replace('</main>','<section id="further-reading"><h2>Further reading</h2><ul></ul></section></main>')
+            target.write_text(html.replace('<section id="further-reading"><h2>Further reading</h2><ul>','<section id="further-reading"><h2>Further reading</h2><ul>'+link,1))
 
 def text(fragment):
     return ' '.join(unescape(re.sub(r'<[^>]+>',' ',fragment)).split())
@@ -31,7 +60,7 @@ def faq(html):
     return [{'@type':'Question','name':text(q),'acceptedAnswer':{'@type':'Answer','text':text(a)}}
             for q,a in re.findall(r'<details><summary>(.*?)</summary>(.*?)</details>',html,re.S)]
 
-def structured_data(path,title,description,html,article=None):
+def structured_data(path,title,description,html):
     """JSON-LD @graph for a generated page: identity, page, breadcrumbs, FAQ and type-specific nodes."""
     url=SITE+(path+'/' if path else '')
     webpage={'@type':'WebPage','@id':url+'#webpage','url':url,'name':title,'description':description,
@@ -57,14 +86,6 @@ def structured_data(path,title,description,html,article=None):
     elif path.startswith('services/'):
         graph.append({'@type':'Service','@id':url+'#service','name':title,'description':description,'url':url,
                       'serviceType':title,'provider':{'@id':SITE+'#organization'}})
-    if article:
-        graph+=[PERSON,{'@type':'BlogPosting','@id':url+'#article','headline':title,'description':description,
-            'datePublished':article['date'],'dateModified':article.get('updated',article['date']),
-            'author':{'@id':SITE+'#person'},'publisher':{'@id':SITE+'#organization'},'mainEntityOfPage':{'@id':url+'#webpage'},
-            'image':SITE+'og-icon.png','articleSection':article['cluster'],'inLanguage':'en',
-            'about':{'@id':SITE+'services/'+article['service']+'/#service'},'citation':article.get('citations',[])}]
-    if path=='blog':
-        graph.append({'@type':'Blog','@id':url+'#blog','name':title,'url':url,'publisher':{'@id':SITE+'#organization'}})
     return {'@context':'https://schema.org','@graph':graph}
 
 def finish(page, services):
@@ -118,18 +139,15 @@ def finish(page, services):
     p=ROOT/'resources/index.html'
     guides='<section><h2>Prepare your analysis brief.</h2><div class="grid">'+''.join('<article class="card"><h3><a href="/resources/'+slug+'/">'+escape(title)+'</a></h3><p>Inputs, scope decisions and interpretation limits.</p></article>' for slug,title,*_ in GUIDES)+'</div></section>'
     p.write_text(p.read_text().replace('</main>',guides+'</main>'))
-    posts=blog.build(page,GUIDES)
-    latest='<section id="blog"><h2>From the blog.</h2><div class="grid">'+''.join(f'<article class="card"><h3><a href="/blog/{q["slug"]}/">{escape(q["title"])}</a></h3><p>{escape(q["description"])}</p></article>' for q in posts[:3])+'</div><a href="/blog/">All articles →</a></section>'
+    posts=blog_posts();blog_stubs(posts);cluster_links(posts)
+    latest='<section id="blog"><h2>From the blog.</h2><div class="grid">'+''.join(f'<article class="card"><h3><a href="{q["url"]}">{escape(q["title"])}</a></h3><p>{escape(q["description"])}</p></article>' for q in posts[:3])+'</div><a href="'+BLOG+'">All articles →</a></section>'
     home.write_text(home.read_text().replace('<section id="deliverables">',latest+'<section id="deliverables">',1))
     # Indexable pages only. Private owner/unsubscribe routes and custom 404 are excluded.
-    paths=['','cv']+[p.parent.relative_to(ROOT).as_posix() for family in ['about','services','resources','blog','portfolio','training','inquiry','privacy-policy','terms'] for p in (ROOT/family).rglob('index.html')]
-    paths += ['bioinformatics','MD_RNAseq']  # Existing independently served research projects, HTTP 200 in baseline crawl.
+    paths=['','cv']+[p.parent.relative_to(ROOT).as_posix() for family in ['about','services','resources','portfolio','training','inquiry','privacy-policy','terms'] for p in (ROOT/family).rglob('index.html')]
+    paths += ['MD_RNAseq']  # Independently served research project on this host.
     urls=Element('urlset',xmlns='http://www.sitemaps.org/schemas/sitemap/0.9')
-    modified={'blog/'+q['slug']:q.get('updated',q['date']) for q in posts}
-    if posts:modified['blog']=max(modified.values())
     for path in sorted(set(paths)):
-        url=SubElement(urls,'url');SubElement(url,'loc').text='https://angsumi.online/'+(path+'/' if path else '')
-        if path in modified:SubElement(url,'lastmod').text=modified[path]
+        SubElement(SubElement(urls,'url'),'loc').text='https://angsumi.online/'+(path+'/' if path else '')
     (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="utf-8"?>\n'+tostring(urls,encoding='unicode')+'\n')
     write_robots_and_llms(services,posts)
 
@@ -148,9 +166,9 @@ def write_robots_and_llms(services,posts):
     lines+=['','## Planning guides']
     lines+=[f'- [{title}](https://angsumi.online/resources/{slug}/)' for slug,title,*_ in GUIDES]
     lines+=['','## Blog']
-    lines+=[f'- [{q["title"]}](https://angsumi.online/blog/{q["slug"]}/): {q["description"]}' for q in posts]
+    lines+=[f'- [{q["title"]}]({q["url"]}): {q["description"]}' for q in posts]
     lines+=['','## Research projects',
-            '- [Bioinformatics & multi-omics learning hub](https://angsumi.online/bioinformatics/): interactive guides and workflows for genomics, transcriptomics, proteomics and microbiome data.',
+            '- [Bioinformatics & multi-omics learning hub](https://learn.angsumi.online/): interactive guides and workflows for genomics, transcriptomics, proteomics and microbiome data.',
             '- [RNA-seq transcriptomic analysis dashboard](https://angsumi.online/MD_RNAseq/): example transcriptome analysis project.',
             '- [De novo transcriptome analysis](https://angsumi.online/Shruti_RNAseq_DeNovo/): example de novo RNA-seq project.',
             '- [Environmental metabarcoding](https://angsumi.online/Sahil_Metagenome/): example environmental metabarcoding project.',

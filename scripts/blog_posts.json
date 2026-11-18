@@ -1,0 +1,24 @@
+[
+ {
+  "slug": "16s-vs-18s-vs-shotgun-metagenomics",
+  "title": "16S vs 18S vs shotgun metagenomics: which should you choose?",
+  "description": "How 16S rRNA, 18S rRNA and shotgun metagenomic sequencing differ in what they detect, their taxonomic and functional resolution, and when each one fits your research question.",
+  "date": "2026-11-18",
+  "updated": "2026-11-18",
+  "cluster": "Metagenomics",
+  "service": "metagenomics-analysis",
+  "guide": "microbiome-analysis-planning",
+  "url": "https://blog.angsumi.online/16s-vs-18s-vs-shotgun-metagenomics/"
+ },
+ {
+  "slug": "rna-seq-data-analysis-fastq-to-figures",
+  "title": "RNA-seq data analysis: from FASTQ to figures",
+  "description": "A step-by-step guide to bulk RNA-seq analysis: quality control, alignment or quantification, count matrices, DESeq2 differential expression, enrichment and publication figures.",
+  "date": "2026-11-18",
+  "updated": "2026-11-18",
+  "cluster": "RNA-seq",
+  "service": "rna-seq-analysis",
+  "guide": "fastq-versus-count-matrix",
+  "url": "https://blog.angsumi.online/rna-seq-data-analysis-fastq-to-figures/"
+ }
+]
