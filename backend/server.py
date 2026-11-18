@@ -18,7 +18,7 @@ from wsgiref.simple_server import WSGIRequestHandler, make_server
 from .lead_store import Store, STATUSES
 
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC_DIRS = {'assets', 'about', 'business', 'cv', 'learning', 'locations', 'privacy-policy',
+PUBLIC_DIRS = {'assets', 'about', 'blog', 'business', 'cv', 'learning', 'locations', 'privacy-policy',
                'services', 'terms', 'tools', 'inquiry', 'resources', 'portfolio', 'training', 'owner', 'unsubscribe'}
 PUBLIC_FILES = {'index.html', '404.html', 'CNAME', 'robots.txt', 'sitemap.xml', 'favicon.ico',
                 'favicon-32x32.png', 'apple-touch-icon.png', 'logo.png', 'og-icon.png',

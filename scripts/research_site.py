@@ -3,8 +3,69 @@ from pathlib import Path
 from html import escape
 import json
 from research_content import build_guides, GUIDES
+import blog
 from xml.etree.ElementTree import Element, SubElement, tostring
+import re
+from html import unescape
 ROOT=Path(__file__).resolve().parents[1]
+SITE='https://angsumi.online/'
+
+# One identity graph, referenced by @id on every page so search and answer engines resolve a single entity.
+ORG={'@type':'Organization','@id':SITE+'#organization','name':'ANGSUMI','url':SITE,'logo':SITE+'logo.png',
+     'email':'angudas62@gmail.com','founder':{'@id':SITE+'#person'},'sameAs':['https://github.com/Angsumi']}
+PERSON={'@type':'Person','@id':SITE+'#person','name':'Angsuman Das','url':SITE+'cv/',
+        'description':'CSIR-UGC NET JRF qualified life-science researcher and bioinformatician.',
+        'worksFor':{'@id':SITE+'#organization'},
+        'knowsAbout':['Bioinformatics','RNA-seq analysis','Metagenomics','Scientific data analysis','Python'],
+        'sameAs':['https://orcid.org/0000-0001-8146-7697','https://www.linkedin.com/in/angsumi/',
+                  'https://www.researchgate.net/profile/Angsuman-Das-2','https://github.com/Angsumi']}
+PREVIEWS=[('RNA-seq analysis','md-rnaseq','https://angsumi.online/MD_RNAseq/','Explore the existing transcriptomic analysis dashboard.'),
+          ('Shruti — de novo RNA-seq','shruti-rnaseq-denovo','https://angsumi.online/Shruti_RNAseq_DeNovo/','Explore the existing de novo transcriptome analysis project.'),
+          ('Sahil — metagenomics','sahil-metagenome','https://angsumi.online/Sahil_Metagenome/','Explore the existing environmental metabarcoding project.')]
+SECTIONS={'services':'Services','resources':'Resources','blog':'Blog'}
+
+def text(fragment):
+    return ' '.join(unescape(re.sub(r'<[^>]+>',' ',fragment)).split())
+
+def faq(html):
+    return [{'@type':'Question','name':text(q),'acceptedAnswer':{'@type':'Answer','text':text(a)}}
+            for q,a in re.findall(r'<details><summary>(.*?)</summary>(.*?)</details>',html,re.S)]
+
+def structured_data(path,title,description,html,article=None):
+    """JSON-LD @graph for a generated page: identity, page, breadcrumbs, FAQ and type-specific nodes."""
+    url=SITE+(path+'/' if path else '')
+    webpage={'@type':'WebPage','@id':url+'#webpage','url':url,'name':title,'description':description,
+             'isPartOf':{'@id':SITE+'#website'},'publisher':{'@id':SITE+'#organization'},'inLanguage':'en'}
+    graph=[ORG,{'@type':'WebSite','@id':SITE+'#website','name':'ANGSUMI','url':SITE,'publisher':{'@id':SITE+'#organization'}},webpage]
+    questions=faq(html)
+    if questions:
+        webpage['@type']=['WebPage','FAQPage'];webpage['mainEntity']=questions
+    parts=path.split('/') if path else []
+    if parts:
+        crumbs=[('Home',SITE)]+[(SECTIONS[p],SITE+p+'/') for p in parts[:-1] if p in SECTIONS]+[(title,url)]
+        webpage['breadcrumb']={'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':i,'name':n,'item':u} for i,(n,u) in enumerate(crumbs,1)]}
+    services=json.loads((ROOT/'scripts/services.json').read_text())
+    if not path:
+        graph+=[PERSON,{'@type':'ProfessionalService','@id':SITE+'#service','name':'ANGSUMI','url':SITE,
+            'description':description,'image':SITE+'og-icon.png','logo':SITE+'logo.png','email':'angudas62@gmail.com',
+            'telephone':'+91-7896595109','parentOrganization':{'@id':SITE+'#organization'},'founder':{'@id':SITE+'#person'},
+            'knowsAbout':PERSON['knowsAbout'],'sameAs':ORG['sameAs'],
+            'hasOfferCatalog':{'@type':'OfferCatalog','name':'Research analysis services','itemListElement':[
+                {'@type':'Offer','itemOffered':{'@type':'Service','name':s[1],'url':SITE+'services/'+s[0]+'/'}} for s in services]}}]
+    elif path in ('about','cv'):
+        graph.append(PERSON);webpage['about']={'@id':SITE+'#person'}
+    elif path.startswith('services/'):
+        graph.append({'@type':'Service','@id':url+'#service','name':title,'description':description,'url':url,
+                      'serviceType':title,'provider':{'@id':SITE+'#organization'}})
+    if article:
+        graph+=[PERSON,{'@type':'BlogPosting','@id':url+'#article','headline':title,'description':description,
+            'datePublished':article['date'],'dateModified':article.get('updated',article['date']),
+            'author':{'@id':SITE+'#person'},'publisher':{'@id':SITE+'#organization'},'mainEntityOfPage':{'@id':url+'#webpage'},
+            'image':SITE+'og-icon.png','articleSection':article['cluster'],'inLanguage':'en',
+            'about':{'@id':SITE+'services/'+article['service']+'/#service'},'citation':article.get('citations',[])}]
+    if path=='blog':
+        graph.append({'@type':'Blog','@id':url+'#blog','name':title,'url':url,'publisher':{'@id':SITE+'#organization'}})
+    return {'@context':'https://schema.org','@graph':graph}
 
 def finish(page, services):
     cards=''.join(f'<article class="card"><h3><a href="/services/{slug}/">{escape(title)}</a></h3><p>{escape(desc)}</p></article>' for slug,title,_,desc,*_ in services)
@@ -23,9 +84,10 @@ def finish(page, services):
 <section id="cta"><h2>Tell us where your analysis stands.</h2><p>Start with a short question. No dataset upload is needed.</p><a class="btn" href="/inquiry/?category=research" data-growth-event="cta_click" data-category="research">Discuss my dataset →</a></section>''')
     home=ROOT/'index.html'
     html=home.read_text()
+    # Static thumbnails (assets/previews, captured from the live projects) replace heavy cross-site iframes.
     previews='<section id="client-work"><h2>Client research work previews</h2><div class="grid">'
-    for name,url,description in [('RNA-seq analysis','https://angsumi.online/MD_RNAseq/','Explore the existing transcriptomic analysis dashboard.'),('Shruti — de novo RNA-seq','https://angsumi.online/Shruti_RNAseq_DeNovo/','Explore the existing de novo transcriptome analysis project.'),('Sahil — metagenomics','https://angsumi.online/Sahil_Metagenome/','Explore the existing environmental metabarcoding project.')]:
-        previews+='<article class="card project-preview"><h3>'+escape(name)+'</h3><p>'+description+'</p><iframe loading="lazy" title="'+escape(name)+' project preview" src="'+url+'" referrerpolicy="no-referrer"></iframe><p><a href="'+url+'" target="_blank" rel="noopener">Open full project ↗</a></p></article>'
+    for name,slug,url,description in PREVIEWS:
+        previews+=f'<article class="card project-preview"><a href="{url}"><img src="/assets/previews/{slug}.webp" alt="" width="640" height="400" loading="lazy" decoding="async"><h3>{escape(name)}</h3></a><p>{description}</p></article>'
     previews+='</div></section>'
     html=html.replace('<section id="deliverables">',previews+'<section id="deliverables">')
     html=html.replace('</main>',(ROOT/'scripts/content/home-form.html').read_text()+'</main>')
@@ -56,19 +118,25 @@ def finish(page, services):
     p=ROOT/'resources/index.html'
     guides='<section><h2>Prepare your analysis brief.</h2><div class="grid">'+''.join('<article class="card"><h3><a href="/resources/'+slug+'/">'+escape(title)+'</a></h3><p>Inputs, scope decisions and interpretation limits.</p></article>' for slug,title,*_ in GUIDES)+'</div></section>'
     p.write_text(p.read_text().replace('</main>',guides+'</main>'))
+    posts=blog.build(page,GUIDES)
+    latest='<section id="blog"><h2>From the blog.</h2><div class="grid">'+''.join(f'<article class="card"><h3><a href="/blog/{q["slug"]}/">{escape(q["title"])}</a></h3><p>{escape(q["description"])}</p></article>' for q in posts[:3])+'</div><a href="/blog/">All articles →</a></section>'
+    home.write_text(home.read_text().replace('<section id="deliverables">',latest+'<section id="deliverables">',1))
     # Indexable pages only. Private owner/unsubscribe routes and custom 404 are excluded.
-    paths=['','cv']+[p.parent.relative_to(ROOT).as_posix() for family in ['about','services','resources','portfolio','training','inquiry','privacy-policy','terms'] for p in (ROOT/family).rglob('index.html')]
+    paths=['','cv']+[p.parent.relative_to(ROOT).as_posix() for family in ['about','services','resources','blog','portfolio','training','inquiry','privacy-policy','terms'] for p in (ROOT/family).rglob('index.html')]
     paths += ['bioinformatics','MD_RNAseq']  # Existing independently served research projects, HTTP 200 in baseline crawl.
     urls=Element('urlset',xmlns='http://www.sitemaps.org/schemas/sitemap/0.9')
+    modified={'blog/'+q['slug']:q.get('updated',q['date']) for q in posts}
+    if posts:modified['blog']=max(modified.values())
     for path in sorted(set(paths)):
-        SubElement(SubElement(urls,'url'),'loc').text='https://angsumi.online/'+(path+'/' if path else '')
+        url=SubElement(urls,'url');SubElement(url,'loc').text='https://angsumi.online/'+(path+'/' if path else '')
+        if path in modified:SubElement(url,'lastmod').text=modified[path]
     (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="utf-8"?>\n'+tostring(urls,encoding='unicode')+'\n')
-    write_robots_and_llms(services)
+    write_robots_and_llms(services,posts)
 
 # Search and answer-engine crawlers named explicitly so a future blanket rule cannot silently block them.
 AI_CRAWLERS=['Googlebot','Bingbot','GPTBot','OAI-SearchBot','ChatGPT-User','PerplexityBot','ClaudeBot','Claude-SearchBot','Google-Extended','Applebot']
 
-def write_robots_and_llms(services):
+def write_robots_and_llms(services,posts):
     robots=''.join(f'User-agent: {bot}\nAllow: /\n\n' for bot in AI_CRAWLERS)
     robots+='User-agent: *\nAllow: /\n\nSitemap: https://angsumi.online/sitemap.xml\n'
     (ROOT/'robots.txt').write_text(robots)
@@ -79,6 +147,8 @@ def write_robots_and_llms(services):
     lines+=[f'- [{title}](https://angsumi.online/services/{slug}/): {desc}' for slug,title,_,desc,*_ in services]
     lines+=['','## Planning guides']
     lines+=[f'- [{title}](https://angsumi.online/resources/{slug}/)' for slug,title,*_ in GUIDES]
+    lines+=['','## Blog']
+    lines+=[f'- [{q["title"]}](https://angsumi.online/blog/{q["slug"]}/): {q["description"]}' for q in posts]
     lines+=['','## Research projects',
             '- [Bioinformatics & multi-omics learning hub](https://angsumi.online/bioinformatics/): interactive guides and workflows for genomics, transcriptomics, proteomics and microbiome data.',
             '- [RNA-seq transcriptomic analysis dashboard](https://angsumi.online/MD_RNAseq/): example transcriptome analysis project.',

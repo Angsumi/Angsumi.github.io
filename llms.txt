@@ -17,6 +17,10 @@
 - [What a reproducible bioinformatics handover should contain](https://angsumi.online/resources/reproducible-handover/)
 - [Preparing figures and methods for a manuscript or reviewer response](https://angsumi.online/resources/manuscript-figures-methods/)
 
+## Blog
+- [16S vs 18S vs shotgun metagenomics: which should you choose?](https://angsumi.online/blog/16s-vs-18s-vs-shotgun-metagenomics/): How 16S rRNA, 18S rRNA and shotgun metagenomic sequencing differ in what they detect, their taxonomic and functional resolution, and when each one fits your research question.
+- [RNA-seq data analysis: from FASTQ to figures](https://angsumi.online/blog/rna-seq-data-analysis-fastq-to-figures/): A step-by-step guide to bulk RNA-seq analysis: quality control, alignment or quantification, count matrices, DESeq2 differential expression, enrichment and publication figures.
+
 ## Research projects
 - [Bioinformatics & multi-omics learning hub](https://angsumi.online/bioinformatics/): interactive guides and workflows for genomics, transcriptomics, proteomics and microbiome data.
 - [RNA-seq transcriptomic analysis dashboard](https://angsumi.online/MD_RNAseq/): example transcriptome analysis project.

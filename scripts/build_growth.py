@@ -2,16 +2,14 @@ from pathlib import Path
 from html import escape
 import json
 from research_content import service_detail
+from research_site import finish, structured_data
 root=Path(__file__).resolve().parents[1]
-def page(path,title,description,body,scripts=''):
+def page(path,title,description,body,scripts='',article=None):
  target=root/path/'index.html';target.parent.mkdir(parents=True,exist_ok=True)
  canonical='https://angsumi.online/'+(path+'/' if path else '')
- schema={'@context':'https://schema.org','@type':'WebPage','name':title,'description':description,'url':canonical}
- if path.startswith('services/'):
-  schema={'@context':'https://schema.org','@graph':[{'@type':'Service','name':title,'description':description,'url':canonical,'provider':{'@type':'Organization','name':'ANGSUMI','url':'https://angsumi.online/'}},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Home','item':'https://angsumi.online/'},{'@type':'ListItem','position':2,'name':'Services','item':'https://angsumi.online/services/'},{'@type':'ListItem','position':3,'name':title,'item':canonical}]}]}
- if not path:
-  schema={'@context':'https://schema.org','@graph':[schema,{'@type':'Organization','name':'ANGSUMI','url':canonical},{'@type':'WebSite','name':'ANGSUMI','url':canonical}]}
- html=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} | ANGSUMI</title><meta name="description" content="{escape(description,quote=True)}"><link rel="canonical" href="{canonical}"><meta property="og:title" content="{escape(title,quote=True)}"><meta property="og:description" content="{escape(description,quote=True)}"><meta property="og:type" content="website"><meta property="og:url" content="{canonical}"><meta property="og:image" content="https://angsumi.online/og-icon.png"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/original-design.css"><link rel="stylesheet" href="/assets/growth.css"><script type="application/ld+json">{json.dumps(schema)}</script><script defer src="/assets/analytics-consent.js"></script>{scripts}</head><body class="growth"><a class="skip" href="#main">Skip to content</a><header><a class="brand" href="/">ANGSUMI</a><nav aria-label="Main navigation"><a href="/services/">Services</a><a href="/portfolio/">Work &amp; methods</a><a href="/resources/">Resources</a><a href="/training/">Learn</a><a href="/inquiry/">Discuss my dataset ↗</a></nav></header><main id="main">{body}</main><footer><p><strong>ANGSUMI — Research &amp; Data Analysis</strong><br>Research | Data | Impact</p><p><a href="/privacy-policy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="https://wa.me/917896595109">WhatsApp</a> · <a href="/about/">About ANGSUMI</a></p></footer></body></html>'''
+ og='article' if article else 'website'
+ meta=f'<meta property="article:published_time" content="{article["date"]}"><meta property="article:modified_time" content="{article.get("updated",article["date"])}"><meta name="author" content="Angsuman Das">' if article else ''
+ html=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} | ANGSUMI</title><meta name="description" content="{escape(description,quote=True)}"><link rel="canonical" href="{canonical}"><meta property="og:title" content="{escape(title,quote=True)}"><meta property="og:description" content="{escape(description,quote=True)}"><meta property="og:type" content="{og}">{meta}<meta property="og:url" content="{canonical}"><meta property="og:image" content="https://angsumi.online/og-icon.png"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/original-design.css"><link rel="stylesheet" href="/assets/growth.css"><script type="application/ld+json">@@SCHEMA@@</script><script defer src="/assets/analytics-consent.js"></script>{scripts}</head><body class="growth"><a class="skip" href="#main">Skip to content</a><header><a class="brand" href="/">ANGSUMI</a><nav aria-label="Main navigation"><a href="/services/">Services</a><a href="/portfolio/">Work &amp; methods</a><a href="/blog/">Blog</a><a href="/resources/">Resources</a><a href="/training/">Learn</a><a href="/inquiry/">Discuss my dataset ↗</a></nav></header><main id="main">{body}</main><footer><p><strong>ANGSUMI — Research &amp; Data Analysis</strong><br>Research | Data | Impact</p><p><a href="/privacy-policy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="https://wa.me/917896595109">WhatsApp</a> · <a href="/about/">About ANGSUMI</a></p></footer></body></html>'''
  if not path:
   main_start=html.index('<main id="main">')+len('<main id="main">')
   first_section=html.index('<section',main_start)
@@ -26,6 +24,7 @@ def page(path,title,description,body,scripts=''):
  if path in ('','services'):
   art=(root/'scripts/content/research-art.html').read_text()
   html=html.replace('<article class="card">','<article class="card illustrated-card">'+art)
+ html=html.replace('@@SCHEMA@@',json.dumps(structured_data(path,title,description,html,article),ensure_ascii=False).replace('</','<\\/'))
  target.write_text(html)
 
 field_counts={}
@@ -67,5 +66,4 @@ body+='</div><section><h2>Have a similar problem?</h2><p>We’ll discuss a suita
 page('portfolio','Research methods and analysis examples','Research repository descriptions with explicit evidence and verification limits.',body)
 print('Generated inquiry, six service pages, resources, labs, training and portfolio')
 
-from research_site import finish
 finish(page, services)
